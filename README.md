@@ -9,3 +9,19 @@
 # walkingkooka-tree-expression-function-string
 A collection of ExpressionFunction(s) that operate and return number results.
 
+
+
+## Available functions
+
+- concat
+- contains
+- ends-with
+- normalize-space
+- starts-with
+- string-length
+- substring-after
+- substring-before
+- text
+
+Many more functions are outstanding and remain TODO.
+
