@@ -35,9 +35,6 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.tree.expression.FunctionExpressionName;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-
-import java.util.List;
 
 /**
  * Returns a string after removing any leading or trailing spaces and normalizes multiple sequences of spaces into a single space.<br>
@@ -48,7 +45,7 @@ import java.util.List;
  * </pre>
  * Unlike the mention in the mozilla document, if the argument is missing, an exception will be thrown.
  */
-final class NormalizeSpaceExpressionFunction extends StringExpressionFunction<String> {
+final class NormalizeSpaceExpressionFunction extends UnaryStringExpressionFunction<String> {
     /**
      * Singleton
      */
@@ -62,12 +59,8 @@ final class NormalizeSpaceExpressionFunction extends StringExpressionFunction<St
     }
 
     @Override
-    public String apply(final List<Object> parameters,
-                        final ExpressionFunctionContext context) {
-        this.checkParameterCount(parameters, 1);
-
-        final String trimmed = this.string(parameters, 0, context)
-                .trim();
+    String applyString(final String value) {
+        final String trimmed = value.trim();
 
         final StringBuilder b = new StringBuilder();
         final int length = trimmed.length();

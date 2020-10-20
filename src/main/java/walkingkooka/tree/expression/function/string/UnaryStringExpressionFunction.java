@@ -34,55 +34,30 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import org.junit.jupiter.api.Test;
+import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.util.List;
 
-public final class StringLengthExpressionFunctionTest extends ExpressionFunctionTestCase<StringLengthExpressionFunction, Number> {
+/**
+ * A {@link ExpressionFunction} that handles a single {@link String} parameter.
+ */
+abstract class UnaryStringExpressionFunction<T> extends StringExpressionFunction<T> {
 
-    @Test
-    public void testZeroParametersFails() {
-        assertThrows(IllegalArgumentException.class, this::apply2);
-    }
-
-    @Test
-    public void testTwoParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2"));
-    }
-
-    @Test
-    public void testEmptyString() {
-        this.applyAndCheck2(parameters(""), 0);
-    }
-
-
-    @Test
-    public void testString() {
-        this.applyAndCheck2(parameters("xyz"), 3);
-    }
-
-    @Test
-    public void testNumber() {
-        this.applyAndCheck2(parameters(123), 3);
-    }
-
-    @Test
-    public void testBoolean() {
-        this.applyAndCheck2(parameters(true), 4);
-    }
-
-    @Test
-    public void testToString() {
-        this.toStringAndCheck(this.createBiFunction(), "string-length");
+    /**
+     * Package private ctor
+     */
+    UnaryStringExpressionFunction() {
+        super();
     }
 
     @Override
-    public StringLengthExpressionFunction createBiFunction() {
-        return StringLengthExpressionFunction.INSTANCE;
+    public final T apply(final List<Object> parameters,
+                         final ExpressionFunctionContext context) {
+        this.checkParameterCount(parameters, 1);
+
+        return this.applyString(this.string(parameters, 0, context));
     }
 
-    @Override
-    public Class<StringLengthExpressionFunction> type() {
-        return StringLengthExpressionFunction.class;
-    }
+    abstract T applyString(final String value);
 }
