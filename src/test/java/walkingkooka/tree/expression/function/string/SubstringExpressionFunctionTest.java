@@ -39,7 +39,7 @@ import walkingkooka.tree.select.NodeSelector;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SubstringExpressionFunctionTest extends ExpressionFunctionTestCase<SubstringExpressionFunction, String> {
+public final class SubstringExpressionFunctionTest extends StringExpressionFunctionTestCase<SubstringExpressionFunction, String> {
 
     @Test
     public void testZeroParametersFails() {

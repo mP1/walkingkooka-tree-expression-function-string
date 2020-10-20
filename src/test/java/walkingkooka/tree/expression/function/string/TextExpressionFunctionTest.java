@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextExpressionFunctionTest extends ExpressionFunctionTestCase<TextExpressionFunction, String> {
+public final class TextExpressionFunctionTest extends StringExpressionFunctionTestCase<TextExpressionFunction, String> {
 
     @Test
     public void testZeroParametersFails() {

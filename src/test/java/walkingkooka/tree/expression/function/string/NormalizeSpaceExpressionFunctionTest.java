@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class NormalizeSpaceExpressionFunctionTest extends ExpressionFunctionTestCase<NormalizeSpaceExpressionFunction, String> {
+public final class NormalizeSpaceExpressionFunctionTest extends StringExpressionFunctionTestCase<NormalizeSpaceExpressionFunction, String> {
 
     @Test
     public void testZeroParametersFails() {

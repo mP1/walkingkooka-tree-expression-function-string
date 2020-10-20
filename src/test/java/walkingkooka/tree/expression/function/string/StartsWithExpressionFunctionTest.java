@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class StartsWithExpressionFunctionTest extends ExpressionFunctionTestCase<StartsWithExpressionFunction, Boolean> {
+public final class StartsWithExpressionFunctionTest extends StringExpressionFunctionTestCase<StartsWithExpressionFunction, Boolean> {
 
     @Test
     public void testZeroParametersFails() {
