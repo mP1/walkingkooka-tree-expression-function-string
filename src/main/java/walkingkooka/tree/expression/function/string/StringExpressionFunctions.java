@@ -132,7 +132,14 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     public static ExpressionFunction<String> trimRight() {
         return TrimRightStringExpressionFunction.INSTANCE;
     }
-    
+
+    /**
+     * {@see UpperCaseStringExpressionFunction}
+     */
+    public static ExpressionFunction<String> upperCase() {
+        return UpperCaseStringExpressionFunction.INSTANCE;
+    }
+
     /**
      * Stops creation
      */
