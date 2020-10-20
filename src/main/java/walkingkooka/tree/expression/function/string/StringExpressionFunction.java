@@ -137,5 +137,7 @@ abstract class StringExpressionFunction<T> implements ExpressionFunction<T> {
     }
 
     @Override
-    public abstract String toString();
+    public final String toString() {
+        return this.name().toString();
+    }
 }

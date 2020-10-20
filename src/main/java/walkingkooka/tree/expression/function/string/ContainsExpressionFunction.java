@@ -71,9 +71,4 @@ final class ContainsExpressionFunction extends StringExpressionFunction<Boolean>
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("contains");
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }

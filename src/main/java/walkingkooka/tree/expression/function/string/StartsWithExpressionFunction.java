@@ -72,9 +72,4 @@ final class StartsWithExpressionFunction extends StringExpressionFunction<Boolea
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("starts-with");
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }
