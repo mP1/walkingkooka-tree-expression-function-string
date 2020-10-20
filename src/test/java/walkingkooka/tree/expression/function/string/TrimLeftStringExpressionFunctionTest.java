@@ -38,17 +38,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TrimLeftStringExpressionFunctionTest extends StringExpressionFunctionTestCase<TrimLeftStringExpressionFunction, String> {
-
-    @Test
-    public void testZeroParametersFails() {
-        assertThrows(IllegalArgumentException.class, this::apply2);
-    }
-
-    @Test
-    public void testTwoParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2"));
-    }
+public final class TrimLeftStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<TrimLeftStringExpressionFunction, String> {
 
     @Test
     public void testBoolean() {
