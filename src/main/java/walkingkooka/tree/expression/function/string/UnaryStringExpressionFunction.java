@@ -56,8 +56,9 @@ abstract class UnaryStringExpressionFunction<T> extends StringExpressionFunction
                          final ExpressionFunctionContext context) {
         this.checkParameterCount(parameters, 1);
 
-        return this.applyString(this.string(parameters, 0, context));
+        return this.applyString(this.string(parameters, 0, context), context);
     }
 
-    abstract T applyString(final String value);
+    abstract T applyString(final String value,
+                           final ExpressionFunctionContext context);
 }

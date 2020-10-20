@@ -36,6 +36,7 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.FunctionExpressionName;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
  * Performs a trim left after converting the value to a {@link String}.
@@ -54,7 +55,8 @@ final class TrimLeftStringExpressionFunction extends UnaryStringExpressionFuncti
     }
 
     @Override
-    String applyString(final String value) {
+    String applyString(final String value,
+                       final ExpressionFunctionContext context) {
         return CharSequences.trimLeft(value).toString();
     }
 
