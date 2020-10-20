@@ -113,6 +113,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
+     * {@see TrimLeftStringExpressionFunction}
+     */
+    public static ExpressionFunction<String> trimLeft() {
+        return TrimLeftStringExpressionFunction.INSTANCE;
+    }
+
+    /**
      * Stops creation
      */
     private StringExpressionFunctions() {
