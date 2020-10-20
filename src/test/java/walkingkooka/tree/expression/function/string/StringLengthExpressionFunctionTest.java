@@ -36,25 +36,12 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-public final class StringLengthExpressionFunctionTest extends StringExpressionFunctionTestCase<StringLengthExpressionFunction, Number> {
-
-    @Test
-    public void testZeroParametersFails() {
-        assertThrows(IllegalArgumentException.class, this::apply2);
-    }
-
-    @Test
-    public void testTwoParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2"));
-    }
+public final class StringLengthExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<StringLengthExpressionFunction, Number> {
 
     @Test
     public void testEmptyString() {
         this.applyAndCheck2(parameters(""), 0);
     }
-
 
     @Test
     public void testString() {
