@@ -95,9 +95,4 @@ final class NormalizeSpaceExpressionFunction extends StringExpressionFunction<St
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("normalize-space");
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }

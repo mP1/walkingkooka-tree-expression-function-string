@@ -77,9 +77,4 @@ final class SubstringBeforeExpressionFunction extends StringExpressionFunction<S
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("substring-before");
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }

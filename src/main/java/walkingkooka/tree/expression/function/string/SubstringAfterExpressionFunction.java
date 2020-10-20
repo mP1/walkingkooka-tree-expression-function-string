@@ -77,9 +77,4 @@ final class SubstringAfterExpressionFunction extends StringExpressionFunction<St
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("substring-after");
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }

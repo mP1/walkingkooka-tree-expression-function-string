@@ -76,9 +76,4 @@ final class ConcatExpressionFunction extends StringExpressionFunction<String> {
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("concat");
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }

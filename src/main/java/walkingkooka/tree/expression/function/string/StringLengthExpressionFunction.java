@@ -72,9 +72,4 @@ final class StringLengthExpressionFunction extends StringExpressionFunction<Numb
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("string-length");
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }

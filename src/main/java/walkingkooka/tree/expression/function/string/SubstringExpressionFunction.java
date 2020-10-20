@@ -114,9 +114,4 @@ final class SubstringExpressionFunction extends StringExpressionFunction<String>
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("substring");
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }

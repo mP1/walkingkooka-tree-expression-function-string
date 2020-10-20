@@ -71,9 +71,4 @@ final class EndsWithExpressionFunction extends StringExpressionFunction<Boolean>
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("ends-with");
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }

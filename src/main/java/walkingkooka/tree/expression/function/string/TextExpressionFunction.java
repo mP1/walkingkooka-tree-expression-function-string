@@ -70,9 +70,4 @@ final class TextExpressionFunction extends StringExpressionFunction<String> {
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("text");
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }
