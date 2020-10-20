@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SubstringAfterExpressionFunctionTest extends ExpressionFunctionTestCase<SubstringAfterExpressionFunction, String> {
+public final class SubstringAfterExpressionFunctionTest extends StringExpressionFunctionTestCase<SubstringAfterExpressionFunction, String> {
 
     @Test
     public void testZeroParametersFails() {

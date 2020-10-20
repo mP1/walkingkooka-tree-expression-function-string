@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ConcatExpressionFunctionTest extends ExpressionFunctionTestCase<ConcatExpressionFunction, String> {
+public final class ConcatExpressionFunctionTest extends StringExpressionFunctionTestCase<ConcatExpressionFunction, String> {
 
     @Test
     public void testZeroParametersFails() {
