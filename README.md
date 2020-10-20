@@ -22,6 +22,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - substring-after
 - substring-before
 - text
+- trim-left
 
 Many more functions are outstanding and remain TODO.
 
