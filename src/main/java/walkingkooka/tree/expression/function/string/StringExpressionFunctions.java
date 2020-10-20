@@ -64,6 +64,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
+     * {@see LowerCaseStringExpressionFunction}
+     */
+    public static ExpressionFunction<String> lowerCase() {
+        return LowerCaseStringExpressionFunction.INSTANCE;
+    }
+
+    /**
      * {@see NormalizeSpaceExpressionFunction}
      */
     public static ExpressionFunction<String> normalizeSpace() {
