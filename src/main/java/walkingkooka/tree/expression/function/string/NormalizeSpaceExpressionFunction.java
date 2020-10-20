@@ -35,6 +35,7 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.tree.expression.FunctionExpressionName;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
  * Returns a string after removing any leading or trailing spaces and normalizes multiple sequences of spaces into a single space.<br>
@@ -59,7 +60,8 @@ final class NormalizeSpaceExpressionFunction extends UnaryStringExpressionFuncti
     }
 
     @Override
-    String applyString(final String value) {
+    String applyString(final String value,
+                       final ExpressionFunctionContext context) {
         final String trimmed = value.trim();
 
         final StringBuilder b = new StringBuilder();

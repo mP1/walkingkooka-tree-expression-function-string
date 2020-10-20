@@ -58,7 +58,8 @@ final class StringLengthExpressionFunction extends UnaryStringExpressionFunction
     }
 
     @Override
-    Number applyString(final String value) {
+    Number applyString(final String value,
+                       final ExpressionFunctionContext context) {
         return value.length();
     }
 
