@@ -44,7 +44,7 @@ import java.util.List;
  * <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/string-length"></a>
  * Unlike the Mozilla documentation, if the argument is missing an exception is thrown.
  */
-final class StringLengthExpressionFunction extends StringExpressionFunction<Number> {
+final class StringLengthExpressionFunction extends UnaryStringExpressionFunction<Number> {
     /**
      * Singleton
      */
@@ -58,13 +58,9 @@ final class StringLengthExpressionFunction extends StringExpressionFunction<Numb
     }
 
     @Override
-    public Number apply(final List<Object> parameters,
-                        final ExpressionFunctionContext context) {
-        this.checkParameterCount(parameters, 1);
-
-        return (long) this.string(parameters, 0, context).length();
+    Number applyString(final String value) {
+        return value.length();
     }
-
 
     @Override
     public FunctionExpressionName name() {
