@@ -38,17 +38,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class NormalizeSpaceExpressionFunctionTest extends StringExpressionFunctionTestCase<NormalizeSpaceExpressionFunction, String> {
-
-    @Test
-    public void testZeroParametersFails() {
-        assertThrows(IllegalArgumentException.class, this::apply2);
-    }
-
-    @Test
-    public void testTwoParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2"));
-    }
+public final class NormalizeSpaceExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<NormalizeSpaceExpressionFunction, String> {
 
     @Test
     public void testUnnecessary() {
