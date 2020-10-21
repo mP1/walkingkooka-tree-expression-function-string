@@ -36,14 +36,7 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-public final class ContainsExpressionFunctionTest extends StringExpressionFunctionTestCase<ContainsExpressionFunction, Boolean> {
-
-    @Test
-    public void testOneParameterFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1"));
-    }
+public final class ContainsExpressionFunctionTest extends StringStringBooleanExpressionFunctionTestCase<ContainsExpressionFunction> {
 
     @Test
     public void testContains() {
