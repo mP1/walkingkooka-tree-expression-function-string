@@ -34,37 +34,33 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
+import java.util.List;
+
 /**
- * A function that returns true if the first string starts with the second string.
+ * A function that requires 2 string parameters and returns a {@link Boolean} result.
  */
-final class StartsWithExpressionFunction extends StringStringBooleanExpressionFunction {
+abstract class StringStringBooleanExpressionFunction extends StringExpressionFunction<Boolean> {
 
     /**
-     * Singleton
+     * Package private ctor
      */
-    static final StartsWithExpressionFunction INSTANCE = new StartsWithExpressionFunction();
-
-    /**
-     * Private ctor
-     */
-    private StartsWithExpressionFunction() {
+    StringStringBooleanExpressionFunction() {
         super();
     }
 
     @Override
-    Boolean applyStringString(final String string,
-                              final String contains,
-                              final ExpressionFunctionContext context) {
-        return string.startsWith(contains);
+    public Boolean apply(final List<Object> parameters,
+                         final ExpressionFunctionContext context) {
+        this.checkParameterCount(parameters, 2);
+
+        return this.applyStringString(this.string(parameters, 0, context),
+                this.string(parameters, 1, context),
+                context);
     }
 
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("starts-with");
+    abstract Boolean applyStringString(final String first,
+                                       final String second,
+                                       final ExpressionFunctionContext context);
 }

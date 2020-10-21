@@ -37,12 +37,10 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-import java.util.List;
-
 /**
  * A function that returns true if the first string ends with the second string.
  */
-final class EndsWithExpressionFunction extends StringExpressionFunction<Boolean> {
+final class EndsWithExpressionFunction extends StringStringBooleanExpressionFunction {
 
     /**
      * Singleton
@@ -57,12 +55,10 @@ final class EndsWithExpressionFunction extends StringExpressionFunction<Boolean>
     }
 
     @Override
-    public Boolean apply(final List<Object> parameters,
-                         final ExpressionFunctionContext context) {
-        this.checkParameterCount(parameters, 2);
-
-        return this.string(parameters, 0, context)
-                .endsWith(this.string(parameters, 1, context));
+    Boolean applyStringString(final String string,
+                              final String contains,
+                              final ExpressionFunctionContext context) {
+        return string.endsWith(contains);
     }
 
     @Override

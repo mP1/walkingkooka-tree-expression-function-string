@@ -36,25 +36,7 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-public final class EndsWithExpressionFunctionTest extends StringExpressionFunctionTestCase<EndsWithExpressionFunction, Boolean> {
-
-    @Test
-    public void testZeroParametersFails() {
-        assertThrows(IllegalArgumentException.class, this::apply2);
-    }
-
-    @Test
-    public void testOneParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1"));
-    }
-
-
-    @Test
-    public void testThreeParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", 2, 3));
-    }
+public final class EndsWithExpressionFunctionTest extends StringStringBooleanExpressionFunctionTestCase<EndsWithExpressionFunction> {
 
     @Test
     public void testMissing() {
