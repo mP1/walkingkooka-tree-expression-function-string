@@ -43,6 +43,13 @@ import walkingkooka.tree.expression.function.ExpressionFunction;
 public final class StringExpressionFunctions implements PublicStaticHelper {
 
     /**
+     * {@see CharExpressionFunction}
+     */
+    public static ExpressionFunction<Character> character() {
+        return CharExpressionFunction.INSTANCE;
+    }
+
+    /**
      * {@see ConcatExpressionFunction}
      */
     public static ExpressionFunction<String> concat() {
