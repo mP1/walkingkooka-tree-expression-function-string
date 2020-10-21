@@ -28,6 +28,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - text
 - trim-left
 - trim-right
+- unicode
 - upper-case
 
 Many more functions are outstanding and remain TODO.

@@ -155,6 +155,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
+     * {@see UnicodeExpressionFunction}
+     */
+    public static ExpressionFunction<Number> unicode() {
+        return UnicodeExpressionFunction.INSTANCE;
+    }
+
+    /**
      * {@see UpperCaseStringExpressionFunction}
      */
     public static ExpressionFunction<String> upperCase() {
