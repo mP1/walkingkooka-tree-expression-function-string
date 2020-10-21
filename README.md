@@ -16,6 +16,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - concat
 - contains
 - ends-with
+- left
 - lower-case
 - normalize-space
 - starts-with
