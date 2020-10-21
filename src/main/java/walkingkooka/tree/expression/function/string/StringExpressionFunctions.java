@@ -78,6 +78,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
+     * {@see MidStringExpressionFunction}
+     */
+    public static ExpressionFunction<String> mid() {
+        return MidStringExpressionFunction.INSTANCE;
+    }
+
+    /**
      * {@see NormalizeSpaceExpressionFunction}
      */
     public static ExpressionFunction<String> normalizeSpace() {
