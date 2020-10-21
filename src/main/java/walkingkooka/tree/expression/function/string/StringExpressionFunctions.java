@@ -64,6 +64,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
+     * {@see LeftStringExpressionFunction}
+     */
+    public static ExpressionFunction<String> left() {
+        return LeftStringExpressionFunction.INSTANCE;
+    }
+
+    /**
      * {@see LowerCaseStringExpressionFunction}
      */
     public static ExpressionFunction<String> lowerCase() {
