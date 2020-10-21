@@ -37,8 +37,6 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-import java.util.List;
-
 /**
  * A function that returns the part of string1 up before the first occurrence of string2
  */

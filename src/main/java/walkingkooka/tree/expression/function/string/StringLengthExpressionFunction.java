@@ -37,8 +37,6 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-import java.util.List;
-
 /**
  * Returns the length of the provided string.
  * <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/string-length"></a>

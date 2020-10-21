@@ -20,12 +20,9 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionContexts;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import java.util.Locale;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class UpperCaseStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<UpperCaseStringExpressionFunction, String> {
 
