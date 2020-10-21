@@ -17,7 +17,6 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 

@@ -17,8 +17,6 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

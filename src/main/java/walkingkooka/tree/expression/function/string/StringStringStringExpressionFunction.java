@@ -34,7 +34,6 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;

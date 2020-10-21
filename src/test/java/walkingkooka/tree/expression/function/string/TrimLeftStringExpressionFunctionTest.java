@@ -36,8 +36,6 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 public final class TrimLeftStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<TrimLeftStringExpressionFunction, String> {
 
     @Test
