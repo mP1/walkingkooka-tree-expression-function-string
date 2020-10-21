@@ -42,7 +42,7 @@ import java.util.List;
 /**
  * A function that returns the part of string1 up before the first occurrence of string2
  */
-final class SubstringBeforeExpressionFunction extends StringExpressionFunction<String> {
+final class SubstringBeforeExpressionFunction extends StringStringStringExpressionFunction {
 
     /**
      * Singleton
@@ -57,19 +57,15 @@ final class SubstringBeforeExpressionFunction extends StringExpressionFunction<S
     }
 
     @Override
-    public String apply(final List<Object> parameters,
-                        final ExpressionFunctionContext context) {
-        this.checkParameterCount(parameters, 2);
-
-        final String string = this.string(parameters, 0, context);
-        final String find = this.string(parameters, 1, context);
+    String applyStringString(final String string,
+                             final String find,
+                             final ExpressionFunctionContext context) {
         final int offset = string.indexOf(find);
 
         return -1 != offset ?
                 string.substring(0, offset) :
                 "";
     }
-
 
     @Override
     public FunctionExpressionName name() {
