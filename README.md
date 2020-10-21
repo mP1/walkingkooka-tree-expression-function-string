@@ -19,6 +19,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - left
 - lower-case
 - normalize-space
+- right
 - starts-with
 - string-length
 - substring-after

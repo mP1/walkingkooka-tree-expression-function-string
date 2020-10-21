@@ -85,6 +85,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
+     * {@see RightStringExpressionFunction}
+     */
+    public static ExpressionFunction<String> right() {
+        return RightStringExpressionFunction.INSTANCE;
+    }
+
+    /**
      * {@see StartsWithExpressionFunction}
      */
     public static ExpressionFunction<Boolean> startsWith() {
