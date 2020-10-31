@@ -34,13 +34,43 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.tree.expression.function.ExpressionFunction;
+
+import java.util.function.Consumer;
 
 /**
  * Collection of static factory methods for numerous {@link ExpressionFunction}.
  */
 public final class StringExpressionFunctions implements PublicStaticHelper {
+
+    /**
+     * Visit all {@link ExpressionFunction functions}.
+     */
+    public static void visit(final int indexBias,
+                             final Consumer<ExpressionFunction<?>> consumer) {
+        Lists.of(character(),
+                concat(),
+                contains(),
+                endsWith(),
+                left(),
+                lowerCase(),
+                mid(),
+                normalizeSpace(),
+                right(),
+                startsWith(),
+                stringLength(),
+                substring(indexBias),
+                substringAfter(),
+                substringBefore(),
+                text(),
+                trimLeft(),
+                trimRight(),
+                unicode(),
+                upperCase())
+                .forEach(consumer);
+    }
 
     /**
      * {@see CharExpressionFunction}
