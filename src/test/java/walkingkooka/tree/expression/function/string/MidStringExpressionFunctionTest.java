@@ -18,10 +18,12 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class MidStringExpressionFunctionTest extends StringExpressionFunctionTestCase<MidStringExpressionFunction, String> {
+public final class MidStringExpressionFunctionTest extends StringExpressionFunctionTestCase<MidStringExpressionFunction<ExpressionFunctionContext>, String> {
 
     @Test
     public void testZeroParametersFails() {
@@ -109,12 +111,12 @@ public final class MidStringExpressionFunctionTest extends StringExpressionFunct
     }
 
     @Override
-    public MidStringExpressionFunction createBiFunction() {
-        return MidStringExpressionFunction.INSTANCE;
+    public MidStringExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return MidStringExpressionFunction.instance();
     }
 
     @Override
-    public Class<MidStringExpressionFunction> type() {
-        return MidStringExpressionFunction.class;
+    public Class<MidStringExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(MidStringExpressionFunction.class);
     }
 }

@@ -34,18 +34,26 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
  * A function that returns true if the first string ends with the second string.
  */
-final class EndsWithExpressionFunction extends StringStringBooleanExpressionFunction {
+final class EndsWithExpressionFunction<C extends ExpressionFunctionContext> extends StringStringBooleanExpressionFunction<C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> EndsWithExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final EndsWithExpressionFunction INSTANCE = new EndsWithExpressionFunction();
+    private static final EndsWithExpressionFunction INSTANCE = new EndsWithExpressionFunction();
 
     /**
      * Private ctor

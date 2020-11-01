@@ -18,10 +18,12 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class CharExpressionFunctionTest extends StringExpressionFunctionTestCase<CharExpressionFunction, Character> {
+public final class CharExpressionFunctionTest extends StringExpressionFunctionTestCase<CharExpressionFunction<ExpressionFunctionContext>, Character> {
 
     @Test
     public void testZeroParametersFails() {
@@ -74,12 +76,12 @@ public final class CharExpressionFunctionTest extends StringExpressionFunctionTe
     }
 
     @Override
-    public CharExpressionFunction createBiFunction() {
-        return CharExpressionFunction.INSTANCE;
+    public CharExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return CharExpressionFunction.instance();
     }
 
     @Override
-    public Class<CharExpressionFunction> type() {
-        return CharExpressionFunction.class;
+    public Class<CharExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(CharExpressionFunction.class);
     }
 }

@@ -35,10 +35,12 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ConcatExpressionFunctionTest extends StringExpressionFunctionTestCase<ConcatExpressionFunction, String> {
+public final class ConcatExpressionFunctionTest extends StringExpressionFunctionTestCase<ConcatExpressionFunction<ExpressionFunctionContext>, String> {
 
     @Test
     public void testZeroParametersFails() {
@@ -81,12 +83,12 @@ public final class ConcatExpressionFunctionTest extends StringExpressionFunction
     }
 
     @Override
-    public ConcatExpressionFunction createBiFunction() {
-        return ConcatExpressionFunction.INSTANCE;
+    public ConcatExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return ConcatExpressionFunction.instance();
     }
 
     @Override
-    public Class<ConcatExpressionFunction> type() {
-        return ConcatExpressionFunction.class;
+    public Class<ConcatExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(ConcatExpressionFunction.class);
     }
 }

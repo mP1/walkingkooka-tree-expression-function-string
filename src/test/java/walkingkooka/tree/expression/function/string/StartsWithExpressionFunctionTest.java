@@ -35,8 +35,10 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class StartsWithExpressionFunctionTest extends StringStringBooleanExpressionFunctionTestCase<StartsWithExpressionFunction> {
+public final class StartsWithExpressionFunctionTest extends StringStringBooleanExpressionFunctionTestCase<StartsWithExpressionFunction<ExpressionFunctionContext>> {
 
     @Test
     public void testMissing() {
@@ -79,12 +81,12 @@ public final class StartsWithExpressionFunctionTest extends StringStringBooleanE
     }
 
     @Override
-    public StartsWithExpressionFunction createBiFunction() {
-        return StartsWithExpressionFunction.INSTANCE;
+    public StartsWithExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return StartsWithExpressionFunction.instance();
     }
 
     @Override
-    public Class<StartsWithExpressionFunction> type() {
-        return StartsWithExpressionFunction.class;
+    public Class<StartsWithExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(StartsWithExpressionFunction.class);
     }
 }

@@ -35,8 +35,10 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class SubstringAfterExpressionFunctionTest extends StringStringStringExpressionFunctionTestCase<SubstringAfterExpressionFunction> {
+public final class SubstringAfterExpressionFunctionTest extends StringStringStringExpressionFunctionTestCase<SubstringAfterExpressionFunction<ExpressionFunctionContext>> {
 
     @Test
     public void testMissing() {
@@ -69,12 +71,12 @@ public final class SubstringAfterExpressionFunctionTest extends StringStringStri
     }
 
     @Override
-    public SubstringAfterExpressionFunction createBiFunction() {
-        return SubstringAfterExpressionFunction.INSTANCE;
+    public SubstringAfterExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return SubstringAfterExpressionFunction.instance();
     }
 
     @Override
-    public Class<SubstringAfterExpressionFunction> type() {
-        return SubstringAfterExpressionFunction.class;
+    public Class<SubstringAfterExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(SubstringAfterExpressionFunction.class);
     }
 }

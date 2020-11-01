@@ -17,14 +17,16 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class StringStringBooleanExpressionFunctionTest implements ClassTesting<StringStringBooleanExpressionFunction> {
+public final class StringStringBooleanExpressionFunctionTest implements ClassTesting<StringStringBooleanExpressionFunction<ExpressionFunctionContext>> {
 
     @Override
-    public Class<StringStringBooleanExpressionFunction> type() {
-        return StringStringBooleanExpressionFunction.class;
+    public Class<StringStringBooleanExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(StringStringBooleanExpressionFunction.class);
     }
 
     @Override

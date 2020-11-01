@@ -34,18 +34,26 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
  * A function that returns true if the second string is contained within the first string.
  */
-final class ContainsExpressionFunction extends StringStringBooleanExpressionFunction {
+final class ContainsExpressionFunction<C extends ExpressionFunctionContext> extends StringStringBooleanExpressionFunction<C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> ContainsExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final ContainsExpressionFunction INSTANCE = new ContainsExpressionFunction();
+    private static final ContainsExpressionFunction INSTANCE = new ContainsExpressionFunction();
 
     /**
      * Private ctor

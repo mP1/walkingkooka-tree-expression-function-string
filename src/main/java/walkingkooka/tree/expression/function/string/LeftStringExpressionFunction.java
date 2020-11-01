@@ -17,6 +17,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -24,12 +25,19 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
  * Performs a left for a given {@link String}. Defaults to 1 if the number or second parameter is absent and uses 0 if the 2nd parameter is negative.
  * <a href="https://support.google.com/docs/answer/3094079?hl=en">LEFT</a>
  */
-final class LeftStringExpressionFunction extends StringOptionalNumberStringExpressionFunction {
+final class LeftStringExpressionFunction<C extends ExpressionFunctionContext> extends StringOptionalNumberStringExpressionFunction<C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> LeftStringExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final LeftStringExpressionFunction INSTANCE = new LeftStringExpressionFunction();
+    private static final LeftStringExpressionFunction INSTANCE = new LeftStringExpressionFunction();
 
     /**
      * Private ctor

@@ -43,7 +43,7 @@ import java.util.List;
 /**
  * Base class for many {@link ExpressionFunction} within this package.
  */
-abstract class StringExpressionFunction<T> implements ExpressionFunction<T> {
+abstract class StringExpressionFunction<T, C extends ExpressionFunctionContext> implements ExpressionFunction<T, C> {
 
     /**
      * Package private to limit sub classing.

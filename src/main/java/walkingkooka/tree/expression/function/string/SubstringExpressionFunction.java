@@ -43,13 +43,13 @@ import java.util.List;
  * A function that returns a substring of another string.<br>
  * <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/substring"></a>
  */
-final class SubstringExpressionFunction extends StringExpressionFunction<String> {
+final class SubstringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
 
     /**
      * Factory that returns a matching {@link SubstringExpressionFunction}
      */
-    static SubstringExpressionFunction with(final int indexBase) {
-        SubstringExpressionFunction result;
+    static <C extends ExpressionFunctionContext> SubstringExpressionFunction<C> with(final int indexBase) {
+        SubstringExpressionFunction<C> result;
         switch (indexBase) {
             case 0:
                 result = ZERO;
@@ -83,7 +83,7 @@ final class SubstringExpressionFunction extends StringExpressionFunction<String>
 
     @Override
     public String apply(final List<Object> parameters,
-                        final ExpressionFunctionContext context) {
+                        final C context) {
         final int parameterCount = parameters.size();
         switch (parameterCount) {
             case 2:

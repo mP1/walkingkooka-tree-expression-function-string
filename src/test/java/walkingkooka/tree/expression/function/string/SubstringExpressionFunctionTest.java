@@ -35,11 +35,13 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.select.NodeSelector;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SubstringExpressionFunctionTest extends StringExpressionFunctionTestCase<SubstringExpressionFunction, String> {
+public final class SubstringExpressionFunctionTest extends StringExpressionFunctionTestCase<SubstringExpressionFunction<ExpressionFunctionContext>, String> {
 
     @Test
     public void testZeroParametersFails() {
@@ -107,12 +109,12 @@ public final class SubstringExpressionFunctionTest extends StringExpressionFunct
     }
 
     @Override
-    public SubstringExpressionFunction createBiFunction() {
+    public SubstringExpressionFunction<ExpressionFunctionContext> createBiFunction() {
         return SubstringExpressionFunction.with(NodeSelector.INDEX_BIAS);
     }
 
     @Override
-    public Class<SubstringExpressionFunction> type() {
-        return SubstringExpressionFunction.class;
+    public Class<SubstringExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(SubstringExpressionFunction.class);
     }
 }

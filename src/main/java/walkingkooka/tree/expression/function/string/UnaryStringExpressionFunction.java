@@ -42,7 +42,7 @@ import java.util.List;
 /**
  * A {@link ExpressionFunction} that handles a single {@link String} parameter.
  */
-abstract class UnaryStringExpressionFunction<T> extends StringExpressionFunction<T> {
+abstract class UnaryStringExpressionFunction<T, C extends ExpressionFunctionContext> extends StringExpressionFunction<T, C> {
 
     /**
      * Package private ctor
@@ -53,7 +53,7 @@ abstract class UnaryStringExpressionFunction<T> extends StringExpressionFunction
 
     @Override
     public final T apply(final List<Object> parameters,
-                         final ExpressionFunctionContext context) {
+                         final C context) {
         this.checkParameterCount(parameters, 1);
 
         return this.applyString(this.string(parameters, 0, context), context);

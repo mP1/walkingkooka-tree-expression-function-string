@@ -41,7 +41,7 @@ import java.util.List;
 /**
  * A function that requires a {@link String} and an optional {@link Number} returning a {@link String} result.
  */
-abstract class StringOptionalNumberStringExpressionFunction extends StringExpressionFunction<String> {
+abstract class StringOptionalNumberStringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
 
     /**
      * Package private ctor
@@ -52,7 +52,7 @@ abstract class StringOptionalNumberStringExpressionFunction extends StringExpres
 
     @Override
     public final String apply(final List<Object> parameters,
-                              final ExpressionFunctionContext context) {
+                              final C context) {
         String result;
 
         final int count = parameters.size();
