@@ -17,10 +17,12 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class UnicodeExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<UnicodeExpressionFunction, Number> {
+public final class UnicodeExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<UnicodeExpressionFunction<ExpressionFunctionContext>, Number> {
 
     @Test
     public void testEmptyString() {
@@ -58,12 +60,12 @@ public final class UnicodeExpressionFunctionTest extends UnaryStringExpressionFu
     }
 
     @Override
-    public UnicodeExpressionFunction createBiFunction() {
-        return UnicodeExpressionFunction.INSTANCE;
+    public UnicodeExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return UnicodeExpressionFunction.instance();
     }
 
     @Override
-    public Class<UnicodeExpressionFunction> type() {
-        return UnicodeExpressionFunction.class;
+    public Class<UnicodeExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(UnicodeExpressionFunction.class);
     }
 }

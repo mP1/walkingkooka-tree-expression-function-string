@@ -34,18 +34,26 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
  * A function that returns the part of string1 up before the first occurrence of string2
  */
-final class SubstringBeforeExpressionFunction extends StringStringStringExpressionFunction {
+final class SubstringBeforeExpressionFunction<C extends ExpressionFunctionContext> extends StringStringStringExpressionFunction<C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> SubstringBeforeExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final SubstringBeforeExpressionFunction INSTANCE = new SubstringBeforeExpressionFunction();
+    private static final SubstringBeforeExpressionFunction INSTANCE = new SubstringBeforeExpressionFunction();
 
     /**
      * Private ctor

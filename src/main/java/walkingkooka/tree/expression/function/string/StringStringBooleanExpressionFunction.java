@@ -41,7 +41,7 @@ import java.util.List;
 /**
  * A function that requires 2 string parameters and returns a {@link Boolean} result.
  */
-abstract class StringStringBooleanExpressionFunction extends StringExpressionFunction<Boolean> {
+abstract class StringStringBooleanExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<Boolean, C> {
 
     /**
      * Package private ctor
@@ -52,7 +52,7 @@ abstract class StringStringBooleanExpressionFunction extends StringExpressionFun
 
     @Override
     public Boolean apply(final List<Object> parameters,
-                         final ExpressionFunctionContext context) {
+                         final C context) {
         this.checkParameterCount(parameters, 2);
 
         return this.applyStringString(this.string(parameters, 0, context),

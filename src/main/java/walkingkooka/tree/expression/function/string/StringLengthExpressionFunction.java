@@ -34,6 +34,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -42,11 +43,18 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
  * <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/string-length"></a>
  * Unlike the Mozilla documentation, if the argument is missing an exception is thrown.
  */
-final class StringLengthExpressionFunction extends UnaryStringExpressionFunction<Number> {
+final class StringLengthExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<Number, C> {
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> StringLengthExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
+
     /**
      * Singleton
      */
-    static final StringLengthExpressionFunction INSTANCE = new StringLengthExpressionFunction();
+    private static final StringLengthExpressionFunction INSTANCE = new StringLengthExpressionFunction();
 
     /**
      * Private ctor

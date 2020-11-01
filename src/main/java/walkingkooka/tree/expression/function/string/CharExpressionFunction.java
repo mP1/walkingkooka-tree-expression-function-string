@@ -17,6 +17,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -26,12 +27,19 @@ import java.util.List;
  * Converts the only parameter to a character.
  * <a href="https://support.google.com/docs/answer/3094120?hl=en&ref_topic=3105625">CHAR</a>
  */
-final class CharExpressionFunction extends StringExpressionFunction<Character> {
+final class CharExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<Character, C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> CharExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final CharExpressionFunction INSTANCE = new CharExpressionFunction();
+    private static final CharExpressionFunction INSTANCE = new CharExpressionFunction();
 
     /**
      * Private ctor
@@ -42,7 +50,7 @@ final class CharExpressionFunction extends StringExpressionFunction<Character> {
 
     @Override
     public Character apply(final List<Object> parameters,
-                           final ExpressionFunctionContext context) {
+                           final C context) {
         this.checkParameterCount(parameters, 1);
 
         final int value = this.integer(parameters, 0, context);

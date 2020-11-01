@@ -34,6 +34,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -43,12 +44,19 @@ import java.util.stream.Collectors;
 /**
  * A function that concats all the Strings given to it.
  */
-final class ConcatExpressionFunction extends StringExpressionFunction<String> {
+final class ConcatExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> ConcatExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final ConcatExpressionFunction INSTANCE = new ConcatExpressionFunction();
+    private static final ConcatExpressionFunction INSTANCE = new ConcatExpressionFunction();
 
     /**
      * Private ctor
@@ -59,7 +67,7 @@ final class ConcatExpressionFunction extends StringExpressionFunction<String> {
 
     @Override
     public String apply(final List<Object> parameters,
-                        final ExpressionFunctionContext context) {
+                        final C context) {
         final int count = parameters.size();
         if (count < 1) {
             throw new IllegalArgumentException("Expected at least 1 parameter but got " + count + "=" + parameters.subList(1, count));

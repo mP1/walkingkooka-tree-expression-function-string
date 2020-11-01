@@ -17,6 +17,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -24,12 +25,19 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
  * Performs a right for a given {@link String}. Defaults to 1 if the number or second parameter is absent and uses 0 if the 2nd parameter is negative.
  * <a href="https://support.google.com/docs/answer/3094087?hl=en&ref_topic=3105625">RIGHT</a>
  */
-final class RightStringExpressionFunction extends StringOptionalNumberStringExpressionFunction {
+final class RightStringExpressionFunction<C extends ExpressionFunctionContext> extends StringOptionalNumberStringExpressionFunction<C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> RightStringExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final RightStringExpressionFunction INSTANCE = new RightStringExpressionFunction();
+    private static final RightStringExpressionFunction INSTANCE = new RightStringExpressionFunction();
 
     /**
      * Private ctor

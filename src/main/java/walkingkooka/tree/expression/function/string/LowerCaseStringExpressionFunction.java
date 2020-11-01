@@ -16,17 +16,25 @@
  */
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
  * Performs a lower case converting the value to a {@link String} using the current {@link java.util.Locale}.
  */
-final class LowerCaseStringExpressionFunction extends UnaryStringExpressionFunction<String> {
+final class LowerCaseStringExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<String, C> {
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> LowerCaseStringExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
+
     /**
      * Singleton
      */
-    static final LowerCaseStringExpressionFunction INSTANCE = new LowerCaseStringExpressionFunction();
+    private static final LowerCaseStringExpressionFunction INSTANCE = new LowerCaseStringExpressionFunction();
 
     /**
      * Private ctor

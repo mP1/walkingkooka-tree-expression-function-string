@@ -18,16 +18,12 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.Either;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionContexts;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
-
-import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class LowerCaseStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<LowerCaseStringExpressionFunction, String> {
+public final class LowerCaseStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<LowerCaseStringExpressionFunction<ExpressionFunctionContext>, String> {
 
     @Test
     public void testBoolean() {
@@ -65,29 +61,12 @@ public final class LowerCaseStringExpressionFunctionTest extends UnaryStringExpr
     }
 
     @Override
-    public LowerCaseStringExpressionFunction createBiFunction() {
-        return LowerCaseStringExpressionFunction.INSTANCE;
+    public LowerCaseStringExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return LowerCaseStringExpressionFunction.instance();
     }
 
     @Override
-    public Class<LowerCaseStringExpressionFunction> type() {
-        return LowerCaseStringExpressionFunction.class;
-    }
-
-    @Override
-    public ExpressionFunctionContext createContext() {
-        return new FakeExpressionFunctionContext() {
-
-            @Override
-            public <T> Either<T, String> convert(final Object value,
-                                                 final Class<T> target) {
-                return Cast.to(Either.left(value.toString()));
-            }
-
-            @Override
-            public Locale locale() {
-                return Locale.ENGLISH;
-            }
-        };
+    public Class<LowerCaseStringExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(LowerCaseStringExpressionFunction.class);
     }
 }

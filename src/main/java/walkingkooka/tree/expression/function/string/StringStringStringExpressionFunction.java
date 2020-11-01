@@ -41,7 +41,7 @@ import java.util.List;
 /**
  * A function that requires 2 string parameters and returns a {@link String} result.
  */
-abstract class StringStringStringExpressionFunction extends StringExpressionFunction<String> {
+abstract class StringStringStringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
 
     /**
      * Package private ctor
@@ -52,7 +52,7 @@ abstract class StringStringStringExpressionFunction extends StringExpressionFunc
 
     @Override
     public String apply(final List<Object> parameters,
-                        final ExpressionFunctionContext context) {
+                        final C context) {
         this.checkParameterCount(parameters, 2);
 
         return this.applyStringString(this.string(parameters, 0, context),

@@ -35,10 +35,12 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextExpressionFunctionTest extends StringExpressionFunctionTestCase<TextExpressionFunction, String> {
+public final class TextExpressionFunctionTest extends StringExpressionFunctionTestCase<TextExpressionFunction<ExpressionFunctionContext>, String> {
 
     @Test
     public void testZeroParametersFails() {
@@ -71,12 +73,12 @@ public final class TextExpressionFunctionTest extends StringExpressionFunctionTe
     }
 
     @Override
-    public TextExpressionFunction createBiFunction() {
-        return TextExpressionFunction.INSTANCE;
+    public TextExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return TextExpressionFunction.instance();
     }
 
     @Override
-    public Class<TextExpressionFunction> type() {
-        return TextExpressionFunction.class;
+    public Class<TextExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(TextExpressionFunction.class);
     }
 }

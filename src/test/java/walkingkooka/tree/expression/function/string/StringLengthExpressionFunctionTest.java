@@ -35,8 +35,10 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class StringLengthExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<StringLengthExpressionFunction, Number> {
+public final class StringLengthExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<StringLengthExpressionFunction<ExpressionFunctionContext>, Number> {
 
     @Test
     public void testEmptyString() {
@@ -64,12 +66,12 @@ public final class StringLengthExpressionFunctionTest extends UnaryStringExpress
     }
 
     @Override
-    public StringLengthExpressionFunction createBiFunction() {
-        return StringLengthExpressionFunction.INSTANCE;
+    public StringLengthExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return StringLengthExpressionFunction.instance();
     }
 
     @Override
-    public Class<StringLengthExpressionFunction> type() {
-        return StringLengthExpressionFunction.class;
+    public Class<StringLengthExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(StringLengthExpressionFunction.class);
     }
 }

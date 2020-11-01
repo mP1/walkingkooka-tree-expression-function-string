@@ -18,13 +18,9 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.Either;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
-import java.util.Locale;
-
-public final class UpperCaseStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<UpperCaseStringExpressionFunction, String> {
+public final class UpperCaseStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<UpperCaseStringExpressionFunction<ExpressionFunctionContext>, String> {
 
     @Test
     public void testBoolean() {
@@ -57,29 +53,12 @@ public final class UpperCaseStringExpressionFunctionTest extends UnaryStringExpr
     }
 
     @Override
-    public UpperCaseStringExpressionFunction createBiFunction() {
-        return UpperCaseStringExpressionFunction.INSTANCE;
+    public UpperCaseStringExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return UpperCaseStringExpressionFunction.instance();
     }
 
     @Override
-    public Class<UpperCaseStringExpressionFunction> type() {
-        return UpperCaseStringExpressionFunction.class;
-    }
-
-    @Override
-    public ExpressionFunctionContext createContext() {
-        return new FakeExpressionFunctionContext() {
-
-            @Override
-            public <T> Either<T, String> convert(final Object value,
-                                                 final Class<T> target) {
-                return Cast.to(Either.left(value.toString()));
-            }
-
-            @Override
-            public Locale locale() {
-                return Locale.forLanguageTag("DE");
-            }
-        };
+    public Class<UpperCaseStringExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(UpperCaseStringExpressionFunction.class);
     }
 }

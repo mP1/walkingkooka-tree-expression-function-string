@@ -37,6 +37,7 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.function.Consumer;
 
@@ -49,7 +50,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      * Visit all {@link ExpressionFunction functions}.
      */
     public static void visit(final int indexBias,
-                             final Consumer<ExpressionFunction<?>> consumer) {
+                             final Consumer<ExpressionFunction<?, ?>> consumer) {
         Lists.of(character(),
                 concat(),
                 contains(),
@@ -75,134 +76,134 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     /**
      * {@see CharExpressionFunction}
      */
-    public static ExpressionFunction<Character> character() {
-        return CharExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Character, C> character() {
+        return CharExpressionFunction.instance();
     }
 
     /**
      * {@see ConcatExpressionFunction}
      */
-    public static ExpressionFunction<String> concat() {
-        return ConcatExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> concat() {
+        return ConcatExpressionFunction.instance();
     }
 
     /**
      * {@see ContainsExpressionFunction}
      */
-    public static ExpressionFunction<Boolean> contains() {
-        return ContainsExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> contains() {
+        return ContainsExpressionFunction.instance();
     }
 
     /**
      * {@see EndsWithExpressionFunction}
      */
-    public static ExpressionFunction<Boolean> endsWith() {
-        return EndsWithExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> endsWith() {
+        return EndsWithExpressionFunction.instance();
     }
 
     /**
      * {@see LeftStringExpressionFunction}
      */
-    public static ExpressionFunction<String> left() {
-        return LeftStringExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> left() {
+        return LeftStringExpressionFunction.instance();
     }
 
     /**
      * {@see LowerCaseStringExpressionFunction}
      */
-    public static ExpressionFunction<String> lowerCase() {
-        return LowerCaseStringExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> lowerCase() {
+        return LowerCaseStringExpressionFunction.instance();
     }
 
     /**
      * {@see MidStringExpressionFunction}
      */
-    public static ExpressionFunction<String> mid() {
-        return MidStringExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> mid() {
+        return MidStringExpressionFunction.instance();
     }
 
     /**
      * {@see NormalizeSpaceExpressionFunction}
      */
-    public static ExpressionFunction<String> normalizeSpace() {
-        return NormalizeSpaceExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> normalizeSpace() {
+        return NormalizeSpaceExpressionFunction.instance();
     }
 
     /**
      * {@see RightStringExpressionFunction}
      */
-    public static ExpressionFunction<String> right() {
-        return RightStringExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> right() {
+        return RightStringExpressionFunction.instance();
     }
 
     /**
      * {@see StartsWithExpressionFunction}
      */
-    public static ExpressionFunction<Boolean> startsWith() {
-        return StartsWithExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> startsWith() {
+        return StartsWithExpressionFunction.instance();
     }
 
     /**
      * {@see StringLengthExpressionFunction}
      */
-    public static ExpressionFunction<Number> stringLength() {
-        return StringLengthExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Number, C> stringLength() {
+        return StringLengthExpressionFunction.instance();
     }
 
     /**
      * {@see SubstringExpressionFunction}
      */
-    public static ExpressionFunction<String> substring(final int indexBias) {
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substring(final int indexBias) {
         return SubstringExpressionFunction.with(indexBias);
     }
 
     /**
      * {@see SubstringAfterExpressionFunction}
      */
-    public static ExpressionFunction<String> substringAfter() {
-        return SubstringAfterExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substringAfter() {
+        return SubstringAfterExpressionFunction.instance();
     }
 
     /**
      * {@see SubstringBeforeExpressionFunction}
      */
-    public static ExpressionFunction<String> substringBefore() {
-        return SubstringBeforeExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substringBefore() {
+        return SubstringBeforeExpressionFunction.instance();
     }
 
     /**
      * {@see TextExpressionFunction}
      */
-    public static ExpressionFunction<String> text() {
-        return TextExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> text() {
+        return TextExpressionFunction.instance();
     }
 
     /**
      * {@see TrimLeftStringExpressionFunction}
      */
-    public static ExpressionFunction<String> trimLeft() {
-        return TrimLeftStringExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> trimLeft() {
+        return TrimLeftStringExpressionFunction.instance();
     }
 
     /**
      * {@see TrimRightStringExpressionFunction}
      */
-    public static ExpressionFunction<String> trimRight() {
-        return TrimRightStringExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> trimRight() {
+        return TrimRightStringExpressionFunction.instance();
     }
 
     /**
      * {@see UnicodeExpressionFunction}
      */
-    public static ExpressionFunction<Number> unicode() {
-        return UnicodeExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Number, C> unicode() {
+        return UnicodeExpressionFunction.instance();
     }
 
     /**
      * {@see UpperCaseStringExpressionFunction}
      */
-    public static ExpressionFunction<String> upperCase() {
-        return UpperCaseStringExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> upperCase() {
+        return UpperCaseStringExpressionFunction.instance();
     }
 
     /**

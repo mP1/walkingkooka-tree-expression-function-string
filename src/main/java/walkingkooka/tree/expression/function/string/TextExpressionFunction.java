@@ -34,6 +34,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -42,11 +43,18 @@ import java.util.List;
 /**
  * A function that converts the given value into a {@link String}.
  */
-final class TextExpressionFunction extends StringExpressionFunction<String> {
+final class TextExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> TextExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
+
     /**
      * Singleton
      */
-    static final TextExpressionFunction INSTANCE = new TextExpressionFunction();
+    private static final TextExpressionFunction INSTANCE = new TextExpressionFunction();
 
     /**
      * Private ctor
@@ -57,7 +65,7 @@ final class TextExpressionFunction extends StringExpressionFunction<String> {
 
     @Override
     public String apply(final List<Object> parameters,
-                        final ExpressionFunctionContext context) {
+                        final C context) {
         this.checkParameterCount(parameters, 1);
 
         return this.string(parameters, 0, context);

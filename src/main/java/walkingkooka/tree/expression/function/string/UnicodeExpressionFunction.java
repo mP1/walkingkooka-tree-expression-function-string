@@ -16,6 +16,7 @@
  */
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -23,11 +24,18 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
  * Returns the unicode of the first character in the provided {@link String}
  * <a href="https://support.google.com/docs/answer/9149523?hl=en&ref_topic=3105625"></a>
  */
-final class UnicodeExpressionFunction extends UnaryStringExpressionFunction<Number> {
+final class UnicodeExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<Number, C> {
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> UnicodeExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
+
     /**
      * Singleton
      */
-    static final UnicodeExpressionFunction INSTANCE = new UnicodeExpressionFunction();
+    private static final UnicodeExpressionFunction INSTANCE = new UnicodeExpressionFunction();
 
     /**
      * Private ctor

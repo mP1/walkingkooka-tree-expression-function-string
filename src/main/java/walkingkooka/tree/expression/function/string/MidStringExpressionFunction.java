@@ -34,6 +34,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -43,12 +44,19 @@ import java.util.List;
  * The excel mid function.
  * <a href="https://support.google.com/docs/answer/3094129?hl=en&ref_topic=3105625>MID</a>
  */
-final class MidStringExpressionFunction extends StringExpressionFunction<String> {
+final class MidStringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> MidStringExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final MidStringExpressionFunction INSTANCE = new MidStringExpressionFunction();
+    private static final MidStringExpressionFunction INSTANCE = new MidStringExpressionFunction();
 
     /**
      * Private ctor
@@ -59,7 +67,7 @@ final class MidStringExpressionFunction extends StringExpressionFunction<String>
 
     @Override
     public String apply(final List<Object> parameters,
-                        final ExpressionFunctionContext context) {
+                        final C context) {
         this.checkParameterCount(parameters, 3);
 
         final String string = this.string(parameters, 0, context);

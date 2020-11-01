@@ -34,6 +34,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
@@ -41,11 +42,18 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 /**
  * Performs a trim left after converting the value to a {@link String}.
  */
-final class TrimLeftStringExpressionFunction extends UnaryStringExpressionFunction<String> {
+final class TrimLeftStringExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<String, C> {
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> TrimLeftStringExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
+
     /**
      * Singleton
      */
-    static final TrimLeftStringExpressionFunction INSTANCE = new TrimLeftStringExpressionFunction();
+    private static final TrimLeftStringExpressionFunction INSTANCE = new TrimLeftStringExpressionFunction();
 
     /**
      * Private ctor

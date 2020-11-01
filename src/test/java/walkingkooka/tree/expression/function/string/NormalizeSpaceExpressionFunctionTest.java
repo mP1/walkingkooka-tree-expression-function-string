@@ -35,8 +35,10 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class NormalizeSpaceExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<NormalizeSpaceExpressionFunction, String> {
+public final class NormalizeSpaceExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<NormalizeSpaceExpressionFunction<ExpressionFunctionContext>, String> {
 
     @Test
     public void testUnnecessary() {
@@ -118,12 +120,12 @@ public final class NormalizeSpaceExpressionFunctionTest extends UnaryStringExpre
     }
 
     @Override
-    public NormalizeSpaceExpressionFunction createBiFunction() {
-        return NormalizeSpaceExpressionFunction.INSTANCE;
+    public NormalizeSpaceExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return NormalizeSpaceExpressionFunction.instance();
     }
 
     @Override
-    public Class<NormalizeSpaceExpressionFunction> type() {
-        return NormalizeSpaceExpressionFunction.class;
+    public Class<NormalizeSpaceExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(NormalizeSpaceExpressionFunction.class);
     }
 }

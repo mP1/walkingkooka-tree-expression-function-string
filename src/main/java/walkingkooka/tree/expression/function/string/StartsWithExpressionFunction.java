@@ -34,18 +34,26 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
  * A function that returns true if the first string starts with the second string.
  */
-final class StartsWithExpressionFunction extends StringStringBooleanExpressionFunction {
+final class StartsWithExpressionFunction<C extends ExpressionFunctionContext> extends StringStringBooleanExpressionFunction<C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> StartsWithExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final StartsWithExpressionFunction INSTANCE = new StartsWithExpressionFunction();
+    private static final StartsWithExpressionFunction INSTANCE = new StartsWithExpressionFunction();
 
     /**
      * Private ctor
