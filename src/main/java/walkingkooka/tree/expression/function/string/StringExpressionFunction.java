@@ -91,20 +91,6 @@ abstract class StringExpressionFunction<T, C extends ExpressionFunctionContext> 
     }
 
     /**
-     * Type safe {@link Boolean} parameter getter.
-     */
-    final Boolean booleanValue(final List<?> parameters, final int i, final ExpressionFunctionContext context) {
-        return this.booleanValue(this.parameter(parameters, i), context);
-    }
-
-    /**
-     * Type safe {@link Comparable} parameter getter.
-     */
-    final Comparable comparable(final List<?> parameters, final int i, final ExpressionFunctionContext context) {
-        return this.comparable(this.parameter(parameters, i), context);
-    }
-
-    /**
      * Type safe integer parameter getter.
      */
     final int integer(final List<?> parameters, final int i, final ExpressionFunctionContext context) {
@@ -116,13 +102,6 @@ abstract class StringExpressionFunction<T, C extends ExpressionFunctionContext> 
      */
     final String string(final List<?> parameters, final int i, final ExpressionFunctionContext context) {
         return this.string(this.parameter(parameters, i), context);
-    }
-
-    /**
-     * Retrieves the parameter at the index or throws a nice exception message.
-     */
-    final <TT> TT parameter(final List<?> parameters, final int i, final Class<TT> type, final ExpressionFunctionContext context) {
-        return context.convertOrFail(this.parameter(parameters, i), type);
     }
 
     /**
