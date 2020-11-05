@@ -116,6 +116,11 @@ abstract class StringExpressionFunction<T, C extends ExpressionFunctionContext> 
     }
 
     @Override
+    public boolean resolveReferences() {
+        return true;
+    }
+
+    @Override
     public final String toString() {
         return this.name().toString();
     }
