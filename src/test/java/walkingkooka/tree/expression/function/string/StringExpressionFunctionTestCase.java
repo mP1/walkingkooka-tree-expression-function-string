@@ -16,6 +16,7 @@
  */
 package walkingkooka.tree.expression.function.string;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.reflect.ClassTesting2;
@@ -33,6 +34,11 @@ public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunct
 
     StringExpressionFunctionTestCase() {
         super();
+    }
+
+    @Test
+    public final void testIsPureTrue() {
+        this.isPureAndCheck(this.createBiFunction(), true);
     }
 
     final void apply2(final Object... parameters) {
