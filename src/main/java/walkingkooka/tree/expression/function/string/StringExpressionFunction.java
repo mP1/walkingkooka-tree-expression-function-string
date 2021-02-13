@@ -53,6 +53,14 @@ abstract class StringExpressionFunction<T, C extends ExpressionFunctionContext> 
     }
 
     /**
+     * All string functions are pure. Does not assume anyting about any parameters.
+     */
+    @Override
+    public final boolean isPure() {
+        return true;
+    }
+
+    /**
      * Checks and complains if the parameter count doesnt match the expected count.
      */
     final void checkParameterCount(final List<Object> parameters, final int expectedCount) {
