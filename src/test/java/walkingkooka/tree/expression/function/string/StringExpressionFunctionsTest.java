@@ -38,18 +38,14 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
-import walkingkooka.tree.expression.FunctionExpression;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctions;
 
 import java.lang.reflect.Method;
 import java.math.MathContext;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public final class StringExpressionFunctionsTest implements PublicStaticHelperTesting<StringExpressionFunctions> {
 
@@ -58,14 +54,14 @@ public final class StringExpressionFunctionsTest implements PublicStaticHelperTe
         final Set<FunctionExpressionName> names = Sets.sorted();
         StringExpressionFunctions.visit(1, (e) -> names.add(e.name()));
 
-        assertEquals(Arrays.stream(StringExpressionFunctions.class.getDeclaredMethods())
+        this.checkEquals(Arrays.stream(StringExpressionFunctions.class.getDeclaredMethods())
                         .filter(m -> m.getReturnType() == ExpressionFunction.class)
                         .map(Method::getName)
                         .collect(Collectors.toCollection(Sets::sorted))
                         .size(),
                 names.size());
-        assertEquals(true, names.contains(StringExpressionFunctions.left().name()));
-        assertEquals(true, names.contains(StringExpressionFunctions.right().name()));
+        this.checkEquals(true, names.contains(StringExpressionFunctions.left().name()));
+        this.checkEquals(true, names.contains(StringExpressionFunctions.right().name()));
     }
 
     @Test
