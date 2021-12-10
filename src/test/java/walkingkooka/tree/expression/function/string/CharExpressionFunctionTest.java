@@ -31,27 +31,27 @@ public final class CharExpressionFunctionTest extends StringExpressionFunctionTe
     }
 
     @Test
-    public final void testTwoParametersFails() {
+    public void testTwoParametersFails() {
         assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2"));
     }
 
     @Test
-    public final void testThreeParametersFails() {
+    public void testThreeParametersFails() {
         assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2", "c3"));
     }
 
     @Test
-    public final void testFourParametersFails() {
+    public void testFourParametersFails() {
         assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2", "c3", "d4"));
     }
 
     @Test
-    public final void testNegativeValueFails() {
+    public void testNegativeValueFails() {
         assertThrows(IllegalArgumentException.class, () -> this.apply2(-1));
     }
 
     @Test
-    public final void testInvalidPositiveValueFails() {
+    public void testInvalidPositiveValueFails() {
         assertThrows(IllegalArgumentException.class, () -> this.apply2(Character.MAX_VALUE + 1));
     }
 
