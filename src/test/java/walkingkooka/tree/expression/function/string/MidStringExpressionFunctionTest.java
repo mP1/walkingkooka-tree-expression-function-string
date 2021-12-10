@@ -31,17 +31,17 @@ public final class MidStringExpressionFunctionTest extends StringExpressionFunct
     }
 
     @Test
-    public final void testOneParametersFails() {
+    public void testOneParametersFails() {
         assertThrows(IllegalArgumentException.class, () -> this.apply2("a1"));
     }
 
     @Test
-    public final void testTwoParametersFails() {
+    public void testTwoParametersFails() {
         assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2"));
     }
 
     @Test
-    public final void testFourParametersFails() {
+    public void testFourParametersFails() {
         assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2", "c3", "d4"));
     }
 
