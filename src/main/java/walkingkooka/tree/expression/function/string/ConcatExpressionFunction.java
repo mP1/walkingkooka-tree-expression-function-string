@@ -56,7 +56,7 @@ final class ConcatExpressionFunction<C extends ExpressionFunctionContext> extend
     /**
      * Singleton
      */
-    private static final ConcatExpressionFunction INSTANCE = new ConcatExpressionFunction();
+    private static final ConcatExpressionFunction<?> INSTANCE = new ConcatExpressionFunction<>();
 
     /**
      * Private ctor

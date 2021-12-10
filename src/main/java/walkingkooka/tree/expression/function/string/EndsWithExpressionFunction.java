@@ -53,7 +53,7 @@ final class EndsWithExpressionFunction<C extends ExpressionFunctionContext> exte
     /**
      * Singleton
      */
-    private static final EndsWithExpressionFunction INSTANCE = new EndsWithExpressionFunction();
+    private static final EndsWithExpressionFunction<?> INSTANCE = new EndsWithExpressionFunction<>();
 
     /**
      * Private ctor

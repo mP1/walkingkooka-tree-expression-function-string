@@ -58,7 +58,7 @@ final class NormalizeSpaceExpressionFunction<C extends ExpressionFunctionContext
     /**
      * Singleton
      */
-    private static final NormalizeSpaceExpressionFunction INSTANCE = new NormalizeSpaceExpressionFunction();
+    private static final NormalizeSpaceExpressionFunction<?> INSTANCE = new NormalizeSpaceExpressionFunction<>();
 
     /**
      * Private ctor

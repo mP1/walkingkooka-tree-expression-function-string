@@ -39,7 +39,7 @@ final class CharExpressionFunction<C extends ExpressionFunctionContext> extends 
     /**
      * Singleton
      */
-    private static final CharExpressionFunction INSTANCE = new CharExpressionFunction();
+    private static final CharExpressionFunction<?> INSTANCE = new CharExpressionFunction<>();
 
     /**
      * Private ctor

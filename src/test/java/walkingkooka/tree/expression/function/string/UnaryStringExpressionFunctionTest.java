@@ -17,14 +17,15 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class UnaryStringExpressionFunctionTest implements ClassTesting<UnaryStringExpressionFunction> {
+public final class UnaryStringExpressionFunctionTest implements ClassTesting<UnaryStringExpressionFunction<?, ?>> {
 
     @Override
-    public Class<UnaryStringExpressionFunction> type() {
-        return UnaryStringExpressionFunction.class;
+    public Class<UnaryStringExpressionFunction<?, ?>> type() {
+        return Cast.to(UnaryStringExpressionFunction.class);
     }
 
     @Override

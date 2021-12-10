@@ -37,7 +37,7 @@ final class RightStringExpressionFunction<C extends ExpressionFunctionContext> e
     /**
      * Singleton
      */
-    private static final RightStringExpressionFunction INSTANCE = new RightStringExpressionFunction();
+    private static final RightStringExpressionFunction<?> INSTANCE = new RightStringExpressionFunction<>();
 
     /**
      * Private ctor

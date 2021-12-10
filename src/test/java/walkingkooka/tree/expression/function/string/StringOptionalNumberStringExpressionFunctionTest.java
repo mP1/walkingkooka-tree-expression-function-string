@@ -17,14 +17,15 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class StringOptionalNumberStringExpressionFunctionTest implements ClassTesting<StringOptionalNumberStringExpressionFunction> {
+public final class StringOptionalNumberStringExpressionFunctionTest implements ClassTesting<StringOptionalNumberStringExpressionFunction<?>> {
 
     @Override
-    public Class<StringOptionalNumberStringExpressionFunction> type() {
-        return StringOptionalNumberStringExpressionFunction.class;
+    public Class<StringOptionalNumberStringExpressionFunction<?>> type() {
+        return Cast.to(StringOptionalNumberStringExpressionFunction.class);
     }
 
     @Override

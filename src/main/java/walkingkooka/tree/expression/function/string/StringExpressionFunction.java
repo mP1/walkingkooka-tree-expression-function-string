@@ -81,7 +81,7 @@ abstract class StringExpressionFunction<T, C extends ExpressionFunctionContext> 
     /**
      * Converts a value into a {@link Comparable} with type parameters.
      */
-    final Comparable comparable(final Object value, final ExpressionFunctionContext context) {
+    final Comparable<?> comparable(final Object value, final ExpressionFunctionContext context) {
         return context.convertOrFail(value, Comparable.class);
     }
 

@@ -34,6 +34,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -52,10 +53,10 @@ final class SubstringExpressionFunction<C extends ExpressionFunctionContext> ext
         SubstringExpressionFunction<C> result;
         switch (indexBase) {
             case 0:
-                result = ZERO;
+                result = Cast.to(ZERO);
                 break;
             case 1:
-                result = ONE;
+                result = Cast.to(ONE);
                 break;
             default:
                 throw new IllegalArgumentException("Invalid indexBase " + indexBase + " expected either 0 or 1");
@@ -66,12 +67,12 @@ final class SubstringExpressionFunction<C extends ExpressionFunctionContext> ext
     /**
      * Singleton
      */
-    private static final SubstringExpressionFunction ZERO = new SubstringExpressionFunction(0);
+    private static final SubstringExpressionFunction<?> ZERO = new SubstringExpressionFunction<>(0);
 
     /**
      * Singleton
      */
-    private static final SubstringExpressionFunction ONE = new SubstringExpressionFunction(1);
+    private static final SubstringExpressionFunction<?> ONE = new SubstringExpressionFunction<>(1);
 
     /**
      * Private ctor

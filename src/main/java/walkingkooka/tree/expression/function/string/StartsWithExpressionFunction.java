@@ -53,7 +53,7 @@ final class StartsWithExpressionFunction<C extends ExpressionFunctionContext> ex
     /**
      * Singleton
      */
-    private static final StartsWithExpressionFunction INSTANCE = new StartsWithExpressionFunction();
+    private static final StartsWithExpressionFunction<?> INSTANCE = new StartsWithExpressionFunction<>();
 
     /**
      * Private ctor
