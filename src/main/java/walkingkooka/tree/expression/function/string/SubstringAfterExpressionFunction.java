@@ -53,7 +53,7 @@ final class SubstringAfterExpressionFunction<C extends ExpressionFunctionContext
     /**
      * Singleton
      */
-    private static final SubstringAfterExpressionFunction INSTANCE = new SubstringAfterExpressionFunction();
+    private static final SubstringAfterExpressionFunction<?> INSTANCE = new SubstringAfterExpressionFunction<>();
 
     /**
      * Private ctor

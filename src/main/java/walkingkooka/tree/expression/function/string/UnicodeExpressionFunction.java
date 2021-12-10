@@ -35,7 +35,7 @@ final class UnicodeExpressionFunction<C extends ExpressionFunctionContext> exten
     /**
      * Singleton
      */
-    private static final UnicodeExpressionFunction INSTANCE = new UnicodeExpressionFunction();
+    private static final UnicodeExpressionFunction<?> INSTANCE = new UnicodeExpressionFunction<>();
 
     /**
      * Private ctor

@@ -54,7 +54,7 @@ final class TextExpressionFunction<C extends ExpressionFunctionContext> extends 
     /**
      * Singleton
      */
-    private static final TextExpressionFunction INSTANCE = new TextExpressionFunction();
+    private static final TextExpressionFunction<?> INSTANCE = new TextExpressionFunction<>();
 
     /**
      * Private ctor

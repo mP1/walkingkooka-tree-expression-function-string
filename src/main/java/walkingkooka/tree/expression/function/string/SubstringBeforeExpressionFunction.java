@@ -53,7 +53,7 @@ final class SubstringBeforeExpressionFunction<C extends ExpressionFunctionContex
     /**
      * Singleton
      */
-    private static final SubstringBeforeExpressionFunction INSTANCE = new SubstringBeforeExpressionFunction();
+    private static final SubstringBeforeExpressionFunction<?> INSTANCE = new SubstringBeforeExpressionFunction<>();
 
     /**
      * Private ctor

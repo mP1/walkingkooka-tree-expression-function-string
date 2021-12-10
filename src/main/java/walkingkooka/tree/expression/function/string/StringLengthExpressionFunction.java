@@ -54,7 +54,7 @@ final class StringLengthExpressionFunction<C extends ExpressionFunctionContext> 
     /**
      * Singleton
      */
-    private static final StringLengthExpressionFunction INSTANCE = new StringLengthExpressionFunction();
+    private static final StringLengthExpressionFunction<?> INSTANCE = new StringLengthExpressionFunction<>();
 
     /**
      * Private ctor

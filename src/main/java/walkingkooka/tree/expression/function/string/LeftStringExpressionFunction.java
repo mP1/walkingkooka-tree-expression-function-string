@@ -37,7 +37,7 @@ final class LeftStringExpressionFunction<C extends ExpressionFunctionContext> ex
     /**
      * Singleton
      */
-    private static final LeftStringExpressionFunction INSTANCE = new LeftStringExpressionFunction();
+    private static final LeftStringExpressionFunction<?> INSTANCE = new LeftStringExpressionFunction<>();
 
     /**
      * Private ctor

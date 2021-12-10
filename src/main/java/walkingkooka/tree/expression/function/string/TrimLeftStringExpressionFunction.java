@@ -53,7 +53,7 @@ final class TrimLeftStringExpressionFunction<C extends ExpressionFunctionContext
     /**
      * Singleton
      */
-    private static final TrimLeftStringExpressionFunction INSTANCE = new TrimLeftStringExpressionFunction();
+    private static final TrimLeftStringExpressionFunction<?> INSTANCE = new TrimLeftStringExpressionFunction<>();
 
     /**
      * Private ctor

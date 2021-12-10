@@ -34,7 +34,7 @@ final class UpperCaseStringExpressionFunction<C extends ExpressionFunctionContex
     /**
      * Singleton
      */
-    private static final UpperCaseStringExpressionFunction INSTANCE = new UpperCaseStringExpressionFunction();
+    private static final UpperCaseStringExpressionFunction<?> INSTANCE = new UpperCaseStringExpressionFunction<>();
 
     /**
      * Private ctor

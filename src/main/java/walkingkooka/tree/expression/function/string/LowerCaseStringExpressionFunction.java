@@ -34,7 +34,7 @@ final class LowerCaseStringExpressionFunction<C extends ExpressionFunctionContex
     /**
      * Singleton
      */
-    private static final LowerCaseStringExpressionFunction INSTANCE = new LowerCaseStringExpressionFunction();
+    private static final LowerCaseStringExpressionFunction<?> INSTANCE = new LowerCaseStringExpressionFunction<>();
 
     /**
      * Private ctor

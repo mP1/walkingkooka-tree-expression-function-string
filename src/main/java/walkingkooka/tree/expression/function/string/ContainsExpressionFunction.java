@@ -53,7 +53,7 @@ final class ContainsExpressionFunction<C extends ExpressionFunctionContext> exte
     /**
      * Singleton
      */
-    private static final ContainsExpressionFunction INSTANCE = new ContainsExpressionFunction();
+    private static final ContainsExpressionFunction<?> INSTANCE = new ContainsExpressionFunction<>();
 
     /**
      * Private ctor

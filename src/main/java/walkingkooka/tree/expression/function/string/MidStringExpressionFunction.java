@@ -56,7 +56,7 @@ final class MidStringExpressionFunction<C extends ExpressionFunctionContext> ext
     /**
      * Singleton
      */
-    private static final MidStringExpressionFunction INSTANCE = new MidStringExpressionFunction();
+    private static final MidStringExpressionFunction<?> INSTANCE = new MidStringExpressionFunction<>();
 
     /**
      * Private ctor
