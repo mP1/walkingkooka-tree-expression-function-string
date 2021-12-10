@@ -66,8 +66,8 @@ public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunct
         return new FakeExpressionFunctionContext() {
 
             @Override
-            public <T> Either<T, String> convert(final Object value,
-                                                 final Class<T> target) {
+            public <TT> Either<TT, String> convert(final Object value,
+                                                   final Class<TT> target) {
                 if (target.isInstance(value)) {
                     return Cast.to(Either.left(target.cast(value)));
                 }
