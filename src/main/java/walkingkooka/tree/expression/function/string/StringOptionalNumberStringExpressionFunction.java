@@ -35,6 +35,8 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
@@ -85,4 +87,17 @@ abstract class StringOptionalNumberStringExpressionFunction<C extends Expression
     abstract String applyStringInteger(final String string,
                                        final int number,
                                        final ExpressionFunctionContext context);
+
+    @Override
+    public final List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    private final static ExpressionFunctionParameter<String> LENGTH = ExpressionFunctionParameterName.with("length")
+            .setType(String.class);
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
+            TEXT,
+            LENGTH
+    );
 }

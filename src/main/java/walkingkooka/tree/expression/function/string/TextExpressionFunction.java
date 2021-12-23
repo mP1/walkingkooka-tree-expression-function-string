@@ -37,6 +37,8 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
@@ -78,4 +80,14 @@ final class TextExpressionFunction<C extends ExpressionFunctionContext> extends 
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("text");
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    private final static ExpressionFunctionParameter<String> VALUE = ExpressionFunctionParameterName.with("value")
+            .setType(String.class);
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(VALUE);
 }

@@ -37,6 +37,8 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
@@ -87,4 +89,21 @@ final class MidStringExpressionFunction<C extends ExpressionFunctionContext> ext
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("mid");
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    private final static ExpressionFunctionParameter<Integer> START = ExpressionFunctionParameterName.with("start")
+            .setType(Integer.class);
+
+    private final static ExpressionFunctionParameter<Integer> LENGTH = ExpressionFunctionParameterName.with("length")
+            .setType(Integer.class);
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
+            TEXT,
+            START,
+            LENGTH
+    );
 }
