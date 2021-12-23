@@ -37,6 +37,8 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 import walkingkooka.tree.select.NodeSelectorException;
 
 import java.util.List;
@@ -51,6 +53,11 @@ abstract class StringExpressionFunction<T, C extends ExpressionFunctionContext> 
      */
     StringExpressionFunction() {
         super();
+    }
+
+    @Override
+    public final boolean lsLastParameterVariable() {
+        return this instanceof ConcatExpressionFunction;
     }
 
     /**
@@ -123,6 +130,9 @@ abstract class StringExpressionFunction<T, C extends ExpressionFunctionContext> 
         }
         return parameters.get(i);
     }
+
+    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
+            .setType(String.class);
 
     @Override
     public boolean resolveReferences() {

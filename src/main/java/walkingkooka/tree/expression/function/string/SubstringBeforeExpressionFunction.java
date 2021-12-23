@@ -37,6 +37,10 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
+
+import java.util.List;
 
 /**
  * A function that returns the part of string1 up before the first occurrence of string2
@@ -79,4 +83,17 @@ final class SubstringBeforeExpressionFunction<C extends ExpressionFunctionContex
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("substring-before");
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    private final static ExpressionFunctionParameter<String> AFTER = ExpressionFunctionParameterName.with("after")
+            .setType(String.class);
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
+            TEXT,
+            AFTER
+    );
 }

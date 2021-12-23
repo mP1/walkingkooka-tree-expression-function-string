@@ -36,6 +36,7 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 
@@ -61,4 +62,11 @@ abstract class UnaryStringExpressionFunction<T, C extends ExpressionFunctionCont
 
     abstract T applyString(final String value,
                            final ExpressionFunctionContext context);
+
+    @Override
+    public final List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
 }

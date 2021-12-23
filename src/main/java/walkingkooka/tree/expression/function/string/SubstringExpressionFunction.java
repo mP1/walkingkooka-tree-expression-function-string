@@ -37,6 +37,8 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
@@ -115,4 +117,21 @@ final class SubstringExpressionFunction<C extends ExpressionFunctionContext> ext
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("substring");
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    private final static ExpressionFunctionParameter<Integer> OFFSET = ExpressionFunctionParameterName.with("offset")
+            .setType(Integer.class);
+
+    private final static ExpressionFunctionParameter<Integer> LENGTH = ExpressionFunctionParameterName.with("length")
+            .setType(Integer.class);
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
+            TEXT,
+            OFFSET,
+            LENGTH
+    );
 }

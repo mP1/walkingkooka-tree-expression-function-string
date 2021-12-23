@@ -37,6 +37,10 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
+
+import java.util.List;
 
 /**
  * A function that returns the part of string1 after the first occurrence of string2
@@ -79,4 +83,17 @@ final class SubstringAfterExpressionFunction<C extends ExpressionFunctionContext
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("substring-after");
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    private final static ExpressionFunctionParameter<String> AFTER = ExpressionFunctionParameterName.with("after")
+            .setType(String.class);
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
+            TEXT,
+            AFTER
+    );
 }

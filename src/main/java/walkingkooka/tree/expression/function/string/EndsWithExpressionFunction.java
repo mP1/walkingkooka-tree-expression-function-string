@@ -37,6 +37,10 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
+
+import java.util.List;
 
 /**
  * A function that returns true if the first string ends with the second string.
@@ -75,4 +79,17 @@ final class EndsWithExpressionFunction<C extends ExpressionFunctionContext> exte
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("ends-with");
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    private final static ExpressionFunctionParameter<String> ENDS_WITH = ExpressionFunctionParameterName.with("start-with")
+            .setType(String.class);
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
+            TEXT,
+            ENDS_WITH
+    );
 }
