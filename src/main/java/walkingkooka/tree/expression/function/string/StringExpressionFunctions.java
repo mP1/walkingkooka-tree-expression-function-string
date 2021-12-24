@@ -36,6 +36,7 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -146,7 +147,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     /**
      * {@see StringLengthExpressionFunction}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Number, C> stringLength() {
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> stringLength() {
         return StringLengthExpressionFunction.instance();
     }
 
