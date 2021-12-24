@@ -18,17 +18,19 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
 /**
- * Converts the only parameter to a character.
+ * Converts the only parameter to a {@link String} with a character.
  * <a href="https://support.google.com/docs/answer/3094120?hl=en&ref_topic=3105625">CHAR</a>
  */
-final class CharExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<Character, C> {
+final class CharExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
 
     /**
      * Instance getter.
@@ -50,15 +52,16 @@ final class CharExpressionFunction<C extends ExpressionFunctionContext> extends 
     }
 
     @Override
-    public Character apply(final List<Object> parameters,
-                           final C context) {
+    public String apply(final List<Object> parameters,
+                        final C context) {
         this.checkParameterCount(parameters, 1);
 
-        final int value = this.integer(parameters, 0, context);
+        final int value = NUMBER.getOrFail(parameters, 0)
+                .intValue();
         if (value < Character.MIN_VALUE || value > Character.MAX_VALUE) {
             throw new IllegalArgumentException("Invalid character value " + value);
         }
-        return Character.valueOf((char) value);
+        return String.valueOf((char) value);
     }
 
     @Override
@@ -72,6 +75,9 @@ final class CharExpressionFunction<C extends ExpressionFunctionContext> extends 
     public List<ExpressionFunctionParameter<?>> parameters() {
         return PARAMETERS;
     }
+
+    final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameterName.with("number")
+            .setType(ExpressionNumber.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
 }

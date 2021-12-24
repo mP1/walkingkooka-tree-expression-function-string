@@ -19,11 +19,12 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class CharExpressionFunctionTest extends StringExpressionFunctionTestCase<CharExpressionFunction<ExpressionFunctionContext>, Character> {
+public final class CharExpressionFunctionTest extends StringExpressionFunctionTestCase<CharExpressionFunction<ExpressionFunctionContext>, String> {
 
     @Test
     public void testZeroParametersFails() {
@@ -47,27 +48,33 @@ public final class CharExpressionFunctionTest extends StringExpressionFunctionTe
 
     @Test
     public void testNegativeValueFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2(-1));
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> this.apply2(ExpressionNumberKind.DEFAULT.create(-1))
+        );
     }
 
     @Test
     public void testInvalidPositiveValueFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2(Character.MAX_VALUE + 1));
-    }
-
-    @Test
-    public void testNumberFormattedString() {
-        this.applyAndCheck3("65", 'A');
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> this.apply2(ExpressionNumberKind.DEFAULT.create(Character.MAX_VALUE + 1))
+        );
     }
 
     @Test
     public void testAsciiLetter() {
-        this.applyAndCheck3((int) 'a', 'a');
+        this.applyAndCheck3((int) 'a', "a");
     }
 
-    private void applyAndCheck3(final Object value,
-                                final char expected) {
-        this.applyAndCheck2(parameters(value), expected);
+    private void applyAndCheck3(final Number value,
+                                final String expected) {
+        this.applyAndCheck2(
+                parameters(
+                        ExpressionNumberKind.DEFAULT.create(value)
+                ),
+                expected
+        );
     }
 
     @Test
