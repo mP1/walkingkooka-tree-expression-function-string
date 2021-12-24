@@ -35,15 +35,22 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.FunctionExpressionName;
+import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
+
+import java.util.List;
 
 /**
  * Returns the length of the provided string.
  * <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/string-length"></a>
  * Unlike the Mozilla documentation, if the argument is missing an exception is thrown.
  */
-final class StringLengthExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<Number, C> {
+final class StringLengthExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<ExpressionNumber, C> {
     /**
      * Instance getter.
      */
@@ -64,9 +71,11 @@ final class StringLengthExpressionFunction<C extends ExpressionFunctionContext> 
     }
 
     @Override
-    Number applyString(final String value,
-                       final ExpressionFunctionContext context) {
-        return value.length();
+    public ExpressionNumber apply(final List<Object> parameters,
+                                  final C context) {
+        this.checkOnlyRequiredParameters(parameters);
+        return context.expressionNumberKind()
+                .create(TEXT.getOrFail(parameters, 0).length());
     }
 
     @Override
@@ -75,4 +84,34 @@ final class StringLengthExpressionFunction<C extends ExpressionFunctionContext> 
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("string-length");
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
+            .setType(String.class);
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
+
+    @Override
+    public boolean lsLastParameterVariable() {
+        return false;
+    }
+
+    @Override
+    public boolean resolveReferences() {
+        return false;
+    }
+
+    @Override
+    public boolean isPure(final ExpressionPurityContext context) {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.name().toString();
+    }
 }

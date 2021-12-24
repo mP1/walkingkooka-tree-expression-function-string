@@ -36,28 +36,38 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.collect.list.Lists;
+import walkingkooka.reflect.ClassTesting2;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
+import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
-public final class StringLengthExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<StringLengthExpressionFunction<ExpressionFunctionContext>, Number> {
+public final class StringLengthExpressionFunctionTest implements ExpressionFunctionTesting<StringLengthExpressionFunction<ExpressionFunctionContext>, ExpressionNumber, ExpressionFunctionContext>,
+        ClassTesting2<StringLengthExpressionFunction<ExpressionFunctionContext>> {
+
+    private final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
     @Test
     public void testEmptyString() {
-        this.applyAndCheck2(parameters(""), 0);
+        this.applyAndCheck(
+                Lists.of(""),
+                this.createContext(),
+                KIND.create(0)
+        );
     }
 
     @Test
     public void testString() {
-        this.applyAndCheck2(parameters("xyz"), 3);
-    }
+        final String text = "abc123";
 
-    @Test
-    public void testNumber() {
-        this.applyAndCheck2(parameters(123), 3);
-    }
-
-    @Test
-    public void testBoolean() {
-        this.applyAndCheck2(parameters(true), 4);
+        this.applyAndCheck(
+                Lists.of(text),
+                this.createContext(),
+                KIND.create(text.length())
+        );
     }
 
     @Test
@@ -70,8 +80,24 @@ public final class StringLengthExpressionFunctionTest extends UnaryStringExpress
         return StringLengthExpressionFunction.instance();
     }
 
+
+    @Override
+    public ExpressionFunctionContext createContext() {
+        return new FakeExpressionFunctionContext() {
+            @Override
+            public ExpressionNumberKind expressionNumberKind() {
+                return KIND;
+            }
+        };
+    }
+
     @Override
     public Class<StringLengthExpressionFunction<ExpressionFunctionContext>> type() {
         return Cast.to(StringLengthExpressionFunction.class);
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
