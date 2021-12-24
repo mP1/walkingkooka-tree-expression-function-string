@@ -23,17 +23,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class LowerCaseStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<LowerCaseStringExpressionFunction<ExpressionFunctionContext>, String> {
-
-    @Test
-    public void testBoolean() {
-        this.applyAndCheck2(parameters(true), "true");
-    }
-
-    @Test
-    public void testNumber() {
-        this.applyAndCheck2(parameters(123), "123");
-    }
+public final class LowerCaseStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<LowerCaseStringExpressionFunction<ExpressionFunctionContext>> {
 
     @Test
     public void testString() {

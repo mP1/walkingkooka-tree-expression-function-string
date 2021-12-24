@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class NormalizeSpaceExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<NormalizeSpaceExpressionFunction<ExpressionFunctionContext>, String> {
+public final class NormalizeSpaceExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<NormalizeSpaceExpressionFunction<ExpressionFunctionContext>> {
 
     @Test
     public void testUnnecessary() {
@@ -103,11 +103,6 @@ public final class NormalizeSpaceExpressionFunctionTest extends UnaryStringExpre
     @Test
     public void testIgnoresNonSpaceWhitespace3() {
         this.applyAndCheck3("a\r\n  b", "a b");
-    }
-
-    @Test
-    public void testNumber() {
-        this.applyAndCheck3(123, "123");
     }
 
     private void applyAndCheck3(final Object value, final String expected) {
