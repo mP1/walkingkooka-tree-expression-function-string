@@ -51,18 +51,8 @@ public final class ContainsExpressionFunctionTest extends StringStringBooleanExp
     }
 
     @Test
-    public void testContains3() {
-        this.applyAndCheck2(parameters(123, 1), true);
-    }
-
-    @Test
     public void testMissing() {
         this.applyAndCheck2(parameters("xyz", "a"), false);
-    }
-
-    @Test
-    public void testMissing2() {
-        this.applyAndCheck2(parameters(123, 4), false);
     }
 
     @Test
