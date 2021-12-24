@@ -196,7 +196,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     /**
      * {@see UnicodeExpressionFunction}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Number, C> unicode() {
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> unicode() {
         return UnicodeExpressionFunction.instance();
     }
 

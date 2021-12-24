@@ -18,40 +18,48 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.collect.list.Lists;
+import walkingkooka.reflect.ClassTesting2;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
+import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class UnicodeExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<UnicodeExpressionFunction<ExpressionFunctionContext>, Number> {
+public final class UnicodeExpressionFunctionTest implements ExpressionFunctionTesting<UnicodeExpressionFunction<ExpressionFunctionContext>, ExpressionNumber, ExpressionFunctionContext>,
+        ClassTesting2<UnicodeExpressionFunction<ExpressionFunctionContext>> {
+
+    private final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
     @Test
-    public void testEmptyString() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2(""));
+    public void testEmptyStringFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> this.createBiFunction().apply(Lists.of(""), this.createContext())
+        );
     }
 
     @Test
     public void testString() {
-        this.applyAndCheck3("a", 'a');
+        this.applyAndCheck(
+                Lists.of("a"),
+                this.createContext(),
+                KIND.create((int) 'a')
+        );
     }
 
     @Test
     public void testString2() {
-        this.applyAndCheck3("xyz", 'x');
-    }
+        final String text = "abc123";
 
-    @Test
-    public void testNumber() {
-        this.applyAndCheck3(123, '1');
-    }
-
-    @Test
-    public void testBoolean() {
-        this.applyAndCheck3(true, 't');
-    }
-
-    private void applyAndCheck3(final Object string,
-                                final char expected) {
-        this.applyAndCheck2(parameters(string), (int) expected);
+        this.applyAndCheck(
+                Lists.of(text),
+                this.createContext(),
+                KIND.create((int) 'a')
+        );
     }
 
     @Test
@@ -65,7 +73,22 @@ public final class UnicodeExpressionFunctionTest extends UnaryStringExpressionFu
     }
 
     @Override
+    public ExpressionFunctionContext createContext() {
+        return new FakeExpressionFunctionContext() {
+            @Override
+            public ExpressionNumberKind expressionNumberKind() {
+                return KIND;
+            }
+        };
+    }
+
+    @Override
     public Class<UnicodeExpressionFunction<ExpressionFunctionContext>> type() {
         return Cast.to(UnicodeExpressionFunction.class);
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
