@@ -47,7 +47,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
  * </pre>
  * Unlike the mention in the mozilla document, if the argument is missing, an exception will be thrown.
  */
-final class NormalizeSpaceExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<String, C> {
+final class NormalizeSpaceExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<C> {
     /**
      * Instance getter.
      */

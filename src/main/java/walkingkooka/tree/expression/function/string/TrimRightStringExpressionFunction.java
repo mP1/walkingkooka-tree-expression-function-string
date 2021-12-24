@@ -42,7 +42,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 /**
  * Performs a trim right after converting the value to a {@link String}.
  */
-final class TrimRightStringExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<String, C> {
+final class TrimRightStringExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<C> {
     /**
      * Instance getter.
      */

@@ -21,7 +21,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class UnaryStringExpressionFunctionTestCase<F extends UnaryStringExpressionFunction<T, ExpressionFunctionContext>, T> extends StringExpressionFunctionTestCase<F, T> {
+public abstract class UnaryStringExpressionFunctionTestCase<F extends UnaryStringExpressionFunction<ExpressionFunctionContext>> extends StringExpressionFunctionTestCase<F, String> {
 
     UnaryStringExpressionFunctionTestCase() {
         super();

@@ -20,17 +20,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class UpperCaseStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<UpperCaseStringExpressionFunction<ExpressionFunctionContext>, String> {
-
-    @Test
-    public void testBoolean() {
-        this.applyAndCheck2(parameters(true), "TRUE");
-    }
-
-    @Test
-    public void testNumber() {
-        this.applyAndCheck2(parameters(123), "123");
-    }
+public final class UpperCaseStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<UpperCaseStringExpressionFunction<ExpressionFunctionContext>> {
 
     @Test
     public void testString() {

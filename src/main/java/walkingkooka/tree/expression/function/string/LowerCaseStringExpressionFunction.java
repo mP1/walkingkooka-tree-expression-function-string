@@ -23,7 +23,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 /**
  * Performs a lower case converting the value to a {@link String} using the current {@link java.util.Locale}.
  */
-final class LowerCaseStringExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<String, C> {
+final class LowerCaseStringExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<C> {
     /**
      * Instance getter.
      */

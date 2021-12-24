@@ -38,17 +38,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class TrimLeftStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<TrimLeftStringExpressionFunction<ExpressionFunctionContext>, String> {
-
-    @Test
-    public void testBoolean() {
-        this.applyAndCheck2(parameters(true), "true");
-    }
-
-    @Test
-    public void testNumber() {
-        this.applyAndCheck2(parameters(123), "123");
-    }
+public final class TrimLeftStringExpressionFunctionTest extends UnaryStringExpressionFunctionTestCase<TrimLeftStringExpressionFunction<ExpressionFunctionContext>> {
 
     @Test
     public void testString() {
