@@ -85,6 +85,11 @@ final class ContainsExpressionFunction<C extends ExpressionFunctionContext> exte
         return PARAMETERS;
     }
 
+    @Override
+    ExpressionFunctionParameter<String> secondParameter() {
+        return CONTAINS;
+    }
+
     private final static ExpressionFunctionParameter<String> CONTAINS = ExpressionFunctionParameterName.with("contains")
             .setType(String.class);
 

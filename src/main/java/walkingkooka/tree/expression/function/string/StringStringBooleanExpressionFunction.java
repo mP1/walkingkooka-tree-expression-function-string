@@ -34,14 +34,18 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.tree.expression.ExpressionPurityContext;
+import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
 /**
  * A function that requires 2 string parameters and returns a {@link Boolean} result.
  */
-abstract class StringStringBooleanExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<Boolean, C> {
+abstract class StringStringBooleanExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<Boolean, C> {
 
     /**
      * Package private ctor
@@ -53,14 +57,41 @@ abstract class StringStringBooleanExpressionFunction<C extends ExpressionFunctio
     @Override
     public Boolean apply(final List<Object> parameters,
                          final C context) {
-        this.checkParameterCount(parameters, 2);
+        this.checkOnlyRequiredParameters(parameters);
 
-        return this.applyStringString(this.string(parameters, 0, context),
-                this.string(parameters, 1, context),
-                context);
+        return this.applyStringString(
+                TEXT.getOrFail(parameters, 0),
+                this.secondParameter().getOrFail(parameters, 1),
+                context
+        );
     }
+
+    abstract ExpressionFunctionParameter<String> secondParameter();
 
     abstract Boolean applyStringString(final String first,
                                        final String second,
                                        final ExpressionFunctionContext context);
+
+    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
+            .setType(String.class);
+
+    @Override
+    public final boolean lsLastParameterVariable() {
+        return false;
+    }
+
+    @Override
+    public final boolean resolveReferences() {
+        return false;
+    }
+
+    @Override
+    public final boolean isPure(final ExpressionPurityContext context) {
+        return true;
+    }
+
+    @Override
+    public final String toString() {
+        return this.name().toString();
+    }
 }

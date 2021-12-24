@@ -85,6 +85,11 @@ final class StartsWithExpressionFunction<C extends ExpressionFunctionContext> ex
         return PARAMETERS;
     }
 
+    @Override
+    ExpressionFunctionParameter<String> secondParameter() {
+        return STARTS_WITH;
+    }
+
     private final static ExpressionFunctionParameter<String> STARTS_WITH = ExpressionFunctionParameterName.with("start-with")
             .setType(String.class);
 

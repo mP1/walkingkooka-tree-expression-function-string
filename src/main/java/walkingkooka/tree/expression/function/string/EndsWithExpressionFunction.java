@@ -85,7 +85,12 @@ final class EndsWithExpressionFunction<C extends ExpressionFunctionContext> exte
         return PARAMETERS;
     }
 
-    private final static ExpressionFunctionParameter<String> ENDS_WITH = ExpressionFunctionParameterName.with("start-with")
+    @Override
+    ExpressionFunctionParameter<String> secondParameter() {
+        return ENDS_WITH;
+    }
+
+    private final static ExpressionFunctionParameter<String> ENDS_WITH = ExpressionFunctionParameterName.with("ends-with")
             .setType(String.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
