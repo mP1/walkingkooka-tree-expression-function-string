@@ -17,14 +17,21 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.FunctionExpressionName;
+import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
+
+import java.util.List;
 
 /**
  * Returns the unicode of the first character in the provided {@link String}
  * <a href="https://support.google.com/docs/answer/9149523?hl=en&ref_topic=3105625"></a>
  */
-final class UnicodeExpressionFunction<C extends ExpressionFunctionContext> extends UnaryStringExpressionFunction<Number, C> {
+final class UnicodeExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<ExpressionNumber, C> {
     /**
      * Instance getter.
      */
@@ -45,12 +52,17 @@ final class UnicodeExpressionFunction<C extends ExpressionFunctionContext> exten
     }
 
     @Override
-    Number applyString(final String string,
-                       final ExpressionFunctionContext context) {
+    public ExpressionNumber apply(final List<Object> parameters,
+                                  final C context) {
+        this.checkOnlyRequiredParameters(parameters);
+
+        final String string = TEXT.getOrFail(parameters, 0);
         if (string.length() == 0) {
             throw new IllegalArgumentException("Unicode requires a string with at least 1 character");
         }
-        return (int) string.charAt(0);
+
+        return context.expressionNumberKind()
+                .create((int) string.charAt(0));
     }
 
     @Override
@@ -59,4 +71,34 @@ final class UnicodeExpressionFunction<C extends ExpressionFunctionContext> exten
     }
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("unicode");
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
+            .setType(String.class);
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
+
+    @Override
+    public boolean lsLastParameterVariable() {
+        return false;
+    }
+
+    @Override
+    public boolean resolveReferences() {
+        return false;
+    }
+
+    @Override
+    public boolean isPure(final ExpressionPurityContext context) {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.name().toString();
+    }
 }
