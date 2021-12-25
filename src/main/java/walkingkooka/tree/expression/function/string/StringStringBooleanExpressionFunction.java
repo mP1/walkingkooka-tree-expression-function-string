@@ -81,6 +81,11 @@ abstract class StringStringBooleanExpressionFunction<C extends ExpressionFunctio
     }
 
     @Override
+    public final Class<Boolean> returnType() {
+        return Boolean.class;
+    }
+
+    @Override
     public final boolean resolveReferences() {
         return false;
     }

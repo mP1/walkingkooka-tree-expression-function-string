@@ -101,6 +101,11 @@ final class StringLengthExpressionFunction<C extends ExpressionFunctionContext> 
     }
 
     @Override
+    public Class<ExpressionNumber> returnType() {
+        return ExpressionNumber.class;
+    }
+
+    @Override
     public boolean resolveReferences() {
         return false;
     }

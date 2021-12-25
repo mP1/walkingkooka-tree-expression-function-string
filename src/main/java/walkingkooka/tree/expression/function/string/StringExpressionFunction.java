@@ -70,6 +70,11 @@ abstract class StringExpressionFunction<C extends ExpressionFunctionContext> imp
             .setType(String.class);
 
     @Override
+    public final Class<String> returnType() {
+        return String.class;
+    }
+
+    @Override
     public final boolean resolveReferences() {
         return false;
     }
