@@ -44,63 +44,69 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SubstringExpressionFunctionTest extends StringExpressionFunctionTestCase<SubstringExpressionFunction<ExpressionFunctionContext>, String> {
 
     @Test
-    public void testZeroParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2(this));
-    }
-
-    @Test
-    public void testOneParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1"));
-    }
-
-    @Test
-    public void testTwoParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2"));
-    }
-
-    @Test
-    public void testFourParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", 2, 3, 4));
-    }
-
-    @Test
     public void testSubstringOutOfRange() {
-        assertThrows(StringIndexOutOfBoundsException.class, () -> this.apply2("abcdef", -2, 2));
+        assertThrows2(StringIndexOutOfBoundsException.class, "abcdef", -2, 2);
     }
 
     @Test
     public void testSubstringOutOfRange2() {
-        assertThrows(StringIndexOutOfBoundsException.class, () -> this.apply2("abcdef", 2, -1));
+        assertThrows2(StringIndexOutOfBoundsException.class, "abcdef", 2, -1);
     }
 
     @Test
     public void testSubstringOutOfRange3() {
-        assertThrows(StringIndexOutOfBoundsException.class, () -> this.apply2("abcdef", 1, 99));
+        assertThrows2(StringIndexOutOfBoundsException.class, "abcdef", 1, 99);
+    }
+
+    private void assertThrows2(final Class<? extends Throwable> thrown,
+                               final String text,
+                               final int start,
+                               final int end) {
+        assertThrows(
+                thrown,
+                () -> {
+                    this.apply2(text, KIND.create(start), KIND.create(end));
+                }
+        );
     }
 
     @Test
     public void testSubstring() {
-        this.applyAndCheck2(parameters("abcdef", 3, 0), "");
+        this.applyAndCheck3("abcdef", 3, 0, "");
     }
 
     @Test
     public void testSubstring2() {
-        this.applyAndCheck2(parameters("abcdef", 4, 1), "d");
+        this.applyAndCheck3("abcdef", 4, 1, "d");
     }
 
     @Test
     public void testSubstring3() {
-        this.applyAndCheck2(parameters("abcdef", 3, 2), "cd");
+        this.applyAndCheck3("abcdef", 3, 2, "cd");
     }
 
     @Test
     public void testSubstringLengthMissing() {
-        this.applyAndCheck2(parameters("abcdef", 2), "bcdef");
+        this.applyAndCheck3("abcdef", 2, "bcdef");
     }
 
     @Test
     public void testSubstringLengthMissing2() {
-        this.applyAndCheck2(parameters("abc", 3), "c");
+        this.applyAndCheck3("abc", 3, "c");
+    }
+
+    private void applyAndCheck3(final String text, final int start, final String result) {
+        this.applyAndCheck2(
+                this.parameters(text, KIND.create(start)),
+                result
+        );
+    }
+
+    private void applyAndCheck3(final String text, final int start, final int length, final String result) {
+        this.applyAndCheck2(
+                this.parameters(text, KIND.create(start), KIND.create(length)),
+                result
+        );
     }
 
     @Test

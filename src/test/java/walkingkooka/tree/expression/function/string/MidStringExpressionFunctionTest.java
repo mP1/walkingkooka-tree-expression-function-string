@@ -47,62 +47,69 @@ public final class MidStringExpressionFunctionTest extends StringExpressionFunct
 
     @Test
     public void testStringStartAndEndWithinBounds() {
-        this.applyAndCheck2(parameters("abc", 0, 0), "");
+        this.applyAndCheck3("abc", 0, 0, "");
     }
 
     @Test
     public void testStringStartAndEndWithinBounds2() {
-        this.applyAndCheck2(parameters("abc", 1, 0), "");
+        this.applyAndCheck3("abc", 1, 0, "");
     }
 
     @Test
     public void testStringStartAndEndWithinBounds3() {
-        this.applyAndCheck2(parameters("abc", 0, 1), "a");
+        this.applyAndCheck3("abc", 0, 1, "a");
     }
 
     @Test
     public void testStringStartAndEndWithinBounds4() {
-        this.applyAndCheck2(parameters("abc", 0, 2), "ab");
+        this.applyAndCheck3("abc", 0, 2, "ab");
     }
 
     @Test
     public void testStringStartAndEndWithinBounds5() {
-        this.applyAndCheck2(parameters("abc", 1, 1), "b");
+        this.applyAndCheck3("abc", 1, 1, "b");
     }
 
     @Test
     public void testStringStartAndEndWithinBounds6() {
-        this.applyAndCheck2(parameters("abc", 1, 2), "bc");
+        this.applyAndCheck3("abc", 1, 2, "bc");
     }
 
     @Test
     public void testStringLengthPastEnd() {
-        this.applyAndCheck2(parameters("abc", 1, 3), "bc");
+        this.applyAndCheck3("abc", 1, 3, "bc");
     }
 
     @Test
     public void testStringStartAndEndWithinBounds7() {
-        this.applyAndCheck2(parameters("abcde", 4, 1), "e");
+        this.applyAndCheck3("abcde", 4, 1, "e");
     }
 
     @Test
     public void testStringStartAndEndWithinBounds8() {
-        this.applyAndCheck2(parameters("abcde", 3, 2), "de");
+        this.applyAndCheck3("abcde", 3, 2, "de");
     }
 
     @Test
     public void testStringInvalidStart() {
-        this.applyAndCheck2(parameters("abcde", -2, 2), "");
+        this.applyAndCheck3("abcde", -2, 2, "");
     }
 
     @Test
     public void testStringInvalidStart2() {
-        this.applyAndCheck2(parameters("abcde", -2, 3), "a");
+        this.applyAndCheck3("abcde", -2, 3, "a");
     }
 
     @Test
     public void testStringInvalidStart3() {
-        this.applyAndCheck2(parameters("abcde", -2, 4), "ab");
+        this.applyAndCheck3("abcde", -2, 4, "ab");
+    }
+
+    private void applyAndCheck3(final String text, final int start, final int length, final String result) {
+        this.applyAndCheck2(
+                this.parameters(text, KIND.create(start), KIND.create(length)),
+                result
+        );
     }
 
     @Test

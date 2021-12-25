@@ -48,8 +48,7 @@ final class RightStringExpressionFunction<C extends ExpressionFunctionContext> e
 
     @Override
     String applyStringInteger(final String string,
-                              final int length,
-                              final ExpressionFunctionContext context) {
+                              final int length) {
         final int stringLength = string.length();
 
         return string.substring(Math.max(0, Math.min(stringLength - length, stringLength)), stringLength);

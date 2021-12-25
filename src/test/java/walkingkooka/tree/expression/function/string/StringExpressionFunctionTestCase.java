@@ -22,6 +22,7 @@ import walkingkooka.Either;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.tree.expression.ExpressionEvaluationContexts;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
@@ -32,6 +33,8 @@ import java.util.Locale;
 
 public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionFunctionContext>, T> implements ExpressionFunctionTesting<F, T, ExpressionFunctionContext>,
         ClassTesting2<F> {
+
+    final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
     StringExpressionFunctionTestCase() {
         super();
@@ -52,13 +55,22 @@ public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunct
 
     final void applyAndCheck2(final List<Object> parameters,
                               final T result) {
-        this.applyAndCheck2(this.createBiFunction(), parameters, result);
+        this.applyAndCheck2(
+                this.createBiFunction(),
+                parameters,
+                result
+        );
     }
 
     final void applyAndCheck2(final ExpressionFunction<T, ExpressionFunctionContext> function,
                               final List<Object> parameters,
                               final T result) {
-        this.applyAndCheck2(function, parameters, this.createContext(), result);
+        this.applyAndCheck2(
+                function,
+                parameters,
+                this.createContext(),
+                result
+        );
     }
 
     @Override

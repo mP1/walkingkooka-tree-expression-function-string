@@ -41,53 +41,43 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 public final class RightStringExpressionFunctionTest extends StringOptionalNumberStringExpressionFunctionTestCase<RightStringExpressionFunction<ExpressionFunctionContext>> {
 
     @Test
-    public void testBoolean() {
-        this.applyAndCheck2(parameters(true), "e");
-    }
-
-    @Test
-    public void testNumber() {
-        this.applyAndCheck2(parameters(123), "3");
-    }
-
-    @Test
     public void testString() {
-        this.applyAndCheck2(parameters("abcXYZ"), "Z");
+        this.applyAndCheck3("abcXYZ", "Z");
     }
 
     @Test
     public void testStringWithNegative() {
-        this.applyAndCheck2(parameters(" abcXYZ", -1), "");
+        this.applyAndCheck3(" abcXYZ", -1, "");
     }
 
     @Test
     public void testStringWithZero() {
-        this.applyAndCheck2(parameters(" abcXYZ", 0), "");
+        this.applyAndCheck3(" abcXYZ", 0, "");
     }
 
     @Test
     public void testStringWithOne() {
-        this.applyAndCheck2(parameters("abcXYZ", 1), "Z");
+        this.applyAndCheck3("abcXYZ", 1, "Z");
     }
 
     @Test
     public void testStringWithTwo() {
-        this.applyAndCheck2(parameters("abcXYZ", 2), "YZ");
+        this.applyAndCheck3("abcXYZ", 2, "YZ");
     }
 
     @Test
     public void testStringWithFour() {
-        this.applyAndCheck2(parameters("abcXYZ", 4), "cXYZ");
+        this.applyAndCheck3("abcXYZ", 4, "cXYZ");
     }
 
     @Test
     public void testStringWithMax() {
-        this.applyAndCheck2(parameters("abcXYZ", 6), "abcXYZ");
+        this.applyAndCheck3("abcXYZ", 6, "abcXYZ");
     }
 
     @Test
     public void testStringWithTooMany() {
-        this.applyAndCheck2(parameters("abcXYZ", 7), "abcXYZ");
+        this.applyAndCheck3("abcXYZ", 7, "abcXYZ");
     }
 
     @Test

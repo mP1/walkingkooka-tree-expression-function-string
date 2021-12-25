@@ -38,10 +38,10 @@ import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class StringExpressionFunctionTest implements ClassTesting2<StringExpressionFunction<?, ?>> {
+public final class StringExpressionFunctionTest implements ClassTesting2<StringExpressionFunction<?>> {
 
     @Override
-    public Class<StringExpressionFunction<?, ?>> type() {
+    public Class<StringExpressionFunction<?>> type() {
         return Cast.to(StringExpressionFunction.class);
     }
 

@@ -35,13 +35,14 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 
 /**
  * A function that requires 2 string parameters and returns a {@link String} result.
  */
-abstract class StringStringStringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
+abstract class StringStringStringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
 
     /**
      * Package private ctor
@@ -53,12 +54,15 @@ abstract class StringStringStringExpressionFunction<C extends ExpressionFunction
     @Override
     public String apply(final List<Object> parameters,
                         final C context) {
-        this.checkParameterCount(parameters, 2);
+        this.checkOnlyRequiredParameters(parameters);
 
-        return this.applyStringString(this.string(parameters, 0, context),
-                this.string(parameters, 1, context),
+        return this.applyStringString(
+                TEXT.getOrFail(parameters, 0),
+                this.secondParameter().getOrFail(parameters, 1),
                 context);
     }
+
+    abstract ExpressionFunctionParameter<String> secondParameter();
 
     abstract String applyStringString(final String first,
                                       final String second,
