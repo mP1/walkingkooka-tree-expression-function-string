@@ -93,7 +93,7 @@ abstract class UnaryStringExpressionFunction<C extends ExpressionFunctionContext
 
     @Override
     public final boolean resolveReferences() {
-        return true;
+        return false;
     }
 
     @Override
