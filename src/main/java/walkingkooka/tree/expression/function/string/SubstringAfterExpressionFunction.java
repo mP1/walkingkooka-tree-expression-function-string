@@ -89,6 +89,11 @@ final class SubstringAfterExpressionFunction<C extends ExpressionFunctionContext
         return PARAMETERS;
     }
 
+    @Override
+    ExpressionFunctionParameter<String> secondParameter() {
+        return AFTER;
+    }
+
     private final static ExpressionFunctionParameter<String> AFTER = ExpressionFunctionParameterName.with("after")
             .setType(String.class);
 

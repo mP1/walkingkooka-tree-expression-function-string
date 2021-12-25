@@ -35,6 +35,7 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
@@ -46,7 +47,7 @@ import java.util.List;
  * A function that returns a substring of another string.<br>
  * <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/substring"></a>
  */
-final class SubstringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
+final class SubstringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
 
     /**
      * Factory that returns a matching {@link SubstringExpressionFunction}
@@ -88,22 +89,27 @@ final class SubstringExpressionFunction<C extends ExpressionFunctionContext> ext
     public String apply(final List<Object> parameters,
                         final C context) {
         final int parameterCount = parameters.size();
+
+        final String string;
+        final int offset;
+        final int length;
+
         switch (parameterCount) {
             case 2:
+                string = TEXT.getOrFail(parameters, 0);
+                offset = OFFSET.getOrFail(parameters, 1).intValue();
+                length = string.length() - offset + this.indexBase;
+                break;
             case 3:
+                string = TEXT.getOrFail(parameters, 0);
+                offset = OFFSET.getOrFail(parameters, 1).intValue();
+                length = LENGTH.getOrFail(parameters, 2).intValue();
                 break;
             default:
-                throw new IllegalArgumentException("Expected 2 or 3 parameters (String, offset, [length])=" + parameters.subList(1, parameterCount));
+                throw new IllegalArgumentException("Expected 2 or 3 parameters (String, offset, [length]) but got " + parameterCount);
         }
 
-        final String string = this.string(parameters, 0, context);
-
-        final int offset = this.integer(parameters, 1, context);
         final int zeroOffset = offset - this.indexBase;
-
-        final int length = parameterCount == 3 ?
-                this.integer(parameters, 2, context) :
-                string.length() - offset + this.indexBase;
 
         return string.substring(zeroOffset, length + zeroOffset);
     }
@@ -123,11 +129,11 @@ final class SubstringExpressionFunction<C extends ExpressionFunctionContext> ext
         return PARAMETERS;
     }
 
-    private final static ExpressionFunctionParameter<Integer> OFFSET = ExpressionFunctionParameterName.with("offset")
-            .setType(Integer.class);
+    private final static ExpressionFunctionParameter<ExpressionNumber> OFFSET = ExpressionFunctionParameterName.with("offset")
+            .setType(ExpressionNumber.class);
 
-    private final static ExpressionFunctionParameter<Integer> LENGTH = ExpressionFunctionParameterName.with("length")
-            .setType(Integer.class);
+    private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
+            .setType(ExpressionNumber.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,

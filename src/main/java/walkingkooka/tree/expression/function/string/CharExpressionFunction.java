@@ -30,7 +30,7 @@ import java.util.List;
  * Converts the only parameter to a {@link String} with a character.
  * <a href="https://support.google.com/docs/answer/3094120?hl=en&ref_topic=3105625">CHAR</a>
  */
-final class CharExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
+final class CharExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
 
     /**
      * Instance getter.
@@ -54,7 +54,7 @@ final class CharExpressionFunction<C extends ExpressionFunctionContext> extends 
     @Override
     public String apply(final List<Object> parameters,
                         final C context) {
-        this.checkParameterCount(parameters, 1);
+        this.checkOnlyRequiredParameters(parameters);
 
         final int value = NUMBER.getOrFail(parameters, 0)
                 .intValue();

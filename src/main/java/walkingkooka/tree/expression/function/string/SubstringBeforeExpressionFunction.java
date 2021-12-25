@@ -89,11 +89,16 @@ final class SubstringBeforeExpressionFunction<C extends ExpressionFunctionContex
         return PARAMETERS;
     }
 
-    private final static ExpressionFunctionParameter<String> AFTER = ExpressionFunctionParameterName.with("after")
+    @Override
+    ExpressionFunctionParameter<String> secondParameter() {
+        return BEFORE;
+    }
+
+    private final static ExpressionFunctionParameter<String> BEFORE = ExpressionFunctionParameterName.with("before")
             .setType(String.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,
-            AFTER
+            BEFORE
     );
 }

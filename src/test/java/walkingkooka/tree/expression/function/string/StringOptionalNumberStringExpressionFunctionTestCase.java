@@ -19,12 +19,29 @@ package walkingkooka.tree.expression.function.string;
 import org.junit.jupiter.api.Test;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class StringOptionalNumberStringExpressionFunctionTestCase<F extends StringOptionalNumberStringExpressionFunction<ExpressionFunctionContext>> extends StringExpressionFunctionTestCase<F, String> {
 
     StringOptionalNumberStringExpressionFunctionTestCase() {
         super();
+    }
+
+    final void applyAndCheck3(final String text, final String result) {
+        this.applyAndCheck2(
+                List.of(text),
+                result
+        );
+    }
+
+
+    final void applyAndCheck3(final String text, final int length, final String result) {
+        this.applyAndCheck2(
+                List.of(text, KIND.create(length)),
+                result
+        );
     }
 
     @Test

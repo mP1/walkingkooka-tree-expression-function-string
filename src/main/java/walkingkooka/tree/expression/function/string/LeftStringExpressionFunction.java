@@ -48,8 +48,7 @@ final class LeftStringExpressionFunction<C extends ExpressionFunctionContext> ex
 
     @Override
     String applyStringInteger(final String string,
-                              final int length,
-                              final ExpressionFunctionContext context) {
+                              final int length) {
         return string.substring(0, Math.max(0, Math.min(length, string.length())));
     }
 

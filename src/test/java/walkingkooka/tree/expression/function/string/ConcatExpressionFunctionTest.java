@@ -68,16 +68,6 @@ public final class ConcatExpressionFunctionTest extends StringExpressionFunction
     }
 
     @Test
-    public void testBoolean() {
-        this.applyAndCheck2(parameters("a1", true, false), "a1truefalse");
-    }
-
-    @Test
-    public void testNumbers() {
-        this.applyAndCheck2(parameters("a1", 1, 234L), "a11234");
-    }
-
-    @Test
     public void testToString() {
         this.toStringAndCheck(this.createBiFunction(), "concat");
     }

@@ -45,7 +45,7 @@ import java.util.List;
 /**
  * A function that converts the given value into a {@link String}.
  */
-final class TextExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
+final class TextExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
     /**
      * Instance getter.
      */
@@ -68,9 +68,12 @@ final class TextExpressionFunction<C extends ExpressionFunctionContext> extends 
     @Override
     public String apply(final List<Object> parameters,
                         final C context) {
-        this.checkParameterCount(parameters, 1);
+        this.checkOnlyRequiredParameters(parameters);
 
-        return this.string(parameters, 0, context);
+        return context.convertOrFail(
+                VALUE.getOrFail(parameters, 0),
+                String.class
+        );
     }
 
 

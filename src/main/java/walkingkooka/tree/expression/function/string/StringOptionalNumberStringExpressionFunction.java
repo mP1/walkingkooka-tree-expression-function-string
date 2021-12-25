@@ -34,6 +34,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
@@ -43,7 +44,7 @@ import java.util.List;
 /**
  * A function that requires a {@link String} and an optional {@link Number} returning a {@link String} result.
  */
-abstract class StringOptionalNumberStringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
+abstract class StringOptionalNumberStringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
 
     /**
      * Package private ctor
@@ -60,12 +61,16 @@ abstract class StringOptionalNumberStringExpressionFunction<C extends Expression
         final int count = parameters.size();
         switch (count) {
             case 1:
-                result = this.applyStringInteger(this.stringParameter0(parameters, context), 1, context);
+                result = this.applyStringInteger(
+                        TEXT.getOrFail(parameters, 0),
+                        1
+                );
                 break;
             case 2:
-                result = this.applyStringInteger(this.stringParameter0(parameters, context),
-                        this.numberParameter1(parameters, context),
-                        context);
+                result = this.applyStringInteger(
+                        TEXT.getOrFail(parameters, 0),
+                        LENGTH.getOrFail(parameters, 1).intValue()
+                );
                 break;
             default:
                 throw new IllegalArgumentException("Expected 1 or 2 parameters but got " + count + "=" + parameters);
@@ -74,27 +79,16 @@ abstract class StringOptionalNumberStringExpressionFunction<C extends Expression
         return result;
     }
 
-    private String stringParameter0(final List<Object> parameters,
-                                    final ExpressionFunctionContext context) {
-        return this.string(parameters, 0, context);
-    }
-
-    private int numberParameter1(final List<Object> parameters,
-                                 final ExpressionFunctionContext context) {
-        return this.integer(parameters, 1, context);
-    }
-
     abstract String applyStringInteger(final String string,
-                                       final int number,
-                                       final ExpressionFunctionContext context);
+                                       final int number);
 
     @Override
     public final List<ExpressionFunctionParameter<?>> parameters() {
         return PARAMETERS;
     }
 
-    private final static ExpressionFunctionParameter<String> LENGTH = ExpressionFunctionParameterName.with("length")
-            .setType(String.class);
+    private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
+            .setType(ExpressionNumber.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,

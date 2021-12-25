@@ -35,6 +35,7 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
@@ -46,7 +47,7 @@ import java.util.List;
  * The excel mid function.
  * <a href="https://support.google.com/docs/answer/3094129?hl=en&ref_topic=3105625>MID</a>
  */
-final class MidStringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
+final class MidStringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
 
     /**
      * Instance getter.
@@ -70,11 +71,11 @@ final class MidStringExpressionFunction<C extends ExpressionFunctionContext> ext
     @Override
     public String apply(final List<Object> parameters,
                         final C context) {
-        this.checkParameterCount(parameters, 3);
+        this.checkOnlyRequiredParameters(parameters);
 
-        final String string = this.string(parameters, 0, context);
-        final int start = this.integer(parameters, 1, context);
-        final int length = this.integer(parameters, 2, context);
+        final String string = TEXT.getOrFail(parameters, 0);
+        final int start = START.getOrFail(parameters, 1).intValue();
+        final int length = LENGTH.getOrFail(parameters, 2).intValue();
 
         final int stringLength = string.length();
 
@@ -95,11 +96,11 @@ final class MidStringExpressionFunction<C extends ExpressionFunctionContext> ext
         return PARAMETERS;
     }
 
-    private final static ExpressionFunctionParameter<Integer> START = ExpressionFunctionParameterName.with("start")
-            .setType(Integer.class);
+    private final static ExpressionFunctionParameter<ExpressionNumber> START = ExpressionFunctionParameterName.with("start")
+            .setType(ExpressionNumber.class);
 
-    private final static ExpressionFunctionParameter<Integer> LENGTH = ExpressionFunctionParameterName.with("length")
-            .setType(Integer.class);
+    private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
+            .setType(ExpressionNumber.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,

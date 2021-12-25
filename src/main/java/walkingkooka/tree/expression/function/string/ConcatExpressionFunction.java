@@ -45,7 +45,7 @@ import java.util.stream.Collectors;
 /**
  * A function that concats all the Strings given to it.
  */
-final class ConcatExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<String, C> {
+final class ConcatExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
 
     /**
      * Instance getter.
@@ -75,7 +75,7 @@ final class ConcatExpressionFunction<C extends ExpressionFunctionContext> extend
         }
 
         return parameters.stream()
-                .map(p -> this.string(p, context))
+                .map(p -> (String) p)
                 .collect(Collectors.joining());
     }
 
