@@ -34,18 +34,16 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
 /**
  * A {@link ExpressionFunction} that handles a single {@link String} parameter.
  */
-abstract class UnaryStringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+abstract class UnaryStringExpressionFunction<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
 
     /**
      * Package private ctor
@@ -73,31 +71,5 @@ abstract class UnaryStringExpressionFunction<C extends ExpressionFunctionContext
         return PARAMETERS;
     }
 
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
-
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
-
-    @Override
-    public final boolean lsLastParameterVariable() {
-        return false;
-    }
-
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
-    @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-    @Override
-    public final boolean resolveReferences() {
-        return false;
-    }
-
-    @Override
-    public final String toString() {
-        return this.name().toString();
-    }
 }
