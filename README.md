@@ -7,7 +7,8 @@
 
 
 # walkingkooka-tree-expression-function-string
-A collection of ExpressionFunction(s) that operate and return number results.
+A collection of ExpressionFunction(s) that operate and return string(text) results. Many of the functions follow Excel
+semantics.
 
 
 
