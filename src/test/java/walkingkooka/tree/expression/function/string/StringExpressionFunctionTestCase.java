@@ -49,6 +49,11 @@ public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunct
         );
     }
 
+    @Test
+    public final void testResolveReferencesTrue() {
+        this.resolveReferenceAndCheck(true);
+    }
+
     final void apply2(final Object... parameters) {
         this.createBiFunction().apply(parameters(parameters), this.createContext());
     }

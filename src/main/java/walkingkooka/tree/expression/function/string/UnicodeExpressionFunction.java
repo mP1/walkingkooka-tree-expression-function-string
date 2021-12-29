@@ -94,7 +94,7 @@ final class UnicodeExpressionFunction<C extends ExpressionFunctionContext> imple
 
     @Override
     public boolean resolveReferences() {
-        return false;
+        return true;
     }
 
     @Override

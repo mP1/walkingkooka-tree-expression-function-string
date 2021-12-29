@@ -87,7 +87,7 @@ abstract class StringStringBooleanExpressionFunction<C extends ExpressionFunctio
 
     @Override
     public final boolean resolveReferences() {
-        return false;
+        return true;
     }
 
     @Override

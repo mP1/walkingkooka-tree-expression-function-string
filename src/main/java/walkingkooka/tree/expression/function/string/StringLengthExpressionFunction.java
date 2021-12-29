@@ -107,7 +107,7 @@ final class StringLengthExpressionFunction<C extends ExpressionFunctionContext> 
 
     @Override
     public boolean resolveReferences() {
-        return false;
+        return true;
     }
 
     @Override
