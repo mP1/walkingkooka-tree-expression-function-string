@@ -34,53 +34,42 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
+
+import java.util.List;
 
 /**
- * Base class for many {@link ExpressionFunction} within this package.
+ * A {@link ExpressionFunction} that handles a single {@link String} parameter.
  */
-abstract class StringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+abstract class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
 
     /**
-     * Package private to limit sub classing.
+     * Package private ctor
      */
-    StringExpressionFunction() {
+    StringExpressionFunctionUnary() {
         super();
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
+    public final String apply(final List<Object> parameters,
+                              final C context) {
+        this.checkOnlyRequiredParameters(parameters);
+
+        return this.applyString(
+                TEXT.getOrFail(parameters, 0),
+                context
+        );
     }
 
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
-    @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
+    abstract String applyString(final String value,
+                                final ExpressionFunctionContext context);
 
     @Override
-    public final Class<String> returnType() {
-        return String.class;
+    public final List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
     }
 
-    @Override
-    public final boolean resolveReferences() {
-        return true;
-    }
-
-    @Override
-    public final String toString() {
-        return this.name().toString();
-    }
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
 }

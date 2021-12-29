@@ -40,42 +40,58 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
+import java.util.List;
+
 /**
- * Base class for many {@link ExpressionFunction} within this package.
+ * A function that requires 2 string parameters and returns a {@link Boolean} result.
  */
-abstract class StringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+abstract class BooleanExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<Boolean, C> {
 
     /**
-     * Package private to limit sub classing.
+     * Package private ctor
      */
-    StringExpressionFunction() {
+    BooleanExpressionFunction() {
         super();
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
+    public Boolean apply(final List<Object> parameters,
+                         final C context) {
+        this.checkOnlyRequiredParameters(parameters);
+
+        return this.applyStringString(
+                TEXT.getOrFail(parameters, 0),
+                this.secondParameter().getOrFail(parameters, 1),
+                context
+        );
     }
 
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
-    @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
+    abstract ExpressionFunctionParameter<String> secondParameter();
 
+    abstract Boolean applyStringString(final String first,
+                                       final String second,
+                                       final ExpressionFunctionContext context);
 
     final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
             .setType(String.class);
 
     @Override
-    public final Class<String> returnType() {
-        return String.class;
+    public final boolean lsLastParameterVariable() {
+        return false;
+    }
+
+    @Override
+    public final Class<Boolean> returnType() {
+        return Boolean.class;
     }
 
     @Override
     public final boolean resolveReferences() {
+        return true;
+    }
+
+    @Override
+    public final boolean isPure(final ExpressionPurityContext context) {
         return true;
     }
 

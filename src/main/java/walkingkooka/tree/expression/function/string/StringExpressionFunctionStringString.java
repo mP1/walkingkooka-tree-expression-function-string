@@ -34,53 +34,37 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
+
+import java.util.List;
 
 /**
- * Base class for many {@link ExpressionFunction} within this package.
+ * A function that requires 2 string parameters and returns a {@link String} result.
  */
-abstract class StringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+abstract class StringExpressionFunctionStringString<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
 
     /**
-     * Package private to limit sub classing.
+     * Package private ctor
      */
-    StringExpressionFunction() {
+    StringExpressionFunctionStringString() {
         super();
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
+    public String apply(final List<Object> parameters,
+                        final C context) {
+        this.checkOnlyRequiredParameters(parameters);
+
+        return this.applyStringString(
+                TEXT.getOrFail(parameters, 0),
+                this.secondParameter().getOrFail(parameters, 1),
+                context);
     }
 
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
-    @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
+    abstract ExpressionFunctionParameter<String> secondParameter();
 
-
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
-
-    @Override
-    public final Class<String> returnType() {
-        return String.class;
-    }
-
-    @Override
-    public final boolean resolveReferences() {
-        return true;
-    }
-
-    @Override
-    public final String toString() {
-        return this.name().toString();
-    }
+    abstract String applyStringString(final String first,
+                                      final String second,
+                                      final ExpressionFunctionContext context);
 }

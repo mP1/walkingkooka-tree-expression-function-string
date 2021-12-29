@@ -34,53 +34,64 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
- * Base class for many {@link ExpressionFunction} within this package.
+ * A function that concats all the Strings given to it.
  */
-abstract class StringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+final class StringExpressionFunctionConcat<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
 
     /**
-     * Package private to limit sub classing.
+     * Instance getter.
      */
-    StringExpressionFunction() {
+    static <C extends ExpressionFunctionContext> StringExpressionFunctionConcat<C> instance() {
+        return Cast.to(INSTANCE);
+    }
+
+    /**
+     * Singleton
+     */
+    private static final StringExpressionFunctionConcat<?> INSTANCE = new StringExpressionFunctionConcat<>();
+
+    /**
+     * Private ctor
+     */
+    private StringExpressionFunctionConcat() {
         super();
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
-    }
+    public String apply(final List<Object> parameters,
+                        final C context) {
+        final int count = parameters.size();
+        if (count < 1) {
+            throw new IllegalArgumentException("Expected at least 1 parameter but got " + count + "=" + parameters.subList(1, count));
+        }
 
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
-    @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
-
-    @Override
-    public final Class<String> returnType() {
-        return String.class;
+        return parameters.stream()
+                .map(p -> (String) p)
+                .collect(Collectors.joining());
     }
 
     @Override
-    public final boolean resolveReferences() {
-        return true;
+    public FunctionExpressionName name() {
+        return NAME;
     }
 
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("concat");
+
     @Override
-    public final String toString() {
-        return this.name().toString();
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
     }
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
+            TEXT
+    );
 }

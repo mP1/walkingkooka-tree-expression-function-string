@@ -75,73 +75,73 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see CharExpressionFunction}
+     * {@see StringExpressionFunctionChar}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> character() {
-        return CharExpressionFunction.instance();
+        return StringExpressionFunctionChar.instance();
     }
 
     /**
-     * {@see ConcatExpressionFunction}
+     * {@see StringExpressionFunctionConcat}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> concat() {
-        return ConcatExpressionFunction.instance();
+        return StringExpressionFunctionConcat.instance();
     }
 
     /**
-     * {@see ContainsExpressionFunction}
+     * {@see BooleanExpressionFunctionContains}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> contains() {
-        return ContainsExpressionFunction.instance();
+        return BooleanExpressionFunctionContains.instance();
     }
 
     /**
-     * {@see EndsWithExpressionFunction}
+     * {@see BooleanExpressionFunctionEndsWith}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> endsWith() {
-        return EndsWithExpressionFunction.instance();
+        return BooleanExpressionFunctionEndsWith.instance();
     }
 
     /**
-     * {@see LeftStringExpressionFunction}
+     * {@see StringExpressionFunctionStringNumberLeft}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> left() {
-        return LeftStringExpressionFunction.instance();
+        return StringExpressionFunctionStringNumberLeft.instance();
     }
 
     /**
-     * {@see LowerCaseStringExpressionFunction}
+     * {@see StringExpressionFunctionUnaryLowerCase}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> lowerCase() {
-        return LowerCaseStringExpressionFunction.instance();
+        return StringExpressionFunctionUnaryLowerCase.instance();
     }
 
     /**
-     * {@see MidStringExpressionFunction}
+     * {@see StringExpressionFunctionMid}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> mid() {
-        return MidStringExpressionFunction.instance();
+        return StringExpressionFunctionMid.instance();
     }
 
     /**
-     * {@see NormalizeSpaceExpressionFunction}
+     * {@see StringExpressionFunctionUnaryNormalizeSpace}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> normalizeSpace() {
-        return NormalizeSpaceExpressionFunction.instance();
+        return StringExpressionFunctionUnaryNormalizeSpace.instance();
     }
 
     /**
-     * {@see RightStringExpressionFunction}
+     * {@see StringExpressionFunctionStringNumberRight}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> right() {
-        return RightStringExpressionFunction.instance();
+        return StringExpressionFunctionStringNumberRight.instance();
     }
 
     /**
-     * {@see StartsWithExpressionFunction}
+     * {@see BooleanExpressionFunctionStartsWith}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> startsWith() {
-        return StartsWithExpressionFunction.instance();
+        return BooleanExpressionFunctionStartsWith.instance();
     }
 
     /**
@@ -152,45 +152,45 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see SubstringExpressionFunction}
+     * {@see StringExpressionFunctionSubstring}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substring(final int indexBias) {
-        return SubstringExpressionFunction.with(indexBias);
+        return StringExpressionFunctionSubstring.with(indexBias);
     }
 
     /**
-     * {@see SubstringAfterExpressionFunction}
+     * {@see StringExpressionFunctionStringStringSubstringAfter}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substringAfter() {
-        return SubstringAfterExpressionFunction.instance();
+        return StringExpressionFunctionStringStringSubstringAfter.instance();
     }
 
     /**
-     * {@see SubstringBeforeExpressionFunction}
+     * {@see StringExpressionFunctionStringStringSubstringBefore}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substringBefore() {
-        return SubstringBeforeExpressionFunction.instance();
+        return StringExpressionFunctionStringStringSubstringBefore.instance();
     }
 
     /**
-     * {@see TextExpressionFunction}
+     * {@see StringExpressionFunctionText}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> text() {
-        return TextExpressionFunction.instance();
+        return StringExpressionFunctionText.instance();
     }
 
     /**
-     * {@see TrimLeftStringExpressionFunction}
+     * {@see StringExpressionFunctionUnaryTrimLeft}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> trimLeft() {
-        return TrimLeftStringExpressionFunction.instance();
+        return StringExpressionFunctionUnaryTrimLeft.instance();
     }
 
     /**
-     * {@see TrimRightStringExpressionFunction}
+     * {@see StringExpressionFunctionUnaryTrimRight}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> trimRight() {
-        return TrimRightStringExpressionFunction.instance();
+        return StringExpressionFunctionUnaryTrimRight.instance();
     }
 
     /**
@@ -201,10 +201,10 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see UpperCaseStringExpressionFunction}
+     * {@see StringExpressionFunctionUnaryUpperCase}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> upperCase() {
-        return UpperCaseStringExpressionFunction.instance();
+        return StringExpressionFunctionUnaryUpperCase.instance();
     }
 
     /**
