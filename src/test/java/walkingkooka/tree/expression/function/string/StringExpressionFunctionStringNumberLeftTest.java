@@ -34,53 +34,59 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.function.ExpressionFunction;
+import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
-/**
- * Base class for many {@link ExpressionFunction} within this package.
- */
-abstract class StringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+public final class StringExpressionFunctionStringNumberLeftTest extends StringExpressionFunctionStringNumberTestCase<StringExpressionFunctionStringNumberLeft<ExpressionFunctionContext>> {
 
-    /**
-     * Package private to limit sub classing.
-     */
-    StringExpressionFunction() {
-        super();
+    @Test
+    public void testString() {
+        this.applyAndCheck3("abc123", "a");
+    }
+
+    @Test
+    public void testStringWithNegative() {
+        this.applyAndCheck3(" abc123", -1, "");
+    }
+
+    @Test
+    public void testStringWithZero() {
+        this.applyAndCheck3(" abc123", 0, "");
+    }
+
+    @Test
+    public void testStringWithOne() {
+        this.applyAndCheck3("abc123", 1, "a");
+    }
+
+    @Test
+    public void testStringWithTwo() {
+        this.applyAndCheck3("abc123", 2, "ab");
+    }
+
+    @Test
+    public void testStringWithMax() {
+        this.applyAndCheck3("abc123", 6, "abc123");
+    }
+
+    @Test
+    public void testStringWithTooMany() {
+        this.applyAndCheck3("abc123", 7, "abc123");
+    }
+
+    @Test
+    public void testToString() {
+        this.toStringAndCheck(this.createBiFunction(), "left");
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
-    }
-
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
-    @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
-
-    @Override
-    public final Class<String> returnType() {
-        return String.class;
+    public StringExpressionFunctionStringNumberLeft<ExpressionFunctionContext> createBiFunction() {
+        return StringExpressionFunctionStringNumberLeft.instance();
     }
 
     @Override
-    public final boolean resolveReferences() {
-        return true;
-    }
-
-    @Override
-    public final String toString() {
-        return this.name().toString();
+    public Class<StringExpressionFunctionStringNumberLeft<ExpressionFunctionContext>> type() {
+        return Cast.to(StringExpressionFunctionStringNumberLeft.class);
     }
 }

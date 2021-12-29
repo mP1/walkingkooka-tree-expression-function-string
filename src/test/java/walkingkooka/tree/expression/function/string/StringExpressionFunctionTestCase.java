@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.TypeNameTesting;
 import walkingkooka.tree.expression.ExpressionEvaluationContexts;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunction;
@@ -32,7 +33,8 @@ import java.util.List;
 import java.util.Locale;
 
 public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionFunctionContext>, T> implements ExpressionFunctionTesting<F, T, ExpressionFunctionContext>,
-        ClassTesting2<F> {
+        ClassTesting2<F>,
+        TypeNameTesting<F> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -105,5 +107,17 @@ public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunct
     @Override
     public final JavaVisibility typeVisibility() {
         return JavaVisibility.PACKAGE_PRIVATE;
+    }
+
+    @Override
+    public final String typeNamePrefix() {
+        return this instanceof BooleanExpressionFunctionTestCase ?
+                BooleanExpressionFunction.class.getSimpleName() :
+                StringExpressionFunction.class.getSimpleName();
+    }
+
+    @Override
+    public final String typeNameSuffix() {
+        return "";
     }
 }

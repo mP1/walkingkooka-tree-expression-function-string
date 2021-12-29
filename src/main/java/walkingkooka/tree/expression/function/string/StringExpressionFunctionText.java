@@ -34,53 +34,63 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
+import java.util.List;
+
 /**
- * Base class for many {@link ExpressionFunction} within this package.
+ * A function that converts the given value into a {@link String}.
  */
-abstract class StringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+final class StringExpressionFunctionText<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> StringExpressionFunctionText<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
-     * Package private to limit sub classing.
+     * Singleton
      */
-    StringExpressionFunction() {
+    private static final StringExpressionFunctionText<?> INSTANCE = new StringExpressionFunctionText<>();
+
+    /**
+     * Private ctor
+     */
+    private StringExpressionFunctionText() {
         super();
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
+    public String apply(final List<Object> parameters,
+                        final C context) {
+        this.checkOnlyRequiredParameters(parameters);
+
+        return context.convertOrFail(
+                VALUE.getOrFail(parameters, 0),
+                String.class
+        );
     }
 
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
+
     @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
+    public FunctionExpressionName name() {
+        return NAME;
     }
 
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("text");
 
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    private final static ExpressionFunctionParameter<String> VALUE = ExpressionFunctionParameterName.with("value")
             .setType(String.class);
 
-    @Override
-    public final Class<String> returnType() {
-        return String.class;
-    }
-
-    @Override
-    public final boolean resolveReferences() {
-        return true;
-    }
-
-    @Override
-    public final String toString() {
-        return this.name().toString();
-    }
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(VALUE);
 }

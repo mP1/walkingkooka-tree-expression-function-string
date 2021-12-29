@@ -34,53 +34,44 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.function.ExpressionFunction;
+import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
-/**
- * Base class for many {@link ExpressionFunction} within this package.
- */
-abstract class StringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+public final class StringExpressionFunctionUnaryTrimRightTest extends StringExpressionFunctionUnaryTestCase<StringExpressionFunctionUnaryTrimRight<ExpressionFunctionContext>> {
 
-    /**
-     * Package private to limit sub classing.
-     */
-    StringExpressionFunction() {
-        super();
+    @Test
+    public void testString() {
+        this.applyAndCheck2(parameters("abc123"), "abc123");
+    }
+
+    @Test
+    public void testStringLeftWhitespace() {
+        this.applyAndCheck2(parameters(" abc123"), " abc123");
+    }
+
+    @Test
+    public void testStringRightWhitespace() {
+        this.applyAndCheck2(parameters("abc123 "), "abc123");
+    }
+
+    @Test
+    public void testStringRightWhitespace2() {
+        this.applyAndCheck2(parameters("abc123 \t"), "abc123");
+    }
+
+    @Test
+    public void testToString() {
+        this.toStringAndCheck(this.createBiFunction(), "trim-right");
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
-    }
-
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
-    @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
-
-    @Override
-    public final Class<String> returnType() {
-        return String.class;
+    public StringExpressionFunctionUnaryTrimRight<ExpressionFunctionContext> createBiFunction() {
+        return StringExpressionFunctionUnaryTrimRight.instance();
     }
 
     @Override
-    public final boolean resolveReferences() {
-        return true;
-    }
-
-    @Override
-    public final String toString() {
-        return this.name().toString();
+    public Class<StringExpressionFunctionUnaryTrimRight<ExpressionFunctionContext>> type() {
+        return Cast.to(StringExpressionFunctionUnaryTrimRight.class);
     }
 }

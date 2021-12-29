@@ -34,53 +34,67 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
+import java.util.List;
+
 /**
- * Base class for many {@link ExpressionFunction} within this package.
+ * A function that returns true if the first string starts with the second string.
  */
-abstract class StringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+final class BooleanExpressionFunctionStartsWith<C extends ExpressionFunctionContext> extends BooleanExpressionFunction<C> {
 
     /**
-     * Package private to limit sub classing.
+     * Instance getter.
      */
-    StringExpressionFunction() {
+    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionStartsWith<C> instance() {
+        return Cast.to(INSTANCE);
+    }
+
+    /**
+     * Singleton
+     */
+    private static final BooleanExpressionFunctionStartsWith<?> INSTANCE = new BooleanExpressionFunctionStartsWith<>();
+
+    /**
+     * Private ctor
+     */
+    private BooleanExpressionFunctionStartsWith() {
         super();
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
+    Boolean applyStringString(final String string,
+                              final String contains,
+                              final ExpressionFunctionContext context) {
+        return string.startsWith(contains);
     }
 
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
     @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
+    public FunctionExpressionName name() {
+        return NAME;
     }
 
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("starts-with");
 
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS;
+    }
+
+    @Override
+    ExpressionFunctionParameter<String> secondParameter() {
+        return STARTS_WITH;
+    }
+
+    private final static ExpressionFunctionParameter<String> STARTS_WITH = ExpressionFunctionParameterName.with("start-with")
             .setType(String.class);
 
-    @Override
-    public final Class<String> returnType() {
-        return String.class;
-    }
-
-    @Override
-    public final boolean resolveReferences() {
-        return true;
-    }
-
-    @Override
-    public final String toString() {
-        return this.name().toString();
-    }
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
+            TEXT,
+            STARTS_WITH
+    );
 }

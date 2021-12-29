@@ -34,53 +34,51 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.function.ExpressionFunction;
+import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
-/**
- * Base class for many {@link ExpressionFunction} within this package.
- */
-abstract class StringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-    /**
-     * Package private to limit sub classing.
-     */
-    StringExpressionFunction() {
-        super();
+public final class StringExpressionFunctionTextTest extends StringExpressionFunctionTestCase<StringExpressionFunctionText<ExpressionFunctionContext>, String> {
+
+    @Test
+    public void testZeroParametersFails() {
+        assertThrows(IllegalArgumentException.class, this::apply2);
+    }
+
+    @Test
+    public void testTwoParametersFails() {
+        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2"));
+    }
+
+    @Test
+    public void testBoolean() {
+        this.applyAndCheck2(parameters(true), "true");
+    }
+
+    @Test
+    public void testNumber() {
+        this.applyAndCheck2(parameters(123), "123");
+    }
+
+    @Test
+    public void testString() {
+        this.applyAndCheck2(parameters("abc123"), "abc123");
+    }
+
+    @Test
+    public void testToString() {
+        this.toStringAndCheck(this.createBiFunction(), "text");
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
-    }
-
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
-    @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
-
-    @Override
-    public final Class<String> returnType() {
-        return String.class;
+    public StringExpressionFunctionText<ExpressionFunctionContext> createBiFunction() {
+        return StringExpressionFunctionText.instance();
     }
 
     @Override
-    public final boolean resolveReferences() {
-        return true;
-    }
-
-    @Override
-    public final String toString() {
-        return this.name().toString();
+    public Class<StringExpressionFunctionText<ExpressionFunctionContext>> type() {
+        return Cast.to(StringExpressionFunctionText.class);
     }
 }

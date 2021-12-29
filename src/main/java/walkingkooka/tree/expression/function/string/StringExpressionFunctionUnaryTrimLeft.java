@@ -34,53 +34,44 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.Cast;
+import walkingkooka.text.CharSequences;
+import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 /**
- * Base class for many {@link ExpressionFunction} within this package.
+ * Performs a trim left after converting the value to a {@link String}.
  */
-abstract class StringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+final class StringExpressionFunctionUnaryTrimLeft<C extends ExpressionFunctionContext> extends StringExpressionFunctionUnary<C> {
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnaryTrimLeft<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
-     * Package private to limit sub classing.
+     * Singleton
      */
-    StringExpressionFunction() {
+    private static final StringExpressionFunctionUnaryTrimLeft<?> INSTANCE = new StringExpressionFunctionUnaryTrimLeft<>();
+
+    /**
+     * Private ctor
+     */
+    private StringExpressionFunctionUnaryTrimLeft() {
         super();
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
-    }
-
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
-    @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
-
-    @Override
-    public final Class<String> returnType() {
-        return String.class;
+    String applyString(final String value,
+                       final ExpressionFunctionContext context) {
+        return CharSequences.trimLeft(value).toString();
     }
 
     @Override
-    public final boolean resolveReferences() {
-        return true;
+    public FunctionExpressionName name() {
+        return NAME;
     }
 
-    @Override
-    public final String toString() {
-        return this.name().toString();
-    }
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("trim-left");
 }

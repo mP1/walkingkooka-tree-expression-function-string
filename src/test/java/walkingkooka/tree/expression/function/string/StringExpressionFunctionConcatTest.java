@@ -34,53 +34,51 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.function.ExpressionFunction;
+import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
-/**
- * Base class for many {@link ExpressionFunction} within this package.
- */
-abstract class StringExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<String, C> {
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-    /**
-     * Package private to limit sub classing.
-     */
-    StringExpressionFunction() {
-        super();
+public final class StringExpressionFunctionConcatTest extends StringExpressionFunctionTestCase<StringExpressionFunctionConcat<ExpressionFunctionContext>, String> {
+
+    @Test
+    public void testZeroParametersFails() {
+        assertThrows(IllegalArgumentException.class, this::apply2);
+    }
+
+    @Test
+    public void testOneString() {
+        this.applyAndCheck2(parameters("a1"), "a1");
+    }
+
+    @Test
+    public void testTwoStrings() {
+        this.applyAndCheck2(parameters("a1", "b2"), "a1b2");
+    }
+
+    @Test
+    public void testThreeStrings() {
+        this.applyAndCheck2(parameters("a1", "b2", "c3"), "a1b2c3");
+    }
+
+    @Test
+    public void testFourStrings() {
+        this.applyAndCheck2(parameters("a1", "b2", "c3", "d4"), "a1b2c3d4");
+    }
+
+    @Test
+    public void testToString() {
+        this.toStringAndCheck(this.createBiFunction(), "concat");
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
-    }
-
-    /**
-     * All string functions are pure. Does not assume anything about any parameters.
-     */
-    @Override
-    public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
-
-    @Override
-    public final Class<String> returnType() {
-        return String.class;
+    public StringExpressionFunctionConcat<ExpressionFunctionContext> createBiFunction() {
+        return StringExpressionFunctionConcat.instance();
     }
 
     @Override
-    public final boolean resolveReferences() {
-        return true;
-    }
-
-    @Override
-    public final String toString() {
-        return this.name().toString();
+    public Class<StringExpressionFunctionConcat<ExpressionFunctionContext>> type() {
+        return Cast.to(StringExpressionFunctionConcat.class);
     }
 }
