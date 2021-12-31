@@ -14,24 +14,24 @@ semantics.
 
 ## Available functions
 
-- char
-- concat
-- contains
-- ends-with
-- left
-- lower-case
-- mid
-- normalize-space
-- right
-- starts-with
-- string-length
-- substring-after
-- substring-before
-- text
-- trim-left
-- trim-right
-- unicode
-- upper-case
+- char(number)
+- concat(string...)
+- contains(string, string)
+- ends-with(string, string)
+- left(string, number)
+- lower-case(string)
+- mid(string, number, number*)
+- normalize-space(string)
+- right(string, number)
+- starts-with(string, string)
+- string-length(string)
+- substring-after(string, string, number*)
+- substring-before(string, string, number*)
+- text(object)
+- trim-left(string)
+- trim-right(string)
+- unicode(string)
+- upper-case(string)
 
 Many more functions are outstanding and remain TODO.
 
