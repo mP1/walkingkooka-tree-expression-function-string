@@ -22,7 +22,6 @@ import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
@@ -76,8 +75,7 @@ final class StringExpressionFunctionChar<C extends ExpressionFunctionContext> ex
         return PARAMETERS;
     }
 
-    final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameterName.with("number")
-            .setType(ExpressionNumber.class);
+    final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER;
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
 }
