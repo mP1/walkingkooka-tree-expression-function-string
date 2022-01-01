@@ -38,7 +38,6 @@ import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 /**
  * Base class for many {@link ExpressionFunction} within this package.
@@ -65,9 +64,7 @@ abstract class StringExpressionFunction<C extends ExpressionFunctionContext> imp
         return true;
     }
 
-
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
+    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT;
 
     @Override
     public final Class<String> returnType() {

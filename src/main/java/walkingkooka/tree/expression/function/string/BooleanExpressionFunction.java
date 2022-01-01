@@ -38,7 +38,6 @@ import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
@@ -72,8 +71,7 @@ abstract class BooleanExpressionFunction<C extends ExpressionFunctionContext> im
                                        final String second,
                                        final ExpressionFunctionContext context);
 
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
+    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT;
 
     @Override
     public final boolean lsLastParameterVariable() {
