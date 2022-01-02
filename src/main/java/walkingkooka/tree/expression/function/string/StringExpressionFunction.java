@@ -35,6 +35,7 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.tree.expression.ExpressionPurityContext;
+import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
@@ -47,9 +48,17 @@ abstract class StringExpressionFunction<C extends ExpressionFunctionContext> imp
     /**
      * Package private to limit sub classing.
      */
-    StringExpressionFunction() {
+    StringExpressionFunction(final String name) {
         super();
+        this.name = FunctionExpressionName.with(name);
     }
+
+    @Override
+    public FunctionExpressionName name() {
+        return this.name;
+    }
+
+    private final FunctionExpressionName name;
 
     @Override
     public final boolean lsLastParameterVariable() {

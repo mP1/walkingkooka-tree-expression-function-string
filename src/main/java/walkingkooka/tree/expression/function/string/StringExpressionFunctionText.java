@@ -35,7 +35,6 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
@@ -62,7 +61,7 @@ final class StringExpressionFunctionText<C extends ExpressionFunctionContext> ex
      * Private ctor
      */
     private StringExpressionFunctionText() {
-        super();
+        super("text");
     }
 
     @Override
@@ -75,14 +74,6 @@ final class StringExpressionFunctionText<C extends ExpressionFunctionContext> ex
                 String.class
         );
     }
-
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("text");
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters() {

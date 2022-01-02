@@ -36,7 +36,6 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.text.CharSequences;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
@@ -59,7 +58,7 @@ final class StringExpressionFunctionUnaryTrimRight<C extends ExpressionFunctionC
      * Private ctor
      */
     private StringExpressionFunctionUnaryTrimRight() {
-        super();
+        super("trim-right");
     }
 
     @Override
@@ -67,11 +66,4 @@ final class StringExpressionFunctionUnaryTrimRight<C extends ExpressionFunctionC
                        final ExpressionFunctionContext context) {
         return CharSequences.trimRight(value).toString();
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("trim-right");
 }

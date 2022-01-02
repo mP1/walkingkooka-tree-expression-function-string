@@ -35,7 +35,6 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
@@ -63,7 +62,7 @@ final class StringExpressionFunctionConcat<C extends ExpressionFunctionContext> 
      * Private ctor
      */
     private StringExpressionFunctionConcat() {
-        super();
+        super("concat");
     }
 
     @Override
@@ -78,13 +77,6 @@ final class StringExpressionFunctionConcat<C extends ExpressionFunctionContext> 
                 .map(p -> (String) p)
                 .collect(Collectors.joining());
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("concat");
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters() {
