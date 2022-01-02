@@ -53,23 +53,24 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     public static void visit(final int indexBias,
                              final Consumer<ExpressionFunction<?, ?>> consumer) {
         Lists.of(character(),
-                concat(),
-                contains(),
-                endsWith(),
-                left(),
-                lowerCase(),
-                mid(),
-                normalizeSpace(),
-                right(),
-                startsWith(),
-                stringLength(),
-                substring(indexBias),
-                substringAfter(),
-                substringBefore(),
-                text(),
-                trimLeft(),
-                trimRight(),
-                unicode(),
+                        concat(),
+                        contains(),
+                        endsWith(),
+                        left(),
+                        lowerCase(),
+                        mid(),
+                        normalizeSpace(),
+                        repeat(),
+                        right(),
+                        startsWith(),
+                        stringLength(),
+                        substring(indexBias),
+                        substringAfter(),
+                        substringBefore(),
+                        text(),
+                        trimLeft(),
+                        trimRight(),
+                        unicode(),
                 upperCase())
                 .forEach(consumer);
     }
@@ -128,6 +129,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> normalizeSpace() {
         return StringExpressionFunctionUnaryNormalizeSpace.instance();
+    }
+
+    /**
+     * {@see StringExpressionFunctionRepeat}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> repeat() {
+        return StringExpressionFunctionRepeat.instance();
     }
 
     /**
