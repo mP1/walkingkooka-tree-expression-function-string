@@ -25,28 +25,42 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import java.util.List;
 
 /**
- * Converts the only parameter to a {@link Character} with a character.
+ * <a href="https://support.google.com/docs/answer/9061514?hl=en">ASC</a>
+ * <br>
  * <a href="https://support.google.com/docs/answer/3094120?hl=en&ref_topic=3105625">CHAR</a>
  */
-final class CharacterExpressionFunctionChar<C extends ExpressionFunctionContext> extends CharacterExpressionFunction<C> {
+final class CharacterExpressionFunctionAsciiAndChar<C extends ExpressionFunctionContext> extends CharacterExpressionFunction<C> {
 
     /**
-     * Instance getter.
+     * Char Instance getter.
      */
-    static <C extends ExpressionFunctionContext> CharacterExpressionFunctionChar<C> instance() {
-        return Cast.to(INSTANCE);
+    static <C extends ExpressionFunctionContext> CharacterExpressionFunctionAsciiAndChar<C> ascii() {
+        return Cast.to(ASCII);
     }
 
     /**
-     * Singleton
+     * CHAR Singleton
      */
-    private static final CharacterExpressionFunctionChar<?> INSTANCE = new CharacterExpressionFunctionChar<>();
+    private static final CharacterExpressionFunctionAsciiAndChar<?> ASCII = new CharacterExpressionFunctionAsciiAndChar<>("ascii", 255);
+
+    /**
+     * Char Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> CharacterExpressionFunctionAsciiAndChar<C> character() {
+        return Cast.to(CHAR);
+    }
+
+    /**
+     * CHAR Singleton
+     */
+    private static final CharacterExpressionFunctionAsciiAndChar<?> CHAR = new CharacterExpressionFunctionAsciiAndChar<>("char", Character.MAX_VALUE);
 
     /**
      * Private ctor
      */
-    private CharacterExpressionFunctionChar() {
-        super("char");
+    private CharacterExpressionFunctionAsciiAndChar(final String name, final int max) {
+        super(name);
+        this.max = max;
     }
 
     @Override
@@ -56,11 +70,14 @@ final class CharacterExpressionFunctionChar<C extends ExpressionFunctionContext>
 
         final int value = NUMBER.getOrFail(parameters, 0)
                 .intValue();
-        if (value < Character.MIN_VALUE || value > Character.MAX_VALUE) {
-            throw new IllegalArgumentException("Invalid character value " + value);
+        final int max = this.max;
+        if (value < Character.MIN_VALUE || value > max) {
+            throw new IllegalArgumentException("Invalid character value " + value + " expected between 0 and " + max);
         }
         return (char) value;
     }
+
+    private final int max;
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters() {
