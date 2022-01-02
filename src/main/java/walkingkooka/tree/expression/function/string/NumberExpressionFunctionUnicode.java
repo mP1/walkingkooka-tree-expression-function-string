@@ -20,12 +20,11 @@ import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
 /**
- * Returns the unicode of the first character in the provided {@link String}
+ * Returns the unicode of the provided {@link Character}
  * <a href="https://support.google.com/docs/answer/9149523?hl=en&ref_topic=3105625"></a>
  */
 final class NumberExpressionFunctionUnicode<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
@@ -53,13 +52,10 @@ final class NumberExpressionFunctionUnicode<C extends ExpressionFunctionContext>
                                   final C context) {
         this.checkOnlyRequiredParameters(parameters);
 
-        final String string = TEXT.getOrFail(parameters, 0);
-        if (string.length() == 0) {
-            throw new IllegalArgumentException("Unicode requires a string with at least 1 character");
-        }
+        final Character character = CHARACTER.getOrFail(parameters, 0);
 
         return context.expressionNumberKind()
-                .create((int) string.charAt(0));
+                .create((int) character);
     }
 
     @Override
@@ -67,8 +63,7 @@ final class NumberExpressionFunctionUnicode<C extends ExpressionFunctionContext>
         return PARAMETERS;
     }
 
-    private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
+    private final static ExpressionFunctionParameter<Character> CHARACTER = ExpressionFunctionParameter.CHARACTER;
 
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(CHARACTER);
 }

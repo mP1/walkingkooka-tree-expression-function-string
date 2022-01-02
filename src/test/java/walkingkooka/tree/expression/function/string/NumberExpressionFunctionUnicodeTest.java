@@ -22,35 +22,14 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 public final class NumberExpressionFunctionUnicodeTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionUnicode<ExpressionFunctionContext>> {
 
     private final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
     @Test
-    public void testEmptyStringFails() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> this.createBiFunction().apply(Lists.of(""), this.createContext())
-        );
-    }
-
-    @Test
-    public void testString() {
+    public void testCharacter() {
         this.applyAndCheck(
-                Lists.of("a"),
-                this.createContext(),
-                KIND.create((int) 'a')
-        );
-    }
-
-    @Test
-    public void testString2() {
-        final String text = "abc123";
-
-        this.applyAndCheck(
-                Lists.of(text),
+                Lists.of('a'),
                 this.createContext(),
                 KIND.create((int) 'a')
         );
