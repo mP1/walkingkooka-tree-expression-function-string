@@ -22,6 +22,7 @@ semantics.
 - lower-case(string)
 - mid(string, number, number*)
 - normalize-space(string)
+- repeat(string, number)
 - right(string, number)
 - starts-with(string, string)
 - string-length(string)
