@@ -25,33 +25,33 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import java.util.List;
 
 /**
- * Converts the only parameter to a {@link String} with a character.
+ * Converts the only parameter to a {@link Character} with a character.
  * <a href="https://support.google.com/docs/answer/3094120?hl=en&ref_topic=3105625">CHAR</a>
  */
-final class StringExpressionFunctionChar<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class CharacterExpressionFunctionChar<C extends ExpressionFunctionContext> extends CharacterExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionChar<C> instance() {
+    static <C extends ExpressionFunctionContext> CharacterExpressionFunctionChar<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final StringExpressionFunctionChar<?> INSTANCE = new StringExpressionFunctionChar<>();
+    private static final CharacterExpressionFunctionChar<?> INSTANCE = new CharacterExpressionFunctionChar<>();
 
     /**
      * Private ctor
      */
-    private StringExpressionFunctionChar() {
+    private CharacterExpressionFunctionChar() {
         super("char");
     }
 
     @Override
-    public String apply(final List<Object> parameters,
-                        final C context) {
+    public Character apply(final List<Object> parameters,
+                           final C context) {
         this.checkOnlyRequiredParameters(parameters);
 
         final int value = NUMBER.getOrFail(parameters, 0)
@@ -59,7 +59,7 @@ final class StringExpressionFunctionChar<C extends ExpressionFunctionContext> ex
         if (value < Character.MIN_VALUE || value > Character.MAX_VALUE) {
             throw new IllegalArgumentException("Invalid character value " + value);
         }
-        return String.valueOf((char) value);
+        return (char) value;
     }
 
     @Override
@@ -69,5 +69,5 @@ final class StringExpressionFunctionChar<C extends ExpressionFunctionContext> ex
 
     final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER;
 
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(NUMBER);
 }

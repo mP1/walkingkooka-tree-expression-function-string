@@ -76,10 +76,10 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see StringExpressionFunctionChar}
+     * {@see CharacterExpressionFunctionChar}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> character() {
-        return StringExpressionFunctionChar.instance();
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Character, C> character() {
+        return CharacterExpressionFunctionChar.instance();
     }
 
     /**

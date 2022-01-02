@@ -30,7 +30,7 @@ import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import java.util.Locale;
 
-public abstract class CharacterExpressionFunctionTestCase<F extends CharacterExpressionFunction<ExpressionFunctionContext>, T> implements ExpressionFunctionTesting<F, Character, ExpressionFunctionContext>,
+public abstract class CharacterExpressionFunctionTestCase<F extends CharacterExpressionFunction<ExpressionFunctionContext>> implements ExpressionFunctionTesting<F, Character, ExpressionFunctionContext>,
         ClassTesting2<F>,
         TypeNameTesting<F> {
 
