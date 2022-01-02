@@ -19,18 +19,12 @@ package walkingkooka.tree.expression.function.string;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class UnicodeExpressionFunctionTest implements ExpressionFunctionTesting<UnicodeExpressionFunction<ExpressionFunctionContext>, ExpressionNumber, ExpressionFunctionContext>,
-        ClassTesting2<UnicodeExpressionFunction<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionUnicodeTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionUnicode<ExpressionFunctionContext>> {
 
     private final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -68,27 +62,12 @@ public final class UnicodeExpressionFunctionTest implements ExpressionFunctionTe
     }
 
     @Override
-    public UnicodeExpressionFunction<ExpressionFunctionContext> createBiFunction() {
-        return UnicodeExpressionFunction.instance();
+    public NumberExpressionFunctionUnicode<ExpressionFunctionContext> createBiFunction() {
+        return NumberExpressionFunctionUnicode.instance();
     }
 
     @Override
-    public ExpressionFunctionContext createContext() {
-        return new FakeExpressionFunctionContext() {
-            @Override
-            public ExpressionNumberKind expressionNumberKind() {
-                return KIND;
-            }
-        };
-    }
-
-    @Override
-    public Class<UnicodeExpressionFunction<ExpressionFunctionContext>> type() {
-        return Cast.to(UnicodeExpressionFunction.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public Class<NumberExpressionFunctionUnicode<ExpressionFunctionContext>> type() {
+        return Cast.to(NumberExpressionFunctionUnicode.class);
     }
 }

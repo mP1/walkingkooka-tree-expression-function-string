@@ -37,18 +37,9 @@ package walkingkooka.tree.expression.function.string;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
-public final class StringLengthExpressionFunctionTest implements ExpressionFunctionTesting<StringLengthExpressionFunction<ExpressionFunctionContext>, ExpressionNumber, ExpressionFunctionContext>,
-        ClassTesting2<StringLengthExpressionFunction<ExpressionFunctionContext>> {
-
-    private final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
+public final class NumberExpressionFunctionLengthTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionLength<ExpressionFunctionContext>> {
 
     @Test
     public void testEmptyString() {
@@ -76,28 +67,12 @@ public final class StringLengthExpressionFunctionTest implements ExpressionFunct
     }
 
     @Override
-    public StringLengthExpressionFunction<ExpressionFunctionContext> createBiFunction() {
-        return StringLengthExpressionFunction.instance();
-    }
-
-
-    @Override
-    public ExpressionFunctionContext createContext() {
-        return new FakeExpressionFunctionContext() {
-            @Override
-            public ExpressionNumberKind expressionNumberKind() {
-                return KIND;
-            }
-        };
+    public NumberExpressionFunctionLength<ExpressionFunctionContext> createBiFunction() {
+        return NumberExpressionFunctionLength.instance();
     }
 
     @Override
-    public Class<StringLengthExpressionFunction<ExpressionFunctionContext>> type() {
-        return Cast.to(StringLengthExpressionFunction.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public Class<NumberExpressionFunctionLength<ExpressionFunctionContext>> type() {
+        return Cast.to(NumberExpressionFunctionLength.class);
     }
 }
