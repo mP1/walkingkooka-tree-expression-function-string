@@ -36,7 +36,6 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
@@ -65,7 +64,7 @@ final class StringExpressionFunctionMid<C extends ExpressionFunctionContext> ext
      * Private ctor
      */
     private StringExpressionFunctionMid() {
-        super();
+        super("mid");
     }
 
     @Override
@@ -83,13 +82,6 @@ final class StringExpressionFunctionMid<C extends ExpressionFunctionContext> ext
                 "" : // return empty if start or end is out of bounds
                 string.substring(Math.max(0, start), Math.min(start + length, stringLength)); // ensure start & length are within bounds
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("mid");
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters() {

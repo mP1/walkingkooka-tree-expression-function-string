@@ -18,7 +18,6 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
@@ -43,7 +42,7 @@ final class StringExpressionFunctionStringNumberLeft<C extends ExpressionFunctio
      * Private ctor
      */
     private StringExpressionFunctionStringNumberLeft() {
-        super();
+        super("left");
     }
 
     @Override
@@ -51,11 +50,4 @@ final class StringExpressionFunctionStringNumberLeft<C extends ExpressionFunctio
                               final int length) {
         return string.substring(0, Math.max(0, Math.min(length, string.length())));
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("left");
 }

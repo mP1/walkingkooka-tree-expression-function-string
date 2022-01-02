@@ -36,7 +36,6 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
@@ -81,7 +80,7 @@ final class StringExpressionFunctionSubstring<C extends ExpressionFunctionContex
      * Private ctor
      */
     private StringExpressionFunctionSubstring(final int indexBase) {
-        super();
+        super("substring");
         this.indexBase = indexBase;
     }
 
@@ -115,14 +114,6 @@ final class StringExpressionFunctionSubstring<C extends ExpressionFunctionContex
     }
 
     private final int indexBase;
-
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("substring");
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters() {

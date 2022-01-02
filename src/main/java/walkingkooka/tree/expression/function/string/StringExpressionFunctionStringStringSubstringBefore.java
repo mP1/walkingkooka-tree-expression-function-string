@@ -35,7 +35,6 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
@@ -63,7 +62,7 @@ final class StringExpressionFunctionStringStringSubstringBefore<C extends Expres
      * Private ctor
      */
     private StringExpressionFunctionStringStringSubstringBefore() {
-        super();
+        super("substring-before");
     }
 
     @Override
@@ -76,13 +75,6 @@ final class StringExpressionFunctionStringStringSubstringBefore<C extends Expres
                 string.substring(0, offset) :
                 "";
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("substring-before");
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters() {

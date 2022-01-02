@@ -17,7 +17,6 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
@@ -40,7 +39,7 @@ final class StringExpressionFunctionUnaryLowerCase<C extends ExpressionFunctionC
      * Private ctor
      */
     private StringExpressionFunctionUnaryLowerCase() {
-        super();
+        super("lower-case");
     }
 
     @Override
@@ -48,11 +47,4 @@ final class StringExpressionFunctionUnaryLowerCase<C extends ExpressionFunctionC
                        final ExpressionFunctionContext context) {
         return value.toLowerCase(context.locale());
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("lower-case");
 }

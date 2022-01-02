@@ -49,8 +49,8 @@ abstract class StringExpressionFunctionStringNumber<C extends ExpressionFunction
     /**
      * Package private ctor
      */
-    StringExpressionFunctionStringNumber() {
-        super();
+    StringExpressionFunctionStringNumber(final String name) {
+        super(name);
     }
 
     @Override

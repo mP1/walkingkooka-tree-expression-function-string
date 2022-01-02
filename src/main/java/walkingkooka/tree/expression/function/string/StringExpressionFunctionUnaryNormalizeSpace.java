@@ -35,7 +35,6 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
@@ -64,7 +63,7 @@ final class StringExpressionFunctionUnaryNormalizeSpace<C extends ExpressionFunc
      * Private ctor
      */
     private StringExpressionFunctionUnaryNormalizeSpace() {
-        super();
+        super("normalize-space");
     }
 
     @Override
@@ -91,11 +90,4 @@ final class StringExpressionFunctionUnaryNormalizeSpace<C extends ExpressionFunc
 
         return b.toString();
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("normalize-space");
 }

@@ -48,8 +48,8 @@ abstract class StringExpressionFunctionUnary<C extends ExpressionFunctionContext
     /**
      * Package private ctor
      */
-    StringExpressionFunctionUnary() {
-        super();
+    StringExpressionFunctionUnary(final String name) {
+        super(name);
     }
 
     @Override
