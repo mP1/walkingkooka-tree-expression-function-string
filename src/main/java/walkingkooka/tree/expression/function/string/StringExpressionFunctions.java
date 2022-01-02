@@ -153,10 +153,10 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see StringLengthExpressionFunction}
+     * {@see NumberExpressionFunctionLength}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> stringLength() {
-        return StringLengthExpressionFunction.instance();
+        return NumberExpressionFunctionLength.instance();
     }
 
     /**
@@ -202,10 +202,10 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see UnicodeExpressionFunction}
+     * {@see NumberExpressionFunctionUnicode}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> unicode() {
-        return UnicodeExpressionFunction.instance();
+        return NumberExpressionFunctionUnicode.instance();
     }
 
     /**

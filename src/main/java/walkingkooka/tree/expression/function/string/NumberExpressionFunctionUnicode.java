@@ -18,9 +18,6 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.FunctionExpressionName;
-import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
@@ -31,24 +28,24 @@ import java.util.List;
  * Returns the unicode of the first character in the provided {@link String}
  * <a href="https://support.google.com/docs/answer/9149523?hl=en&ref_topic=3105625"></a>
  */
-final class UnicodeExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<ExpressionNumber, C> {
+final class NumberExpressionFunctionUnicode<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> UnicodeExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnicode<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final UnicodeExpressionFunction<?> INSTANCE = new UnicodeExpressionFunction<>();
+    private static final NumberExpressionFunctionUnicode<?> INSTANCE = new NumberExpressionFunctionUnicode<>();
 
     /**
      * Private ctor
      */
-    private UnicodeExpressionFunction() {
-        super();
+    private NumberExpressionFunctionUnicode() {
+        super("unicode");
     }
 
     @Override
@@ -66,13 +63,6 @@ final class UnicodeExpressionFunction<C extends ExpressionFunctionContext> imple
     }
 
     @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("unicode");
-
-    @Override
     public List<ExpressionFunctionParameter<?>> parameters() {
         return PARAMETERS;
     }
@@ -81,29 +71,4 @@ final class UnicodeExpressionFunction<C extends ExpressionFunctionContext> imple
             .setType(String.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
-
-    @Override
-    public boolean lsLastParameterVariable() {
-        return false;
-    }
-
-    @Override
-    public Class<ExpressionNumber> returnType() {
-        return ExpressionNumber.class;
-    }
-
-    @Override
-    public boolean resolveReferences() {
-        return true;
-    }
-
-    @Override
-    public boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }

@@ -36,9 +36,6 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.FunctionExpressionName;
-import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
@@ -50,24 +47,24 @@ import java.util.List;
  * <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/string-length"></a>
  * Unlike the Mozilla documentation, if the argument is missing an exception is thrown.
  */
-final class StringLengthExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<ExpressionNumber, C> {
+final class NumberExpressionFunctionLength<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringLengthExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionLength<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final StringLengthExpressionFunction<?> INSTANCE = new StringLengthExpressionFunction<>();
+    private static final NumberExpressionFunctionLength<?> INSTANCE = new NumberExpressionFunctionLength<>();
 
     /**
      * Private ctor
      */
-    private StringLengthExpressionFunction() {
-        super();
+    private NumberExpressionFunctionLength() {
+        super("string-length");
     }
 
     @Override
@@ -79,13 +76,6 @@ final class StringLengthExpressionFunction<C extends ExpressionFunctionContext> 
     }
 
     @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("string-length");
-
-    @Override
     public List<ExpressionFunctionParameter<?>> parameters() {
         return PARAMETERS;
     }
@@ -94,29 +84,4 @@ final class StringLengthExpressionFunction<C extends ExpressionFunctionContext> 
             .setType(String.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
-
-    @Override
-    public boolean lsLastParameterVariable() {
-        return false;
-    }
-
-    @Override
-    public Class<ExpressionNumber> returnType() {
-        return ExpressionNumber.class;
-    }
-
-    @Override
-    public boolean resolveReferences() {
-        return true;
-    }
-
-    @Override
-    public boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }
