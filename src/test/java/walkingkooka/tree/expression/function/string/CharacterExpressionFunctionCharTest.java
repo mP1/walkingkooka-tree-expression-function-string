@@ -24,7 +24,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class StringExpressionFunctionCharTest extends StringExpressionFunctionTestCase<StringExpressionFunctionChar<ExpressionFunctionContext>, String> {
+public final class CharacterExpressionFunctionCharTest extends CharacterExpressionFunctionTestCase<CharacterExpressionFunctionChar<ExpressionFunctionContext>> {
 
     @Test
     public void testZeroParametersFails() {
@@ -64,11 +64,11 @@ public final class StringExpressionFunctionCharTest extends StringExpressionFunc
 
     @Test
     public void testAsciiLetter() {
-        this.applyAndCheck3((int) 'a', "a");
+        this.applyAndCheck3((int) 'a', 'a');
     }
 
     private void applyAndCheck3(final Number value,
-                                final String expected) {
+                                final Character expected) {
         this.applyAndCheck2(
                 parameters(
                         ExpressionNumberKind.DEFAULT.create(value)
@@ -83,12 +83,12 @@ public final class StringExpressionFunctionCharTest extends StringExpressionFunc
     }
 
     @Override
-    public StringExpressionFunctionChar<ExpressionFunctionContext> createBiFunction() {
-        return StringExpressionFunctionChar.instance();
+    public CharacterExpressionFunctionChar<ExpressionFunctionContext> createBiFunction() {
+        return CharacterExpressionFunctionChar.instance();
     }
 
     @Override
-    public Class<StringExpressionFunctionChar<ExpressionFunctionContext>> type() {
-        return Cast.to(StringExpressionFunctionChar.class);
+    public Class<CharacterExpressionFunctionChar<ExpressionFunctionContext>> type() {
+        return Cast.to(CharacterExpressionFunctionChar.class);
     }
 }
