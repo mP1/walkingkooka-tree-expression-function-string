@@ -53,6 +53,8 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     public static void visit(final int indexBias,
                              final Consumer<ExpressionFunction<?, ?>> consumer) {
         Lists.of(character(),
+                        ascii(),
+                        character(),
                         concat(),
                         contains(),
                         endsWith(),
@@ -76,10 +78,17 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see CharacterExpressionFunctionChar}
+     * {@see CharacterExpressionFunctionAsciiAndChar#ascii}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Character, C> ascii() {
+        return CharacterExpressionFunctionAsciiAndChar.ascii();
+    }
+
+    /**
+     * {@see CharacterExpressionFunctionAsciiAndChar#character}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Character, C> character() {
-        return CharacterExpressionFunctionChar.instance();
+        return CharacterExpressionFunctionAsciiAndChar.character();
     }
 
     /**

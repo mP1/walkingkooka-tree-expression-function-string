@@ -14,6 +14,7 @@ semantics.
 
 ## Available functions
 
+- ascii(number)
 - char(number)
 - concat(string...)
 - contains(string, string)
