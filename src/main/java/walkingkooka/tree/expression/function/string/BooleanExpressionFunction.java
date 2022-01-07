@@ -35,43 +35,29 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.tree.expression.ExpressionPurityContext;
+import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-
-import java.util.List;
 
 /**
- * A function that requires 2 string parameters and returns a {@link Boolean} result.
+ * A function that returns a {@link Boolean}.
  */
 abstract class BooleanExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<Boolean, C> {
 
     /**
      * Package private ctor
      */
-    BooleanExpressionFunction() {
+    BooleanExpressionFunction(final String name) {
         super();
+        this.name = FunctionExpressionName.with(name);
     }
 
     @Override
-    public Boolean apply(final List<Object> parameters,
-                         final C context) {
-        this.checkOnlyRequiredParameters(parameters);
-
-        return this.applyStringString(
-                TEXT.getOrFail(parameters, 0),
-                this.secondParameter().getOrFail(parameters, 1),
-                context
-        );
+    public final FunctionExpressionName name() {
+        return this.name;
     }
 
-    abstract ExpressionFunctionParameter<String> secondParameter();
-
-    abstract Boolean applyStringString(final String first,
-                                       final String second,
-                                       final ExpressionFunctionContext context);
-
-    final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT;
+    private final FunctionExpressionName name;
 
     @Override
     public final boolean lsLastParameterVariable() {

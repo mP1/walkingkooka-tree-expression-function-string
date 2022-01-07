@@ -16,29 +16,11 @@
  */
 package walkingkooka.tree.expression.function.string;
 
-import org.junit.jupiter.api.Test;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class BooleanExpressionFunctionTestCase<F extends BooleanExpressionFunction<ExpressionFunctionContext>> extends StringExpressionFunctionTestCase<F, Boolean> {
 
     BooleanExpressionFunctionTestCase() {
         super();
-    }
-
-    @Test
-    public final void testZeroParametersFails() {
-        assertThrows(IllegalArgumentException.class, this::apply2);
-    }
-
-    @Test
-    public final void testOneParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1"));
-    }
-
-    @Test
-    public final void testThreeParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2", "c3"));
     }
 }

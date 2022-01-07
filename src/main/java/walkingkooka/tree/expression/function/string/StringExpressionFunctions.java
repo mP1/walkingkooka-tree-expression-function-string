@@ -99,17 +99,17 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see BooleanExpressionFunctionContains}
+     * {@see BooleanExpressionFunctionContainsStartsEnds#contains}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> contains() {
-        return BooleanExpressionFunctionContains.instance();
+        return BooleanExpressionFunctionContainsStartsEnds.contains();
     }
 
     /**
-     * {@see BooleanExpressionFunctionEndsWith}
+     * {@see BooleanExpressionFunctionContainsStartsEnds#endsWith}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> endsWith() {
-        return BooleanExpressionFunctionEndsWith.instance();
+        return BooleanExpressionFunctionContainsStartsEnds.endsWith();
     }
 
     /**
@@ -155,10 +155,10 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see BooleanExpressionFunctionStartsWith}
+     * {@see BooleanExpressionFunctionContainsStartsEnds#startsWith}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> startsWith() {
-        return BooleanExpressionFunctionStartsWith.instance();
+        return BooleanExpressionFunctionContainsStartsEnds.startsWith();
     }
 
     /**
