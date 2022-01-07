@@ -58,6 +58,8 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         concat(),
                         contains(),
                         endsWith(),
+                        isNonText(),
+                        isText(),
                         left(),
                         lowerCase(),
                         mid(),
@@ -110,6 +112,20 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> endsWith() {
         return BooleanExpressionFunctionContainsStartsEnds.endsWith();
+    }
+
+    /**
+     * {@see BooleanExpressionFunctionIsTextIsNonText#isNonText}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isNonText() {
+        return BooleanExpressionFunctionIsTextIsNonText.isNonText();
+    }
+
+    /**
+     * {@see BooleanExpressionFunctionIsTextIsNonText#isText}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isText() {
+        return BooleanExpressionFunctionIsTextIsNonText.isText();
     }
 
     /**

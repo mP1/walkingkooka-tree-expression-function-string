@@ -19,6 +19,8 @@ semantics.
 - concat(string...)
 - contains(string, string)
 - ends-with(string, string)
+- isNonText(value)
+- isText(value)
 - left(string, number)
 - lower-case(string)
 - mid(string, number, number*)
