@@ -78,6 +78,11 @@ abstract class CharacterExpressionFunction<C extends ExpressionFunctionContext> 
     }
 
     @Override
+    public final boolean requiresEvaluatedParameters() {
+        return true;
+    }
+
+    @Override
     public final boolean resolveReferences() {
         return true;
     }
