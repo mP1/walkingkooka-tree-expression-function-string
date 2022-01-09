@@ -28,6 +28,8 @@ semantics.
 - normalize-space(string)
 - repeat(string, number)
 - right(string, number)
+- string-equals-case-insensitive(string, string)
+- string-equals-case-sensitive(string, string)
 - starts-with(string, string)
 - string-length(string)
 - substring-after(string, string, number*)
