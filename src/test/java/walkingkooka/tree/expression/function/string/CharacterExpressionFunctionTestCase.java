@@ -51,7 +51,7 @@ public abstract class CharacterExpressionFunctionTestCase<F extends CharacterExp
 
     @Test
     public final void testResolveReferencesTrue() {
-        this.resolveReferenceAndCheck(true);
+        this.resolveReferencesAndCheck(true);
     }
 
     @Override
