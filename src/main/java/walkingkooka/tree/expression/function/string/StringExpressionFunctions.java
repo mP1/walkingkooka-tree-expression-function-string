@@ -59,6 +59,8 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         concat(),
                         contains(),
                         endsWith(),
+                        equalsCaseInsensitive(),
+                        equalsCaseSensitive(),
                         isNonText(),
                         isText(),
                         left(),
@@ -120,6 +122,20 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> endsWith() {
         return BooleanExpressionFunctionContainsStartsEnds.endsWith();
+    }
+
+    /**
+     * {@see BooleanExpressionFunctionEquals.caseInsensitive}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> equalsCaseInsensitive() {
+        return BooleanExpressionFunctionEquals.caseInsensitive();
+    }
+
+    /**
+     * {@see BooleanExpressionFunctionEquals.caseSensitive}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> equalsCaseSensitive() {
+        return BooleanExpressionFunctionEquals.caseSensitive();
     }
 
     /**
