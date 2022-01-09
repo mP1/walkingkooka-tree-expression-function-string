@@ -16,6 +16,7 @@ semantics.
 
 - ascii(number)
 - char(number)
+- clean(string)
 - concat(string...)
 - contains(string, string)
 - ends-with(string, string)
