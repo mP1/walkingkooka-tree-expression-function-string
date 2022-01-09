@@ -70,6 +70,11 @@ abstract class BooleanExpressionFunction<C extends ExpressionFunctionContext> im
     }
 
     @Override
+    public final boolean requiresEvaluatedParameters() {
+        return true;
+    }
+
+    @Override
     public final boolean resolveReferences() {
         return true;
     }
