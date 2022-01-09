@@ -55,6 +55,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
         Lists.of(character(),
                         ascii(),
                         character(),
+                        clean(),
                         concat(),
                         contains(),
                         endsWith(),
@@ -91,6 +92,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Character, C> character() {
         return CharacterExpressionFunctionAsciiAndChar.character();
+    }
+
+    /**
+     * {@see CharacterExpressionFunctionClean}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> clean() {
+        return StringExpressionFunctionClean.instance();
     }
 
     /**
