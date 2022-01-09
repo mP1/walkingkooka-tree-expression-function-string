@@ -50,7 +50,7 @@ public abstract class NumberExpressionFunctionTestCase<F extends NumberExpressio
 
     @Test
     public final void testResolveReferencesTrue() {
-        this.resolveReferenceAndCheck(true);
+        this.resolveReferencesAndCheck(true);
     }
 
     @Override

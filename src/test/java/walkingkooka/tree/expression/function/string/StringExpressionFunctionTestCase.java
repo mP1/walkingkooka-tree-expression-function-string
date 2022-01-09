@@ -52,7 +52,7 @@ public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunct
 
     @Test
     public final void testResolveReferencesTrue() {
-        this.resolveReferenceAndCheck(true);
+        this.resolveReferencesAndCheck(true);
     }
 
     @Override
