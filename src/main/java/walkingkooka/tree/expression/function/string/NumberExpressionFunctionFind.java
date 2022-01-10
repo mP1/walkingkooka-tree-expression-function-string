@@ -110,17 +110,19 @@ final class NumberExpressionFunctionFind<C extends ExpressionFunctionContext> ex
                 within = WITHIN.getOrFail(parameters, 1);
                 start = START_POS.getOrFail(parameters, 2)
                         .intValue();
-                if(start < 0) {
-                    throw new IllegalArgumentException("Invalid start " + start + " < 1");
+                final int textLength = within.length();
+                if (start < BIAS || start > textLength) {
+                    throw new IllegalArgumentException("Invalid start " + start + " < 1 or > " + textLength);
                 }
                 break;
             default:
                 throw new IllegalArgumentException("Expected 2 or 3 parameters but got " + count);
         }
 
-        final int found = start - BIAS < within.length() ?
-                this.caseSensitivity.indexOf(within, find, start - BIAS) :
-                -1;
+        final int found =
+                find.length() == 0 ?
+                        start - BIAS :
+                        this.caseSensitivity.indexOf(within, find, start - BIAS);
 
         if (found == -1) {
             throw new IllegalStateException(
