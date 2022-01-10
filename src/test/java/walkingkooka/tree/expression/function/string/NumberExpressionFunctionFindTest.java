@@ -75,6 +75,15 @@ public final class NumberExpressionFunctionFindTest extends NumberExpressionFunc
     }
 
     @Test
+    public void testFindEmpty() {
+        this.findAndCheck(
+                "",
+                "Abc",
+                1
+        );
+    }
+
+    @Test
     public void testFind() {
         this.findAndCheck(
                 "A",
@@ -152,6 +161,26 @@ public final class NumberExpressionFunctionFindTest extends NumberExpressionFunc
                             KIND.create(startPos)
                     );
                 }
+        );
+    }
+
+    @Test
+    public void testFindEmptyStartPos() {
+        this.findAndCheck(
+                "",
+                "abc",
+                1,
+                1
+        );
+    }
+
+    @Test
+    public void testFindEmptyStartPos2() {
+        this.findAndCheck(
+                "",
+                "abc",
+                3,
+                3
         );
     }
 
@@ -267,8 +296,9 @@ public final class NumberExpressionFunctionFindTest extends NumberExpressionFunc
     public void testFindCaseInsensitiveStartPosFails() {
         this.findCaseInsensitiveAndFail(
                 "A",
-                "BC",
-                1
+                "ABC",
+                -1,
+                IllegalArgumentException.class
         );
     }
 
@@ -277,15 +307,47 @@ public final class NumberExpressionFunctionFindTest extends NumberExpressionFunc
         this.findCaseInsensitiveAndFail(
                 "A",
                 "ABC",
-                2
+                0,
+                IllegalArgumentException.class
+        );
+    }
+
+    @Test
+    public void testFindCaseInsensitiveStartPosFails3() {
+        this.findCaseInsensitiveAndFail(
+                "A",
+                "ABC",
+                4,
+                IllegalArgumentException.class
+        );
+    }
+
+    @Test
+    public void testFindCaseInsensitiveStartPosFails4() {
+        this.findCaseInsensitiveAndFail(
+                "A",
+                "BC",
+                1,
+                IllegalStateException.class
+        );
+    }
+
+    @Test
+    public void testFindCaseInsensitiveStartPosFails5() {
+        this.findCaseInsensitiveAndFail(
+                "A",
+                "ABC",
+                2,
+                IllegalStateException.class
         );
     }
 
     private void findCaseInsensitiveAndFail(final String find,
                                             final String within,
-                                            final int startPos) {
+                                            final int startPos,
+                                            final Class<? extends RuntimeException> thrown) {
         assertThrows(
-                IllegalStateException.class,
+                thrown,
                 () ->
                         this.applyCaseInsensitive(
                                 find,
