@@ -38,7 +38,6 @@ import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
-import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
@@ -72,7 +71,9 @@ final class NumberExpressionFunctionLength<C extends ExpressionFunctionContext> 
                                   final C context) {
         this.checkOnlyRequiredParameters(parameters);
         return context.expressionNumberKind()
-                .create(TEXT.getOrFail(parameters, 0).length());
+                .create(
+                        ExpressionFunctionParameter.TEXT.getOrFail(parameters, 0).length()
+                );
     }
 
     @Override
@@ -80,8 +81,7 @@ final class NumberExpressionFunctionLength<C extends ExpressionFunctionContext> 
         return PARAMETERS;
     }
 
-    private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.with("text")
-            .setType(String.class);
-
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
+            ExpressionFunctionParameter.TEXT
+    );
 }
