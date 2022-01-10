@@ -27,6 +27,7 @@ semantics.
 - mid(string, number, number*)
 - normalize-space(string)
 - repeat(string, number)
+- replace(String, number, number, String)
 - right(string, number)
 - string-equals-case-insensitive(string, string)
 - string-equals-case-sensitive(string, string)

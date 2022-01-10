@@ -68,6 +68,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         mid(),
                         normalizeSpace(),
                         repeat(),
+                        replace(),
                         right(),
                         startsWith(),
                         stringLength(),
@@ -185,6 +186,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> repeat() {
         return StringExpressionFunctionRepeat.instance();
+    }
+
+    /**
+     * {@see StringExpressionFunctionReplace}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> replace() {
+        return StringExpressionFunctionReplace.instance();
     }
 
     /**
