@@ -60,11 +60,6 @@ abstract class StringExpressionFunction<C extends ExpressionFunctionContext> imp
 
     private final FunctionExpressionName name;
 
-    @Override
-    public final boolean lsLastParameterVariable() {
-        return this instanceof StringExpressionFunctionConcat;
-    }
-
     /**
      * All string functions are pure. Does not assume anything about any parameters.
      */

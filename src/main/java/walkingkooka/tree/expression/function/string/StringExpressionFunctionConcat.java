@@ -37,6 +37,7 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -84,6 +85,6 @@ final class StringExpressionFunctionConcat<C extends ExpressionFunctionContext> 
     }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            TEXT
+            ExpressionFunctionParameterName.TEXT.variable(String.class)
     );
 }

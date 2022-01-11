@@ -67,7 +67,7 @@ final class StringExpressionFunctionText<C extends ExpressionFunctionContext> ex
     @Override
     public String apply(final List<Object> parameters,
                         final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         return context.convertOrFail(
                 VALUE.getOrFail(parameters, 0),
@@ -81,7 +81,7 @@ final class StringExpressionFunctionText<C extends ExpressionFunctionContext> ex
     }
 
     private final static ExpressionFunctionParameter<String> VALUE = ExpressionFunctionParameterName.with("value")
-            .setType(String.class);
+            .required(String.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(VALUE);
 }

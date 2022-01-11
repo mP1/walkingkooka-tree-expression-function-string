@@ -69,7 +69,7 @@ final class NumberExpressionFunctionLength<C extends ExpressionFunctionContext> 
     @Override
     public ExpressionNumber apply(final List<Object> parameters,
                                   final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
         return context.expressionNumberKind()
                 .create(
                         ExpressionFunctionParameter.TEXT.getOrFail(parameters, 0).length()

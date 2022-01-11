@@ -55,7 +55,7 @@ abstract class StringExpressionFunctionUnary<C extends ExpressionFunctionContext
     @Override
     public final String apply(final List<Object> parameters,
                               final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         return this.applyString(
                 TEXT.getOrFail(parameters, 0),

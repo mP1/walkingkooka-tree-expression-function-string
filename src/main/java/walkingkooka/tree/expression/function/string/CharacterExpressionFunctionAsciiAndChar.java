@@ -66,7 +66,7 @@ final class CharacterExpressionFunctionAsciiAndChar<C extends ExpressionFunction
     @Override
     public Character apply(final List<Object> parameters,
                            final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         final int value = NUMBER.getOrFail(parameters, 0)
                 .intValue();

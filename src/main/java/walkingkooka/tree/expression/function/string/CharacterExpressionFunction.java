@@ -59,11 +59,6 @@ abstract class CharacterExpressionFunction<C extends ExpressionFunctionContext> 
 
     private final FunctionExpressionName name;
 
-    @Override
-    public final boolean lsLastParameterVariable() {
-        return false;
-    }
-
     /**
      * All {@link Character} functions are pure. Does not assume anything about any parameters.
      */

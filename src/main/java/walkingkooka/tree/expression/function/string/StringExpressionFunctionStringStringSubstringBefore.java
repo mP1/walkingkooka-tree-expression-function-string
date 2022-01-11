@@ -87,7 +87,7 @@ final class StringExpressionFunctionStringStringSubstringBefore<C extends Expres
     }
 
     private final static ExpressionFunctionParameter<String> BEFORE = ExpressionFunctionParameterName.with("before")
-            .setType(String.class);
+            .required(String.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,

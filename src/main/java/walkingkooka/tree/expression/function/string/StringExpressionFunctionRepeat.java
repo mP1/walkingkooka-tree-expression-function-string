@@ -54,7 +54,7 @@ final class StringExpressionFunctionRepeat<C extends ExpressionFunctionContext> 
     @Override
     public String apply(final List<Object> parameters,
                         final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         final String string = TEXT.getOrFail(parameters, 0);
         final int count = COUNT.getOrFail(parameters, 1).intValue();
@@ -74,7 +74,7 @@ final class StringExpressionFunctionRepeat<C extends ExpressionFunctionContext> 
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> COUNT = ExpressionFunctionParameterName.with("count")
-            .setType(ExpressionNumber.class);
+            .required(ExpressionNumber.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,
