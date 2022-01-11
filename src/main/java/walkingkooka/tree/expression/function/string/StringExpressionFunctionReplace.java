@@ -73,7 +73,7 @@ final class StringExpressionFunctionReplace<C extends ExpressionFunctionContext>
     @Override
     public String apply(final List<Object> parameters,
                         final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         final String oldText = OLD_TEXT.getOrFail(parameters, 0);
 
@@ -117,16 +117,16 @@ final class StringExpressionFunctionReplace<C extends ExpressionFunctionContext>
     }
 
     private final static ExpressionFunctionParameter<String> OLD_TEXT = ExpressionFunctionParameterName.with("old-text")
-            .setType(String.class);
+            .required(String.class);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> START_POS = ExpressionFunctionParameterName.with("start-pos")
-            .setType(ExpressionNumber.class);
+            .required(ExpressionNumber.class);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> CHAR_COUNT = ExpressionFunctionParameterName.with("character-count")
-            .setType(ExpressionNumber.class);
+            .required(ExpressionNumber.class);
 
     private final static ExpressionFunctionParameter<String> NEW_TEXT = ExpressionFunctionParameterName.with("new-text")
-            .setType(String.class);
+            .required(String.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             OLD_TEXT,

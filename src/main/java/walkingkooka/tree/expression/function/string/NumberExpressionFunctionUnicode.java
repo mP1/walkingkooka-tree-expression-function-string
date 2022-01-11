@@ -50,7 +50,7 @@ final class NumberExpressionFunctionUnicode<C extends ExpressionFunctionContext>
     @Override
     public ExpressionNumber apply(final List<Object> parameters,
                                   final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         final Character character = CHARACTER.getOrFail(parameters, 0);
 

@@ -147,13 +147,13 @@ final class NumberExpressionFunctionFind<C extends ExpressionFunctionContext> ex
     }
 
     private final static ExpressionFunctionParameter<String> FIND_TEXT = ExpressionFunctionParameterName.with("find-text")
-            .setType(String.class);
+            .required(String.class);
 
     private final static ExpressionFunctionParameter<String> WITHIN = ExpressionFunctionParameterName.with("within")
-            .setType(String.class);
+            .required(String.class);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> START_POS = ExpressionFunctionParameterName.with("start-pos")
-            .setType(ExpressionNumber.class);
+            .optional(ExpressionNumber.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             FIND_TEXT,

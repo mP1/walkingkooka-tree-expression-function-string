@@ -67,7 +67,7 @@ final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionFunctio
     @Override
     public Boolean apply(final List<Object> parameters,
                          final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         return this.predicate.test(VALUE.getOrFail(parameters, 0));
     }

@@ -60,11 +60,6 @@ abstract class BooleanExpressionFunction<C extends ExpressionFunctionContext> im
     private final FunctionExpressionName name;
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return false;
-    }
-
-    @Override
     public final Class<Boolean> returnType() {
         return Boolean.class;
     }

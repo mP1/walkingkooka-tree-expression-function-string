@@ -54,7 +54,7 @@ abstract class StringExpressionFunctionStringString<C extends ExpressionFunction
     @Override
     public String apply(final List<Object> parameters,
                         final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         return this.applyStringString(
                 TEXT.getOrFail(parameters, 0),

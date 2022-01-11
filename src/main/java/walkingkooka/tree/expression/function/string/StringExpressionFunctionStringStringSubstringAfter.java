@@ -87,7 +87,7 @@ final class StringExpressionFunctionStringStringSubstringAfter<C extends Express
     }
 
     private final static ExpressionFunctionParameter<String> AFTER = ExpressionFunctionParameterName.with("after")
-            .setType(String.class);
+            .required(String.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,

@@ -83,7 +83,7 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionFunc
                                                         final BiFunction<String, String, Boolean> predicate) {
         super(name);
         this.secondParameter = ExpressionFunctionParameterName.with(secondParameterName)
-                .setType(String.class);
+                .required(String.class);
         this.parameters = ExpressionFunctionParameter.list(
                 TEXT,
                 this.secondParameter
@@ -102,7 +102,7 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionFunc
     @Override
     public Boolean apply(final List<Object> parameters,
                          final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         final String first = TEXT.getOrFail(parameters, 0);
         final String second = this.secondParameter.getOrFail(parameters, 1);

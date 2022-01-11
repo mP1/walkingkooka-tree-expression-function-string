@@ -68,10 +68,10 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionFunctionContext>
     }
 
     private final static ExpressionFunctionParameter<String> TEXT1 = ExpressionFunctionParameterName.with("text1")
-            .setType(String.class);
+            .required(String.class);
 
     private final static ExpressionFunctionParameter<String> TEXT2 = ExpressionFunctionParameterName.with("text2")
-            .setType(String.class);
+            .required(String.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT1,
@@ -81,7 +81,7 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionFunctionContext>
     @Override
     public Boolean apply(final List<Object> parameters,
                          final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         return this.caseSensitivity.equals(
                 TEXT1.getOrFail(parameters, 0),

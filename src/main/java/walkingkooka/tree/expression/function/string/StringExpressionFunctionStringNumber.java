@@ -88,7 +88,7 @@ abstract class StringExpressionFunctionStringNumber<C extends ExpressionFunction
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
-            .setType(ExpressionNumber.class);
+            .optional(ExpressionNumber.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,

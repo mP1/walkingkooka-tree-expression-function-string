@@ -121,10 +121,10 @@ final class StringExpressionFunctionSubstring<C extends ExpressionFunctionContex
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> OFFSET = ExpressionFunctionParameterName.with("offset")
-            .setType(ExpressionNumber.class);
+            .required(ExpressionNumber.class);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
-            .setType(ExpressionNumber.class);
+            .optional(ExpressionNumber.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,

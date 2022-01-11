@@ -67,7 +67,7 @@ final class StringExpressionFunctionClean<C extends ExpressionFunctionContext> e
     @Override
     public String apply(final List<Object> parameters,
                         final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         final String text = TEXT.getOrFail(parameters, 0);
 

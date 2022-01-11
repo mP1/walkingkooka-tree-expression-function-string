@@ -70,7 +70,7 @@ final class StringExpressionFunctionMid<C extends ExpressionFunctionContext> ext
     @Override
     public String apply(final List<Object> parameters,
                         final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         final String string = TEXT.getOrFail(parameters, 0);
         final int start = START.getOrFail(parameters, 1).intValue();
@@ -89,10 +89,10 @@ final class StringExpressionFunctionMid<C extends ExpressionFunctionContext> ext
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> START = ExpressionFunctionParameterName.with("start")
-            .setType(ExpressionNumber.class);
+            .required(ExpressionNumber.class);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
-            .setType(ExpressionNumber.class);
+            .required(ExpressionNumber.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,
