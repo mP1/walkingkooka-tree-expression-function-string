@@ -87,26 +87,13 @@ final class StringExpressionFunctionSubstring<C extends ExpressionFunctionContex
     @Override
     public String apply(final List<Object> parameters,
                         final C context) {
-        final int parameterCount = parameters.size();
+        this.checkParameterCount(parameters);
 
-        final String string;
-        final int offset;
-        final int length;
-
-        switch (parameterCount) {
-            case 2:
-                string = TEXT.getOrFail(parameters, 0);
-                offset = OFFSET.getOrFail(parameters, 1).intValue();
-                length = string.length() - offset + this.indexBase;
-                break;
-            case 3:
-                string = TEXT.getOrFail(parameters, 0);
-                offset = OFFSET.getOrFail(parameters, 1).intValue();
-                length = LENGTH.getOrFail(parameters, 2).intValue();
-                break;
-            default:
-                throw new IllegalArgumentException("Expected 2 or 3 parameters (String, offset, [length]) but got " + parameterCount);
-        }
+        final String string = TEXT.getOrFail(parameters, 0);
+        final int offset = OFFSET.getOrFail(parameters, 1).intValue();
+        final int length = LENGTH.get(parameters, 2)
+                .orElse(context.expressionNumberKind().create(string.length() - offset + this.indexBase))
+                .intValue();
 
         final int zeroOffset = offset - this.indexBase;
 

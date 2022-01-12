@@ -38,6 +38,7 @@ import walkingkooka.Cast;
 import walkingkooka.text.CaseSensitivity;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
@@ -93,30 +94,17 @@ final class NumberExpressionFunctionFind<C extends ExpressionFunctionContext> ex
     @Override
     public ExpressionNumber apply(final List<Object> parameters,
                                   final C context) {
-        final int count = parameters.size();
+        this.checkParameterCount(parameters);
 
-        final String find;
-        final String within;
-        final int start;
+        final String find = FIND_TEXT.getOrFail(parameters, 0);
+        final String within = WITHIN.getOrFail(parameters, 1);
+        final int start = START_POS.get(parameters, 2)
+                .orElse(START_POS_DEFAULT)
+                .intValue();
 
-        switch (count) {
-            case 2:
-                find = FIND_TEXT.getOrFail(parameters, 0);
-                within = WITHIN.getOrFail(parameters, 1);
-                start = BIAS;
-                break;
-            case 3:
-                find = FIND_TEXT.getOrFail(parameters, 0);
-                within = WITHIN.getOrFail(parameters, 1);
-                start = START_POS.getOrFail(parameters, 2)
-                        .intValue();
-                final int textLength = within.length();
-                if (start < BIAS || start > textLength) {
-                    throw new IllegalArgumentException("Invalid start " + start + " < 1 or > " + textLength);
-                }
-                break;
-            default:
-                throw new IllegalArgumentException("Expected 2 or 3 parameters but got " + count);
+        final int textLength = within.length();
+        if (start < BIAS || start > textLength) {
+            throw new IllegalArgumentException("Invalid start " + start + " < 1 or > " + textLength);
         }
 
         final int found =
@@ -140,6 +128,8 @@ final class NumberExpressionFunctionFind<C extends ExpressionFunctionContext> ex
     private final CaseSensitivity caseSensitivity;
 
     private final static int BIAS = 1;
+
+    private final static ExpressionNumber START_POS_DEFAULT = ExpressionNumberKind.DEFAULT.create(BIAS);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters() {

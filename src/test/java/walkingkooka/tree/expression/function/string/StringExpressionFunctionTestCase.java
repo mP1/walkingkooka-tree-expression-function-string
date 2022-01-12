@@ -65,6 +65,11 @@ public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunct
         return new FakeExpressionFunctionContext() {
 
             @Override
+            public ExpressionNumberKind expressionNumberKind() {
+                return KIND;
+            }
+
+            @Override
             public <TT> Either<TT, String> convert(final Object value,
                                                    final Class<TT> target) {
                 if (target.isInstance(value)) {

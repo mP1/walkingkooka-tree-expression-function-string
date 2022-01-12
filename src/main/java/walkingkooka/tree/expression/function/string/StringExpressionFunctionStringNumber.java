@@ -35,6 +35,7 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
@@ -56,28 +57,18 @@ abstract class StringExpressionFunctionStringNumber<C extends ExpressionFunction
     @Override
     public final String apply(final List<Object> parameters,
                               final C context) {
-        String result;
+        this.checkParameterCount(parameters);
 
-        final int count = parameters.size();
-        switch (count) {
-            case 1:
-                result = this.applyStringInteger(
-                        TEXT.getOrFail(parameters, 0),
-                        1
-                );
-                break;
-            case 2:
-                result = this.applyStringInteger(
-                        TEXT.getOrFail(parameters, 0),
-                        LENGTH.getOrFail(parameters, 1).intValue()
-                );
-                break;
-            default:
-                throw new IllegalArgumentException("Expected 1 or 2 parameters but got " + count + "=" + parameters);
-        }
 
-        return result;
+        return this.applyStringInteger(
+                TEXT.getOrFail(parameters, 0),
+                LENGTH.get(parameters, 1)
+                        .orElse(DEFAULT_LENGTH)
+                        .intValue()
+        );
     }
+
+    private final static ExpressionNumber DEFAULT_LENGTH = ExpressionNumberKind.DEFAULT.create(1);
 
     abstract String applyStringInteger(final String string,
                                        final int number);
