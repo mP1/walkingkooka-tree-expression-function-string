@@ -123,6 +123,81 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
         );
     }
 
+    // spaceTrim.........................................................................................................
+
+    @Test
+    public void testSpaceTrimEmpty() {
+        this.spaceTrimAndCheck("", "");
+    }
+
+    @Test
+    public void testSpaceTrimAllSpace() {
+        this.spaceTrimAndCheck(" ", "");
+    }
+
+    @Test
+    public void testSpaceTrimAllSpaces() {
+        this.spaceTrimAndCheck("   ", "");
+    }
+
+    @Test
+    public void testSpaceTrimLeft() {
+        this.spaceTrimAndCheck(" abc123", "abc123");
+    }
+
+    @Test
+    public void testSpaceTrimLeft2() {
+        this.spaceTrimAndCheck("  abc123", "abc123");
+    }
+
+    @Test
+    public void testSpaceTrimRight() {
+        this.spaceTrimAndCheck(" abc123 ", "abc123");
+    }
+
+    @Test
+    public void testSpaceTrimRight2() {
+        this.spaceTrimAndCheck("abc123  ", "abc123");
+    }
+
+    @Test
+    public void testSpaceTrimMid() {
+        this.spaceTrimAndCheck("abc 123", "abc 123");
+    }
+
+    @Test
+    public void testSpaceTrimMid2() {
+        this.spaceTrimAndCheck("abc  123", "abc 123");
+    }
+
+    @Test
+    public void testSpaceTrimMid3() {
+        this.spaceTrimAndCheck("abc  1  23", "abc 1 23");
+    }
+
+    @Test
+    public void testSpaceTrimLeftMidRight() {
+        this.spaceTrimAndCheck("  abc  1  23 ", "abc 1 23");
+    }
+
+    @Test
+    public void testSpaceTrimIgnoresOtherWhitespace() {
+        this.spaceTrimAndCheck("\nabc\tdef\rg", "\nabc\tdef\rg");
+    }
+
+    @Test
+    public void testSpaceTrimIgnoresOtherWhitespace2() {
+        this.spaceTrimAndCheck(" \nabc \t  def\r g ", "\nabc \t def\r g");
+    }
+
+    private void spaceTrimAndCheck(final String input, final String expected) {
+        this.unaryAndCheck(
+                StringExpressionFunctionUnary.spaceTrim(),
+                input,
+                expected
+        );
+    }
+
     // trim.........................................................................................................
 
     @Test

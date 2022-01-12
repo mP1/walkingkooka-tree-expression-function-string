@@ -72,6 +72,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         repeat(),
                         replace(),
                         right(),
+                        spaceTrim(),
                         startsWith(),
                         stringLength(),
                         substring(indexBias),
@@ -217,6 +218,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> right() {
         return StringExpressionFunctionStringNumberRight.instance();
+    }
+
+    /**
+     * {@see StringExpressionFunctionUnary#spaceTrim}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> spaceTrim() {
+        return StringExpressionFunctionUnary.spaceTrim();
     }
 
     /**
