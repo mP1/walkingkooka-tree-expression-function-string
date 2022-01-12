@@ -97,6 +97,62 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     }
 
     /**
+     * SPACETRIM Instance getter.
+     * <br>
+     * This follows the same semantics as EXCEL trim, removing only spaces left/right and multiple spaces.
+     * <br>
+     * https://exceljet.net/excel-functions/excel-trim-function
+     */
+    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> spaceTrim() {
+        return Cast.to(SPACETRIM);
+    }
+
+    private static final StringExpressionFunctionUnary<?> SPACETRIM = new StringExpressionFunctionUnary<>(
+            "space-trim",
+            StringExpressionFunctionUnary::spaceTrim
+    );
+
+    private static String spaceTrim(final String string, final ExpressionFunctionContext context) {
+        final StringBuilder b = new StringBuilder();
+
+        int start = 0;
+        boolean space = false;
+
+        final int length = string.length();
+
+        int i = 0;
+        do {
+            if (i == length) {
+                // dont save the last run of spaces
+                break;
+            }
+
+            final char c = string.charAt(i);
+            if (' ' == c) {
+                if (!space) {
+                    start = i;
+                }
+                space = true;
+                i++;
+                continue;
+            }
+
+            if (space && start > 0) {
+                b.append(' ');
+            }
+
+            space = false;
+
+            b.append(c);
+            i++;
+        } while (true);
+
+        return b.length() == length ?
+                string :
+                b.toString();
+    }
+
+    /**
      * TRIM Instance getter.
      */
     static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> trim() {
