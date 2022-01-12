@@ -78,10 +78,11 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         substringAfter(),
                         substringBefore(),
                         text(),
+                        trim(),
                         trimLeft(),
                         trimRight(),
                         unicode(),
-                upperCase())
+                        upperCase())
                 .forEach(consumer);
     }
 
@@ -258,6 +259,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> text() {
         return StringExpressionFunctionText.instance();
+    }
+
+    /**
+     * {@see StringExpressionFunctionUnary#trim}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> trim() {
+        return StringExpressionFunctionUnary.trim();
     }
 
     /**
