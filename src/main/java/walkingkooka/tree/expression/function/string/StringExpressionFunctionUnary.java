@@ -97,6 +97,18 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     }
 
     /**
+     * TRIM Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> trim() {
+        return Cast.to(TRIM);
+    }
+
+    private static final StringExpressionFunctionUnary<?> TRIM = new StringExpressionFunctionUnary<>(
+            "trim",
+            (s, c) -> CharSequences.trim(s).toString()
+    );
+
+    /**
      * TRIMLEFT Instance getter.
      */
     static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> trimLeft() {

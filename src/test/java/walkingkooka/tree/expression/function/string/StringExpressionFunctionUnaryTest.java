@@ -123,6 +123,31 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
         );
     }
 
+    // trim.........................................................................................................
+
+    @Test
+    public void testTrim() {
+        this.trimAndCheck("abc123", "abc123");
+    }
+
+    @Test
+    public void testTrimWhitespace() {
+        this.trimAndCheck(" \n\tabc123", "abc123");
+    }
+
+    @Test
+    public void testTrimRightWhitespace() {
+        this.trimAndCheck("abc123\n \r", "abc123");
+    }
+
+    private void trimAndCheck(final String input, final String expected) {
+        this.unaryAndCheck(
+                StringExpressionFunctionUnary.trim(),
+                input,
+                expected
+        );
+    }
+
     // trimLeft.........................................................................................................
 
     @Test
@@ -224,6 +249,14 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
         this.toStringAndCheck(
                 StringExpressionFunctionUnary.normalizeSpace(),
                 "normalize-space"
+        );
+    }
+
+    @Test
+    public void testToStringTrim() {
+        this.toStringAndCheck(
+                StringExpressionFunctionUnary.trim(),
+                "trim"
         );
     }
 

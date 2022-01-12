@@ -36,6 +36,7 @@ semantics.
 - substring-after(string, string, number*)
 - substring-before(string, string, number*)
 - text(object)
+- trim(string)
 - trim-left(string)
 - trim-right(string)
 - unicode(string)
