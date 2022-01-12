@@ -177,10 +177,10 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see StringExpressionFunctionUnaryLowerCase}
+     * {@see StringExpressionFunctionUnary#lowerCase}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> lowerCase() {
-        return StringExpressionFunctionUnaryLowerCase.instance();
+        return StringExpressionFunctionUnary.lowerCase();
     }
 
     /**
@@ -191,10 +191,10 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see StringExpressionFunctionUnaryNormalizeSpace}
+     * {@see StringExpressionFunctionUnary#normalizeSpace}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> normalizeSpace() {
-        return StringExpressionFunctionUnaryNormalizeSpace.instance();
+        return StringExpressionFunctionUnary.normalizeSpace();
     }
 
     /**
@@ -261,17 +261,17 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see StringExpressionFunctionUnaryTrimLeft}
+     * {@see StringExpressionFunctionUnary#trimLeft}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> trimLeft() {
-        return StringExpressionFunctionUnaryTrimLeft.instance();
+        return StringExpressionFunctionUnary.trimLeft();
     }
 
     /**
-     * {@see StringExpressionFunctionUnaryTrimRight}
+     * {@see StringExpressionFunctionUnary#trimRight}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> trimRight() {
-        return StringExpressionFunctionUnaryTrimRight.instance();
+        return StringExpressionFunctionUnary.trimRight();
     }
 
     /**
@@ -282,10 +282,10 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see StringExpressionFunctionUnaryUpperCase}
+     * {@see StringExpressionFunctionUnary#upperCase}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> upperCase() {
-        return StringExpressionFunctionUnaryUpperCase.instance();
+        return StringExpressionFunctionUnary.upperCase();
     }
 
     /**
