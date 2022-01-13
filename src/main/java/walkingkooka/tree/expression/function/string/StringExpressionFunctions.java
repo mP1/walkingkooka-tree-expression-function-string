@@ -75,6 +75,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         spaceTrim(),
                         startsWith(),
                         stringLength(),
+                        substitute(),
                         substring(indexBias),
                         substringAfter(),
                         substringBefore(),
@@ -239,6 +240,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> stringLength() {
         return NumberExpressionFunctionLength.instance();
+    }
+
+    /**
+     * {@see StringExpressionFunctionSubstitute}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substitute() {
+        return StringExpressionFunctionSubstitute.instance();
     }
 
     /**

@@ -34,6 +34,7 @@ semantics.
 - string-equals-case-sensitive(string, string)
 - starts-with(string, string)
 - string-length(string)
+- substitute(string, string, string, number?)
 - substring-after(string, string, number*)
 - substring-before(string, string, number*)
 - text(object)
