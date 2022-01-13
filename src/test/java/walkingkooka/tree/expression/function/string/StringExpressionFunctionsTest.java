@@ -52,14 +52,16 @@ public final class StringExpressionFunctionsTest implements PublicStaticHelperTe
     @Test
     public void testVisit() {
         final Set<FunctionExpressionName> names = Sets.sorted();
-        StringExpressionFunctions.visit(1, (e) -> names.add(e.name()));
+        StringExpressionFunctions.visit((e) -> names.add(e.name()));
 
-        this.checkEquals(Arrays.stream(StringExpressionFunctions.class.getDeclaredMethods())
+        this.checkEquals(
+                Arrays.stream(StringExpressionFunctions.class.getDeclaredMethods())
                         .filter(m -> m.getReturnType() == ExpressionFunction.class)
                         .map(Method::getName)
                         .collect(Collectors.toCollection(Sets::sorted))
                         .size(),
-                names.size());
+                names.size()
+        );
         this.checkEquals(true, names.contains(StringExpressionFunctions.left().name()));
         this.checkEquals(true, names.contains(StringExpressionFunctions.right().name()));
     }

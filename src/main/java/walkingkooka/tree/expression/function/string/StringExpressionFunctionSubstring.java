@@ -51,37 +51,20 @@ final class StringExpressionFunctionSubstring<C extends ExpressionFunctionContex
     /**
      * Factory that returns a matching {@link StringExpressionFunctionSubstring}
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionSubstring<C> with(final int indexBase) {
-        StringExpressionFunctionSubstring<C> result;
-        switch (indexBase) {
-            case 0:
-                result = Cast.to(ZERO);
-                break;
-            case 1:
-                result = Cast.to(ONE);
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid indexBase " + indexBase + " expected either 0 or 1");
-        }
-        return result;
+    static <C extends ExpressionFunctionContext> StringExpressionFunctionSubstring<C> instance() {
+        return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final StringExpressionFunctionSubstring<?> ZERO = new StringExpressionFunctionSubstring<>(0);
-
-    /**
-     * Singleton
-     */
-    private static final StringExpressionFunctionSubstring<?> ONE = new StringExpressionFunctionSubstring<>(1);
+    private static final StringExpressionFunctionSubstring<?> INSTANCE = new StringExpressionFunctionSubstring<>();
 
     /**
      * Private ctor
      */
-    private StringExpressionFunctionSubstring(final int indexBase) {
+    private StringExpressionFunctionSubstring() {
         super("substring");
-        this.indexBase = indexBase;
     }
 
     @Override
@@ -92,15 +75,15 @@ final class StringExpressionFunctionSubstring<C extends ExpressionFunctionContex
         final String string = TEXT.getOrFail(parameters, 0);
         final int offset = OFFSET.getOrFail(parameters, 1).intValue();
         final int length = LENGTH.get(parameters, 2)
-                .orElse(context.expressionNumberKind().create(string.length() - offset + this.indexBase))
+                .orElse(context.expressionNumberKind().create(string.length() - offset + INDEX_BIAS))
                 .intValue();
 
-        final int zeroOffset = offset - this.indexBase;
+        final int zeroOffset = offset - INDEX_BIAS;
 
         return string.substring(zeroOffset, length + zeroOffset);
     }
 
-    private final int indexBase;
+    private final static int INDEX_BIAS = 1;
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters() {

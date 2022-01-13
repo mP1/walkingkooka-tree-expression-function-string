@@ -50,8 +50,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     /**
      * Visit all {@link ExpressionFunction functions}.
      */
-    public static void visit(final int indexBias,
-                             final Consumer<ExpressionFunction<?, ?>> consumer) {
+    public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
         Lists.of(character(),
                         ascii(),
                         character(),
@@ -76,7 +75,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         startsWith(),
                         stringLength(),
                         substitute(),
-                        substring(indexBias),
+                        substring(),
                         substringAfter(),
                         substringBefore(),
                         text(),
@@ -252,8 +251,8 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     /**
      * {@see StringExpressionFunctionSubstring}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substring(final int indexBias) {
-        return StringExpressionFunctionSubstring.with(indexBias);
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substring() {
+        return StringExpressionFunctionSubstring.instance();
     }
 
     /**

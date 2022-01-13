@@ -37,7 +37,6 @@ package walkingkooka.tree.expression.function.string;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.select.NodeSelector;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -116,7 +115,7 @@ public final class StringExpressionFunctionSubstringTest extends StringExpressio
 
     @Override
     public StringExpressionFunctionSubstring<ExpressionFunctionContext> createBiFunction() {
-        return StringExpressionFunctionSubstring.with(NodeSelector.INDEX_BIAS);
+        return StringExpressionFunctionSubstring.instance();
     }
 
     @Override
