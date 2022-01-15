@@ -71,6 +71,8 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         repeat(),
                         replace(),
                         right(),
+                        searchCaseInsensitive(),
+                        searchCaseSensitive(),
                         spaceTrim(),
                         startsWith(),
                         stringLength(),
@@ -144,17 +146,17 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see NumberExpressionFunctionFind#find}
+     * {@see NumberExpressionFunctionSearchOrFindFind#caseSensitive}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> findCaseSensitive() {
-        return NumberExpressionFunctionFind.findCaseSensitive();
+        return NumberExpressionFunctionSearchOrFindFind.caseSensitive();
     }
 
     /**
-     * {@see NumberExpressionFunctionFind#findCaseInsensitive}
+     * {@see NumberExpressionFunctionSearchOrFindFind#caseInsensitive}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> findCaseInsensitive() {
-        return NumberExpressionFunctionFind.findCaseInsensitive();
+        return NumberExpressionFunctionSearchOrFindFind.caseInsensitive();
     }
 
     /**
@@ -218,6 +220,20 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> right() {
         return StringExpressionFunctionStringNumberRight.instance();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionSearchOrFindSearch#caseInsensitive}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> searchCaseInsensitive() {
+        return NumberExpressionFunctionSearchOrFindSearch.caseInsensitive();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionSearchOrFindSearch#caseSensitive}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> searchCaseSensitive() {
+        return NumberExpressionFunctionSearchOrFindSearch.caseSensitive();
     }
 
     /**

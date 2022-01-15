@@ -29,6 +29,8 @@ semantics.
 - repeat(string, number)
 - replace(String, number, number, String)
 - right(string, number)
+- search-case-insensitive(string, string, number*)
+- search-case-sensitive(string, string, number*)
 - space-trim(string)
 - string-equals-case-insensitive(string, string)
 - string-equals-case-sensitive(string, string)
