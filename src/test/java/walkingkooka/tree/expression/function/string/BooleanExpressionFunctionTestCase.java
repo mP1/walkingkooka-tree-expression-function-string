@@ -18,9 +18,14 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public abstract class BooleanExpressionFunctionTestCase<F extends BooleanExpressionFunction<ExpressionFunctionContext>> extends StringExpressionFunctionTestCase<F, Boolean> {
+public abstract class BooleanExpressionFunctionTestCase<F extends BooleanExpressionFunction<ExpressionFunctionContext>> extends ExpressionFunctionTestCase<F, Boolean> {
 
     BooleanExpressionFunctionTestCase() {
         super();
+    }
+
+    @Override
+    public final String typeNamePrefix() {
+        return BooleanExpressionFunction.class.getSimpleName();
     }
 }
