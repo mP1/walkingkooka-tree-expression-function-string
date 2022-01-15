@@ -28,7 +28,7 @@ public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberEx
         this.searchOrFindAndCheck(
                 "abc",
                 "ABCDE",
-                -1
+                NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
@@ -37,7 +37,7 @@ public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberEx
         this.searchOrFindAndCheck(
                 "c",
                 "ABCDE",
-                -1
+                NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
@@ -46,7 +46,7 @@ public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberEx
         this.searchOrFindAndCheck(
                 "bc",
                 "ABCDE",
-                -1
+                NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
@@ -56,7 +56,7 @@ public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberEx
                 "cd",
                 "ABCDE",
                 2,
-                -1
+                NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
@@ -66,7 +66,7 @@ public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberEx
                 "e",
                 "ABCDE",
                 2,
-                -1
+                NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 

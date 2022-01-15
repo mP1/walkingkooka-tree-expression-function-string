@@ -27,6 +27,8 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
 
     final static int INDEX_BIAS = 1;
 
+    final static int NOT_FOUND_INDEX = 0;
+
     NumberExpressionFunction(final String name) {
         super();
         this.name = FunctionExpressionName.with(name);
