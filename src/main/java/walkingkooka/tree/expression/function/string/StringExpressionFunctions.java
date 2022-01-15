@@ -56,8 +56,10 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         character(),
                         clean(),
                         concat(),
-                        contains(),
-                        endsWith(),
+                        containsCaseInsensitive(),
+                        containsCaseSensitive(),
+                        endsWithCaseInsensitive(),
+                        endsWithCaseSensitive(),
                         equalsCaseInsensitive(),
                         equalsCaseSensitive(),
                         findCaseSensitive(),
@@ -74,7 +76,8 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         searchCaseInsensitive(),
                         searchCaseSensitive(),
                         spaceTrim(),
-                        startsWith(),
+                        startsWithCaseInsensitive(),
+                        startsWithCaseSensitive(),
                         stringLength(),
                         substitute(),
                         substring(),
@@ -118,17 +121,31 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see BooleanExpressionFunctionContainsStartsEnds#contains}
+     * {@see BooleanExpressionFunctionContainsStartsEnds#containsCaseInsensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> contains() {
-        return BooleanExpressionFunctionContainsStartsEnds.contains();
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> containsCaseInsensitive() {
+        return BooleanExpressionFunctionContainsStartsEnds.containsCaseInsensitive();
     }
 
     /**
-     * {@see BooleanExpressionFunctionContainsStartsEnds#endsWith}
+     * {@see BooleanExpressionFunctionContainsStartsEnds#containsCaseSensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> endsWith() {
-        return BooleanExpressionFunctionContainsStartsEnds.endsWith();
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> containsCaseSensitive() {
+        return BooleanExpressionFunctionContainsStartsEnds.containsCaseSensitive();
+    }
+
+    /**
+     * {@see BooleanExpressionFunctionContainsStartsEnds#endsWithCaseInsensitive}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> endsWithCaseInsensitive() {
+        return BooleanExpressionFunctionContainsStartsEnds.endsWithCaseInsensitive();
+    }
+
+    /**
+     * {@see BooleanExpressionFunctionContainsStartsEnds#endsWithCaseSensitive}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> endsWithCaseSensitive() {
+        return BooleanExpressionFunctionContainsStartsEnds.endsWithCaseSensitive();
     }
 
     /**
@@ -244,10 +261,17 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see BooleanExpressionFunctionContainsStartsEnds#startsWith}
+     * {@see BooleanExpressionFunctionContainsStartsEnds#startsWithCaseInsensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> startsWith() {
-        return BooleanExpressionFunctionContainsStartsEnds.startsWith();
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> startsWithCaseInsensitive() {
+        return BooleanExpressionFunctionContainsStartsEnds.startsWithCaseInsensitive();
+    }
+
+    /**
+     * {@see BooleanExpressionFunctionContainsStartsEnds#startsWithCaseSensitive}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> startsWithCaseSensitive() {
+        return BooleanExpressionFunctionContainsStartsEnds.startsWithCaseSensitive();
     }
 
     /**
