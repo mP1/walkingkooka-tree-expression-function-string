@@ -25,6 +25,8 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<ExpressionNumber, C> {
 
+    final static int INDEX_BIAS = 1;
+
     NumberExpressionFunction(final String name) {
         super();
         this.name = FunctionExpressionName.with(name);
