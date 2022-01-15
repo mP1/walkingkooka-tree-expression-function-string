@@ -20,6 +20,8 @@ semantics.
 - concat(string...)
 - contains(string, string)
 - ends-with(string, string)
+- find-case-insensitive(string, string, number*)
+- find-case-sensitive(string, string, number*)
 - isNonText(value)
 - isText(value)
 - left(string, number)
