@@ -66,7 +66,7 @@ public abstract class NumberExpressionFunctionSearchOrFindTestCase<F extends Num
         this.searchOrFindAndCheck(
                 "abc",
                 "xyz",
-                -1
+                NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
@@ -76,7 +76,7 @@ public abstract class NumberExpressionFunctionSearchOrFindTestCase<F extends Num
                 "x",
                 "xyz",
                 2,
-                -1
+                NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
@@ -86,7 +86,7 @@ public abstract class NumberExpressionFunctionSearchOrFindTestCase<F extends Num
                 "a",
                 "abcde",
                 2,
-                -1
+                NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 

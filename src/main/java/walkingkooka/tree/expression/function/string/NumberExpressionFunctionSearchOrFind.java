@@ -85,7 +85,7 @@ abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionFunction
         return context.expressionNumberKind()
                 .create(
                         result == -1 ?
-                                -1 :
+                                NOT_FOUND_INDEX :
                                 INDEX_BIAS + result
                 );
     }
