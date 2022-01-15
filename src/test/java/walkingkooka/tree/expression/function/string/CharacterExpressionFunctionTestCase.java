@@ -16,42 +16,20 @@
  */
 package walkingkooka.tree.expression.function.string;
 
-import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.Either;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.TypeNameTesting;
-import walkingkooka.tree.expression.ExpressionEvaluationContexts;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import java.util.Locale;
 
-public abstract class CharacterExpressionFunctionTestCase<F extends CharacterExpressionFunction<ExpressionFunctionContext>> implements ExpressionFunctionTesting<F, Character, ExpressionFunctionContext>,
-        ClassTesting2<F>,
-        TypeNameTesting<F> {
+public abstract class CharacterExpressionFunctionTestCase<F extends CharacterExpressionFunction<ExpressionFunctionContext>> extends ExpressionFunctionTestCase<F, Character> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
     CharacterExpressionFunctionTestCase() {
         super();
-    }
-
-    @Test
-    public final void testIsPureTrue() {
-        this.isPureAndCheck(
-                this.createBiFunction(),
-                ExpressionEvaluationContexts.fake(),
-                true
-        );
-    }
-
-    @Test
-    public final void testResolveReferencesTrue() {
-        this.resolveReferencesAndCheck(true);
     }
 
     @Override
@@ -79,17 +57,7 @@ public abstract class CharacterExpressionFunctionTestCase<F extends CharacterExp
     }
 
     @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
-    }
-
-    @Override
     public final String typeNamePrefix() {
         return CharacterExpressionFunction.class.getSimpleName();
-    }
-
-    @Override
-    public final String typeNameSuffix() {
-        return "";
     }
 }

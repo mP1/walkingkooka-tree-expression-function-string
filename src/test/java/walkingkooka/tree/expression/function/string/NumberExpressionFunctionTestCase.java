@@ -18,39 +18,15 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.TypeNameTesting;
-import walkingkooka.tree.expression.ExpressionEvaluationContexts;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
-public abstract class NumberExpressionFunctionTestCase<F extends NumberExpressionFunction<ExpressionFunctionContext>> implements ExpressionFunctionTesting<F, ExpressionNumber, ExpressionFunctionContext>,
-        ClassTesting2<F>,
-        TypeNameTesting<F> {
-
-    final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
+public abstract class NumberExpressionFunctionTestCase<F extends NumberExpressionFunction<ExpressionFunctionContext>> extends ExpressionFunctionTestCase<F, ExpressionNumber> {
 
     NumberExpressionFunctionTestCase() {
         super();
-    }
-
-    @Test
-    public final void testIsPureTrue() {
-        this.isPureAndCheck(
-                this.createBiFunction(),
-                ExpressionEvaluationContexts.fake(),
-                true
-        );
-    }
-
-    @Test
-    public final void testResolveReferencesTrue() {
-        this.resolveReferencesAndCheck(true);
     }
 
     @Override
@@ -65,17 +41,7 @@ public abstract class NumberExpressionFunctionTestCase<F extends NumberExpressio
     }
 
     @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
-    }
-
-    @Override
     public final String typeNamePrefix() {
         return NumberExpressionFunction.class.getSimpleName();
-    }
-
-    @Override
-    public final String typeNameSuffix() {
-        return "";
     }
 }

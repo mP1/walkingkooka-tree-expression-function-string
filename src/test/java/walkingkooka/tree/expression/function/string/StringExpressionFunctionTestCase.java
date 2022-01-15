@@ -16,48 +16,19 @@
  */
 package walkingkooka.tree.expression.function.string;
 
-import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.Either;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.TypeNameTesting;
-import walkingkooka.tree.expression.ExpressionEvaluationContexts;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import java.util.Locale;
 
-public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionFunctionContext>, T> implements ExpressionFunctionTesting<F, T, ExpressionFunctionContext>,
-        ClassTesting2<F>,
-        TypeNameTesting<F> {
-
-    final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
+public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionFunctionContext>, T> extends ExpressionFunctionTestCase<F, T> {
 
     StringExpressionFunctionTestCase() {
         super();
-    }
-
-    @Test
-    public final void testIsPureTrue() {
-        this.isPureAndCheck(
-                this.createBiFunction(),
-                ExpressionEvaluationContexts.fake(),
-                true
-        );
-    }
-
-    @Test
-    public final void testRequiresEvaluatedParameters() {
-        this.requiresEvaluatedParametersAndCheck(true);
-    }
-
-    @Test
-    public final void testResolveReferencesTrue() {
-        this.resolveReferencesAndCheck(true);
     }
 
     @Override
@@ -90,19 +61,7 @@ public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunct
     }
 
     @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
-    }
-
-    @Override
     public final String typeNamePrefix() {
-        return this instanceof BooleanExpressionFunctionTestCase ?
-                BooleanExpressionFunction.class.getSimpleName() :
-                StringExpressionFunction.class.getSimpleName();
-    }
-
-    @Override
-    public final String typeNameSuffix() {
-        return "";
+        return StringExpressionFunction.class.getSimpleName();
     }
 }
