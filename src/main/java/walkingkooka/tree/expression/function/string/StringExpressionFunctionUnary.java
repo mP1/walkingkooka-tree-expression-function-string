@@ -41,6 +41,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.function.BiFunction;
 
 /**
@@ -91,6 +92,52 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
             }
             wasWhitespace = whitespace;
             b.append(c);
+        }
+
+        return b.toString();
+    }
+
+    /**
+     * PROPER Instance getter.
+     * <br>
+     * https://github.com/mP1/walkingkooka-tree-expression-function-string/issues/71
+     */
+    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> proper() {
+        return Cast.to(PROPER);
+    }
+
+    private static final StringExpressionFunctionUnary<?> PROPER = new StringExpressionFunctionUnary<>(
+            "proper",
+            (s, c) -> proper(s, c.locale())
+    );
+
+    // https://exceljet.net/excel-functions/excel-proper-function
+    //
+    // The first letter in any word is capitalized, all other letters are lower-cased.
+    // All other characters are copied over as is.
+    //
+    // TODO
+    // If a numeric value is given to PROPER, number formatting is removed. For example, if cell A1 contains the date
+    // June 26, 2021, date formatting will be lost and PROPER will return a date serial number as text:
+    private static String proper(final String text,
+                                 final Locale locale) {
+        final StringBuilder b = new StringBuilder();
+        final int length = text.length();
+
+        boolean makeUpper = true;
+
+        for (int i = 0; i < length; i++) {
+            final char c = text.charAt(i);
+            if (Character.isLetter(c)) {
+                final String s = String.valueOf(c);
+                b.append(makeUpper ? s.toUpperCase(locale) : s.toLowerCase(locale));
+
+                makeUpper = false;
+                continue;
+            }
+
+            b.append(c);
+            makeUpper = true;
         }
 
         return b.toString();

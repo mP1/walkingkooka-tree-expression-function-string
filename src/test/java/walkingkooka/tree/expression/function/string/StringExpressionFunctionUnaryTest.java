@@ -123,6 +123,96 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
         );
     }
 
+    // proper.........................................................................................................
+
+    @Test
+    public void testProperEmpty() {
+        this.properAndCheck("");
+    }
+
+    @Test
+    public void testProperSpace() {
+        this.properAndCheck(" ");
+    }
+
+    @Test
+    public void testProperAllSpaces() {
+        this.properAndCheck("   ");
+    }
+
+    @Test
+    public void testProperAllNumbers() {
+        this.properAndCheck("123456");
+    }
+
+    @Test
+    public void testProperAllNumbersAndWhitespaces() {
+        this.properAndCheck("123 45\t6");
+    }
+
+    @Test
+    public void testProperAllSymbols() {
+        this.properAndCheck("!./");
+    }
+
+    @Test
+    public void testProperSymbolNumbersWhitespace() {
+        this.properAndCheck("! 1 2 3");
+    }
+
+    @Test
+    public void testLetters() {
+        this.properAndCheck("abc", "Abc");
+    }
+
+    @Test
+    public void testLetters2() {
+        this.properAndCheck("ABC", "Abc");
+    }
+
+    @Test
+    public void testLetters3() {
+        this.properAndCheck("AbC", "Abc");
+    }
+
+    @Test
+    public void testLettersAndNumbers() {
+        this.properAndCheck("ABC123", "Abc123");
+    }
+
+    @Test
+    public void testLettersWhitespaceLetters() {
+        this.properAndCheck("ABC DEF", "Abc Def");
+    }
+
+    @Test
+    public void testLettersDashLetters() {
+        this.properAndCheck("ABC-DEF", "Abc-Def");
+    }
+
+    @Test
+    public void testLettersDashLetters2() {
+        this.properAndCheck("ABC-DEF-567-GHI", "Abc-Def-567-Ghi");
+    }
+
+    @Test
+    public void testSentence() {
+        this.properAndCheck("The cat and the hat.", "The Cat And The Hat.");
+    }
+
+    private void properAndCheck(final String text) {
+        this.properAndCheck(text, text);
+    }
+
+    private void properAndCheck(final String input,
+                                final String expected) {
+        this.unaryAndCheck(
+                StringExpressionFunctionUnary.proper(),
+                input,
+                expected
+        );
+    }
+
     // spaceTrim.........................................................................................................
 
     @Test

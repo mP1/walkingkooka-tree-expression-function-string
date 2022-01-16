@@ -70,6 +70,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         lowerCase(),
                         mid(),
                         normalizeSpace(),
+                        proper(),
                         repeat(),
                         replace(),
                         right(),
@@ -217,6 +218,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> normalizeSpace() {
         return StringExpressionFunctionUnary.normalizeSpace();
+    }
+
+    /**
+     * {@see StringExpressionFunctionUnary#proper}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> proper() {
+        return StringExpressionFunctionUnary.proper();
     }
 
     /**
