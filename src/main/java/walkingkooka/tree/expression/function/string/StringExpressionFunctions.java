@@ -84,6 +84,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         substringAfter(),
                         substringBefore(),
                         text(),
+                        textJoin(),
                         trim(),
                         trimLeft(),
                         trimRight(),
@@ -314,6 +315,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> text() {
         return StringExpressionFunctionText.instance();
+    }
+
+    /**
+     * {@see StringExpressionFunctionTextJoin}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> textJoin() {
+        return StringExpressionFunctionTextJoin.instance();
     }
 
     /**
