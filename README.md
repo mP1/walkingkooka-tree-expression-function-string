@@ -30,6 +30,7 @@ semantics.
 - lower-case(string)
 - mid(string, number, number*)
 - normalize-space(string)
+- proper(string)
 - repeat(string, number)
 - replace(String, number, number, String)
 - right(string, number)
