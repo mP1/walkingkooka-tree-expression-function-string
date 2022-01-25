@@ -35,6 +35,11 @@ public final class BooleanExpressionFunctionIsTextIsNonTextTest extends BooleanE
     }
 
     @Test
+    public void testIsNonTextEmptyString() {
+        this.isNonTextAndCheck("", false);
+    }
+
+    @Test
     public void testIsNonTextString() {
         this.isNonTextAndCheck("hello", false);
     }

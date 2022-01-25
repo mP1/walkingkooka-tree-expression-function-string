@@ -40,7 +40,7 @@ final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionFunctio
      */
     private static final BooleanExpressionFunctionIsTextIsNonText<?> ISNONTEXT = new BooleanExpressionFunctionIsTextIsNonText<>(
             "isNonText",
-            (value) -> !(value instanceof String)
+            (value) -> !(value instanceof String) && !"".equals(value)
     );
 
     /**
