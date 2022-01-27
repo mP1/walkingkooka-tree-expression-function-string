@@ -29,7 +29,7 @@ public final class NumberExpressionFunctionLengthTest extends NumberExpressionFu
         this.applyAndCheck(
                 Lists.of(""),
                 this.createContext(),
-                KIND.create(0)
+                KIND.zero()
         );
     }
 

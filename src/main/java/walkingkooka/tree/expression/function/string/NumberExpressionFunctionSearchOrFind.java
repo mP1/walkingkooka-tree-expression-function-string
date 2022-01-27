@@ -46,10 +46,12 @@ abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionFunction
                                         final C context) {
         this.checkParameterCount(parameters);
 
+        final ExpressionNumberKind kind = context.expressionNumberKind();
+
         final String find = FIND.getOrFail(parameters, 0);
         final String within = WITHIN.getOrFail(parameters, 1);
         final int startPos = START_POS.get(parameters, 2)
-                .orElse(ONE)
+                .orElse(kind.one())
                 .intValue(); // base 0
 
         final int length = within.length();
@@ -65,12 +67,11 @@ abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionFunction
                 startPos - INDEX_BIAS
         );
 
-        return context.expressionNumberKind()
-                .create(
-                        result == -1 ?
-                                NOT_FOUND_INDEX :
-                                INDEX_BIAS + result
-                );
+        return kind.create(
+                result == -1 ?
+                        NOT_FOUND_INDEX :
+                        INDEX_BIAS + result
+        );
     }
 
     final CaseSensitivity caseSensitivity;
@@ -90,8 +91,6 @@ abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionFunction
 
     private final static ExpressionFunctionParameter<ExpressionNumber> START_POS = ExpressionFunctionParameterName.with("start-pos")
             .optional(ExpressionNumber.class);
-
-    private final static ExpressionNumber ONE = ExpressionNumberKind.DEFAULT.create(1);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters() {
