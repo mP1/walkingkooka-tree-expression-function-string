@@ -36,7 +36,7 @@ public final class StringExpressionFunctionSubstituteTest extends StringExpressi
                             "text",
                             "oldText",
                             "newText",
-                            KIND.create(0)
+                            KIND.zero()
                     );
                 }
         );

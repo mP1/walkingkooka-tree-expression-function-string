@@ -18,7 +18,6 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
@@ -46,12 +45,10 @@ abstract class StringExpressionFunctionStringNumber<C extends ExpressionFunction
         return this.applyStringInteger(
                 TEXT.getOrFail(parameters, 0),
                 LENGTH.get(parameters, 1)
-                        .orElse(DEFAULT_LENGTH)
+                        .orElse(context.expressionNumberKind().one())
                         .intValue()
         );
     }
-
-    private final static ExpressionNumber DEFAULT_LENGTH = ExpressionNumberKind.DEFAULT.create(1);
 
     abstract String applyStringInteger(final String string,
                                        final int number);
