@@ -25,7 +25,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 import java.util.List;
 
 /**
- * A function that converts the given value into a {@link String}.
+ * A {@link walkingkooka.tree.expression.function.ExpressionFunction} that converts the given value into a {@link String} and if successful returns true, or false in other cases.
  */
 final class StringExpressionFunctionText<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
     /**
