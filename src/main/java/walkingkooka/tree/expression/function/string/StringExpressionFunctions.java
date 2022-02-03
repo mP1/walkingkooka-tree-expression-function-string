@@ -73,7 +73,9 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
                         trimLeft(),
                         trimRight(),
                         unicode(),
-                        upperCase())
+                        upperCase(),
+                        value()
+                )
                 .forEach(consumer);
     }
 
@@ -348,6 +350,13 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> upperCase() {
         return StringExpressionFunctionUnary.upperCase();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionValue}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> value() {
+        return NumberExpressionFunctionValue.instance();
     }
 
     /**
