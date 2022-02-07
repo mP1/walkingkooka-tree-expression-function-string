@@ -25,39 +25,28 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 import java.util.List;
 
 /**
- * A {@link walkingkooka.tree.expression.function.ExpressionFunction} that converts the given value into a {@link String} and if successful returns true, or false in other cases.
+ * A {@link walkingkooka.tree.expression.function.ExpressionFunction} that returns an empty string for all types other than {@link String}.
  * <br>
  * https://exceljet.net/excel-functions/excel-t-function
  */
-final class StringExpressionFunctionText<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionT<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionText<C> instance() {
+    static <C extends ExpressionFunctionContext> StringExpressionFunctionT<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final StringExpressionFunctionText<?> INSTANCE = new StringExpressionFunctionText<>();
+    private static final StringExpressionFunctionT<?> INSTANCE = new StringExpressionFunctionT<>();
 
     /**
      * Private ctor
      */
-    private StringExpressionFunctionText() {
-        super("text");
-    }
-
-    @Override
-    public String apply(final List<Object> parameters,
-                        final C context) {
-        this.checkParameterCount(parameters);
-
-        return context.convertOrFail(
-                VALUE.getOrFail(parameters, 0),
-                String.class
-        );
+    private StringExpressionFunctionT() {
+        super("t");
     }
 
     @Override
@@ -65,8 +54,20 @@ final class StringExpressionFunctionText<C extends ExpressionFunctionContext> ex
         return PARAMETERS;
     }
 
-    private final static ExpressionFunctionParameter<String> VALUE = ExpressionFunctionParameterName.with("value")
-            .required(String.class);
+    private final static ExpressionFunctionParameter<Object> VALUE = ExpressionFunctionParameterName.with("value")
+            .required(Object.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(VALUE);
+
+    @Override
+    public String apply(final List<Object> parameters,
+                        final C context) {
+        this.checkParameterCount(parameters);
+
+        final Object value = VALUE.getOrFail(parameters, 0);
+
+        return value instanceof String ?
+                (String) value :
+                "";
+    }
 }
