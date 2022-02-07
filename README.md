@@ -45,6 +45,7 @@ semantics.
 - substitute(string, string, string, number?)
 - substring-after(string, string, number*)
 - substring-before(string, string, number*)
+- t(object)
 - text(object)
 - text-join(string delimiter, boolean ignoreEmpty, string text, string more-text)
 - trim(string)
