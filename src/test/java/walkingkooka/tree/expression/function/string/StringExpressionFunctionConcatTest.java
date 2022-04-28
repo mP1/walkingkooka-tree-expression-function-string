@@ -27,7 +27,11 @@ public final class StringExpressionFunctionConcatTest extends StringExpressionFu
 
     @Test
     public void testZeroParametersFails() {
-        assertThrows(IllegalArgumentException.class, this::apply2);
+        final IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                this::apply2
+        );
+        this.checkEquals("Missing text", thrown.getMessage(), "message");
     }
 
     @Test

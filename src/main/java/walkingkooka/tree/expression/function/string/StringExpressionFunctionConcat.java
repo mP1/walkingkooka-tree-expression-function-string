@@ -54,7 +54,7 @@ final class StringExpressionFunctionConcat<C extends ExpressionFunctionContext> 
                         final C context) {
         final int count = parameters.size();
         if (count < 1) {
-            throw new IllegalArgumentException("Expected at least 1 parameter but got " + count + "=" + parameters.subList(1, count));
+            throw new IllegalArgumentException("Missing text");
         }
 
         return parameters.stream()
