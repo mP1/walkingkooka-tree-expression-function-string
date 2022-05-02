@@ -34,7 +34,7 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
      * Visit all {@link ExpressionFunction functions}.
      */
     public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
-        Lists.of(character(),
+        Lists.of(
                         ascii(),
                         character(),
                         clean(),
