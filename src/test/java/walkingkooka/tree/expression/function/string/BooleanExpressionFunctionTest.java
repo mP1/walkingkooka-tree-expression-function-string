@@ -20,12 +20,12 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class BooleanExpressionFunctionTest implements ClassTesting<BooleanExpressionFunction<ExpressionFunctionContext>> {
+public final class BooleanExpressionFunctionTest implements ClassTesting<BooleanExpressionFunction<ExpressionEvaluationContext>> {
 
     @Override
-    public Class<BooleanExpressionFunction<ExpressionFunctionContext>> type() {
+    public Class<BooleanExpressionFunction<ExpressionEvaluationContext>> type() {
         return Cast.to(BooleanExpressionFunction.class);
     }
 

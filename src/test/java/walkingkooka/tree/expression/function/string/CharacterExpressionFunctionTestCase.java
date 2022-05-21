@@ -18,13 +18,13 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.Either;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
+import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 
 import java.util.Locale;
 
-public abstract class CharacterExpressionFunctionTestCase<F extends CharacterExpressionFunction<ExpressionFunctionContext>> extends ExpressionFunctionTestCase<F, Character> {
+public abstract class CharacterExpressionFunctionTestCase<F extends CharacterExpressionFunction<ExpressionEvaluationContext>> extends ExpressionFunctionTestCase<F, Character> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -33,8 +33,8 @@ public abstract class CharacterExpressionFunctionTestCase<F extends CharacterExp
     }
 
     @Override
-    public final ExpressionFunctionContext createContext() {
-        return new FakeExpressionFunctionContext() {
+    public final ExpressionEvaluationContext createContext() {
+        return new FakeExpressionEvaluationContext() {
 
             @Override
             public <TT> Either<TT, String> convert(final Object value,

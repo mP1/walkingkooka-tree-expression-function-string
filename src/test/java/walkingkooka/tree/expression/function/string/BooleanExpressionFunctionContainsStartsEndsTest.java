@@ -20,9 +20,9 @@ package walkingkooka.tree.expression.function.string;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class BooleanExpressionFunctionContainsStartsEndsTest extends BooleanExpressionFunctionTestCase<BooleanExpressionFunctionContainsStartsEnds<ExpressionFunctionContext>> {
+public final class BooleanExpressionFunctionContainsStartsEndsTest extends BooleanExpressionFunctionTestCase<BooleanExpressionFunctionContainsStartsEnds<ExpressionEvaluationContext>> {
 
     @Test
     public void testContainsCaseSensitiveTrue() {
@@ -132,7 +132,7 @@ public final class BooleanExpressionFunctionContainsStartsEndsTest extends Boole
         );
     }
 
-    private void applyAndCheck(final BooleanExpressionFunctionContainsStartsEnds<ExpressionFunctionContext> function,
+    private void applyAndCheck(final BooleanExpressionFunctionContainsStartsEnds<ExpressionEvaluationContext> function,
                                final String text,
                                final String second,
                                final boolean expected) {
@@ -197,12 +197,12 @@ public final class BooleanExpressionFunctionContainsStartsEndsTest extends Boole
     }
 
     @Override
-    public BooleanExpressionFunctionContainsStartsEnds<ExpressionFunctionContext> createBiFunction() {
+    public BooleanExpressionFunctionContainsStartsEnds<ExpressionEvaluationContext> createBiFunction() {
         return BooleanExpressionFunctionContainsStartsEnds.containsCaseSensitive();
     }
 
     @Override
-    public Class<BooleanExpressionFunctionContainsStartsEnds<ExpressionFunctionContext>> type() {
+    public Class<BooleanExpressionFunctionContainsStartsEnds<ExpressionEvaluationContext>> type() {
         return Cast.to(BooleanExpressionFunctionContainsStartsEnds.class);
     }
 }

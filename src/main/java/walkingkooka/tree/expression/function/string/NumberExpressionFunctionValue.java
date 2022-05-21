@@ -18,8 +18,8 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
@@ -28,11 +28,11 @@ import java.util.List;
  * A {@link walkingkooka.tree.expression.function.ExpressionFunction} that converts the given {@link String} into a
  * {@link walkingkooka.tree.expression.ExpressionNumber}
  */
-final class NumberExpressionFunctionValue<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionValue<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionValue<C> instance() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionValue<C> instance() {
         return Cast.to(INSTANCE);
     }
 

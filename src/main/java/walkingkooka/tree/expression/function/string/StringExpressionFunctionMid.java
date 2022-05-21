@@ -18,8 +18,8 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -29,12 +29,12 @@ import java.util.List;
  * The excel mid function.
  * <a href="https://support.google.com/docs/answer/3094129?hl=en&ref_topic=3105625>MID</a>
  */
-final class StringExpressionFunctionMid<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionMid<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionMid<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionMid<C> instance() {
         return Cast.to(INSTANCE);
     }
 

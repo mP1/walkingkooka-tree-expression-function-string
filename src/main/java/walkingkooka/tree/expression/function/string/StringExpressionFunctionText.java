@@ -18,7 +18,7 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -29,11 +29,11 @@ import java.util.List;
  * <br>
  * https://exceljet.net/excel-functions/excel-t-function
  */
-final class StringExpressionFunctionText<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionText<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionText<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionText<C> instance() {
         return Cast.to(INSTANCE);
     }
 

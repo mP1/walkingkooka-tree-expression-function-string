@@ -18,8 +18,8 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
@@ -29,11 +29,11 @@ import java.util.List;
  * <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/string-length"></a>
  * Unlike the Mozilla documentation, if the argument is missing an exception is thrown.
  */
-final class NumberExpressionFunctionLength<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionLength<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionLength<C> instance() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionLength<C> instance() {
         return Cast.to(INSTANCE);
     }
 

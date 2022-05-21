@@ -19,10 +19,10 @@ package walkingkooka.tree.expression.function.string;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class NumberExpressionFunctionUnicodeTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionUnicode<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionUnicodeTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionUnicode<ExpressionEvaluationContext>> {
 
     private final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -41,12 +41,12 @@ public final class NumberExpressionFunctionUnicodeTest extends NumberExpressionF
     }
 
     @Override
-    public NumberExpressionFunctionUnicode<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionUnicode<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionUnicode.instance();
     }
 
     @Override
-    public Class<NumberExpressionFunctionUnicode<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionUnicode<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionUnicode.class);
     }
 }

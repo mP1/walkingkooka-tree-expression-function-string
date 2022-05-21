@@ -19,9 +19,9 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberExpressionFunctionSearchOrFindTestCase<NumberExpressionFunctionSearchOrFindFind<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberExpressionFunctionSearchOrFindTestCase<NumberExpressionFunctionSearchOrFindFind<ExpressionEvaluationContext>> {
 
     @Test
     public void testCaseSensitiveNotFoundCaseDifferent() {
@@ -100,17 +100,17 @@ public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberEx
     }
 
     @Override
-    public NumberExpressionFunctionSearchOrFindFind<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionSearchOrFindFind<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionSearchOrFindFind.caseSensitive();
     }
 
     @Override
-    NumberExpressionFunctionSearchOrFindFind<ExpressionFunctionContext> createBiFunctionCaseInsensitive() {
+    NumberExpressionFunctionSearchOrFindFind<ExpressionEvaluationContext> createBiFunctionCaseInsensitive() {
         return NumberExpressionFunctionSearchOrFindFind.caseInsensitive();
     }
 
     @Override
-    public Class<NumberExpressionFunctionSearchOrFindFind<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionSearchOrFindFind<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionSearchOrFindFind.class);
     }
 }

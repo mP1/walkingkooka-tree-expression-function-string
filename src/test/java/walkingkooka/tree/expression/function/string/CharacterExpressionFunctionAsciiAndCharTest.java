@@ -20,12 +20,12 @@ package walkingkooka.tree.expression.function.string;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class CharacterExpressionFunctionAsciiAndCharTest extends CharacterExpressionFunctionTestCase<CharacterExpressionFunctionAsciiAndChar<ExpressionFunctionContext>> {
+public final class CharacterExpressionFunctionAsciiAndCharTest extends CharacterExpressionFunctionTestCase<CharacterExpressionFunctionAsciiAndChar<ExpressionEvaluationContext>> {
 
     @Test
     public void testCharZeroParametersFails() {
@@ -79,7 +79,7 @@ public final class CharacterExpressionFunctionAsciiAndCharTest extends Character
         );
     }
 
-    private void applyFails(final CharacterExpressionFunctionAsciiAndChar<ExpressionFunctionContext> function,
+    private void applyFails(final CharacterExpressionFunctionAsciiAndChar<ExpressionEvaluationContext> function,
                             final Object... parameters) {
         assertThrows(
                 IllegalArgumentException.class,
@@ -119,7 +119,7 @@ public final class CharacterExpressionFunctionAsciiAndCharTest extends Character
         );
     }
 
-    private void applyAndCheck3(final CharacterExpressionFunctionAsciiAndChar<ExpressionFunctionContext> function,
+    private void applyAndCheck3(final CharacterExpressionFunctionAsciiAndChar<ExpressionEvaluationContext> function,
                                 final Number value,
                                 final Character expected) {
         this.applyAndCheck2(
@@ -142,12 +142,12 @@ public final class CharacterExpressionFunctionAsciiAndCharTest extends Character
     }
 
     @Override
-    public CharacterExpressionFunctionAsciiAndChar<ExpressionFunctionContext> createBiFunction() {
+    public CharacterExpressionFunctionAsciiAndChar<ExpressionEvaluationContext> createBiFunction() {
         return CharacterExpressionFunctionAsciiAndChar.ascii();
     }
 
     @Override
-    public Class<CharacterExpressionFunctionAsciiAndChar<ExpressionFunctionContext>> type() {
+    public Class<CharacterExpressionFunctionAsciiAndChar<ExpressionEvaluationContext>> type() {
         return Cast.to(CharacterExpressionFunctionAsciiAndChar.class);
     }
 }

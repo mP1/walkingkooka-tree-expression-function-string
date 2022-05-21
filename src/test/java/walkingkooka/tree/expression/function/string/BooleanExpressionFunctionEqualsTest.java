@@ -20,9 +20,9 @@ package walkingkooka.tree.expression.function.string;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class BooleanExpressionFunctionEqualsTest extends BooleanExpressionFunctionTestCase<BooleanExpressionFunctionEquals<ExpressionFunctionContext>> {
+public final class BooleanExpressionFunctionEqualsTest extends BooleanExpressionFunctionTestCase<BooleanExpressionFunctionEquals<ExpressionEvaluationContext>> {
 
     // caseSensitive....................................................................................................
 
@@ -80,7 +80,7 @@ public final class BooleanExpressionFunctionEqualsTest extends BooleanExpression
         );
     }
 
-    private void applyAndCheck(final BooleanExpressionFunctionEquals<ExpressionFunctionContext> function,
+    private void applyAndCheck(final BooleanExpressionFunctionEquals<ExpressionEvaluationContext> function,
                                final String text,
                                final String second,
                                final boolean expected) {
@@ -113,12 +113,12 @@ public final class BooleanExpressionFunctionEqualsTest extends BooleanExpression
     }
 
     @Override
-    public BooleanExpressionFunctionEquals<ExpressionFunctionContext> createBiFunction() {
+    public BooleanExpressionFunctionEquals<ExpressionEvaluationContext> createBiFunction() {
         return BooleanExpressionFunctionEquals.caseInsensitive();
     }
 
     @Override
-    public Class<BooleanExpressionFunctionEquals<ExpressionFunctionContext>> type() {
+    public Class<BooleanExpressionFunctionEquals<ExpressionEvaluationContext>> type() {
         return Cast.to(BooleanExpressionFunctionEquals.class);
     }
 }

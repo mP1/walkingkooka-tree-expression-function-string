@@ -19,9 +19,9 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class StringExpressionFunctionUnaryTest extends StringExpressionFunctionTestCase<StringExpressionFunctionUnary<ExpressionFunctionContext>, String> {
+public final class StringExpressionFunctionUnaryTest extends StringExpressionFunctionTestCase<StringExpressionFunctionUnary<ExpressionEvaluationContext>, String> {
 
     // lowerCase........................................................................................................
 
@@ -388,7 +388,7 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
         );
     }
 
-    private void unaryAndCheck(final StringExpressionFunctionUnary<ExpressionFunctionContext> function,
+    private void unaryAndCheck(final StringExpressionFunctionUnary<ExpressionEvaluationContext> function,
                                final String input,
                                final String expected) {
         this.applyAndCheck(
@@ -450,12 +450,12 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
     }
 
     @Override
-    public StringExpressionFunctionUnary<ExpressionFunctionContext> createBiFunction() {
+    public StringExpressionFunctionUnary<ExpressionEvaluationContext> createBiFunction() {
         return StringExpressionFunctionUnary.lowerCase();
     }
 
     @Override
-    public Class<StringExpressionFunctionUnary<ExpressionFunctionContext>> type() {
+    public Class<StringExpressionFunctionUnary<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionUnary.class);
     }
 }

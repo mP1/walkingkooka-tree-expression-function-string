@@ -18,7 +18,7 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -28,12 +28,12 @@ import java.util.stream.Collectors;
 /**
  * A function that concats all the Strings given to it.
  */
-final class StringExpressionFunctionConcat<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionConcat<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionConcat<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionConcat<C> instance() {
         return Cast.to(INSTANCE);
     }
 

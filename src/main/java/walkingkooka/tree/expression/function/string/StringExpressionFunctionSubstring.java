@@ -18,8 +18,8 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -29,12 +29,12 @@ import java.util.List;
  * A function that returns a substring of another string.<br>
  * <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/substring"></a>
  */
-final class StringExpressionFunctionSubstring<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionSubstring<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
 
     /**
      * Factory that returns a matching {@link StringExpressionFunctionSubstring}
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionSubstring<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionSubstring<C> instance() {
         return Cast.to(INSTANCE);
     }
 

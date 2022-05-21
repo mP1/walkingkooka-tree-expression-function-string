@@ -20,7 +20,7 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.text.CaseSensitivity;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
 /**
  * A function that performs a search, matching the semantics of Excel's SEARCH except that it returns -1 when the match
@@ -28,12 +28,12 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
  * <br>
  * https://exceljet.net/excel-functions/excel-search-function
  */
-final class NumberExpressionFunctionSearchOrFindFind<C extends ExpressionFunctionContext> extends NumberExpressionFunctionSearchOrFind<C> {
+final class NumberExpressionFunctionSearchOrFindFind<C extends ExpressionEvaluationContext> extends NumberExpressionFunctionSearchOrFind<C> {
 
     /**
      * FIND case sensitive function getter
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionSearchOrFindFind<C> caseSensitive() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionSearchOrFindFind<C> caseSensitive() {
         return Cast.to(CASE_SENSITIVE);
     }
 
@@ -48,7 +48,7 @@ final class NumberExpressionFunctionSearchOrFindFind<C extends ExpressionFunctio
     /**
      * FIND case insensitive function getter
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionSearchOrFindFind<C> caseInsensitive() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionSearchOrFindFind<C> caseInsensitive() {
         return Cast.to(CASE_INSENSITIVE);
     }
 

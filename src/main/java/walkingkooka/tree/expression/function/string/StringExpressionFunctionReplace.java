@@ -18,8 +18,8 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -33,11 +33,11 @@ import java.util.List;
  * <br>
  * https://exceljet.net/excel-functions/excel-replace-function
  */
-final class StringExpressionFunctionReplace<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionReplace<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionReplace<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionReplace<C> instance() {
         return Cast.to(INSTANCE);
     }
 

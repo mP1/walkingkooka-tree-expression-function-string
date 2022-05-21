@@ -21,11 +21,11 @@ package walkingkooka.tree.expression.function.string;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class StringExpressionFunctionSubstituteTest extends StringExpressionFunctionTestCase<StringExpressionFunctionSubstitute<ExpressionFunctionContext>, String> {
+public final class StringExpressionFunctionSubstituteTest extends StringExpressionFunctionTestCase<StringExpressionFunctionSubstitute<ExpressionEvaluationContext>, String> {
 
     @Test
     public void testInstance0Fails() {
@@ -293,12 +293,12 @@ public final class StringExpressionFunctionSubstituteTest extends StringExpressi
     }
 
     @Override
-    public StringExpressionFunctionSubstitute<ExpressionFunctionContext> createBiFunction() {
+    public StringExpressionFunctionSubstitute<ExpressionEvaluationContext> createBiFunction() {
         return StringExpressionFunctionSubstitute.instance();
     }
 
     @Override
-    public Class<StringExpressionFunctionSubstitute<ExpressionFunctionContext>> type() {
+    public Class<StringExpressionFunctionSubstitute<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionSubstitute.class);
     }
 }

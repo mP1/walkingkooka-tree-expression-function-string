@@ -18,7 +18,7 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
@@ -26,12 +26,12 @@ import java.util.function.Predicate;
 
 // https://support.google.com/docs/answer/3093297?hl=en&ref_topic=3105471
 // https://support.google.com/docs/answer/3093295?hl=en&ref_topic=3105471
-final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionFunctionContext> extends BooleanExpressionFunction<C> {
+final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionEvaluationContext> extends BooleanExpressionFunction<C> {
 
     /**
      * ISNONTEXT getter.
      */
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionIsTextIsNonText<C> isNonText() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionIsTextIsNonText<C> isNonText() {
         return Cast.to(ISNONTEXT);
     }
 
@@ -46,7 +46,7 @@ final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionFunctio
     /**
      * ISTEXT getter.
      */
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionIsTextIsNonText<C> isText() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionIsTextIsNonText<C> isText() {
         return Cast.to(IS);
     }
 

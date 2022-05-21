@@ -19,14 +19,14 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.text.CaseSensitivity;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 import java.util.function.BiFunction;
 
-final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionFunctionContext> extends BooleanExpressionFunction<C> {
+final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEvaluationContext> extends BooleanExpressionFunction<C> {
 
     // first to avoid nulls
     private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT;
@@ -34,7 +34,7 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionFunc
     /**
      * CONTAINS case-insensitive getter.
      */
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionContainsStartsEnds<C> containsCaseInsensitive() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionContainsStartsEnds<C> containsCaseInsensitive() {
         return Cast.to(CONTAINS_CASE_INSENSITIVE);
     }
 
@@ -50,7 +50,7 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionFunc
     /**
      * CONTAINS case-sensitive getter.
      */
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionContainsStartsEnds<C> containsCaseSensitive() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionContainsStartsEnds<C> containsCaseSensitive() {
         return Cast.to(CONTAINS_CASE_SENSITIVE);
     }
 
@@ -66,7 +66,7 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionFunc
     /**
      * STARTSWITH case-insensitive getter.
      */
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionContainsStartsEnds<C> startsWithCaseInsensitive() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionContainsStartsEnds<C> startsWithCaseInsensitive() {
         return Cast.to(STARTSWITH_CASE_INSENSITIVE);
     }
 
@@ -82,7 +82,7 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionFunc
     /**
      * STARTSWITH case-sensitive getter.
      */
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionContainsStartsEnds<C> startsWithCaseSensitive() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionContainsStartsEnds<C> startsWithCaseSensitive() {
         return Cast.to(STARTSWITH_CASE_SENSITIVE);
     }
 
@@ -98,7 +98,7 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionFunc
     /**
      * ENDSWITH case-insensitive getter.
      */
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionContainsStartsEnds<C> endsWithCaseInsensitive() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionContainsStartsEnds<C> endsWithCaseInsensitive() {
         return Cast.to(ENDSWITH_CASE_INSENSITIVE);
     }
 
@@ -114,7 +114,7 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionFunc
     /**
      * ENDSWITH case-sensitive getter.
      */
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionContainsStartsEnds<C> endsWithCaseSensitive() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionContainsStartsEnds<C> endsWithCaseSensitive() {
         return Cast.to(ENDSWITH_CASE_SENSITIVE);
     }
 

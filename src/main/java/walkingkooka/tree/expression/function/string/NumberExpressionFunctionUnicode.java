@@ -17,8 +17,8 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
@@ -27,11 +27,11 @@ import java.util.List;
  * Returns the unicode of the provided {@link Character}
  * <a href="https://support.google.com/docs/answer/9149523?hl=en&ref_topic=3105625"></a>
  */
-final class NumberExpressionFunctionUnicode<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionUnicode<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnicode<C> instance() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnicode<C> instance() {
         return Cast.to(INSTANCE);
     }
 

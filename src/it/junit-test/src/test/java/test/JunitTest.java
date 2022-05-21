@@ -22,7 +22,7 @@ import org.junit.Test;
 import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
+import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.string.StringExpressionFunctions;
 
 @J2clTestInput(JunitTest.class)
@@ -35,7 +35,7 @@ public class JunitTest {
 
         final Object result = StringExpressionFunctions.concat()
                 .apply(Lists.of(string1, string2),
-                        new FakeExpressionFunctionContext() {
+                        new FakeExpressionEvaluationContext() {
 
                             public <T> Either<T, String> convert(final Object value,
                                                                  final Class<T> target) {

@@ -20,20 +20,20 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.Either;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
+import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 
-public abstract class NumberExpressionFunctionTestCase<F extends NumberExpressionFunction<ExpressionFunctionContext>> extends ExpressionFunctionTestCase<F, ExpressionNumber> {
+public abstract class NumberExpressionFunctionTestCase<F extends NumberExpressionFunction<ExpressionEvaluationContext>> extends ExpressionFunctionTestCase<F, ExpressionNumber> {
 
     NumberExpressionFunctionTestCase() {
         super();
     }
 
     @Override
-    public final ExpressionFunctionContext createContext() {
-        return new FakeExpressionFunctionContext() {
+    public final ExpressionEvaluationContext createContext() {
+        return new FakeExpressionEvaluationContext() {
 
             @Override
             public ExpressionNumberKind expressionNumberKind() {
