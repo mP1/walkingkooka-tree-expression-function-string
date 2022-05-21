@@ -19,9 +19,9 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.text.CaseSensitivity;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Abstract class that captures the common code for both the search and find functions.
  */
-abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
 
     /**
      * Package private ctor

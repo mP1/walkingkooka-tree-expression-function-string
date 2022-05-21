@@ -19,7 +19,7 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.text.CaseSensitivity;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -30,9 +30,9 @@ import java.util.List;
  * <br>
  * https://exceljet.net/excel-functions/excel-exact-function
  */
-final class BooleanExpressionFunctionEquals<C extends ExpressionFunctionContext> extends BooleanExpressionFunction<C> {
+final class BooleanExpressionFunctionEquals<C extends ExpressionEvaluationContext> extends BooleanExpressionFunction<C> {
 
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionEquals<C> caseInsensitive() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionEquals<C> caseInsensitive() {
         return Cast.to(EQUALS_CASE_INSENSITIVE);
     }
 
@@ -44,7 +44,7 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionFunctionContext>
             CaseSensitivity.INSENSITIVE
     );
 
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionEquals<C> caseSensitive() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionEquals<C> caseSensitive() {
         return Cast.to(EQUALS_CASE_SENSITIVE);
     }
 

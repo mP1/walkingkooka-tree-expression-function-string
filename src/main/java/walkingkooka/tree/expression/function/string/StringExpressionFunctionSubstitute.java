@@ -19,8 +19,8 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -29,11 +29,11 @@ import java.util.List;
 /**
  * A function that supports replacing some text by another a fixed or all number of times.
  */
-final class StringExpressionFunctionSubstitute<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionSubstitute<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionSubstitute<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionSubstitute<C> instance() {
         return Cast.to(SUBSTITUTE);
     }
 

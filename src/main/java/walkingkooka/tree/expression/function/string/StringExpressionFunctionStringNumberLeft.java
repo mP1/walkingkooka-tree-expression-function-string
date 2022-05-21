@@ -18,18 +18,18 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
 /**
  * Performs a left for a given {@link String}. Defaults to 1 if the number or second parameter is absent and uses 0 if the 2nd parameter is negative.
  * <a href="https://support.google.com/docs/answer/3094079?hl=en">LEFT</a>
  */
-final class StringExpressionFunctionStringNumberLeft<C extends ExpressionFunctionContext> extends StringExpressionFunctionStringNumber<C> {
+final class StringExpressionFunctionStringNumberLeft<C extends ExpressionEvaluationContext> extends StringExpressionFunctionStringNumber<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionStringNumberLeft<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionStringNumberLeft<C> instance() {
         return Cast.to(INSTANCE);
     }
 

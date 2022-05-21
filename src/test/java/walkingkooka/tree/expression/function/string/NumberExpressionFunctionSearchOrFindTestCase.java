@@ -19,11 +19,11 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class NumberExpressionFunctionSearchOrFindTestCase<F extends NumberExpressionFunctionSearchOrFind<ExpressionFunctionContext>> extends NumberExpressionFunctionTestCase<F> {
+public abstract class NumberExpressionFunctionSearchOrFindTestCase<F extends NumberExpressionFunctionSearchOrFind<ExpressionEvaluationContext>> extends NumberExpressionFunctionTestCase<F> {
 
     NumberExpressionFunctionSearchOrFindTestCase() {
         super();

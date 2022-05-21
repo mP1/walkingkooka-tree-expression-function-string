@@ -19,12 +19,12 @@ package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class StringExpressionFunctionCleanTest extends StringExpressionFunctionTestCase<StringExpressionFunctionClean<ExpressionFunctionContext>, String> {
+public final class StringExpressionFunctionCleanTest extends StringExpressionFunctionTestCase<StringExpressionFunctionClean<ExpressionEvaluationContext>, String> {
 
     @Test
     public void testZeroParametersFails() {
@@ -63,12 +63,12 @@ public final class StringExpressionFunctionCleanTest extends StringExpressionFun
     }
 
     @Override
-    public StringExpressionFunctionClean<ExpressionFunctionContext> createBiFunction() {
+    public StringExpressionFunctionClean<ExpressionEvaluationContext> createBiFunction() {
         return StringExpressionFunctionClean.instance();
     }
 
     @Override
-    public Class<StringExpressionFunctionClean<ExpressionFunctionContext>> type() {
+    public Class<StringExpressionFunctionClean<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionClean.class);
     }
 }

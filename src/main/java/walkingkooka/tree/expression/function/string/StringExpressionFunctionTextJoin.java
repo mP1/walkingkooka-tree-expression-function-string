@@ -19,7 +19,7 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.text.CharSequences;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -34,12 +34,12 @@ import java.util.stream.Stream;
  * <br>
  * https://exceljet.net/excel-functions/excel-textjoin-function
  */
-final class StringExpressionFunctionTextJoin<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionTextJoin<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionTextJoin<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionTextJoin<C> instance() {
         return Cast.to(INSTANCE);
     }
 

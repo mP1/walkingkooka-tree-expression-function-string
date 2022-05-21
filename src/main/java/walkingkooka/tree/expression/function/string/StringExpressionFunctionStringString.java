@@ -17,7 +17,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * A function that requires 2 string parameters and returns a {@link String} result.
  */
-abstract class StringExpressionFunctionStringString<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+abstract class StringExpressionFunctionStringString<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
 
     /**
      * Package private ctor
@@ -49,5 +49,5 @@ abstract class StringExpressionFunctionStringString<C extends ExpressionFunction
 
     abstract String applyStringString(final String first,
                                       final String second,
-                                      final ExpressionFunctionContext context);
+                                      final ExpressionEvaluationContext context);
 }

@@ -19,8 +19,8 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
@@ -30,12 +30,12 @@ import java.util.function.BiFunction;
 /**
  * A {@link ExpressionFunction} that handles a single {@link String} parameter.
  */
-final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
 
     /**
      * LOWERCASE Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> lowerCase() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionUnary<C> lowerCase() {
         return Cast.to(LOWERCASE);
     }
 
@@ -47,7 +47,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * NORMALIZESPACE Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> normalizeSpace() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionUnary<C> normalizeSpace() {
         return Cast.to(NORMALIZESPACE);
     }
 
@@ -57,7 +57,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     );
 
     private static String normalizeSpace(final String value,
-                                         final ExpressionFunctionContext context) {
+                                         final ExpressionEvaluationContext context) {
         final String trimmed = value.trim();
 
         final StringBuilder b = new StringBuilder();
@@ -85,7 +85,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
      * <br>
      * https://github.com/mP1/walkingkooka-tree-expression-function-string/issues/71
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> proper() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionUnary<C> proper() {
         return Cast.to(PROPER);
     }
 
@@ -133,7 +133,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
      * <br>
      * https://exceljet.net/excel-functions/excel-trim-function
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> spaceTrim() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionUnary<C> spaceTrim() {
         return Cast.to(SPACETRIM);
     }
 
@@ -142,7 +142,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
             StringExpressionFunctionUnary::spaceTrim
     );
 
-    private static String spaceTrim(final String string, final ExpressionFunctionContext context) {
+    private static String spaceTrim(final String string, final ExpressionEvaluationContext context) {
         final StringBuilder b = new StringBuilder();
 
         int start = 0;
@@ -185,7 +185,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * TRIM Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> trim() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionUnary<C> trim() {
         return Cast.to(TRIM);
     }
 
@@ -197,7 +197,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * TRIMLEFT Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> trimLeft() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionUnary<C> trimLeft() {
         return Cast.to(TRIMLEFT);
     }
 
@@ -209,7 +209,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * TRIMRIGHT Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> trimRight() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionUnary<C> trimRight() {
         return Cast.to(TRIMRIGHT);
     }
 
@@ -221,7 +221,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * UPPERCASE Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionUnary<C> upperCase() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionUnary<C> upperCase() {
         return Cast.to(UPPERCASE);
     }
 

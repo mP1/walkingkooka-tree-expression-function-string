@@ -17,13 +17,13 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class StringExpressionFunctionStringNumberTestCase<F extends StringExpressionFunctionStringNumber<ExpressionFunctionContext>> extends StringExpressionFunctionTestCase<F, String> {
+public abstract class StringExpressionFunctionStringNumberTestCase<F extends StringExpressionFunctionStringNumber<ExpressionEvaluationContext>> extends StringExpressionFunctionTestCase<F, String> {
 
     StringExpressionFunctionStringNumberTestCase() {
         super();

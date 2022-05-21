@@ -19,9 +19,9 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.function.Consumer;
 
@@ -83,287 +83,287 @@ public final class StringExpressionFunctions implements PublicStaticHelper {
     /**
      * {@see CharacterExpressionFunctionAsciiAndChar#ascii}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Character, C> ascii() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Character, C> ascii() {
         return CharacterExpressionFunctionAsciiAndChar.ascii();
     }
 
     /**
      * {@see CharacterExpressionFunctionAsciiAndChar#character}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Character, C> character() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Character, C> character() {
         return CharacterExpressionFunctionAsciiAndChar.character();
     }
 
     /**
      * {@see CharacterExpressionFunctionClean}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> clean() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> clean() {
         return StringExpressionFunctionClean.instance();
     }
 
     /**
      * {@see StringExpressionFunctionConcat}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> concat() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> concat() {
         return StringExpressionFunctionConcat.instance();
     }
 
     /**
      * {@see BooleanExpressionFunctionContainsStartsEnds#containsCaseInsensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> containsCaseInsensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> containsCaseInsensitive() {
         return BooleanExpressionFunctionContainsStartsEnds.containsCaseInsensitive();
     }
 
     /**
      * {@see BooleanExpressionFunctionContainsStartsEnds#containsCaseSensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> containsCaseSensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> containsCaseSensitive() {
         return BooleanExpressionFunctionContainsStartsEnds.containsCaseSensitive();
     }
 
     /**
      * {@see BooleanExpressionFunctionContainsStartsEnds#endsWithCaseInsensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> endsWithCaseInsensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> endsWithCaseInsensitive() {
         return BooleanExpressionFunctionContainsStartsEnds.endsWithCaseInsensitive();
     }
 
     /**
      * {@see BooleanExpressionFunctionContainsStartsEnds#endsWithCaseSensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> endsWithCaseSensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> endsWithCaseSensitive() {
         return BooleanExpressionFunctionContainsStartsEnds.endsWithCaseSensitive();
     }
 
     /**
      * {@see BooleanExpressionFunctionEquals.caseInsensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> equalsCaseInsensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> equalsCaseInsensitive() {
         return BooleanExpressionFunctionEquals.caseInsensitive();
     }
 
     /**
      * {@see BooleanExpressionFunctionEquals.caseSensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> equalsCaseSensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> equalsCaseSensitive() {
         return BooleanExpressionFunctionEquals.caseSensitive();
     }
 
     /**
      * {@see NumberExpressionFunctionSearchOrFindFind#caseSensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> findCaseSensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> findCaseSensitive() {
         return NumberExpressionFunctionSearchOrFindFind.caseSensitive();
     }
 
     /**
      * {@see NumberExpressionFunctionSearchOrFindFind#caseInsensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> findCaseInsensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> findCaseInsensitive() {
         return NumberExpressionFunctionSearchOrFindFind.caseInsensitive();
     }
 
     /**
      * {@see BooleanExpressionFunctionIsTextIsNonText#isNonText}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isNonText() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> isNonText() {
         return BooleanExpressionFunctionIsTextIsNonText.isNonText();
     }
 
     /**
      * {@see BooleanExpressionFunctionIsTextIsNonText#isText}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isText() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> isText() {
         return BooleanExpressionFunctionIsTextIsNonText.isText();
     }
 
     /**
      * {@see StringExpressionFunctionStringNumberLeft}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> left() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> left() {
         return StringExpressionFunctionStringNumberLeft.instance();
     }
 
     /**
      * {@see StringExpressionFunctionUnary#lowerCase}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> lowerCase() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> lowerCase() {
         return StringExpressionFunctionUnary.lowerCase();
     }
 
     /**
      * {@see StringExpressionFunctionMid}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> mid() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> mid() {
         return StringExpressionFunctionMid.instance();
     }
 
     /**
      * {@see StringExpressionFunctionUnary#normalizeSpace}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> normalizeSpace() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> normalizeSpace() {
         return StringExpressionFunctionUnary.normalizeSpace();
     }
 
     /**
      * {@see StringExpressionFunctionUnary#proper}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> proper() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> proper() {
         return StringExpressionFunctionUnary.proper();
     }
 
     /**
      * {@see StringExpressionFunctionRepeat}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> repeat() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> repeat() {
         return StringExpressionFunctionRepeat.instance();
     }
 
     /**
      * {@see StringExpressionFunctionReplace}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> replace() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> replace() {
         return StringExpressionFunctionReplace.instance();
     }
 
     /**
      * {@see StringExpressionFunctionStringNumberRight}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> right() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> right() {
         return StringExpressionFunctionStringNumberRight.instance();
     }
 
     /**
      * {@see NumberExpressionFunctionSearchOrFindSearch#caseInsensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> searchCaseInsensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> searchCaseInsensitive() {
         return NumberExpressionFunctionSearchOrFindSearch.caseInsensitive();
     }
 
     /**
      * {@see NumberExpressionFunctionSearchOrFindSearch#caseSensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> searchCaseSensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> searchCaseSensitive() {
         return NumberExpressionFunctionSearchOrFindSearch.caseSensitive();
     }
 
     /**
      * {@see StringExpressionFunctionUnary#spaceTrim}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> spaceTrim() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> spaceTrim() {
         return StringExpressionFunctionUnary.spaceTrim();
     }
 
     /**
      * {@see BooleanExpressionFunctionContainsStartsEnds#startsWithCaseInsensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> startsWithCaseInsensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> startsWithCaseInsensitive() {
         return BooleanExpressionFunctionContainsStartsEnds.startsWithCaseInsensitive();
     }
 
     /**
      * {@see BooleanExpressionFunctionContainsStartsEnds#startsWithCaseSensitive}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> startsWithCaseSensitive() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> startsWithCaseSensitive() {
         return BooleanExpressionFunctionContainsStartsEnds.startsWithCaseSensitive();
     }
 
     /**
      * {@see NumberExpressionFunctionLength}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> stringLength() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> stringLength() {
         return NumberExpressionFunctionLength.instance();
     }
 
     /**
      * {@see StringExpressionFunctionSubstitute}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substitute() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> substitute() {
         return StringExpressionFunctionSubstitute.instance();
     }
 
     /**
      * {@see StringExpressionFunctionSubstring}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substring() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> substring() {
         return StringExpressionFunctionSubstring.instance();
     }
 
     /**
      * {@see StringExpressionFunctionStringStringSubstringAfter}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substringAfter() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> substringAfter() {
         return StringExpressionFunctionStringStringSubstringAfter.instance();
     }
 
     /**
      * {@see StringExpressionFunctionStringStringSubstringBefore}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> substringBefore() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> substringBefore() {
         return StringExpressionFunctionStringStringSubstringBefore.instance();
     }
 
     /**
      * {@see StringExpressionFunctionT}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> t() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> t() {
         return StringExpressionFunctionT.instance();
     }
 
     /**
      * {@see StringExpressionFunctionText}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> text() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> text() {
         return StringExpressionFunctionText.instance();
     }
 
     /**
      * {@see StringExpressionFunctionTextJoin}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> textJoin() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> textJoin() {
         return StringExpressionFunctionTextJoin.instance();
     }
 
     /**
      * {@see StringExpressionFunctionUnary#trim}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> trim() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> trim() {
         return StringExpressionFunctionUnary.trim();
     }
 
     /**
      * {@see StringExpressionFunctionUnary#trimLeft}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> trimLeft() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> trimLeft() {
         return StringExpressionFunctionUnary.trimLeft();
     }
 
     /**
      * {@see StringExpressionFunctionUnary#trimRight}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> trimRight() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> trimRight() {
         return StringExpressionFunctionUnary.trimRight();
     }
 
     /**
      * {@see NumberExpressionFunctionUnicode}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> unicode() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> unicode() {
         return NumberExpressionFunctionUnicode.instance();
     }
 
     /**
      * {@see StringExpressionFunctionUnary#upperCase}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> upperCase() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> upperCase() {
         return StringExpressionFunctionUnary.upperCase();
     }
 
     /**
      * {@see NumberExpressionFunctionValue}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> value() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> value() {
         return NumberExpressionFunctionValue.instance();
     }
 

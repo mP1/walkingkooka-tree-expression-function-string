@@ -17,10 +17,10 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionKind;
 
 import java.util.EnumSet;
@@ -29,7 +29,7 @@ import java.util.Set;
 /**
  * Base class for many {@link ExpressionFunction} within this package that return {@link Character}
  */
-abstract class CharacterExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<Character, C> {
+abstract class CharacterExpressionFunction<C extends ExpressionEvaluationContext> implements ExpressionFunction<Character, C> {
 
     /**
      * Package private to limit sub classing.

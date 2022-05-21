@@ -20,9 +20,9 @@ package walkingkooka.tree.expression.function.string;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class StringExpressionFunctionTextJoinTest extends StringExpressionFunctionTestCase<StringExpressionFunctionTextJoin<ExpressionFunctionContext>, String> {
+public final class StringExpressionFunctionTextJoinTest extends StringExpressionFunctionTestCase<StringExpressionFunctionTextJoin<ExpressionEvaluationContext>, String> {
 
     private static final boolean DONT_IGNORE_EMPTY = false;
 
@@ -175,12 +175,12 @@ public final class StringExpressionFunctionTextJoinTest extends StringExpression
     }
 
     @Override
-    public StringExpressionFunctionTextJoin<ExpressionFunctionContext> createBiFunction() {
+    public StringExpressionFunctionTextJoin<ExpressionEvaluationContext> createBiFunction() {
         return StringExpressionFunctionTextJoin.instance();
     }
 
     @Override
-    public Class<StringExpressionFunctionTextJoin<ExpressionFunctionContext>> type() {
+    public Class<StringExpressionFunctionTextJoin<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionTextJoin.class);
     }
 }

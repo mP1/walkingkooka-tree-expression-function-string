@@ -17,8 +17,8 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * A function that requires a {@link String} and an optional {@link Number} returning a {@link String} result.
  */
-abstract class StringExpressionFunctionStringNumber<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+abstract class StringExpressionFunctionStringNumber<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
 
     /**
      * Package private ctor

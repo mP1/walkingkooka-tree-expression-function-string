@@ -20,9 +20,9 @@ package walkingkooka.tree.expression.function.string;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class BooleanExpressionFunctionIsTextIsNonTextTest extends BooleanExpressionFunctionTestCase<BooleanExpressionFunctionIsTextIsNonText<ExpressionFunctionContext>> {
+public final class BooleanExpressionFunctionIsTextIsNonTextTest extends BooleanExpressionFunctionTestCase<BooleanExpressionFunctionIsTextIsNonText<ExpressionEvaluationContext>> {
 
     @Test
     public void testIsNonTextNull() {
@@ -82,7 +82,7 @@ public final class BooleanExpressionFunctionIsTextIsNonTextTest extends BooleanE
         );
     }
 
-    private void applyAndCheck(final BooleanExpressionFunctionIsTextIsNonText<ExpressionFunctionContext> function,
+    private void applyAndCheck(final BooleanExpressionFunctionIsTextIsNonText<ExpressionEvaluationContext> function,
                                final Object value,
                                final boolean expected) {
         this.applyAndCheck2(
@@ -113,12 +113,12 @@ public final class BooleanExpressionFunctionIsTextIsNonTextTest extends BooleanE
     }
 
     @Override
-    public BooleanExpressionFunctionIsTextIsNonText<ExpressionFunctionContext> createBiFunction() {
+    public BooleanExpressionFunctionIsTextIsNonText<ExpressionEvaluationContext> createBiFunction() {
         return BooleanExpressionFunctionIsTextIsNonText.isText();
     }
 
     @Override
-    public Class<BooleanExpressionFunctionIsTextIsNonText<ExpressionFunctionContext>> type() {
+    public Class<BooleanExpressionFunctionIsTextIsNonText<ExpressionEvaluationContext>> type() {
         return Cast.to(BooleanExpressionFunctionIsTextIsNonText.class);
     }
 }

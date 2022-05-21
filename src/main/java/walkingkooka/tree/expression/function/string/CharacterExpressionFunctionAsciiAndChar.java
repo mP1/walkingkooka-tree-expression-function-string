@@ -18,8 +18,8 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
@@ -29,12 +29,12 @@ import java.util.List;
  * <br>
  * <a href="https://support.google.com/docs/answer/3094120?hl=en&ref_topic=3105625">CHAR</a>
  */
-final class CharacterExpressionFunctionAsciiAndChar<C extends ExpressionFunctionContext> extends CharacterExpressionFunction<C> {
+final class CharacterExpressionFunctionAsciiAndChar<C extends ExpressionEvaluationContext> extends CharacterExpressionFunction<C> {
 
     /**
      * Char Instance getter.
      */
-    static <C extends ExpressionFunctionContext> CharacterExpressionFunctionAsciiAndChar<C> ascii() {
+    static <C extends ExpressionEvaluationContext> CharacterExpressionFunctionAsciiAndChar<C> ascii() {
         return Cast.to(ASCII);
     }
 
@@ -46,7 +46,7 @@ final class CharacterExpressionFunctionAsciiAndChar<C extends ExpressionFunction
     /**
      * Char Instance getter.
      */
-    static <C extends ExpressionFunctionContext> CharacterExpressionFunctionAsciiAndChar<C> character() {
+    static <C extends ExpressionEvaluationContext> CharacterExpressionFunctionAsciiAndChar<C> character() {
         return Cast.to(CHAR);
     }
 

@@ -18,7 +18,7 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -27,12 +27,12 @@ import java.util.List;
 /**
  * A function that returns the part of string1 after the first occurrence of string2
  */
-final class StringExpressionFunctionStringStringSubstringAfter<C extends ExpressionFunctionContext> extends StringExpressionFunctionStringString<C> {
+final class StringExpressionFunctionStringStringSubstringAfter<C extends ExpressionEvaluationContext> extends StringExpressionFunctionStringString<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionStringStringSubstringAfter<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionStringStringSubstringAfter<C> instance() {
         return Cast.to(INSTANCE);
     }
 
@@ -51,7 +51,7 @@ final class StringExpressionFunctionStringStringSubstringAfter<C extends Express
     @Override
     String applyStringString(final String string,
                              final String find,
-                             final ExpressionFunctionContext context) {
+                             final ExpressionEvaluationContext context) {
         final int offset = string.indexOf(find);
 
         return -1 != offset ?
