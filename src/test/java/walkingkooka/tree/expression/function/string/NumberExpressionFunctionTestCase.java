@@ -18,7 +18,6 @@
 
 package walkingkooka.tree.expression.function.string;
 
-import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
@@ -44,12 +43,11 @@ public abstract class NumberExpressionFunctionTestCase<F extends NumberExpressio
             public <T> Either<T, String> convert(final Object value,
                                                  final Class<T> target) {
                 try {
-                    return Cast.to(
-                            Either.left(
-                                    KIND.create(
-                                            Integer.parseInt((String) value)
-                                    )
-                            )
+                    return this.successfulConversion(
+                            KIND.create(
+                                    Integer.parseInt((String) value)
+                            ),
+                            target
                     );
                 } catch (final Exception fail) {
                     return this.failConversion(value, target);
