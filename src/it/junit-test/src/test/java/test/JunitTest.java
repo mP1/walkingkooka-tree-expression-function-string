@@ -19,7 +19,6 @@ package test;
 import com.google.j2cl.junit.apt.J2clTestInput;
 import org.junit.Assert;
 import org.junit.Test;
-import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
@@ -40,7 +39,10 @@ public class JunitTest {
                             public <T> Either<T, String> convert(final Object value,
                                                                  final Class<T> target) {
                                 Assert.assertEquals(String.class, target);
-                                return Cast.to(Either.left(value));
+                                return this.successfulConversion(
+                                        value,
+                                        target
+                                );
                             }
                         });
         Assert.assertEquals(string1 + string2, result);

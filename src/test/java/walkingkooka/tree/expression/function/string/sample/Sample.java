@@ -17,7 +17,6 @@
 
 package walkingkooka.tree.expression.function.string.sample;
 
-import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
@@ -37,7 +36,10 @@ public final class Sample {
                             public <T> Either<T, String> convert(final Object value,
                                                                  final Class<T> target) {
                                 assertEquals(String.class, target);
-                                return Cast.to(Either.left(value));
+                                return this.successfulConversion(
+                                        value,
+                                        target
+                                );
                             }
                         });
         assertEquals(string1 + string2, result);
