@@ -19,6 +19,7 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -46,7 +47,13 @@ final class StringExpressionFunctionConcat<C extends ExpressionEvaluationContext
      * Private ctor
      */
     private StringExpressionFunctionConcat() {
-        super("concat");
+        super(
+                "concat",
+                ExpressionFunctionKind.CONVERT_PARAMETERS,
+                ExpressionFunctionKind.EVALUATE_PARAMETERS,
+                ExpressionFunctionKind.RESOLVE_REFERENCES,
+                ExpressionFunctionKind.FLATTEN
+        );
     }
 
     @Override

@@ -18,6 +18,7 @@
 package walkingkooka.tree.expression.function.string;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.TypeNameTesting;
@@ -31,7 +32,7 @@ import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
 
-import java.util.EnumSet;
+import java.util.Set;
 
 public abstract class ExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionEvaluationContext>, T> implements ExpressionFunctionTesting<F, T, ExpressionEvaluationContext>,
         ExpressionPurityTesting,
@@ -60,12 +61,17 @@ public abstract class ExpressionFunctionTestCase<F extends ExpressionFunction<T,
 
     @Test
     public final void testKind() {
+        final Set<ExpressionFunctionKind> kinds = Sets.sorted();
+        kinds.add(ExpressionFunctionKind.CONVERT_PARAMETERS);
+        kinds.add(ExpressionFunctionKind.EVALUATE_PARAMETERS);
+        kinds.add(ExpressionFunctionKind.RESOLVE_REFERENCES);
+
+        if (this instanceof StringExpressionFunctionConcatTest) {
+            kinds.add(ExpressionFunctionKind.FLATTEN);
+        }
+
         this.checkEquals(
-                EnumSet.of(
-                        ExpressionFunctionKind.CONVERT_PARAMETERS,
-                        ExpressionFunctionKind.EVALUATE_PARAMETERS,
-                        ExpressionFunctionKind.RESOLVE_REFERENCES
-                ),
+                kinds,
                 this.createBiFunction().kinds()
         );
     }

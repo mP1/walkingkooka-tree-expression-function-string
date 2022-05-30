@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class StringExpressionFunctionUnaryTest extends StringExpressionFunctionTestCase<StringExpressionFunctionUnary<ExpressionEvaluationContext>, String> {
+public final class StringExpressionFunctionUnaryTest extends StringExpressionFunctionTestCase<StringExpressionFunctionUnary<ExpressionEvaluationContext>> {
 
     // lowerCase........................................................................................................
 

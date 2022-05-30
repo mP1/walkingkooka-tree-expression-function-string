@@ -23,7 +23,7 @@ import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class StringExpressionFunctionSubstringTest extends StringExpressionFunctionTestCase<StringExpressionFunctionSubstring<ExpressionEvaluationContext>, String> {
+public final class StringExpressionFunctionSubstringTest extends StringExpressionFunctionTestCase<StringExpressionFunctionSubstring<ExpressionEvaluationContext>> {
 
     @Test
     public void testSubstringOutOfRange() {

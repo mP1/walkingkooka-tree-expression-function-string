@@ -22,7 +22,7 @@ import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class StringExpressionFunctionTextJoinTest extends StringExpressionFunctionTestCase<StringExpressionFunctionTextJoin<ExpressionEvaluationContext>, String> {
+public final class StringExpressionFunctionTextJoinTest extends StringExpressionFunctionTestCase<StringExpressionFunctionTextJoin<ExpressionEvaluationContext>> {
 
     private static final boolean DONT_IGNORE_EMPTY = false;
 

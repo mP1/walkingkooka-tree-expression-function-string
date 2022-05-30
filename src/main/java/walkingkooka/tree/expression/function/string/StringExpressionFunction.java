@@ -17,6 +17,7 @@
 
 package walkingkooka.tree.expression.function.string;
 
+import walkingkooka.collect.set.Sets;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.FunctionExpressionName;
@@ -32,12 +33,23 @@ import java.util.Set;
  */
 abstract class StringExpressionFunction<C extends ExpressionEvaluationContext> implements ExpressionFunction<String, C> {
 
+    private final static Set<ExpressionFunctionKind> CONVERT_EVALUATE_RESOLVE = EnumSet.of(
+            ExpressionFunctionKind.CONVERT_PARAMETERS,
+            ExpressionFunctionKind.EVALUATE_PARAMETERS,
+            ExpressionFunctionKind.RESOLVE_REFERENCES
+    );
+
     /**
      * Package private to limit sub classing.
      */
-    StringExpressionFunction(final String name) {
+    StringExpressionFunction(final String name,
+                             final ExpressionFunctionKind... kinds) {
         super();
         this.name = FunctionExpressionName.with(name);
+
+        this.kinds = 0 == kinds.length ?
+                CONVERT_EVALUATE_RESOLVE :
+                Sets.of(kinds);
     }
 
     @Override
@@ -64,14 +76,10 @@ abstract class StringExpressionFunction<C extends ExpressionEvaluationContext> i
 
     @Override
     public Set<ExpressionFunctionKind> kinds() {
-        return KINDS;
+        return this.kinds;
     }
 
-    private final Set<ExpressionFunctionKind> KINDS = EnumSet.of(
-            ExpressionFunctionKind.CONVERT_PARAMETERS,
-            ExpressionFunctionKind.EVALUATE_PARAMETERS,
-            ExpressionFunctionKind.RESOLVE_REFERENCES
-    );
+    private final Set<ExpressionFunctionKind> kinds;
 
     @Override
     public final String toString() {
