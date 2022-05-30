@@ -24,7 +24,7 @@ import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class StringExpressionFunctionTTest extends StringExpressionFunctionTestCase<StringExpressionFunctionT<ExpressionEvaluationContext>, String> {
+public final class StringExpressionFunctionTTest extends StringExpressionFunctionTestCase<StringExpressionFunctionT<ExpressionEvaluationContext>> {
 
     @Test
     public void testZeroParametersFails() {

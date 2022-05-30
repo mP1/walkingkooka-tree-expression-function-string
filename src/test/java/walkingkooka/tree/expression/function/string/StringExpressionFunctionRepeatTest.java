@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class StringExpressionFunctionRepeatTest extends StringExpressionFunctionTestCase<StringExpressionFunctionRepeat<ExpressionEvaluationContext>, String> {
+public final class StringExpressionFunctionRepeatTest extends StringExpressionFunctionTestCase<StringExpressionFunctionRepeat<ExpressionEvaluationContext>> {
 
     @Test
     public void testZero() {

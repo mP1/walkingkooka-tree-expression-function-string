@@ -23,7 +23,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class StringExpressionFunctionStringNumberTestCase<F extends StringExpressionFunctionStringNumber<ExpressionEvaluationContext>> extends StringExpressionFunctionTestCase<F, String> {
+public abstract class StringExpressionFunctionStringNumberTestCase<F extends StringExpressionFunctionStringNumber<ExpressionEvaluationContext>> extends StringExpressionFunctionTestCase<F> {
 
     StringExpressionFunctionStringNumberTestCase() {
         super();

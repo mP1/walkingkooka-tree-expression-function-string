@@ -20,11 +20,10 @@ import walkingkooka.Either;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
-import walkingkooka.tree.expression.function.ExpressionFunction;
 
 import java.util.Locale;
 
-public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionEvaluationContext>, T> extends ExpressionFunctionTestCase<F, T> {
+public abstract class StringExpressionFunctionTestCase<F extends StringExpressionFunction<ExpressionEvaluationContext>> extends ExpressionFunctionTestCase<F, String> {
 
     StringExpressionFunctionTestCase() {
         super();

@@ -23,7 +23,7 @@ import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class StringExpressionFunctionConcatTest extends StringExpressionFunctionTestCase<StringExpressionFunctionConcat<ExpressionEvaluationContext>, String> {
+public final class StringExpressionFunctionConcatTest extends StringExpressionFunctionTestCase<StringExpressionFunctionConcat<ExpressionEvaluationContext>> {
 
     @Test
     public void testZeroParametersFails() {
