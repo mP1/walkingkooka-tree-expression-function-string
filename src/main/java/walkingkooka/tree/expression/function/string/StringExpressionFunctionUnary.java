@@ -253,7 +253,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     private final BiFunction<String, C, String> function;
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 

@@ -69,7 +69,7 @@ final class StringExpressionFunctionSubstring<C extends ExpressionEvaluationCont
     private final static int INDEX_BIAS = 1;
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 

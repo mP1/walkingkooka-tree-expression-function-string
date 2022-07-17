@@ -60,7 +60,7 @@ final class StringExpressionFunctionStringStringSubstringBefore<C extends Expres
     }
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 
