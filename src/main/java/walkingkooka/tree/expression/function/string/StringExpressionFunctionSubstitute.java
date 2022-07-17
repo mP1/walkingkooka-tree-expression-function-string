@@ -129,7 +129,7 @@ final class StringExpressionFunctionSubstitute<C extends ExpressionEvaluationCon
             .optional(ExpressionNumber.class);
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 

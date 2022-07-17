@@ -60,7 +60,7 @@ final class NumberExpressionFunctionLength<C extends ExpressionEvaluationContext
     }
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 

@@ -54,7 +54,7 @@ abstract class StringExpressionFunctionStringNumber<C extends ExpressionEvaluati
                                        final int number);
 
     @Override
-    public final List<ExpressionFunctionParameter<?>> parameters() {
+    public final List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 

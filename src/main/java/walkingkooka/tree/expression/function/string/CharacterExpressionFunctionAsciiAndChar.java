@@ -80,7 +80,7 @@ final class CharacterExpressionFunctionAsciiAndChar<C extends ExpressionEvaluati
     private final int max;
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 

@@ -50,7 +50,7 @@ final class StringExpressionFunctionT<C extends ExpressionEvaluationContext> ext
     }
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 
