@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.text.CaseSensitivity;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -63,22 +64,6 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionEvaluationContex
     }
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
-        return PARAMETERS;
-    }
-
-    private final static ExpressionFunctionParameter<String> TEXT1 = ExpressionFunctionParameterName.with("text1")
-            .required(String.class);
-
-    private final static ExpressionFunctionParameter<String> TEXT2 = ExpressionFunctionParameterName.with("text2")
-            .required(String.class);
-
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            TEXT1,
-            TEXT2
-    );
-
-    @Override
     public Boolean apply(final List<Object> parameters,
                          final C context) {
         this.checkParameterCount(parameters);
@@ -89,5 +74,23 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionEvaluationContex
         );
     }
 
+    private final static ExpressionFunctionParameter<String> TEXT1 = ExpressionFunctionParameterName.with("text1")
+            .required(String.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+
+    private final static ExpressionFunctionParameter<String> TEXT2 = ExpressionFunctionParameterName.with("text2")
+            .required(String.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+
     private final CaseSensitivity caseSensitivity;
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
+        return PARAMETERS;
+    }
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
+            TEXT1,
+            TEXT2
+    );
 }

@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.text.CaseSensitivity;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -29,7 +30,8 @@ import java.util.function.BiFunction;
 final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEvaluationContext> extends BooleanExpressionFunction<C> {
 
     // first to avoid nulls
-    private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT;
+    private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     /**
      * CONTAINS case-insensitive getter.

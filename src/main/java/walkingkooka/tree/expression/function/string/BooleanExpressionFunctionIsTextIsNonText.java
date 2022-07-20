@@ -20,6 +20,7 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -72,12 +73,13 @@ final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionEvaluat
         return this.predicate.test(VALUE.getOrFail(parameters, 0));
     }
 
+    private final static ExpressionFunctionParameter<Object> VALUE = ExpressionFunctionParameter.VALUE
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+
     @Override
     public final List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
-
-    private final static ExpressionFunctionParameter<Object> VALUE = ExpressionFunctionParameter.VALUE;
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             VALUE
