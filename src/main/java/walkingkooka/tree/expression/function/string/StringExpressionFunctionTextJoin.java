@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -75,13 +76,16 @@ final class StringExpressionFunctionTextJoin<C extends ExpressionEvaluationConte
     }
 
     private final static ExpressionFunctionParameter<String> DELIMITER = ExpressionFunctionParameterName.with("delimiter")
-            .required(String.class);
+            .required(String.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<Boolean> IGNORE_EMPTY = ExpressionFunctionParameterName.with("ignore-empty")
-            .required(Boolean.class);
+            .required(Boolean.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<String> MORE_TEXT = ExpressionFunctionParameterName.with("more-text")
-            .variable(String.class);
+            .variable(String.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_FLATTEN_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {

@@ -21,10 +21,6 @@ import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionKind;
-
-import java.util.EnumSet;
-import java.util.Set;
 
 /**
  * Base class for many {@link ExpressionFunction} within this package that return {@link Character}
@@ -58,17 +54,6 @@ abstract class CharacterExpressionFunction<C extends ExpressionEvaluationContext
     public final Class<Character> returnType() {
         return Character.class;
     }
-
-    @Override
-    public Set<ExpressionFunctionKind> kinds() {
-        return KINDS;
-    }
-
-    private final Set<ExpressionFunctionKind> KINDS = EnumSet.of(
-            ExpressionFunctionKind.CONVERT_PARAMETERS,
-            ExpressionFunctionKind.EVALUATE_PARAMETERS,
-            ExpressionFunctionKind.RESOLVE_REFERENCES
-    );
 
     @Override
     public final String toString() {

@@ -19,8 +19,8 @@ package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -47,13 +47,7 @@ final class StringExpressionFunctionConcat<C extends ExpressionEvaluationContext
      * Private ctor
      */
     private StringExpressionFunctionConcat() {
-        super(
-                "concat",
-                ExpressionFunctionKind.CONVERT_PARAMETERS,
-                ExpressionFunctionKind.EVALUATE_PARAMETERS,
-                ExpressionFunctionKind.RESOLVE_REFERENCES,
-                ExpressionFunctionKind.FLATTEN
-        );
+        super("concat");
     }
 
     @Override
@@ -69,12 +63,13 @@ final class StringExpressionFunctionConcat<C extends ExpressionEvaluationContext
                 .collect(Collectors.joining());
     }
 
+    private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.TEXT.variable(String.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_FLATTEN_RESOLVE_REFERENCES);
+
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            ExpressionFunctionParameterName.TEXT.variable(String.class)
-    );
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
 }
