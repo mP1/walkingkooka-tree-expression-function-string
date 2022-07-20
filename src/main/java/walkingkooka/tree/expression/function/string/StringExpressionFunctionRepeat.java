@@ -69,14 +69,14 @@ final class StringExpressionFunctionRepeat<C extends ExpressionEvaluationContext
         return b.toString();
     }
 
+    private final static ExpressionFunctionParameter<ExpressionNumber> COUNT = ExpressionFunctionParameterName.with("count")
+            .required(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
-
-    private final static ExpressionFunctionParameter<ExpressionNumber> COUNT = ExpressionFunctionParameterName.with("count")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,

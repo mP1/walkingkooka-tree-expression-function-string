@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 
 import java.util.List;
 
@@ -55,16 +56,17 @@ final class NumberExpressionFunctionLength<C extends ExpressionEvaluationContext
         this.checkParameterCount(parameters);
         return context.expressionNumberKind()
                 .create(
-                        ExpressionFunctionParameter.TEXT.getOrFail(parameters, 0).length()
+                        TEXT.getOrFail(parameters, 0).length()
                 );
     }
+
+    private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            ExpressionFunctionParameter.TEXT
-    );
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(TEXT);
 }
