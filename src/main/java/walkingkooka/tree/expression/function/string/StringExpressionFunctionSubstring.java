@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -68,16 +69,18 @@ final class StringExpressionFunctionSubstring<C extends ExpressionEvaluationCont
 
     private final static int INDEX_BIAS = 1;
 
+    private final static ExpressionFunctionParameter<ExpressionNumber> OFFSET = ExpressionFunctionParameterName.with("offset")
+            .required(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+
+    private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
+            .optional(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
-
-    private final static ExpressionFunctionParameter<ExpressionNumber> OFFSET = ExpressionFunctionParameterName.with("offset")
-            .required(ExpressionNumber.class);
-
-    private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
-            .optional(ExpressionNumber.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,

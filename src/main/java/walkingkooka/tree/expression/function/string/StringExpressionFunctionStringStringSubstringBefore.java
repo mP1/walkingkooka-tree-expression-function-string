@@ -20,6 +20,7 @@ package walkingkooka.tree.expression.function.string;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -60,17 +61,18 @@ final class StringExpressionFunctionStringStringSubstringBefore<C extends Expres
     }
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
-        return PARAMETERS;
-    }
-
-    @Override
     ExpressionFunctionParameter<String> secondParameter() {
         return BEFORE;
     }
 
     private final static ExpressionFunctionParameter<String> BEFORE = ExpressionFunctionParameterName.with("before")
-            .required(String.class);
+            .required(String.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
+        return PARAMETERS;
+    }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,

@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -66,16 +67,18 @@ final class StringExpressionFunctionMid<C extends ExpressionEvaluationContext> e
                 string.substring(Math.max(0, start), Math.min(start + length, stringLength)); // ensure start & length are within bounds
     }
 
+    private final static ExpressionFunctionParameter<ExpressionNumber> START = ExpressionFunctionParameterName.with("start")
+            .required(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+
+    private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
+            .required(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
-
-    private final static ExpressionFunctionParameter<ExpressionNumber> START = ExpressionFunctionParameterName.with("start")
-            .required(ExpressionNumber.class);
-
-    private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
-            .required(ExpressionNumber.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
             TEXT,
