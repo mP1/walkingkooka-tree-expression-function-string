@@ -55,6 +55,11 @@ public final class NumberExpressionFunctionLengthTest extends NumberExpressionFu
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionLength<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionLength.class);
     }

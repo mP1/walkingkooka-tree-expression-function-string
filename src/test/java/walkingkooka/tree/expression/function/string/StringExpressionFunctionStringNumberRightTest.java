@@ -74,6 +74,11 @@ public final class StringExpressionFunctionStringNumberRightTest extends StringE
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<StringExpressionFunctionStringNumberRight<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionStringNumberRight.class);
     }

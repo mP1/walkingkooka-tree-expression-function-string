@@ -153,6 +153,11 @@ public final class StringExpressionFunctionReplaceTest extends StringExpressionF
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 4;
+    }
+
+    @Override
     public Class<StringExpressionFunctionReplace<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionReplace.class);
     }

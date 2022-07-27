@@ -147,6 +147,11 @@ public final class CharacterExpressionFunctionAsciiAndCharTest extends Character
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public Class<CharacterExpressionFunctionAsciiAndChar<ExpressionEvaluationContext>> type() {
         return Cast.to(CharacterExpressionFunctionAsciiAndChar.class);
     }

@@ -69,6 +69,11 @@ public final class StringExpressionFunctionStringNumberLeftTest extends StringEx
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<StringExpressionFunctionStringNumberLeft<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionStringNumberLeft.class);
     }

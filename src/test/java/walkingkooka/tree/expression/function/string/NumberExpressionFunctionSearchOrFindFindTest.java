@@ -105,6 +105,11 @@ public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberEx
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     NumberExpressionFunctionSearchOrFindFind<ExpressionEvaluationContext> createBiFunctionCaseInsensitive() {
         return NumberExpressionFunctionSearchOrFindFind.caseInsensitive();
     }

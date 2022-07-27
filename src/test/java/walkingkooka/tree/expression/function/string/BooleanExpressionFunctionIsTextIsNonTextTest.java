@@ -118,6 +118,11 @@ public final class BooleanExpressionFunctionIsTextIsNonTextTest extends BooleanE
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public Class<BooleanExpressionFunctionIsTextIsNonText<ExpressionEvaluationContext>> type() {
         return Cast.to(BooleanExpressionFunctionIsTextIsNonText.class);
     }

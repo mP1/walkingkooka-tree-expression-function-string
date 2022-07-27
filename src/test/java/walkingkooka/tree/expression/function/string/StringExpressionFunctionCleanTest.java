@@ -68,6 +68,11 @@ public final class StringExpressionFunctionCleanTest extends StringExpressionFun
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public Class<StringExpressionFunctionClean<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionClean.class);
     }

@@ -202,6 +202,11 @@ public final class BooleanExpressionFunctionContainsStartsEndsTest extends Boole
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<BooleanExpressionFunctionContainsStartsEnds<ExpressionEvaluationContext>> type() {
         return Cast.to(BooleanExpressionFunctionContainsStartsEnds.class);
     }
