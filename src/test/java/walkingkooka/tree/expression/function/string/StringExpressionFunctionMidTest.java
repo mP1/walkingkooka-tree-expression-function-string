@@ -123,6 +123,11 @@ public final class StringExpressionFunctionMidTest extends StringExpressionFunct
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 3;
+    }
+
+    @Override
     public Class<StringExpressionFunctionMid<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionMid.class);
     }

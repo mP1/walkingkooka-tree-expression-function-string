@@ -46,6 +46,11 @@ public final class NumberExpressionFunctionUnicodeTest extends NumberExpressionF
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionUnicode<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionUnicode.class);
     }

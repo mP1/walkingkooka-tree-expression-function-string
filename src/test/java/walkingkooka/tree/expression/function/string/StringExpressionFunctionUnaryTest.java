@@ -455,6 +455,11 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public Class<StringExpressionFunctionUnary<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionUnary.class);
     }

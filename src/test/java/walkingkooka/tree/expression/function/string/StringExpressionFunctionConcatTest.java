@@ -60,6 +60,11 @@ public final class StringExpressionFunctionConcatTest extends StringExpressionFu
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public StringExpressionFunctionConcat<ExpressionEvaluationContext> createBiFunction() {
         return StringExpressionFunctionConcat.instance();
     }

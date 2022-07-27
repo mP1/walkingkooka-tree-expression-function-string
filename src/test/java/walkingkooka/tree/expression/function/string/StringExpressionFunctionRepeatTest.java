@@ -56,6 +56,11 @@ public final class StringExpressionFunctionRepeatTest extends StringExpressionFu
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<StringExpressionFunctionRepeat<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionRepeat.class);
     }

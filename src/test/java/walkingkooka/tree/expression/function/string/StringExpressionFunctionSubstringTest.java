@@ -102,6 +102,11 @@ public final class StringExpressionFunctionSubstringTest extends StringExpressio
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 3;
+    }
+
+    @Override
     public Class<StringExpressionFunctionSubstring<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionSubstring.class);
     }

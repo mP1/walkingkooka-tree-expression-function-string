@@ -298,6 +298,11 @@ public final class StringExpressionFunctionSubstituteTest extends StringExpressi
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 3;
+    }
+
+    @Override
     public Class<StringExpressionFunctionSubstitute<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionSubstitute.class);
     }

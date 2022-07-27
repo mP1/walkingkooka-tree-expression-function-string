@@ -180,6 +180,11 @@ public final class StringExpressionFunctionTextJoinTest extends StringExpression
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 3;
+    }
+
+    @Override
     public Class<StringExpressionFunctionTextJoin<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionTextJoin.class);
     }
