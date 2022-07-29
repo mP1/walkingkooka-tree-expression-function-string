@@ -23,6 +23,8 @@ import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 
+import java.util.Optional;
+
 abstract class NumberExpressionFunction<C extends ExpressionEvaluationContext> implements ExpressionFunction<ExpressionNumber, C> {
 
     final static int INDEX_BIAS = 1;
@@ -31,15 +33,17 @@ abstract class NumberExpressionFunction<C extends ExpressionEvaluationContext> i
 
     NumberExpressionFunction(final String name) {
         super();
-        this.name = FunctionExpressionName.with(name);
+        this.name = Optional.of(
+                FunctionExpressionName.with(name)
+        );
     }
 
     @Override
-    public final FunctionExpressionName name() {
+    public final Optional<FunctionExpressionName> name() {
         return this.name;
     }
 
-    private final FunctionExpressionName name;
+    private final Optional<FunctionExpressionName> name;
 
     @Override
     public final Class<ExpressionNumber> returnType() {
@@ -53,6 +57,8 @@ abstract class NumberExpressionFunction<C extends ExpressionEvaluationContext> i
 
     @Override
     public final String toString() {
-        return this.name().toString();
+        return this.name()
+                .get()
+                .toString();
     }
 }

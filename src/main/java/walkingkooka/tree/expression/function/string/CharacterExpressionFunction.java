@@ -22,6 +22,8 @@ import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 
+import java.util.Optional;
+
 /**
  * Base class for many {@link ExpressionFunction} within this package that return {@link Character}
  */
@@ -32,15 +34,17 @@ abstract class CharacterExpressionFunction<C extends ExpressionEvaluationContext
      */
     CharacterExpressionFunction(final String name) {
         super();
-        this.name = FunctionExpressionName.with(name);
+        this.name = Optional.of(
+                FunctionExpressionName.with(name)
+        );
     }
 
     @Override
-    public FunctionExpressionName name() {
+    public final Optional<FunctionExpressionName> name() {
         return this.name;
     }
 
-    private final FunctionExpressionName name;
+    private final Optional<FunctionExpressionName> name;
 
     /**
      * All {@link Character} functions are pure. Does not assume anything about any parameters.
@@ -57,6 +61,8 @@ abstract class CharacterExpressionFunction<C extends ExpressionEvaluationContext
 
     @Override
     public final String toString() {
-        return this.name().toString();
+        return this.name()
+                .get()
+                .toString();
     }
 }

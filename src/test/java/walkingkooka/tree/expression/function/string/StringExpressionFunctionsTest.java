@@ -35,7 +35,7 @@ public final class StringExpressionFunctionsTest implements PublicStaticHelperTe
     @Test
     public void testVisit() {
         final Set<FunctionExpressionName> names = Sets.sorted();
-        StringExpressionFunctions.visit((e) -> names.add(e.name()));
+        StringExpressionFunctions.visit((e) -> names.add(e.name().get()));
 
         this.checkEquals(
                 Arrays.stream(StringExpressionFunctions.class.getDeclaredMethods())
@@ -45,8 +45,8 @@ public final class StringExpressionFunctionsTest implements PublicStaticHelperTe
                         .size(),
                 names.size()
         );
-        this.checkEquals(true, names.contains(StringExpressionFunctions.left().name()));
-        this.checkEquals(true, names.contains(StringExpressionFunctions.right().name()));
+        this.checkEquals(true, names.contains(StringExpressionFunctions.left().name().get()));
+        this.checkEquals(true, names.contains(StringExpressionFunctions.right().name().get()));
     }
 
     @Test
