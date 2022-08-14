@@ -25,6 +25,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * A function that returns a substring of another string.<br>
@@ -59,7 +60,13 @@ final class StringExpressionFunctionSubstring<C extends ExpressionEvaluationCont
         final String string = TEXT.getOrFail(parameters, 0);
         final int offset = OFFSET.getOrFail(parameters, 1).intValue();
         final int length = LENGTH.get(parameters, 2)
-                .orElse(context.expressionNumberKind().create(string.length() - offset + INDEX_BIAS))
+                .orElseGet(() -> Optional.of(
+                                context.expressionNumberKind()
+                                        .create(
+                                                string.length() - offset + INDEX_BIAS
+                                        )
+                        )
+                ).get()
                 .intValue();
 
         final int zeroOffset = offset - INDEX_BIAS;
