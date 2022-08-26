@@ -64,7 +64,7 @@ final class StringExpressionFunctionT<C extends ExpressionEvaluationContext> ext
 
     private final static ExpressionFunctionParameter<Object> VALUE = ExpressionFunctionParameterName.with("value")
             .required(Object.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+            .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {

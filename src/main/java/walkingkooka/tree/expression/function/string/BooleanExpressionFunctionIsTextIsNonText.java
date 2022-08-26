@@ -74,7 +74,7 @@ final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionEvaluat
     }
 
     private final static ExpressionFunctionParameter<Object> VALUE = ExpressionFunctionParameter.VALUE
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+            .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public final List<ExpressionFunctionParameter<?>> parameters(final int count) {
