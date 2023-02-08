@@ -4,9 +4,11 @@ import com.google.gwt.junit.client.GWTTestCase;
 
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.string.StringExpressionFunctions;
 
+@LocaleAware
 public class TestGwtTest extends GWTTestCase {
 
     @Override
