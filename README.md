@@ -31,7 +31,7 @@ semantics.
 - mid(string, number, number*)
 - normalizeSpace(string)
 - proper(string)
-- repeatString(string, number)
+- repeat(string, number)
 - replace(String, number, number, String)
 - right(string, number)
 - searchCaseInsensitive(string, string, number*)
