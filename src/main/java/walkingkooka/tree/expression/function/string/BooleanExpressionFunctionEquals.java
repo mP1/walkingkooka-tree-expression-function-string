@@ -41,7 +41,7 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionEvaluationContex
      * Singleton
      */
     private static final BooleanExpressionFunctionEquals<?> EQUALS_CASE_INSENSITIVE = new BooleanExpressionFunctionEquals<>(
-            "stringEqualsCaseInsensitive",
+            "equalsCaseInsensitive",
             CaseSensitivity.INSENSITIVE
     );
 
@@ -53,7 +53,7 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionEvaluationContex
      * Singleton
      */
     private static final BooleanExpressionFunctionEquals<?> EQUALS_CASE_SENSITIVE = new BooleanExpressionFunctionEquals<>(
-            "stringEqualsCaseSensitive",
+            "equalsCaseSensitive",
             CaseSensitivity.SENSITIVE
     );
 

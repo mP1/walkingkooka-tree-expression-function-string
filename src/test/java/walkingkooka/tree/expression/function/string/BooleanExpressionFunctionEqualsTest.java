@@ -97,18 +97,18 @@ public final class BooleanExpressionFunctionEqualsTest extends BooleanExpression
     // toString........................................................................................................
 
     @Test
-    public void testCaseInensitiveToString() {
+    public void testEqualsCaseInensitiveToString() {
         this.toStringAndCheck(
                 BooleanExpressionFunctionEquals.caseInsensitive(),
-                "stringEqualsCaseInsensitive"
+                "equalsCaseInsensitive"
         );
     }
 
     @Test
-    public void testCaseSensitiveToString() {
+    public void testEqualsCaseSensitiveToString() {
         this.toStringAndCheck(
                 BooleanExpressionFunctionEquals.caseSensitive(),
-                "stringEqualsCaseSensitive"
+                "equalsCaseSensitive"
         );
     }
 
