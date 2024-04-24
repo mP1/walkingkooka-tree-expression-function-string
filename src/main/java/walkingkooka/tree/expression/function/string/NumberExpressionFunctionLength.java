@@ -47,7 +47,7 @@ final class NumberExpressionFunctionLength<C extends ExpressionEvaluationContext
      * Private ctor
      */
     private NumberExpressionFunctionLength() {
-        super("string-length");
+        super("stringLength");
     }
 
     @Override

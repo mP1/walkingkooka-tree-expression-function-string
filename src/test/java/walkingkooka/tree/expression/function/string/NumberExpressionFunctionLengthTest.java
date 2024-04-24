@@ -46,7 +46,7 @@ public final class NumberExpressionFunctionLengthTest extends NumberExpressionFu
 
     @Test
     public void testToString() {
-        this.toStringAndCheck(this.createBiFunction(), "string-length");
+        this.toStringAndCheck(this.createBiFunction(), "stringLength");
     }
 
     @Override

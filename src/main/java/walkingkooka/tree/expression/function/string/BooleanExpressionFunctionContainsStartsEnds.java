@@ -44,8 +44,8 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> CONTAINS_CASE_INSENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "contains-case-insensitive",
-            "contains-case-insensitive",
+            "containsCaseInsensitive",
+            "containsCaseInsensitive",
             (text, ends) -> CaseSensitivity.INSENSITIVE.contains(text, ends)
     );
 
@@ -60,8 +60,8 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> CONTAINS_CASE_SENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "contains-case-sensitive",
-            "contains-case-sensitive",
+            "containsCaseSensitive",
+            "containsCaseSensitive",
             (text, ends) -> CaseSensitivity.SENSITIVE.contains(text, ends)
     );
 
@@ -76,8 +76,8 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> STARTSWITH_CASE_INSENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "starts-with-case-insensitive",
-            "starts-with-case-insensitive",
+            "startsWithCaseInsensitive",
+            "startsWithCaseInsensitive",
             (text, starts) -> CaseSensitivity.INSENSITIVE.startsWith(text, starts)
     );
 
@@ -92,8 +92,8 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> STARTSWITH_CASE_SENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "starts-with-case-sensitive",
-            "starts-with-case-sensitive",
+            "startsWithCaseSensitive",
+            "startsWithCaseSensitive",
             (text, starts) -> CaseSensitivity.SENSITIVE.startsWith(text, starts)
     );
 
@@ -108,8 +108,8 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> ENDSWITH_CASE_INSENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "ends-with-case-insensitive",
-            "ends-with-case-insensitive",
+            "endsWithCaseInsensitive",
+            "endsWithCaseInsensitive",
             (text, ends) -> CaseSensitivity.INSENSITIVE.endsWith(text, ends)
     );
 
@@ -124,8 +124,8 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> ENDSWITH_CASE_SENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "ends-with-case-sensitive",
-            "ends-with-case-sensitive",
+            "endsWithCaseSensitive",
+            "endsWithCaseSensitive",
             (text, ends) -> CaseSensitivity.SENSITIVE.endsWith(text, ends)
     );
 

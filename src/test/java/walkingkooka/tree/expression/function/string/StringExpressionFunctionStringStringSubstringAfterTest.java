@@ -50,7 +50,7 @@ public final class StringExpressionFunctionStringStringSubstringAfterTest extend
 
     @Test
     public void testToString() {
-        this.toStringAndCheck(this.createBiFunction(), "substring-after");
+        this.toStringAndCheck(this.createBiFunction(), "substringAfter");
     }
 
     @Override

@@ -46,7 +46,7 @@ final class StringExpressionFunctionStringStringSubstringBefore<C extends Expres
      * Private ctor
      */
     private StringExpressionFunctionStringStringSubstringBefore() {
-        super("substring-before");
+        super("substringBefore");
     }
 
     @Override

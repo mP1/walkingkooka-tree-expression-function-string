@@ -152,7 +152,7 @@ public final class BooleanExpressionFunctionContainsStartsEndsTest extends Boole
     public void testContainsCaseInsensitiveToString() {
         this.toStringAndCheck(
                 BooleanExpressionFunctionContainsStartsEnds.containsCaseInsensitive(),
-                "contains-case-insensitive"
+                "containsCaseInsensitive"
         );
     }
 
@@ -160,7 +160,7 @@ public final class BooleanExpressionFunctionContainsStartsEndsTest extends Boole
     public void testContainsCaseSensitiveToString() {
         this.toStringAndCheck(
                 BooleanExpressionFunctionContainsStartsEnds.containsCaseSensitive(),
-                "contains-case-sensitive"
+                "containsCaseSensitive"
         );
     }
 
@@ -168,7 +168,7 @@ public final class BooleanExpressionFunctionContainsStartsEndsTest extends Boole
     public void testEndsWithCaseInsensitiveToString() {
         this.toStringAndCheck(
                 BooleanExpressionFunctionContainsStartsEnds.endsWithCaseInsensitive(),
-                "ends-with-case-insensitive"
+                "endsWithCaseInsensitive"
         );
     }
 
@@ -176,7 +176,7 @@ public final class BooleanExpressionFunctionContainsStartsEndsTest extends Boole
     public void testEndsWithCaseSensitiveToString() {
         this.toStringAndCheck(
                 BooleanExpressionFunctionContainsStartsEnds.endsWithCaseSensitive(),
-                "ends-with-case-sensitive"
+                "endsWithCaseSensitive"
         );
     }
 
@@ -184,7 +184,7 @@ public final class BooleanExpressionFunctionContainsStartsEndsTest extends Boole
     public void testStartsWithCaseInsensitiveToString() {
         this.toStringAndCheck(
                 BooleanExpressionFunctionContainsStartsEnds.startsWithCaseInsensitive(),
-                "starts-with-case-insensitive"
+                "startsWithCaseInsensitive"
         );
     }
 
@@ -192,7 +192,7 @@ public final class BooleanExpressionFunctionContainsStartsEndsTest extends Boole
     public void testStartsWithCaseSensitiveToString() {
         this.toStringAndCheck(
                 BooleanExpressionFunctionContainsStartsEnds.startsWithCaseSensitive(),
-                "starts-with-case-sensitive"
+                "startsWithCaseSensitive"
         );
     }
 
