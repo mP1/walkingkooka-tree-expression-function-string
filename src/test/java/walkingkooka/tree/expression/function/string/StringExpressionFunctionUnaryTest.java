@@ -405,7 +405,7 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
     public void testToStringLowerCase() {
         this.toStringAndCheck(
                 StringExpressionFunctionUnary.lowerCase(),
-                "lower-case"
+                "lowerCase"
         );
     }
 
@@ -413,7 +413,7 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
     public void testToStringNormalizeSpace() {
         this.toStringAndCheck(
                 StringExpressionFunctionUnary.normalizeSpace(),
-                "normalize-space"
+                "normalizeSpace"
         );
     }
 
@@ -429,7 +429,7 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
     public void testToStringTrimLeft() {
         this.toStringAndCheck(
                 StringExpressionFunctionUnary.trimLeft(),
-                "trim-left"
+                "trimLeft"
         );
     }
 
@@ -437,7 +437,7 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
     public void testToStringTrimRight() {
         this.toStringAndCheck(
                 StringExpressionFunctionUnary.trimRight(),
-                "trim-right"
+                "trimRight"
         );
     }
 
@@ -445,7 +445,7 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
     public void testToStringUpperCase() {
         this.toStringAndCheck(
                 StringExpressionFunctionUnary.upperCase(),
-                "upper-case"
+                "upperCase"
         );
     }
 

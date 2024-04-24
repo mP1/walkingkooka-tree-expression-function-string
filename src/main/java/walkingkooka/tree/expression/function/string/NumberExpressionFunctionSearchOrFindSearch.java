@@ -41,7 +41,7 @@ final class NumberExpressionFunctionSearchOrFindSearch<C extends ExpressionEvalu
      * Singleton
      */
     private static final NumberExpressionFunctionSearchOrFindSearch<?> CASE_SENSITIVE = new NumberExpressionFunctionSearchOrFindSearch<>(
-            "search-case-sensitive",
+            "searchCaseSensitive",
             CaseSensitivity.SENSITIVE
     );
 
@@ -56,7 +56,7 @@ final class NumberExpressionFunctionSearchOrFindSearch<C extends ExpressionEvalu
      * Singleton
      */
     private static final NumberExpressionFunctionSearchOrFindSearch<?> CASE_INSENSITIVE = new NumberExpressionFunctionSearchOrFindSearch<>(
-            "search-case-insensitive",
+            "searchCaseInsensitive",
             CaseSensitivity.INSENSITIVE
     );
 

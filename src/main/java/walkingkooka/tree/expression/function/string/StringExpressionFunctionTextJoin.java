@@ -53,7 +53,7 @@ final class StringExpressionFunctionTextJoin<C extends ExpressionEvaluationConte
      * Private ctor
      */
     private StringExpressionFunctionTextJoin() {
-        super("text-join");
+        super("textJoin");
     }
 
     @Override
