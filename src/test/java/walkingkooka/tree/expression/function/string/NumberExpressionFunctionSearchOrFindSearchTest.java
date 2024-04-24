@@ -133,7 +133,7 @@ public final class NumberExpressionFunctionSearchOrFindSearchTest extends Number
     public void testToStringFindCaseInsensitive() {
         this.toStringAndCheck(
                 NumberExpressionFunctionSearchOrFindSearch.caseInsensitive(),
-                "search-case-insensitive"
+                "searchCaseInsensitive"
         );
     }
 
@@ -141,7 +141,7 @@ public final class NumberExpressionFunctionSearchOrFindSearchTest extends Number
     public void testToStringFindCaseSensitive() {
         this.toStringAndCheck(
                 NumberExpressionFunctionSearchOrFindSearch.caseSensitive(),
-                "search-case-sensitive"
+                "searchCaseSensitive"
         );
     }
 

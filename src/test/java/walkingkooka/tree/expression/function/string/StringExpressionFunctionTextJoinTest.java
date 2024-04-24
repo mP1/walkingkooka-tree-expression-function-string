@@ -170,7 +170,7 @@ public final class StringExpressionFunctionTextJoinTest extends StringExpression
     public void testToString() {
         this.toStringAndCheck(
                 this.createBiFunction(),
-                "text-join"
+                "textJoin"
         );
     }
 

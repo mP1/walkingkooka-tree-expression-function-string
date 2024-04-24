@@ -49,7 +49,7 @@ final class StringExpressionFunctionRepeat<C extends ExpressionEvaluationContext
      * Private ctor
      */
     private StringExpressionFunctionRepeat() {
-        super("repeat-string");
+        super("repeatString");
     }
 
     @Override

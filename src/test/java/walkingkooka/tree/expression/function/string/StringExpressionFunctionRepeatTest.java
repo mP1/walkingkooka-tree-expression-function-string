@@ -47,7 +47,7 @@ public final class StringExpressionFunctionRepeatTest extends StringExpressionFu
 
     @Test
     public void testToString() {
-        this.toStringAndCheck(this.createBiFunction(), "repeat-string");
+        this.toStringAndCheck(this.createBiFunction(), "repeatString");
     }
 
     @Override

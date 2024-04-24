@@ -40,7 +40,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> LOWERCASE = new StringExpressionFunctionUnary<>(
-            "lower-case",
+            "lowerCase",
             (s, c) -> s.toLowerCase(c.locale())
     );
 
@@ -52,7 +52,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> NORMALIZESPACE = new StringExpressionFunctionUnary<>(
-            "normalize-space",
+            "normalizeSpace",
             StringExpressionFunctionUnary::normalizeSpace
     );
 
@@ -96,7 +96,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
 
     // https://exceljet.net/excel-functions/excel-proper-function
     //
-    // The first letter in any word is capitalized, all other letters are lower-cased.
+    // The first letter in any word is capitalized, all other letters are lowerCased.
     // All other characters are copied over as is.
     //
     // TODO
@@ -138,7 +138,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> SPACETRIM = new StringExpressionFunctionUnary<>(
-            "space-trim",
+            "spaceTrim",
             StringExpressionFunctionUnary::spaceTrim
     );
 
@@ -202,7 +202,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> TRIMLEFT = new StringExpressionFunctionUnary<>(
-            "trim-left",
+            "trimLeft",
             (s, c) -> CharSequences.trimLeft(s).toString()
     );
 
@@ -214,7 +214,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> TRIMRIGHT = new StringExpressionFunctionUnary<>(
-            "trim-right",
+            "trimRight",
             (s, c) -> CharSequences.trimRight(s).toString()
     );
 
@@ -226,7 +226,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> UPPERCASE = new StringExpressionFunctionUnary<>(
-            "upper-case",
+            "upperCase",
             (s, c) -> s.toUpperCase(c.locale())
     );
 
