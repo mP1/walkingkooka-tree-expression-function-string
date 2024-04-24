@@ -21,32 +21,37 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 
 import java.lang.reflect.Method;
 import java.math.MathContext;
 import java.util.Arrays;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public final class StringExpressionFunctionsTest implements PublicStaticHelperTesting<StringExpressionFunctions> {
 
     @Test
-    public void testVisit() {
-        final Set<FunctionExpressionName> names = Sets.sorted();
-        StringExpressionFunctions.visit((e) -> names.add(e.name().get()));
-
+    public void testExpressionFunctionProvider() {
         this.checkEquals(
                 Arrays.stream(StringExpressionFunctions.class.getDeclaredMethods())
                         .filter(m -> m.getReturnType() == ExpressionFunction.class)
                         .map(Method::getName)
+                        .map(n -> {
+                                    // JDK BUG cant have a lambda with switch as the body ???
+                                    switch (n) {
+                                        case "character":
+                                            return "char";
+                                        default:
+                                            return n;
+                                    }
+                                }
+                        ).collect(Collectors.toCollection(Sets::sorted)),
+                StringExpressionFunctions.expressionFunctionProvider()
+                        .expressionFunctionInfos()
+                        .stream()
+                        .map(i -> i.name().value())
                         .collect(Collectors.toCollection(Sets::sorted))
-                        .size(),
-                names.size()
         );
-        this.checkEquals(true, names.contains(StringExpressionFunctions.left().name().get()));
-        this.checkEquals(true, names.contains(StringExpressionFunctions.right().name().get()));
     }
 
     @Test
