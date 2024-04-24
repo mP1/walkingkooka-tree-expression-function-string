@@ -87,7 +87,7 @@ public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberEx
     public void testToStringFindCaseInsensitive() {
         this.toStringAndCheck(
                 NumberExpressionFunctionSearchOrFindFind.caseInsensitive(),
-                "find-case-insensitive"
+                "findCaseInsensitive"
         );
     }
 
@@ -95,7 +95,7 @@ public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberEx
     public void testToStringFindCaseSensitive() {
         this.toStringAndCheck(
                 NumberExpressionFunctionSearchOrFindFind.caseSensitive(),
-                "find-case-sensitive"
+                "findCaseSensitive"
         );
     }
 
