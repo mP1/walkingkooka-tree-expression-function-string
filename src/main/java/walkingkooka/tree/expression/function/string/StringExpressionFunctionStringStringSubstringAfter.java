@@ -46,7 +46,7 @@ final class StringExpressionFunctionStringStringSubstringAfter<C extends Express
      * Private ctor
      */
     private StringExpressionFunctionStringStringSubstringAfter() {
-        super("substring-after");
+        super("substringAfter");
     }
 
     @Override

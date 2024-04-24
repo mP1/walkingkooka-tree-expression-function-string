@@ -55,7 +55,7 @@ public final class StringExpressionFunctionStringStringSubstringBeforeTest exten
 
     @Test
     public void testToString() {
-        this.toStringAndCheck(this.createBiFunction(), "substring-before");
+        this.toStringAndCheck(this.createBiFunction(), "substringBefore");
     }
 
     @Override
