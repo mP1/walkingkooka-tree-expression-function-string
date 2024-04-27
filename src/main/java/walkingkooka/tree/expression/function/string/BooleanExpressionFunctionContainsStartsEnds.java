@@ -134,7 +134,8 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
                                                         final BiFunction<String, String, Boolean> predicate) {
         super(name);
         this.secondParameter = ExpressionFunctionParameterName.with(secondParameterName)
-                .required(String.class);
+                .required(String.class)
+                .setKinds(TEXT.kinds());
         this.parameters = ExpressionFunctionParameter.list(
                 TEXT,
                 this.secondParameter
