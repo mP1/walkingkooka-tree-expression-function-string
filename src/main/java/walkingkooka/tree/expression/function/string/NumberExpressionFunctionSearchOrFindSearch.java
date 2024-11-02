@@ -72,7 +72,7 @@ final class NumberExpressionFunctionSearchOrFindSearch<C extends ExpressionEvalu
     int apply(final String find,
               final String within,
               final int startPos) {
-        return CaseSensitivity.INSENSITIVE.globPattern(find, '~')
+        return CaseSensitivity.INSENSITIVE.globPattern(find)
                 .search(
                         within,
                         startPos
