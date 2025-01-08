@@ -50,72 +50,72 @@ public final class CharacterExpressionFunctionAsciiAndCharTest extends Character
     @Test
     public void testAsciiNegativeFails() {
         this.applyFails(
-                CharacterExpressionFunctionAsciiAndChar.ascii(),
-                ExpressionNumberKind.DEFAULT.create(-1)
+            CharacterExpressionFunctionAsciiAndChar.ascii(),
+            ExpressionNumberKind.DEFAULT.create(-1)
         );
     }
 
     @Test
     public void testCharCharacterNegativeFails() {
         this.applyFails(
-                CharacterExpressionFunctionAsciiAndChar.character(),
-                ExpressionNumberKind.DEFAULT.create(-1)
+            CharacterExpressionFunctionAsciiAndChar.character(),
+            ExpressionNumberKind.DEFAULT.create(-1)
         );
     }
 
     @Test
     public void testAscii256Fails() {
         this.applyFails(
-                CharacterExpressionFunctionAsciiAndChar.ascii(),
-                ExpressionNumberKind.DEFAULT.create(256)
+            CharacterExpressionFunctionAsciiAndChar.ascii(),
+            ExpressionNumberKind.DEFAULT.create(256)
         );
     }
 
     @Test
     public void testCharCharacterMaxPlus1Fails() {
         this.applyFails(
-                CharacterExpressionFunctionAsciiAndChar.character(),
-                ExpressionNumberKind.DEFAULT.create(Character.MAX_VALUE + 1)
+            CharacterExpressionFunctionAsciiAndChar.character(),
+            ExpressionNumberKind.DEFAULT.create(Character.MAX_VALUE + 1)
         );
     }
 
     private void applyFails(final CharacterExpressionFunctionAsciiAndChar<ExpressionEvaluationContext> function,
                             final Object... parameters) {
         assertThrows(
-                IllegalArgumentException.class,
-                () -> {
-                    function.apply(
-                            Lists.of(parameters),
-                            this.createContext()
-                    );
-                }
+            IllegalArgumentException.class,
+            () -> {
+                function.apply(
+                    Lists.of(parameters),
+                    this.createContext()
+                );
+            }
         );
     }
 
     @Test
     public void testAsciiAsciiLetter() {
         this.applyAndCheck3(
-                CharacterExpressionFunctionAsciiAndChar.ascii(),
-                (int) 'a',
-                'a'
+            CharacterExpressionFunctionAsciiAndChar.ascii(),
+            (int) 'a',
+            'a'
         );
     }
 
     @Test
     public void testCharAsciiLetter() {
         this.applyAndCheck3(
-                CharacterExpressionFunctionAsciiAndChar.character(),
-                (int) 'a',
-                'a'
+            CharacterExpressionFunctionAsciiAndChar.character(),
+            (int) 'a',
+            'a'
         );
     }
 
     @Test
     public void testCharNonAscii() {
         this.applyAndCheck3(
-                CharacterExpressionFunctionAsciiAndChar.character(),
-                2000,
-                (char) 2000
+            CharacterExpressionFunctionAsciiAndChar.character(),
+            2000,
+            (char) 2000
         );
     }
 
@@ -123,11 +123,11 @@ public final class CharacterExpressionFunctionAsciiAndCharTest extends Character
                                 final Number value,
                                 final Character expected) {
         this.applyAndCheck2(
-                function,
-                parameters(
-                        ExpressionNumberKind.DEFAULT.create(value)
-                ),
-                expected
+            function,
+            parameters(
+                ExpressionNumberKind.DEFAULT.create(value)
+            ),
+            expected
         );
     }
 

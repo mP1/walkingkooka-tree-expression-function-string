@@ -56,8 +56,8 @@ final class StringExpressionFunctionStringStringSubstringBefore<C extends Expres
         final int offset = string.indexOf(find);
 
         return -1 != offset ?
-                string.substring(0, offset) :
-                "";
+            string.substring(0, offset) :
+            "";
     }
 
     @Override
@@ -66,8 +66,8 @@ final class StringExpressionFunctionStringStringSubstringBefore<C extends Expres
     }
 
     private final static ExpressionFunctionParameter<String> BEFORE = ExpressionFunctionParameterName.with("before")
-            .required(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(String.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
@@ -75,7 +75,7 @@ final class StringExpressionFunctionStringStringSubstringBefore<C extends Expres
     }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            TEXT,
-            BEFORE
+        TEXT,
+        BEFORE
     );
 }

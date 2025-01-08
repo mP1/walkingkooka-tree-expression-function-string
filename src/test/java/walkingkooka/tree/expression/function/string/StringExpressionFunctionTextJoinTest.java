@@ -31,146 +31,146 @@ public final class StringExpressionFunctionTextJoinTest extends StringExpression
     @Test
     public void testSkipEmptyText1NotEmpty() {
         this.applyAndCheck2(
-                Lists.of(
-                        ",",
-                        DONT_IGNORE_EMPTY,
-                        "hello"
-                ),
+            Lists.of(
+                ",",
+                DONT_IGNORE_EMPTY,
                 "hello"
+            ),
+            "hello"
         );
     }
 
     @Test
     public void testSkipEmptyTextNull() {
         this.applyAndCheck2(
-                Lists.of(
-                        ",",
-                        IGNORE_EMPTY,
-                        null
-                ),
-                ""
+            Lists.of(
+                ",",
+                IGNORE_EMPTY,
+                null
+            ),
+            ""
         );
     }
 
     @Test
     public void testSkipEmptyText1Empty() {
         this.applyAndCheck2(
-                Lists.of(
-                        ",",
-                        DONT_IGNORE_EMPTY,
-                        ""
-                ),
+            Lists.of(
+                ",",
+                DONT_IGNORE_EMPTY,
                 ""
+            ),
+            ""
         );
     }
 
     @Test
     public void testDontSkip() {
         this.applyAndCheck2(
-                Lists.of(
-                        ",",
-                        DONT_IGNORE_EMPTY,
-                        "a1",
-                        "b2"
-                ),
-                "a1,b2"
+            Lists.of(
+                ",",
+                DONT_IGNORE_EMPTY,
+                "a1",
+                "b2"
+            ),
+            "a1,b2"
         );
     }
 
     @Test
     public void testDontSkipIncludesNullText() {
         this.applyAndCheck2(
-                Lists.of(
-                        ",",
-                        DONT_IGNORE_EMPTY,
-                        "a1",
-                        null,
-                        "c3"
-                ),
-                "a1,,c3"
+            Lists.of(
+                ",",
+                DONT_IGNORE_EMPTY,
+                "a1",
+                null,
+                "c3"
+            ),
+            "a1,,c3"
         );
     }
 
     @Test
     public void testDontSkipIncludesNullText2() {
         this.applyAndCheck2(
-                Lists.of(
-                        ",",
-                        DONT_IGNORE_EMPTY,
-                        "a1",
-                        "b2",
-                        null
-                ),
-                "a1,b2,"
+            Lists.of(
+                ",",
+                DONT_IGNORE_EMPTY,
+                "a1",
+                "b2",
+                null
+            ),
+            "a1,b2,"
         );
     }
 
     @Test
     public void testDontSkipIncludesEmptyText() {
         this.applyAndCheck2(
-                Lists.of(
-                        ",",
-                        DONT_IGNORE_EMPTY,
-                        "a1",
-                        "",
-                        "c3"
-                ),
-                "a1,,c3"
+            Lists.of(
+                ",",
+                DONT_IGNORE_EMPTY,
+                "a1",
+                "",
+                "c3"
+            ),
+            "a1,,c3"
         );
     }
 
     @Test
     public void testDontSkipIncludesEmptyText2() {
         this.applyAndCheck2(
-                Lists.of(
-                        ",",
-                        DONT_IGNORE_EMPTY,
-                        "a1",
-                        "",
-                        "c3",
-                        ""
-                ),
-                "a1,,c3,"
+            Lists.of(
+                ",",
+                DONT_IGNORE_EMPTY,
+                "a1",
+                "",
+                "c3",
+                ""
+            ),
+            "a1,,c3,"
         );
     }
 
     @Test
     public void testDontSkipMixed() {
         this.applyAndCheck2(
-                Lists.of(
-                        ",",
-                        DONT_IGNORE_EMPTY,
-                        "a1",
-                        "",
-                        "c3",
-                        null,
-                        "e5"
-                ),
-                "a1,,c3,,e5"
+            Lists.of(
+                ",",
+                DONT_IGNORE_EMPTY,
+                "a1",
+                "",
+                "c3",
+                null,
+                "e5"
+            ),
+            "a1,,c3,,e5"
         );
     }
 
     @Test
     public void testSkipMixed() {
         this.applyAndCheck2(
-                Lists.of(
-                        ",",
-                        IGNORE_EMPTY,
-                        "a1",
-                        "",
-                        "c3",
-                        null,
-                        "e5"
-                ),
-                "a1,c3,e5"
+            Lists.of(
+                ",",
+                IGNORE_EMPTY,
+                "a1",
+                "",
+                "c3",
+                null,
+                "e5"
+            ),
+            "a1,c3,e5"
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "textJoin"
+            this.createBiFunction(),
+            "textJoin"
         );
     }
 

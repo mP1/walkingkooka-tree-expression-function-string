@@ -33,18 +33,18 @@ public class JunitTest {
         final String string2 = "123";
 
         final Object result = StringExpressionFunctions.concat()
-                .apply(Lists.of(string1, string2),
-                        new FakeExpressionEvaluationContext() {
+            .apply(Lists.of(string1, string2),
+                new FakeExpressionEvaluationContext() {
 
-                            public <T> Either<T, String> convert(final Object value,
-                                                                 final Class<T> target) {
-                                Assert.assertEquals(String.class, target);
-                                return this.successfulConversion(
-                                        value,
-                                        target
-                                );
-                            }
-                        });
+                    public <T> Either<T, String> convert(final Object value,
+                                                         final Class<T> target) {
+                        Assert.assertEquals(String.class, target);
+                        return this.successfulConversion(
+                            value,
+                            target
+                        );
+                    }
+                });
         Assert.assertEquals(string1 + string2, result);
     }
 }

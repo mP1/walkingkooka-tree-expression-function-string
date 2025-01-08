@@ -40,8 +40,8 @@ final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionEvaluat
      * Singleton
      */
     private static final BooleanExpressionFunctionIsTextIsNonText<?> ISNONTEXT = new BooleanExpressionFunctionIsTextIsNonText<>(
-            "isNonText",
-            (value) -> !(value instanceof String) && !"".equals(value)
+        "isNonText",
+        (value) -> !(value instanceof String) && !"".equals(value)
     );
 
     /**
@@ -55,8 +55,8 @@ final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionEvaluat
      * Singleton
      */
     private static final BooleanExpressionFunctionIsTextIsNonText<?> IS = new BooleanExpressionFunctionIsTextIsNonText<>(
-            "isText",
-            (value) -> value instanceof String
+        "isText",
+        (value) -> value instanceof String
     );
 
     private BooleanExpressionFunctionIsTextIsNonText(final String name,
@@ -74,7 +74,7 @@ final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionEvaluat
     }
 
     private final static ExpressionFunctionParameter<Object> VALUE = ExpressionFunctionParameter.VALUE
-            .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public final List<ExpressionFunctionParameter<?>> parameters(final int count) {
@@ -82,7 +82,7 @@ final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionEvaluat
     }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            VALUE
+        VALUE
     );
 
     private final Predicate<Object> predicate;

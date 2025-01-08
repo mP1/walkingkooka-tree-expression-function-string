@@ -35,7 +35,7 @@ abstract class CharacterExpressionFunction<C extends ExpressionEvaluationContext
     CharacterExpressionFunction(final String name) {
         super();
         this.name = Optional.of(
-                ExpressionFunctionName.with(name)
+            ExpressionFunctionName.with(name)
         );
     }
 
@@ -62,7 +62,7 @@ abstract class CharacterExpressionFunction<C extends ExpressionEvaluationContext
     @Override
     public final String toString() {
         return this.name()
-                .get()
-                .toString();
+            .get()
+            .toString();
     }
 }

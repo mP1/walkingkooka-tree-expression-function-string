@@ -60,14 +60,14 @@ final class StringExpressionFunctionSubstring<C extends ExpressionEvaluationCont
         final String string = TEXT.getOrFail(parameters, 0);
         final int offset = OFFSET.getOrFail(parameters, 1).intValue();
         final int length = LENGTH.get(parameters, 2)
-                .orElseGet(() -> Optional.of(
-                                context.expressionNumberKind()
-                                        .create(
-                                                string.length() - offset + INDEX_BIAS
-                                        )
+            .orElseGet(() -> Optional.of(
+                    context.expressionNumberKind()
+                        .create(
+                            string.length() - offset + INDEX_BIAS
                         )
-                ).get()
-                .intValue();
+                )
+            ).get()
+            .intValue();
 
         final int zeroOffset = offset - INDEX_BIAS;
 
@@ -77,12 +77,12 @@ final class StringExpressionFunctionSubstring<C extends ExpressionEvaluationCont
     private final static int INDEX_BIAS = 1;
 
     private final static ExpressionFunctionParameter<ExpressionNumber> OFFSET = ExpressionFunctionParameterName.with("offset")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
-            .optional(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .optional(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
@@ -90,8 +90,8 @@ final class StringExpressionFunctionSubstring<C extends ExpressionEvaluationCont
     }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            TEXT,
-            OFFSET,
-            LENGTH
+        TEXT,
+        OFFSET,
+        LENGTH
     );
 }

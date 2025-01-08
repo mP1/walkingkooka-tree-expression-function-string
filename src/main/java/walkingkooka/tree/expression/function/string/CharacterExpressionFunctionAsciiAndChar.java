@@ -70,7 +70,7 @@ final class CharacterExpressionFunctionAsciiAndChar<C extends ExpressionEvaluati
         this.checkParameterCount(parameters);
 
         final int value = NUMBER.getOrFail(parameters, 0)
-                .intValue();
+            .intValue();
         final int max = this.max;
         if (value < Character.MIN_VALUE || value > max) {
             throw new IllegalArgumentException("Invalid character value " + value + " expected between 0 and " + max);
@@ -86,7 +86,7 @@ final class CharacterExpressionFunctionAsciiAndChar<C extends ExpressionEvaluati
     }
 
     final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(NUMBER);
 }

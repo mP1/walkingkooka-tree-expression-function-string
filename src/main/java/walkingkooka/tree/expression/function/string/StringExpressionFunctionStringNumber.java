@@ -45,20 +45,20 @@ abstract class StringExpressionFunctionStringNumber<C extends ExpressionEvaluati
 
 
         return this.applyStringInteger(
-                TEXT.getOrFail(parameters, 0),
-                LENGTH.get(parameters, 1)
-                        .orElseGet(() -> Optional.of(
-                                        context.expressionNumberKind()
-                                                .one()
-                                )
-                        ).get()
-                        .intValue()
+            TEXT.getOrFail(parameters, 0),
+            LENGTH.get(parameters, 1)
+                .orElseGet(() -> Optional.of(
+                        context.expressionNumberKind()
+                            .one()
+                    )
+                ).get()
+                .intValue()
         );
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
-            .optional(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .optional(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     abstract String applyStringInteger(final String string,
                                        final int number);
@@ -69,7 +69,7 @@ abstract class StringExpressionFunctionStringNumber<C extends ExpressionEvaluati
     }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            TEXT,
-            LENGTH
+        TEXT,
+        LENGTH
     );
 }

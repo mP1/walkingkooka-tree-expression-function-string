@@ -27,9 +27,9 @@ public final class NumberExpressionFunctionLengthTest extends NumberExpressionFu
     @Test
     public void testEmptyString() {
         this.applyAndCheck(
-                Lists.of(""),
-                this.createContext(),
-                KIND.zero()
+            Lists.of(""),
+            this.createContext(),
+            KIND.zero()
         );
     }
 
@@ -38,9 +38,9 @@ public final class NumberExpressionFunctionLengthTest extends NumberExpressionFu
         final String text = "abc123";
 
         this.applyAndCheck(
-                Lists.of(text),
-                this.createContext(),
-                KIND.create(text.length())
+            Lists.of(text),
+            this.createContext(),
+            KIND.create(text.length())
         );
     }
 

@@ -47,9 +47,9 @@ public final class BooleanExpressionFunctionIsTextIsNonTextTest extends BooleanE
     private void isNonTextAndCheck(final Object value,
                                    final boolean expected) {
         this.applyAndCheck(
-                BooleanExpressionFunctionIsTextIsNonText.isNonText(),
-                value,
-                expected
+            BooleanExpressionFunctionIsTextIsNonText.isNonText(),
+            value,
+            expected
         );
     }
 
@@ -76,9 +76,9 @@ public final class BooleanExpressionFunctionIsTextIsNonTextTest extends BooleanE
     private void isTextAndCheck(final Object value,
                                 final boolean expected) {
         this.applyAndCheck(
-                BooleanExpressionFunctionIsTextIsNonText.isText(),
-                value,
-                expected
+            BooleanExpressionFunctionIsTextIsNonText.isText(),
+            value,
+            expected
         );
     }
 
@@ -86,11 +86,11 @@ public final class BooleanExpressionFunctionIsTextIsNonTextTest extends BooleanE
                                final Object value,
                                final boolean expected) {
         this.applyAndCheck2(
-                function,
-                Lists.of(
-                        value
-                ),
-                expected
+            function,
+            Lists.of(
+                value
+            ),
+            expected
         );
     }
 
@@ -99,16 +99,16 @@ public final class BooleanExpressionFunctionIsTextIsNonTextTest extends BooleanE
     @Test
     public void testIsNonTextToString() {
         this.toStringAndCheck(
-                BooleanExpressionFunctionIsTextIsNonText.isNonText(),
-                "isNonText"
+            BooleanExpressionFunctionIsTextIsNonText.isNonText(),
+            "isNonText"
         );
     }
 
     @Test
     public void testIsTextToString() {
         this.toStringAndCheck(
-                BooleanExpressionFunctionIsTextIsNonText.isText(),
-                "isText"
+            BooleanExpressionFunctionIsTextIsNonText.isText(),
+            "isText"
         );
     }
 

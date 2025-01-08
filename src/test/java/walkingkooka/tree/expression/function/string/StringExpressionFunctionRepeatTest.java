@@ -40,8 +40,8 @@ public final class StringExpressionFunctionRepeatTest extends StringExpressionFu
 
     private void applyAndCheck3(final String text, final int count, final String result) {
         this.applyAndCheck2(
-                this.parameters(text, KIND.create(count)),
-                result
+            this.parameters(text, KIND.create(count)),
+            result
         );
     }
 

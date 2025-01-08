@@ -41,8 +41,8 @@ final class NumberExpressionFunctionSearchOrFindSearch<C extends ExpressionEvalu
      * Singleton
      */
     private static final NumberExpressionFunctionSearchOrFindSearch<?> CASE_SENSITIVE = new NumberExpressionFunctionSearchOrFindSearch<>(
-            "searchCaseSensitive",
-            CaseSensitivity.SENSITIVE
+        "searchCaseSensitive",
+        CaseSensitivity.SENSITIVE
     );
 
     /**
@@ -56,8 +56,8 @@ final class NumberExpressionFunctionSearchOrFindSearch<C extends ExpressionEvalu
      * Singleton
      */
     private static final NumberExpressionFunctionSearchOrFindSearch<?> CASE_INSENSITIVE = new NumberExpressionFunctionSearchOrFindSearch<>(
-            "searchCaseInsensitive",
-            CaseSensitivity.INSENSITIVE
+        "searchCaseInsensitive",
+        CaseSensitivity.INSENSITIVE
     );
 
     /**
@@ -73,10 +73,10 @@ final class NumberExpressionFunctionSearchOrFindSearch<C extends ExpressionEvalu
               final String within,
               final int startPos) {
         return CaseSensitivity.INSENSITIVE.globPattern(find)
-                .search(
-                        within,
-                        startPos
-                );
+            .search(
+                within,
+                startPos
+            );
     }
 }
 

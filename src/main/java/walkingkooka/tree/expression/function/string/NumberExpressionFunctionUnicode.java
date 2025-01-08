@@ -56,7 +56,7 @@ final class NumberExpressionFunctionUnicode<C extends ExpressionEvaluationContex
         final Character character = CHARACTER.getOrFail(parameters, 0);
 
         return context.expressionNumberKind()
-                .create((int) character);
+            .create((int) character);
     }
 
     @Override
@@ -65,7 +65,7 @@ final class NumberExpressionFunctionUnicode<C extends ExpressionEvaluationContex
     }
 
     private final static ExpressionFunctionParameter<Character> CHARACTER = ExpressionFunctionParameter.CHARACTER
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(CHARACTER);
 }

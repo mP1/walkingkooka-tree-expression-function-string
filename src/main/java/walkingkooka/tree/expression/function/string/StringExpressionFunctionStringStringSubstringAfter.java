@@ -56,8 +56,8 @@ final class StringExpressionFunctionStringStringSubstringAfter<C extends Express
         final int offset = string.indexOf(find);
 
         return -1 != offset ?
-                string.substring(offset + find.length()) :
-                "";
+            string.substring(offset + find.length()) :
+            "";
     }
 
     @Override
@@ -66,8 +66,8 @@ final class StringExpressionFunctionStringStringSubstringAfter<C extends Express
     }
 
     private final static ExpressionFunctionParameter<String> AFTER = ExpressionFunctionParameterName.with("after")
-            .required(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(String.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
@@ -75,7 +75,7 @@ final class StringExpressionFunctionStringStringSubstringAfter<C extends Express
     }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            TEXT,
-            AFTER
+        TEXT,
+        AFTER
     );
 }

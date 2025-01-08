@@ -28,27 +28,27 @@ public final class NumberExpressionFunctionValueTest extends NumberExpressionFun
     @Test
     public void testConvertFails() {
         assertThrows(
-                Exception.class,
-                () ->
-                        this.apply2(
-                                "Not-a-number"
-                        )
+            Exception.class,
+            () ->
+                this.apply2(
+                    "Not-a-number"
+                )
         );
     }
 
     @Test
     public void testString() {
         this.applyAndCheck2(
-                parameters("123"),
-                KIND.create(123)
+            parameters("123"),
+            KIND.create(123)
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "value"
+            this.createBiFunction(),
+            "value"
         );
     }
 

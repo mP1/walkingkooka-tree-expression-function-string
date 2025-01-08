@@ -41,15 +41,15 @@ public final class StringExpressionFunctionCleanTest extends StringExpressionFun
         final String text = "abc123";
 
         assertSame(
-                text,
-                this.apply2(text)
+            text,
+            this.apply2(text)
         );
     }
 
     @Test
     public void testCleaned() {
         this.applyAndCheck2(
-                parameters("\0abc\t123\nxyz "), "abc123xyz ");
+            parameters("\0abc\t123\nxyz "), "abc123xyz ");
     }
 
     @Test

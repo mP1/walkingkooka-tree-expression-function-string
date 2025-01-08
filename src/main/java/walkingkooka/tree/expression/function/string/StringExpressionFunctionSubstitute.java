@@ -109,8 +109,8 @@ final class StringExpressionFunctionSubstitute<C extends ExpressionEvaluationCon
 
     private static int instanceParameter(final List<Object> parameters) {
         final ExpressionNumber expressionNumber = INSTANCE.get(parameters, 3)
-                .orElseGet(() -> Optional.empty())
-                .orElse(null);
+            .orElseGet(() -> Optional.empty())
+            .orElse(null);
 
         int instance = 0;
         if (null != expressionNumber) {
@@ -123,16 +123,16 @@ final class StringExpressionFunctionSubstitute<C extends ExpressionEvaluationCon
     }
 
     private final static ExpressionFunctionParameter<String> OLD_TEXT = ExpressionFunctionParameterName.with("old-text")
-            .required(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(String.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<String> NEW_TEXT = ExpressionFunctionParameterName.with("new-text")
-            .required(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(String.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> INSTANCE = ExpressionFunctionParameterName.with("instance")
-            .optional(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .optional(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
@@ -140,9 +140,9 @@ final class StringExpressionFunctionSubstitute<C extends ExpressionEvaluationCon
     }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            TEXT,
-            OLD_TEXT,
-            NEW_TEXT,
-            INSTANCE
+        TEXT,
+        OLD_TEXT,
+        NEW_TEXT,
+        INSTANCE
     );
 }

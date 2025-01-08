@@ -56,14 +56,14 @@ final class StringExpressionFunctionText<C extends ExpressionEvaluationContext> 
         this.checkParameterCount(parameters);
 
         return context.convertOrFail(
-                VALUE.getOrFail(parameters, 0),
-                String.class
+            VALUE.getOrFail(parameters, 0),
+            String.class
         );
     }
 
     private final static ExpressionFunctionParameter<String> VALUE = ExpressionFunctionParameterName.with("value")
-            .required(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(String.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {

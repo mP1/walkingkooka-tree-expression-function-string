@@ -53,12 +53,12 @@ abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionEvaluati
         final String find = FIND.getOrFail(parameters, 0);
         final String within = WITHIN.getOrFail(parameters, 1);
         final int startPos = START_POS.get(parameters, 2)
-                .orElseGet(() -> Optional.of(
-                                kind.one()
-                        )
+            .orElseGet(() -> Optional.of(
+                    kind.one()
                 )
-                .get()
-                .intValue(); // base 0
+            )
+            .get()
+            .intValue(); // base 0
 
         final int length = within.length();
 
@@ -68,15 +68,15 @@ abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionEvaluati
         }
 
         final int result = this.apply(
-                find,
-                within,
-                startPos - INDEX_BIAS
+            find,
+            within,
+            startPos - INDEX_BIAS
         );
 
         return kind.create(
-                result == -1 ?
-                        NOT_FOUND_INDEX :
-                        INDEX_BIAS + result
+            result == -1 ?
+                NOT_FOUND_INDEX :
+                INDEX_BIAS + result
         );
     }
 
@@ -90,16 +90,16 @@ abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionEvaluati
                        final int startPos);
 
     private final static ExpressionFunctionParameter<String> FIND = ExpressionFunctionParameterName.with("find")
-            .required(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(String.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<String> WITHIN = ExpressionFunctionParameterName.with("within")
-            .required(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(String.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> START_POS = ExpressionFunctionParameterName.with("start-pos")
-            .optional(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .optional(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
@@ -107,8 +107,8 @@ abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionEvaluati
     }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            FIND,
-            WITHIN,
-            START_POS
+        FIND,
+        WITHIN,
+        START_POS
     );
 }

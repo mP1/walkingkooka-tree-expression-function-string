@@ -62,7 +62,7 @@ final class StringExpressionFunctionReplace<C extends ExpressionEvaluationContex
         final String oldText = OLD_TEXT.getOrFail(parameters, 0);
 
         final int startPos = START_POS.getOrFail(parameters, 1)
-                .intValue(); // BIAS_ONE
+            .intValue(); // BIAS_ONE
         if (startPos < 1) {
             throw new IllegalArgumentException("Invalid start pos " + startPos + " < 1");
         }
@@ -79,37 +79,37 @@ final class StringExpressionFunctionReplace<C extends ExpressionEvaluationContex
         final StringBuilder answer = new StringBuilder();
 
         answer.append(
-                oldText,
-                0,
-                Math.min(startPos - 1, oldTextLength)
+            oldText,
+            0,
+            Math.min(startPos - 1, oldTextLength)
         );
 
         answer.append(newText);
 
         answer.append(
-                oldText,
-                Math.min(startPos - 1 + charCount, oldTextLength),
-                oldTextLength
+            oldText,
+            Math.min(startPos - 1 + charCount, oldTextLength),
+            oldTextLength
         );
 
         return answer.toString();
     }
 
     private final static ExpressionFunctionParameter<String> OLD_TEXT = ExpressionFunctionParameterName.with("old-text")
-            .required(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(String.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> START_POS = ExpressionFunctionParameterName.with("start-pos")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> CHAR_COUNT = ExpressionFunctionParameterName.with("character-count")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<String> NEW_TEXT = ExpressionFunctionParameterName.with("new-text")
-            .required(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(String.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
@@ -117,9 +117,9 @@ final class StringExpressionFunctionReplace<C extends ExpressionEvaluationContex
     }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            OLD_TEXT,
-            START_POS,
-            CHAR_COUNT,
-            NEW_TEXT
+        OLD_TEXT,
+        START_POS,
+        CHAR_COUNT,
+        NEW_TEXT
     );
 }
