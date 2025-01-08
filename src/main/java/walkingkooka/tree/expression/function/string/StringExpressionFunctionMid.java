@@ -63,17 +63,17 @@ final class StringExpressionFunctionMid<C extends ExpressionEvaluationContext> e
         final int stringLength = string.length();
 
         return start >= stringLength || start + length <= 0 ?
-                "" : // return empty if start or end is out of bounds
-                string.substring(Math.max(0, start), Math.min(start + length, stringLength)); // ensure start & length are within bounds
+            "" : // return empty if start or end is out of bounds
+            string.substring(Math.max(0, start), Math.min(start + length, stringLength)); // ensure start & length are within bounds
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> START = ExpressionFunctionParameterName.with("start")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
@@ -81,8 +81,8 @@ final class StringExpressionFunctionMid<C extends ExpressionEvaluationContext> e
     }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            TEXT,
-            START,
-            LENGTH
+        TEXT,
+        START,
+        LENGTH
     );
 }

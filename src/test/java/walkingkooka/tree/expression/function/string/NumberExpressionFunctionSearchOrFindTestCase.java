@@ -48,82 +48,82 @@ public abstract class NumberExpressionFunctionSearchOrFindTestCase<F extends Num
                                final String within,
                                final int startPos) {
         assertThrows(
-                StringIndexOutOfBoundsException.class,
-                () -> this.createBiFunction()
-                        .apply(
-                                Lists.of(
-                                        find,
-                                        within,
-                                        KIND.create(startPos)
-                                ),
-                                this.createContext()
-                        )
+            StringIndexOutOfBoundsException.class,
+            () -> this.createBiFunction()
+                .apply(
+                    Lists.of(
+                        find,
+                        within,
+                        KIND.create(startPos)
+                    ),
+                    this.createContext()
+                )
         );
     }
 
     @Test
     public final void testNotFound() {
         this.searchOrFindAndCheck(
-                "abc",
-                "xyz",
-                NumberExpressionFunction.NOT_FOUND_INDEX
+            "abc",
+            "xyz",
+            NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
     @Test
     public final void testNotFoundStartPos() {
         this.searchOrFindAndCheck(
-                "x",
-                "xyz",
-                2,
-                NumberExpressionFunction.NOT_FOUND_INDEX
+            "x",
+            "xyz",
+            2,
+            NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
     @Test
     public final void testNotFoundStartPos2() {
         this.searchOrFindAndCheck(
-                "a",
-                "abcde",
-                2,
-                NumberExpressionFunction.NOT_FOUND_INDEX
+            "a",
+            "abcde",
+            2,
+            NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
     @Test
     public final void testFound() {
         this.searchOrFindAndCheck(
-                "a",
-                "abcde",
-                1
+            "a",
+            "abcde",
+            1
         );
     }
 
     @Test
     public final void testFound2() {
         this.searchOrFindAndCheck(
-                "c",
-                "abcde",
-                3
+            "c",
+            "abcde",
+            3
         );
     }
 
     @Test
     public final void testFoundStartPos() {
         this.searchOrFindAndCheck(
-                "e",
-                "abcde",
-                5
+            "e",
+            "abcde",
+            5
         );
     }
 
     @Test
     public final void testFoundStartPos2() {
         this.searchOrFindAndCheck(
-                "e",
-                "abcde",
-                2,
-                5
+            "e",
+            "abcde",
+            2,
+            5
         );
     }
 
@@ -131,11 +131,11 @@ public abstract class NumberExpressionFunctionSearchOrFindTestCase<F extends Num
                                     final String within,
                                     final int expected) {
         this.applyAndCheck2(
-                Lists.of(
-                        find,
-                        within
-                ),
-                KIND.create(expected)
+            Lists.of(
+                find,
+                within
+            ),
+            KIND.create(expected)
         );
     }
 
@@ -144,12 +144,12 @@ public abstract class NumberExpressionFunctionSearchOrFindTestCase<F extends Num
                                     final int startPos,
                                     final int expected) {
         this.applyAndCheck2(
-                Lists.of(
-                        find,
-                        within,
-                        KIND.create(startPos)
-                ),
-                KIND.create(expected)
+            Lists.of(
+                find,
+                within,
+                KIND.create(startPos)
+            ),
+            KIND.create(expected)
         );
     }
 
@@ -159,13 +159,13 @@ public abstract class NumberExpressionFunctionSearchOrFindTestCase<F extends Num
                                     final int startPos,
                                     final int expected) {
         this.applyAndCheck2(
-                function,
-                Lists.of(
-                        find,
-                        within,
-                        KIND.create(startPos)
-                ),
-                KIND.create(expected)
+            function,
+            Lists.of(
+                find,
+                within,
+                KIND.create(startPos)
+            ),
+            KIND.create(expected)
         );
     }
 

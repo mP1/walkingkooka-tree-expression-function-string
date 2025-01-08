@@ -26,58 +26,58 @@ public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberEx
     @Test
     public void testCaseSensitiveNotFoundCaseDifferent() {
         this.searchOrFindAndCheck(
-                "abc",
-                "ABCDE",
-                NumberExpressionFunction.NOT_FOUND_INDEX
+            "abc",
+            "ABCDE",
+            NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
     @Test
     public void testCaseSensitiveNotFoundCaseDifferent2() {
         this.searchOrFindAndCheck(
-                "c",
-                "ABCDE",
-                NumberExpressionFunction.NOT_FOUND_INDEX
+            "c",
+            "ABCDE",
+            NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
     @Test
     public void testCaseSensitiveNotFoundCaseDifferent3() {
         this.searchOrFindAndCheck(
-                "bc",
-                "ABCDE",
-                NumberExpressionFunction.NOT_FOUND_INDEX
+            "bc",
+            "ABCDE",
+            NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
     @Test
     public void testCaseSensitiveNotFoundCaseDifferentStartPos() {
         this.searchOrFindAndCheck(
-                "cd",
-                "ABCDE",
-                2,
-                NumberExpressionFunction.NOT_FOUND_INDEX
+            "cd",
+            "ABCDE",
+            2,
+            NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
     @Test
     public void testCaseSensitiveNotFoundCaseDifferentStartPos2() {
         this.searchOrFindAndCheck(
-                "e",
-                "ABCDE",
-                2,
-                NumberExpressionFunction.NOT_FOUND_INDEX
+            "e",
+            "ABCDE",
+            2,
+            NumberExpressionFunction.NOT_FOUND_INDEX
         );
     }
 
     @Test
     public void testCaseInsensitiveNotFoundCaseDifferentStartPos() {
         this.searchOrFindAndCheck(
-                this.createBiFunctionCaseInsensitive(),
-                "e",
-                "ABCDE",
-                2,
-                5
+            this.createBiFunctionCaseInsensitive(),
+            "e",
+            "ABCDE",
+            2,
+            5
         );
     }
 
@@ -86,16 +86,16 @@ public final class NumberExpressionFunctionSearchOrFindFindTest extends NumberEx
     @Test
     public void testToStringFindCaseInsensitive() {
         this.toStringAndCheck(
-                NumberExpressionFunctionSearchOrFindFind.caseInsensitive(),
-                "findCaseInsensitive"
+            NumberExpressionFunctionSearchOrFindFind.caseInsensitive(),
+            "findCaseInsensitive"
         );
     }
 
     @Test
     public void testToStringFindCaseSensitive() {
         this.toStringAndCheck(
-                NumberExpressionFunctionSearchOrFindFind.caseSensitive(),
-                "findCaseSensitive"
+            NumberExpressionFunctionSearchOrFindFind.caseSensitive(),
+            "findCaseSensitive"
         );
     }
 

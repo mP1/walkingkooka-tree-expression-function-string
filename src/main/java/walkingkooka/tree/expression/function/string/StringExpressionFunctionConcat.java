@@ -59,12 +59,12 @@ final class StringExpressionFunctionConcat<C extends ExpressionEvaluationContext
         }
 
         return parameters.stream()
-                .map(p -> (String) p)
-                .collect(Collectors.joining());
+            .map(p -> (String) p)
+            .collect(Collectors.joining());
     }
 
     private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameterName.TEXT.variable(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_FLATTEN_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_FLATTEN_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {

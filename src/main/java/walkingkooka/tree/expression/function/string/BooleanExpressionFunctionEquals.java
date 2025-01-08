@@ -41,8 +41,8 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionEvaluationContex
      * Singleton
      */
     private static final BooleanExpressionFunctionEquals<?> EQUALS_CASE_INSENSITIVE = new BooleanExpressionFunctionEquals<>(
-            "equalsCaseInsensitive",
-            CaseSensitivity.INSENSITIVE
+        "equalsCaseInsensitive",
+        CaseSensitivity.INSENSITIVE
     );
 
     static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionEquals<C> caseSensitive() {
@@ -53,8 +53,8 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionEvaluationContex
      * Singleton
      */
     private static final BooleanExpressionFunctionEquals<?> EQUALS_CASE_SENSITIVE = new BooleanExpressionFunctionEquals<>(
-            "equalsCaseSensitive",
-            CaseSensitivity.SENSITIVE
+        "equalsCaseSensitive",
+        CaseSensitivity.SENSITIVE
     );
 
     private BooleanExpressionFunctionEquals(final String name,
@@ -69,18 +69,18 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionEvaluationContex
         this.checkParameterCount(parameters);
 
         return this.caseSensitivity.equals(
-                TEXT1.getOrFail(parameters, 0),
-                TEXT2.getOrFail(parameters, 1)
+            TEXT1.getOrFail(parameters, 0),
+            TEXT2.getOrFail(parameters, 1)
         );
     }
 
     private final static ExpressionFunctionParameter<String> TEXT1 = ExpressionFunctionParameterName.with("text1")
-            .required(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(String.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<String> TEXT2 = ExpressionFunctionParameterName.with("text2")
-            .required(String.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(String.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final CaseSensitivity caseSensitivity;
 
@@ -90,7 +90,7 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionEvaluationContex
     }
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(
-            TEXT1,
-            TEXT2
+        TEXT1,
+        TEXT2
     );
 }

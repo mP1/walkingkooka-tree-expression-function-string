@@ -31,16 +31,16 @@ public abstract class StringExpressionFunctionStringNumberTestCase<F extends Str
 
     final void applyAndCheck3(final String text, final String result) {
         this.applyAndCheck2(
-                List.of(text),
-                result
+            List.of(text),
+            result
         );
     }
 
 
     final void applyAndCheck3(final String text, final int length, final String result) {
         this.applyAndCheck2(
-                List.of(text, KIND.create(length)),
-                result
+            List.of(text, KIND.create(length)),
+            result
         );
     }
 

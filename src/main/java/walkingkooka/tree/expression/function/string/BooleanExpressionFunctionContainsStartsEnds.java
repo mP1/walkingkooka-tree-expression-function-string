@@ -31,7 +31,7 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
 
     // first to avoid nulls
     private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     /**
      * CONTAINS case-insensitive getter.
@@ -44,9 +44,9 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> CONTAINS_CASE_INSENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "containsCaseInsensitive",
-            "containsCaseInsensitive",
-            (text, ends) -> CaseSensitivity.INSENSITIVE.contains(text, ends)
+        "containsCaseInsensitive",
+        "containsCaseInsensitive",
+        (text, ends) -> CaseSensitivity.INSENSITIVE.contains(text, ends)
     );
 
     /**
@@ -60,9 +60,9 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> CONTAINS_CASE_SENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "containsCaseSensitive",
-            "containsCaseSensitive",
-            (text, ends) -> CaseSensitivity.SENSITIVE.contains(text, ends)
+        "containsCaseSensitive",
+        "containsCaseSensitive",
+        (text, ends) -> CaseSensitivity.SENSITIVE.contains(text, ends)
     );
 
     /**
@@ -76,9 +76,9 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> STARTSWITH_CASE_INSENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "startsWithCaseInsensitive",
-            "startsWithCaseInsensitive",
-            (text, starts) -> CaseSensitivity.INSENSITIVE.startsWith(text, starts)
+        "startsWithCaseInsensitive",
+        "startsWithCaseInsensitive",
+        (text, starts) -> CaseSensitivity.INSENSITIVE.startsWith(text, starts)
     );
 
     /**
@@ -92,9 +92,9 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> STARTSWITH_CASE_SENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "startsWithCaseSensitive",
-            "startsWithCaseSensitive",
-            (text, starts) -> CaseSensitivity.SENSITIVE.startsWith(text, starts)
+        "startsWithCaseSensitive",
+        "startsWithCaseSensitive",
+        (text, starts) -> CaseSensitivity.SENSITIVE.startsWith(text, starts)
     );
 
     /**
@@ -108,9 +108,9 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> ENDSWITH_CASE_INSENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "endsWithCaseInsensitive",
-            "endsWithCaseInsensitive",
-            (text, ends) -> CaseSensitivity.INSENSITIVE.endsWith(text, ends)
+        "endsWithCaseInsensitive",
+        "endsWithCaseInsensitive",
+        (text, ends) -> CaseSensitivity.INSENSITIVE.endsWith(text, ends)
     );
 
     /**
@@ -124,9 +124,9 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
      * Singleton
      */
     private static final BooleanExpressionFunctionContainsStartsEnds<?> ENDSWITH_CASE_SENSITIVE = new BooleanExpressionFunctionContainsStartsEnds<>(
-            "endsWithCaseSensitive",
-            "endsWithCaseSensitive",
-            (text, ends) -> CaseSensitivity.SENSITIVE.endsWith(text, ends)
+        "endsWithCaseSensitive",
+        "endsWithCaseSensitive",
+        (text, ends) -> CaseSensitivity.SENSITIVE.endsWith(text, ends)
     );
 
     private BooleanExpressionFunctionContainsStartsEnds(final String name,
@@ -134,11 +134,11 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
                                                         final BiFunction<String, String, Boolean> predicate) {
         super(name);
         this.secondParameter = ExpressionFunctionParameterName.with(secondParameterName)
-                .required(String.class)
-                .setKinds(TEXT.kinds());
+            .required(String.class)
+            .setKinds(TEXT.kinds());
         this.parameters = ExpressionFunctionParameter.list(
-                TEXT,
-                this.secondParameter
+            TEXT,
+            this.secondParameter
         );
         this.predicate = predicate;
     }

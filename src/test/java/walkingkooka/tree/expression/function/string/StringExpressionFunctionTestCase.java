@@ -43,20 +43,20 @@ public abstract class StringExpressionFunctionTestCase<F extends StringExpressio
                                                    final Class<TT> target) {
                 if (target.isInstance(value)) {
                     return this.successfulConversion(
-                            target.cast(value),
-                            target
+                        target.cast(value),
+                        target
                     );
                 }
                 if (Integer.class == target) {
                     return this.successfulConversion(
-                            Integer.parseInt(value.toString()),
-                            target
+                        Integer.parseInt(value.toString()),
+                        target
                     );
                 }
 
                 return this.successfulConversion(
-                        value.toString(),
-                        target
+                    value.toString(),
+                    target
                 );
             }
 

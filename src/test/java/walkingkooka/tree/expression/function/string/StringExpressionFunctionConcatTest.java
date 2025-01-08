@@ -28,8 +28,8 @@ public final class StringExpressionFunctionConcatTest extends StringExpressionFu
     @Test
     public void testZeroParametersFails() {
         final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                this::apply2
+            IllegalArgumentException.class,
+            this::apply2
         );
         this.checkEquals("Missing text", thrown.getMessage(), "message");
     }

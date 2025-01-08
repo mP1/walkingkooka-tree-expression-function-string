@@ -31,9 +31,9 @@ import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
 
 public abstract class ExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionEvaluationContext>, T> implements ExpressionFunctionTesting<F, T, ExpressionEvaluationContext>,
-        ExpressionPurityTesting,
-        TypeNameTesting<F>,
-        ClassTesting2<F> {
+    ExpressionPurityTesting,
+    TypeNameTesting<F>,
+    ClassTesting2<F> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -44,14 +44,14 @@ public abstract class ExpressionFunctionTestCase<F extends ExpressionFunction<T,
     @Test
     public final void testIsPureTrue() {
         this.isPureAndCheck(
-                this.createBiFunction(),
-                new ExpressionPurityContext() {
-                    @Override
-                    public boolean isPure(final ExpressionFunctionName name) {
-                        throw new UnsupportedOperationException();
-                    }
-                },
-                true
+            this.createBiFunction(),
+            new ExpressionPurityContext() {
+                @Override
+                public boolean isPure(final ExpressionFunctionName name) {
+                    throw new UnsupportedOperationException();
+                }
+            },
+            true
         );
     }
 

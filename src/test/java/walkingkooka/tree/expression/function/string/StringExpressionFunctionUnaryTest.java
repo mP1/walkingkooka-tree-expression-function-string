@@ -42,9 +42,9 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
 
     private void lowerCaseAndCheck(final String input, final String expected) {
         this.unaryAndCheck(
-                StringExpressionFunctionUnary.lowerCase(),
-                input,
-                expected
+            StringExpressionFunctionUnary.lowerCase(),
+            input,
+            expected
         );
     }
 
@@ -117,9 +117,9 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
 
     private void normalizeSpaceAndCheck(final String input, final String expected) {
         this.unaryAndCheck(
-                StringExpressionFunctionUnary.normalizeSpace(),
-                input,
-                expected
+            StringExpressionFunctionUnary.normalizeSpace(),
+            input,
+            expected
         );
     }
 
@@ -207,9 +207,9 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
     private void properAndCheck(final String input,
                                 final String expected) {
         this.unaryAndCheck(
-                StringExpressionFunctionUnary.proper(),
-                input,
-                expected
+            StringExpressionFunctionUnary.proper(),
+            input,
+            expected
         );
     }
 
@@ -282,9 +282,9 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
 
     private void spaceTrimAndCheck(final String input, final String expected) {
         this.unaryAndCheck(
-                StringExpressionFunctionUnary.spaceTrim(),
-                input,
-                expected
+            StringExpressionFunctionUnary.spaceTrim(),
+            input,
+            expected
         );
     }
 
@@ -307,9 +307,9 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
 
     private void trimAndCheck(final String input, final String expected) {
         this.unaryAndCheck(
-                StringExpressionFunctionUnary.trim(),
-                input,
-                expected
+            StringExpressionFunctionUnary.trim(),
+            input,
+            expected
         );
     }
 
@@ -332,9 +332,9 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
 
     private void trimLeftAndCheck(final String input, final String expected) {
         this.unaryAndCheck(
-                StringExpressionFunctionUnary.trimLeft(),
-                input,
-                expected
+            StringExpressionFunctionUnary.trimLeft(),
+            input,
+            expected
         );
     }
 
@@ -357,9 +357,9 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
 
     private void trimRightAndCheck(final String input, final String expected) {
         this.unaryAndCheck(
-                StringExpressionFunctionUnary.trimRight(),
-                input,
-                expected
+            StringExpressionFunctionUnary.trimRight(),
+            input,
+            expected
         );
     }
 
@@ -382,9 +382,9 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
 
     private void upperCaseAndCheck(final String input, final String expected) {
         this.unaryAndCheck(
-                StringExpressionFunctionUnary.upperCase(),
-                input,
-                expected
+            StringExpressionFunctionUnary.upperCase(),
+            input,
+            expected
         );
     }
 
@@ -392,10 +392,10 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
                                final String input,
                                final String expected) {
         this.applyAndCheck(
-                function,
-                this.parameters(input),
-                this.createContext(),
-                expected
+            function,
+            this.parameters(input),
+            this.createContext(),
+            expected
         );
     }
 
@@ -404,48 +404,48 @@ public final class StringExpressionFunctionUnaryTest extends StringExpressionFun
     @Test
     public void testToStringLowerCase() {
         this.toStringAndCheck(
-                StringExpressionFunctionUnary.lowerCase(),
-                "lowerCase"
+            StringExpressionFunctionUnary.lowerCase(),
+            "lowerCase"
         );
     }
 
     @Test
     public void testToStringNormalizeSpace() {
         this.toStringAndCheck(
-                StringExpressionFunctionUnary.normalizeSpace(),
-                "normalizeSpace"
+            StringExpressionFunctionUnary.normalizeSpace(),
+            "normalizeSpace"
         );
     }
 
     @Test
     public void testToStringTrim() {
         this.toStringAndCheck(
-                StringExpressionFunctionUnary.trim(),
-                "trim"
+            StringExpressionFunctionUnary.trim(),
+            "trim"
         );
     }
 
     @Test
     public void testToStringTrimLeft() {
         this.toStringAndCheck(
-                StringExpressionFunctionUnary.trimLeft(),
-                "trimLeft"
+            StringExpressionFunctionUnary.trimLeft(),
+            "trimLeft"
         );
     }
 
     @Test
     public void testToStringTrimRight() {
         this.toStringAndCheck(
-                StringExpressionFunctionUnary.trimRight(),
-                "trimRight"
+            StringExpressionFunctionUnary.trimRight(),
+            "trimRight"
         );
     }
 
     @Test
     public void testToStringUpperCase() {
         this.toStringAndCheck(
-                StringExpressionFunctionUnary.upperCase(),
-                "upperCase"
+            StringExpressionFunctionUnary.upperCase(),
+            "upperCase"
         );
     }
 

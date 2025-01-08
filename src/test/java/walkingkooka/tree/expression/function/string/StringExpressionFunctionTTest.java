@@ -39,61 +39,61 @@ public final class StringExpressionFunctionTTest extends StringExpressionFunctio
     @Test
     public void testBooleanTrue() {
         this.tAndCheck(
-                true,
-                ""
+            true,
+            ""
         );
     }
 
     @Test
     public void testBooleanFalse() {
         this.tAndCheck(
-                false,
-                ""
+            false,
+            ""
         );
     }
 
     @Test
     public void testNumber() {
         this.tAndCheck(
-                KIND.create(123),
-                ""
+            KIND.create(123),
+            ""
         );
     }
 
     @Test
     public void testEmptyString() {
         this.tAndCheck(
-                ""
+            ""
         );
     }
 
     @Test
     public void testNonEmptyString() {
         this.tAndCheck(
-                "abc"
+            "abc"
         );
     }
 
     private void tAndCheck(final String value) {
         this.tAndCheck(
-                value,
-                value
+            value,
+            value
         );
     }
 
     private void tAndCheck(final Object value,
                            final String expected) {
         this.applyAndCheck2(
-                Lists.of(value),
-                expected
+            Lists.of(value),
+            expected
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "t"
+            this.createBiFunction(),
+            "t"
         );
     }
 

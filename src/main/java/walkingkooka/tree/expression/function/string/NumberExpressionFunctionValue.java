@@ -55,13 +55,13 @@ final class NumberExpressionFunctionValue<C extends ExpressionEvaluationContext>
         this.checkParameterCount(parameters);
 
         return context.convertOrFail(
-                TEXT.getOrFail(parameters, 0),
-                ExpressionNumber.class
+            TEXT.getOrFail(parameters, 0),
+            ExpressionNumber.class
         );
     }
 
     private final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {

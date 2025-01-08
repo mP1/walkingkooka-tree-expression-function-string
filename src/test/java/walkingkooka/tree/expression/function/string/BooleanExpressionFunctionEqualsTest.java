@@ -45,10 +45,10 @@ public final class BooleanExpressionFunctionEqualsTest extends BooleanExpression
                                          final String text2,
                                          final boolean expected) {
         this.applyAndCheck(
-                BooleanExpressionFunctionEquals.caseInsensitive(),
-                text1,
-                text2,
-                expected
+            BooleanExpressionFunctionEquals.caseInsensitive(),
+            text1,
+            text2,
+            expected
         );
     }
 
@@ -73,10 +73,10 @@ public final class BooleanExpressionFunctionEqualsTest extends BooleanExpression
                                        final String text2,
                                        final boolean expected) {
         this.applyAndCheck(
-                BooleanExpressionFunctionEquals.caseSensitive(),
-                text1,
-                text2,
-                expected
+            BooleanExpressionFunctionEquals.caseSensitive(),
+            text1,
+            text2,
+            expected
         );
     }
 
@@ -85,12 +85,12 @@ public final class BooleanExpressionFunctionEqualsTest extends BooleanExpression
                                final String second,
                                final boolean expected) {
         this.applyAndCheck2(
-                function,
-                Lists.of(
-                        text,
-                        second
-                ),
-                expected
+            function,
+            Lists.of(
+                text,
+                second
+            ),
+            expected
         );
     }
 
@@ -99,16 +99,16 @@ public final class BooleanExpressionFunctionEqualsTest extends BooleanExpression
     @Test
     public void testEqualsCaseInensitiveToString() {
         this.toStringAndCheck(
-                BooleanExpressionFunctionEquals.caseInsensitive(),
-                "equalsCaseInsensitive"
+            BooleanExpressionFunctionEquals.caseInsensitive(),
+            "equalsCaseInsensitive"
         );
     }
 
     @Test
     public void testEqualsCaseSensitiveToString() {
         this.toStringAndCheck(
-                BooleanExpressionFunctionEquals.caseSensitive(),
-                "equalsCaseSensitive"
+            BooleanExpressionFunctionEquals.caseSensitive(),
+            "equalsCaseSensitive"
         );
     }
 

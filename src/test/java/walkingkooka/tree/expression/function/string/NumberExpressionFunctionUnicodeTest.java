@@ -29,9 +29,9 @@ public final class NumberExpressionFunctionUnicodeTest extends NumberExpressionF
     @Test
     public void testCharacter() {
         this.applyAndCheck(
-                Lists.of('a'),
-                this.createContext(),
-                KIND.create((int) 'a')
+            Lists.of('a'),
+            this.createContext(),
+            KIND.create((int) 'a')
         );
     }
 

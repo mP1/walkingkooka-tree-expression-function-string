@@ -34,11 +34,11 @@ public final class StringExpressionFunctionReplaceTest extends StringExpressionF
     @Test
     public void testFirstChar() {
         this.replaceAndCheck(
-                "c:\\documents",
-                1,
-                1,
-                "d",
-                "d:\\documents"
+            "c:\\documents",
+            1,
+            1,
+            "d",
+            "d:\\documents"
         );
     }
 
@@ -46,11 +46,11 @@ public final class StringExpressionFunctionReplaceTest extends StringExpressionF
     @Test
     public void testFirst3Chars() {
         this.replaceAndCheck(
-                "xyz123",
-                4,
-                3,
-                "456",
-                "xyz456"
+            "xyz123",
+            4,
+            3,
+            "456",
+            "xyz456"
         );
     }
 
@@ -58,11 +58,11 @@ public final class StringExpressionFunctionReplaceTest extends StringExpressionF
     @Test
     public void testFirstChar2() {
         this.replaceAndCheck(
-                "xyz",
-                1,
-                1,
-                "",
-                "yz"
+            "xyz",
+            1,
+            1,
+            "",
+            "yz"
         );
     }
 
@@ -70,11 +70,11 @@ public final class StringExpressionFunctionReplaceTest extends StringExpressionF
     @Test
     public void testReplace_abcde_3_0_XYZ() {
         this.replaceAndCheck(
-                "abcde",
-                3,
-                0,
-                "XYZ",
-                "abXYZcde"
+            "abcde",
+            3,
+            0,
+            "XYZ",
+            "abXYZcde"
         );
     }
 
@@ -82,11 +82,11 @@ public final class StringExpressionFunctionReplaceTest extends StringExpressionF
     @Test
     public void testReplace_abcde_3_1_XYZ() {
         this.replaceAndCheck(
-                "abcde",
-                3,
-                1,
-                "XYZ",
-                "abXYZde"
+            "abcde",
+            3,
+            1,
+            "XYZ",
+            "abXYZde"
         );
     }
 
@@ -94,11 +94,11 @@ public final class StringExpressionFunctionReplaceTest extends StringExpressionF
     @Test
     public void testReplace_abcde_3_2_XYZ() {
         this.replaceAndCheck(
-                "abcde",
-                3,
-                2,
-                "XYZ",
-                "abXYZe"
+            "abcde",
+            3,
+            2,
+            "XYZ",
+            "abXYZe"
         );
     }
 
@@ -106,11 +106,11 @@ public final class StringExpressionFunctionReplaceTest extends StringExpressionF
     @Test
     public void testReplace_abcde_3_3_XYZ() {
         this.replaceAndCheck(
-                "abcde",
-                3,
-                3,
-                "XYZ",
-                "abXYZ"
+            "abcde",
+            3,
+            3,
+            "XYZ",
+            "abXYZ"
         );
     }
 
@@ -118,11 +118,11 @@ public final class StringExpressionFunctionReplaceTest extends StringExpressionF
     @Test
     public void testReplace_abcde_3_4_XYZ() {
         this.replaceAndCheck(
-                "abcde",
-                3,
-                4,
-                "XYZ",
-                "abXYZ"
+            "abcde",
+            3,
+            4,
+            "XYZ",
+            "abXYZ"
         );
     }
 
@@ -132,13 +132,13 @@ public final class StringExpressionFunctionReplaceTest extends StringExpressionF
                                  final String newText,
                                  final String expected) {
         this.applyAndCheck2(
-                Lists.of(
-                        oldText,
-                        KIND.create(startPos),
-                        KIND.create(charCount),
-                        newText
-                ),
-                expected
+            Lists.of(
+                oldText,
+                KIND.create(startPos),
+                KIND.create(charCount),
+                newText
+            ),
+            expected
         );
     }
 

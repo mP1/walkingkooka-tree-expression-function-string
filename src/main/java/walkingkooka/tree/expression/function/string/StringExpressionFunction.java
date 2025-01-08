@@ -37,7 +37,7 @@ abstract class StringExpressionFunction<C extends ExpressionEvaluationContext> i
     StringExpressionFunction(final String name) {
         super();
         this.name = Optional.of(
-                ExpressionFunctionName.with(name)
+            ExpressionFunctionName.with(name)
         );
     }
 
@@ -57,7 +57,7 @@ abstract class StringExpressionFunction<C extends ExpressionEvaluationContext> i
     }
 
     final static ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public final Class<String> returnType() {
@@ -67,7 +67,7 @@ abstract class StringExpressionFunction<C extends ExpressionEvaluationContext> i
     @Override
     public final String toString() {
         return this.name()
-                .get()
-                .toString();
+            .get()
+            .toString();
     }
 }

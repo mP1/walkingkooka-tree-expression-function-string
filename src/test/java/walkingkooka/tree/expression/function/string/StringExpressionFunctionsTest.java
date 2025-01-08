@@ -34,24 +34,24 @@ public final class StringExpressionFunctionsTest implements PublicStaticHelperTe
     @Test
     public void testExpressionFunctionProvider() {
         this.checkEquals(
-                Arrays.stream(StringExpressionFunctions.class.getDeclaredMethods())
-                        .filter(m -> m.getReturnType() == ExpressionFunction.class)
-                        .map(Method::getName)
-                        .map(n -> {
-                                    // JDK BUG cant have a lambda with switch as the body ???
-                                    switch (n) {
-                                        case "character":
-                                            return "char";
-                                        default:
-                                            return n;
-                                    }
-                                }
-                        ).collect(Collectors.toCollection(SortedSets::tree)),
-                StringExpressionFunctions.expressionFunctionProvider(CaseSensitivity.SENSITIVE)
-                        .expressionFunctionInfos()
-                        .stream()
-                        .map(i -> i.name().value())
-                        .collect(Collectors.toCollection(SortedSets::tree))
+            Arrays.stream(StringExpressionFunctions.class.getDeclaredMethods())
+                .filter(m -> m.getReturnType() == ExpressionFunction.class)
+                .map(Method::getName)
+                .map(n -> {
+                        // JDK BUG cant have a lambda with switch as the body ???
+                        switch (n) {
+                            case "character":
+                                return "char";
+                            default:
+                                return n;
+                        }
+                    }
+                ).collect(Collectors.toCollection(SortedSets::tree)),
+            StringExpressionFunctions.expressionFunctionProvider(CaseSensitivity.SENSITIVE)
+                .expressionFunctionInfos()
+                .stream()
+                .map(i -> i.name().value())
+                .collect(Collectors.toCollection(SortedSets::tree))
         );
     }
 

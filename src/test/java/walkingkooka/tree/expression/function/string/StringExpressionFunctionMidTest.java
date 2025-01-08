@@ -107,8 +107,8 @@ public final class StringExpressionFunctionMidTest extends StringExpressionFunct
 
     private void applyAndCheck3(final String text, final int start, final int length, final String result) {
         this.applyAndCheck2(
-                this.parameters(text, KIND.create(start), KIND.create(length)),
-                result
+            this.parameters(text, KIND.create(start), KIND.create(length)),
+            result
         );
     }
 

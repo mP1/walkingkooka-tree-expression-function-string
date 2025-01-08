@@ -41,8 +41,8 @@ final class NumberExpressionFunctionSearchOrFindFind<C extends ExpressionEvaluat
      * Singleton
      */
     private static final NumberExpressionFunctionSearchOrFindFind<?> CASE_SENSITIVE = new NumberExpressionFunctionSearchOrFindFind<>(
-            "findCaseSensitive",
-            CaseSensitivity.SENSITIVE
+        "findCaseSensitive",
+        CaseSensitivity.SENSITIVE
     );
 
     /**
@@ -56,8 +56,8 @@ final class NumberExpressionFunctionSearchOrFindFind<C extends ExpressionEvaluat
      * Singleton
      */
     private static final NumberExpressionFunctionSearchOrFindFind<?> CASE_INSENSITIVE = new NumberExpressionFunctionSearchOrFindFind<>(
-            "findCaseInsensitive",
-            CaseSensitivity.INSENSITIVE
+        "findCaseInsensitive",
+        CaseSensitivity.INSENSITIVE
     );
 
     /**
@@ -73,9 +73,9 @@ final class NumberExpressionFunctionSearchOrFindFind<C extends ExpressionEvaluat
               final String within,
               final int startPos) {
         return this.caseSensitivity.indexOf(
-                within,
-                find,
-                startPos
+            within,
+            find,
+            startPos
         );
     }
 }

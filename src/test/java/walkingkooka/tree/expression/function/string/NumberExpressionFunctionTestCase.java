@@ -44,10 +44,10 @@ public abstract class NumberExpressionFunctionTestCase<F extends NumberExpressio
                                                  final Class<T> target) {
                 try {
                     return this.successfulConversion(
-                            KIND.create(
-                                    Integer.parseInt((String) value)
-                            ),
-                            target
+                        KIND.create(
+                            Integer.parseInt((String) value)
+                        ),
+                        target
                     );
                 } catch (final Exception fail) {
                     return this.failConversion(value, target);

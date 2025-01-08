@@ -58,13 +58,13 @@ final class StringExpressionFunctionT<C extends ExpressionEvaluationContext> ext
         final Object value = VALUE.getOrFail(parameters, 0);
 
         return value instanceof String ?
-                (String) value :
-                "";
+            (String) value :
+            "";
     }
 
     private final static ExpressionFunctionParameter<Object> VALUE = ExpressionFunctionParameterName.with("value")
-            .required(Object.class)
-            .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
+        .required(Object.class)
+        .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {

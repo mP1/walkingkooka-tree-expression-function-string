@@ -26,104 +26,104 @@ public final class NumberExpressionFunctionSearchOrFindSearchTest extends Number
     @Test
     public void testPatternFound() {
         this.searchOrFindAndCheck(
-                "?bc",
-                "ABCDE",
-                1
+            "?bc",
+            "ABCDE",
+            1
         );
     }
 
     @Test
     public void testPatternFound2() {
         this.searchOrFindAndCheck(
-                "?cd",
-                "ABCDE",
-                2
+            "?cd",
+            "ABCDE",
+            2
         );
     }
 
     @Test
     public void testPatternFoundStartPos() {
         this.searchOrFindAndCheck(
-                "?cd",
-                "ABCDE",
-                2,
-                2
+            "?cd",
+            "ABCDE",
+            2,
+            2
         );
     }
 
     @Test
     public void testPatternFoundStartPos2() {
         this.searchOrFindAndCheck(
-                "?de",
-                "ABCDEF",
-                2,
-                3
+            "?de",
+            "ABCDEF",
+            2,
+            3
         );
     }
 
     @Test
     public void testPatternFoundStar() {
         this.searchOrFindAndCheck(
-                "*.txt",
-                "/dir/file.txt",
-                1
+            "*.txt",
+            "/dir/file.txt",
+            1
         );
     }
 
     @Test
     public void testPatternFoundStarStartPos() {
         this.searchOrFindAndCheck(
-                "*.txt",
-                "/dir/file.txt",
-                2,
-                2
+            "*.txt",
+            "/dir/file.txt",
+            2,
+            2
         );
     }
 
     @Test
     public void testFoundCaseDifferent() {
         this.searchOrFindAndCheck(
-                "abc",
-                "ABCDE",
-                1
+            "abc",
+            "ABCDE",
+            1
         );
     }
 
     @Test
     public void testFoundCaseDifferent2() {
         this.searchOrFindAndCheck(
-                "c",
-                "ABCDE",
-                3
+            "c",
+            "ABCDE",
+            3
         );
     }
 
     @Test
     public void testFoundCaseDifferent3() {
         this.searchOrFindAndCheck(
-                "bc",
-                "ABCDE",
-                2
+            "bc",
+            "ABCDE",
+            2
         );
     }
 
     @Test
     public void testFoundCaseDifferentStartPos() {
         this.searchOrFindAndCheck(
-                "cd",
-                "ABCDE",
-                2,
-                3
+            "cd",
+            "ABCDE",
+            2,
+            3
         );
     }
 
     @Test
     public void testFoundCaseDifferentStartPos2() {
         this.searchOrFindAndCheck(
-                "e",
-                "ABCDE",
-                2,
-                5
+            "e",
+            "ABCDE",
+            2,
+            5
         );
     }
 
@@ -132,16 +132,16 @@ public final class NumberExpressionFunctionSearchOrFindSearchTest extends Number
     @Test
     public void testToStringFindCaseInsensitive() {
         this.toStringAndCheck(
-                NumberExpressionFunctionSearchOrFindSearch.caseInsensitive(),
-                "searchCaseInsensitive"
+            NumberExpressionFunctionSearchOrFindSearch.caseInsensitive(),
+            "searchCaseInsensitive"
         );
     }
 
     @Test
     public void testToStringFindCaseSensitive() {
         this.toStringAndCheck(
-                NumberExpressionFunctionSearchOrFindSearch.caseSensitive(),
-                "searchCaseSensitive"
+            NumberExpressionFunctionSearchOrFindSearch.caseSensitive(),
+            "searchCaseSensitive"
         );
     }
 

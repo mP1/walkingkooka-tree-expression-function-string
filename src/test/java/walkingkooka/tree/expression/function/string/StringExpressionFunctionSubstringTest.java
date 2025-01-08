@@ -45,10 +45,10 @@ public final class StringExpressionFunctionSubstringTest extends StringExpressio
                                final int start,
                                final int end) {
         assertThrows(
-                thrown,
-                () -> {
-                    this.apply2(text, KIND.create(start), KIND.create(end));
-                }
+            thrown,
+            () -> {
+                this.apply2(text, KIND.create(start), KIND.create(end));
+            }
         );
     }
 
@@ -79,15 +79,15 @@ public final class StringExpressionFunctionSubstringTest extends StringExpressio
 
     private void applyAndCheck3(final String text, final int start, final String result) {
         this.applyAndCheck2(
-                this.parameters(text, KIND.create(start)),
-                result
+            this.parameters(text, KIND.create(start)),
+            result
         );
     }
 
     private void applyAndCheck3(final String text, final int start, final int length, final String result) {
         this.applyAndCheck2(
-                this.parameters(text, KIND.create(start), KIND.create(length)),
-                result
+            this.parameters(text, KIND.create(start), KIND.create(length)),
+            result
         );
     }
 

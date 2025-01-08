@@ -63,8 +63,8 @@ final class StringExpressionFunctionClean<C extends ExpressionEvaluationContext>
         }
 
         return clean.length() == text.length() ?
-                text :
-                clean.toString();
+            text :
+            clean.toString();
     }
 
     @Override

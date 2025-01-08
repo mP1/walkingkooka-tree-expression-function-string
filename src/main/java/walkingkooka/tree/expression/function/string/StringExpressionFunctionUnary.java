@@ -40,8 +40,8 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> LOWERCASE = new StringExpressionFunctionUnary<>(
-            "lowerCase",
-            (s, c) -> s.toLowerCase(c.locale())
+        "lowerCase",
+        (s, c) -> s.toLowerCase(c.locale())
     );
 
     /**
@@ -52,8 +52,8 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> NORMALIZESPACE = new StringExpressionFunctionUnary<>(
-            "normalizeSpace",
-            StringExpressionFunctionUnary::normalizeSpace
+        "normalizeSpace",
+        StringExpressionFunctionUnary::normalizeSpace
     );
 
     private static String normalizeSpace(final String value,
@@ -90,8 +90,8 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> PROPER = new StringExpressionFunctionUnary<>(
-            "proper",
-            (s, c) -> proper(s, c.locale())
+        "proper",
+        (s, c) -> proper(s, c.locale())
     );
 
     // https://exceljet.net/excel-functions/excel-proper-function
@@ -138,8 +138,8 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> SPACETRIM = new StringExpressionFunctionUnary<>(
-            "spaceTrim",
-            StringExpressionFunctionUnary::spaceTrim
+        "spaceTrim",
+        StringExpressionFunctionUnary::spaceTrim
     );
 
     private static String spaceTrim(final String string, final ExpressionEvaluationContext context) {
@@ -178,8 +178,8 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
         } while (true);
 
         return b.length() == length ?
-                string :
-                b.toString();
+            string :
+            b.toString();
     }
 
     /**
@@ -190,8 +190,8 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> TRIM = new StringExpressionFunctionUnary<>(
-            "trim",
-            (s, c) -> CharSequences.trim(s).toString()
+        "trim",
+        (s, c) -> CharSequences.trim(s).toString()
     );
 
     /**
@@ -202,8 +202,8 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> TRIMLEFT = new StringExpressionFunctionUnary<>(
-            "trimLeft",
-            (s, c) -> CharSequences.trimLeft(s).toString()
+        "trimLeft",
+        (s, c) -> CharSequences.trimLeft(s).toString()
     );
 
     /**
@@ -214,8 +214,8 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> TRIMRIGHT = new StringExpressionFunctionUnary<>(
-            "trimRight",
-            (s, c) -> CharSequences.trimRight(s).toString()
+        "trimRight",
+        (s, c) -> CharSequences.trimRight(s).toString()
     );
 
     /**
@@ -226,8 +226,8 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
     }
 
     private static final StringExpressionFunctionUnary<?> UPPERCASE = new StringExpressionFunctionUnary<>(
-            "upperCase",
-            (s, c) -> s.toUpperCase(c.locale())
+        "upperCase",
+        (s, c) -> s.toUpperCase(c.locale())
     );
 
     /**
@@ -245,8 +245,8 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
         this.checkParameterCount(parameters);
 
         return this.function.apply(
-                TEXT.getOrFail(parameters, 0),
-                context
+            TEXT.getOrFail(parameters, 0),
+            context
         );
     }
 
