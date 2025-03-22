@@ -26,24 +26,29 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class StringExpressionFunctionTextTest extends StringExpressionFunctionTestCase<StringExpressionFunctionText<ExpressionEvaluationContext>> {
 
     @Test
-    public void testZeroParametersFails() {
-        assertThrows(IllegalArgumentException.class, this::apply2);
+    public void testApplyZeroParametersFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            this::apply2
+        );
     }
 
     @Test
-    public void testTwoParametersFails() {
-        assertThrows(IllegalArgumentException.class, () -> this.apply2("a1", "b2"));
+    public void testApplyTwoParametersFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> this.apply2("a1", "b2")
+        );
     }
 
     @Test
-    public void testString() {
-        this.applyAndCheck2(parameters("abc123"), "abc123");
+    public void testApplyString() {
+        this.applyAndCheck2(
+            parameters("abc123"),
+            "abc123"
+        );
     }
 
-    @Test
-    public void testToString() {
-        this.toStringAndCheck(this.createBiFunction(), "text");
-    }
 
     @Override
     public StringExpressionFunctionText<ExpressionEvaluationContext> createBiFunction() {
@@ -54,6 +59,15 @@ public final class StringExpressionFunctionTextTest extends StringExpressionFunc
     public int minimumParameterCount() {
         return 1;
     }
+
+    // toString.........................................................................................................
+
+    @Test
+    public void testToString() {
+        this.toStringAndCheck(this.createBiFunction(), "text");
+    }
+
+    // class............................................................................................................
 
     @Override
     public Class<StringExpressionFunctionText<ExpressionEvaluationContext>> type() {
