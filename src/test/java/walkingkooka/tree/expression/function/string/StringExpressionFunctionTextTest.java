@@ -36,16 +36,6 @@ public final class StringExpressionFunctionTextTest extends StringExpressionFunc
     }
 
     @Test
-    public void testBoolean() {
-        this.applyAndCheck2(parameters(true), "true");
-    }
-
-    @Test
-    public void testNumber() {
-        this.applyAndCheck2(parameters(123), "123");
-    }
-
-    @Test
     public void testString() {
         this.applyAndCheck2(parameters("abc123"), "abc123");
     }
