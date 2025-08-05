@@ -26,7 +26,6 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * A function that supports replacing some text by another a fixed or all number of times.
@@ -108,9 +107,10 @@ final class StringExpressionFunctionSubstitute<C extends ExpressionEvaluationCon
     }
 
     private static int instanceParameter(final List<Object> parameters) {
-        final ExpressionNumber expressionNumber = INSTANCE.get(parameters, 3)
-            .orElseGet(() -> Optional.empty())
-            .orElse(null);
+        final ExpressionNumber expressionNumber = INSTANCE.get(
+            parameters,
+            3
+        ).orElse(null);
 
         int instance = 0;
         if (null != expressionNumber) {
