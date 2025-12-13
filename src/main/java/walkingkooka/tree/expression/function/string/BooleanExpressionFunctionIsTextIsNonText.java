@@ -70,7 +70,7 @@ final class BooleanExpressionFunctionIsTextIsNonText<C extends ExpressionEvaluat
                          final C context) {
         this.checkParameterCount(parameters);
 
-        return this.predicate.test(VALUE.getOrFail(parameters, 0, context));
+        return this.predicate.test(VALUE.getOrFail(parameters, 0));
     }
 
     private final static ExpressionFunctionParameter<Object> VALUE = ExpressionFunctionParameter.VALUE

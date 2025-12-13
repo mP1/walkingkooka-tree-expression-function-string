@@ -56,9 +56,9 @@ final class StringExpressionFunctionSubstring<C extends ExpressionEvaluationCont
                         final C context) {
         this.checkParameterCount(parameters);
 
-        final String string = TEXT.getOrFail(parameters, 0, context);
-        final int offset = OFFSET.getOrFail(parameters, 1, context).intValue();
-        final int length = LENGTH.get(parameters, 2, context)
+        final String string = TEXT.getOrFail(parameters, 0);
+        final int offset = OFFSET.getOrFail(parameters, 1).intValue();
+        final int length = LENGTH.get(parameters, 2)
             .orElseGet(() -> context.expressionNumberKind()
                 .create(
                     string.length() - offset + INDEX_BIAS

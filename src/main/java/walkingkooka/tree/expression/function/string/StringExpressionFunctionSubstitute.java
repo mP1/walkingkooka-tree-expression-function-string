@@ -55,16 +55,16 @@ final class StringExpressionFunctionSubstitute<C extends ExpressionEvaluationCon
                         final C context) {
         this.checkParameterCount(parameters);
 
-        final String text = TEXT.getOrFail(parameters, 0, context);
-        final String oldText = OLD_TEXT.getOrFail(parameters, 1, context);
-        final String newText = NEW_TEXT.getOrFail(parameters, 2, context);
+        final String text = TEXT.getOrFail(parameters, 0);
+        final String oldText = OLD_TEXT.getOrFail(parameters, 1);
+        final String newText = NEW_TEXT.getOrFail(parameters, 2);
 
         String result = text;
 
         final int oldTextLength = oldText.length();
 
         if (oldTextLength > 0 && !oldText.equals(newText)) {
-            int instance = instanceParameter(parameters, context);
+            int instance = instanceParameter(parameters);
 
             final StringBuilder b = new StringBuilder();
             int i = 0;
@@ -106,12 +106,10 @@ final class StringExpressionFunctionSubstitute<C extends ExpressionEvaluationCon
         return result;
     }
 
-    private static <C extends ExpressionEvaluationContext> int instanceParameter(final List<Object> parameters,
-                                                                                 final C context) {
+    private static int instanceParameter(final List<Object> parameters) {
         final ExpressionNumber expressionNumber = INSTANCE.get(
             parameters,
-            3,
-            context
+            3
         ).orElse(null);
 
         int instance = 0;

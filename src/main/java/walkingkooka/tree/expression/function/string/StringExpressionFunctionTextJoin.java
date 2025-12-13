@@ -61,9 +61,9 @@ final class StringExpressionFunctionTextJoin<C extends ExpressionEvaluationConte
                         final C context) {
         this.checkParameterCount(parameters);
 
-        final String delimiter = DELIMITER.getOrFail(parameters, 0, context);
-        final boolean ignoreEmpty = IGNORE_EMPTY.getOrFail(parameters, 1, context);
-        final String text = TEXT.getOrFail(parameters, 2, context);
+        final String delimiter = DELIMITER.getOrFail(parameters, 0);
+        final boolean ignoreEmpty = IGNORE_EMPTY.getOrFail(parameters, 1);
+        final String text = TEXT.getOrFail(parameters, 2);
         final List<String> moreText = MORE_TEXT.getVariable(parameters, 3);
 
         return Stream.concat(

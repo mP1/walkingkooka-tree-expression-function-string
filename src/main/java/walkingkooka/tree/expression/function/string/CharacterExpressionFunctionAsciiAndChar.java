@@ -69,7 +69,7 @@ final class CharacterExpressionFunctionAsciiAndChar<C extends ExpressionEvaluati
                            final C context) {
         this.checkParameterCount(parameters);
 
-        final int value = NUMBER.getOrFail(parameters, 0, context)
+        final int value = NUMBER.getOrFail(parameters, 0)
             .intValue();
         final int max = this.max;
         if (value < Character.MIN_VALUE || value > max) {
