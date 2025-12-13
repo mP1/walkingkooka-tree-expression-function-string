@@ -24,7 +24,6 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * A function that requires a {@link String} and an optional {@link Number} returning a {@link String} result.
@@ -43,22 +42,19 @@ abstract class StringExpressionFunctionStringNumber<C extends ExpressionEvaluati
                               final C context) {
         this.checkParameterCount(parameters);
 
+
         return this.applyStringInteger(
-            TEXT.getOrFail(parameters, 0, context),
-            LENGTH.getOrFail(parameters, 1, context)
-                .intValue()
+            TEXT.getOrFail(parameters, 0),
+            LENGTH.get(parameters, 1)
+                .orElseGet(() -> context.expressionNumberKind()
+                    .one()
+                ).intValue()
         );
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> LENGTH = ExpressionFunctionParameterName.with("length")
         .optional(ExpressionNumber.class)
-        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES)
-        .setDefaultValue(
-            (c) -> Optional.of(
-                c.expressionNumberKind()
-                    .one()
-            )
-        );
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     abstract String applyStringInteger(final String string,
                                        final int number);

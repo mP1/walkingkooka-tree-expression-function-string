@@ -69,8 +69,8 @@ final class BooleanExpressionFunctionEquals<C extends ExpressionEvaluationContex
         this.checkParameterCount(parameters);
 
         return this.caseSensitivity.equals(
-            TEXT1.getOrFail(parameters, 0, context),
-            TEXT2.getOrFail(parameters, 1, context)
+            TEXT1.getOrFail(parameters, 0),
+            TEXT2.getOrFail(parameters, 1)
         );
     }
 

@@ -56,7 +56,7 @@ final class StringExpressionFunctionText<C extends ExpressionEvaluationContext> 
         this.checkParameterCount(parameters);
 
         return context.convertOrFail(
-            VALUE.getOrFail(parameters, 0, context),
+            VALUE.getOrFail(parameters, 0),
             String.class
         );
     }

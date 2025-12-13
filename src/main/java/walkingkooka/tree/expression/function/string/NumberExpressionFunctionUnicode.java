@@ -53,7 +53,7 @@ final class NumberExpressionFunctionUnicode<C extends ExpressionEvaluationContex
                                   final C context) {
         this.checkParameterCount(parameters);
 
-        final Character character = CHARACTER.getOrFail(parameters, 0, context);
+        final Character character = CHARACTER.getOrFail(parameters, 0);
 
         return context.expressionNumberKind()
             .create((int) character);

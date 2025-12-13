@@ -59,20 +59,20 @@ final class StringExpressionFunctionReplace<C extends ExpressionEvaluationContex
                         final C context) {
         this.checkParameterCount(parameters);
 
-        final String oldText = OLD_TEXT.getOrFail(parameters, 0, context);
+        final String oldText = OLD_TEXT.getOrFail(parameters, 0);
 
-        final int startPos = START_POS.getOrFail(parameters, 1, context)
+        final int startPos = START_POS.getOrFail(parameters, 1)
             .intValue(); // BIAS_ONE
         if (startPos < 1) {
             throw new IllegalArgumentException("Invalid start pos " + startPos + " < 1");
         }
 
-        final int charCount = CHAR_COUNT.getOrFail(parameters, 2, context).intValue();
+        final int charCount = CHAR_COUNT.getOrFail(parameters, 2).intValue();
         if (charCount < 0) {
             throw new IllegalArgumentException("Invalid charCount " + charCount + " < 0");
         }
 
-        final String newText = OLD_TEXT.getOrFail(parameters, 3, context);
+        final String newText = OLD_TEXT.getOrFail(parameters, 3);
 
         final int oldTextLength = oldText.length();
 

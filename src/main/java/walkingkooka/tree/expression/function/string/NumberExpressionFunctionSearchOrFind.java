@@ -27,7 +27,6 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Abstract class that captures the common code for both the search and find functions.
@@ -50,9 +49,10 @@ abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionEvaluati
 
         final ExpressionNumberKind kind = context.expressionNumberKind();
 
-        final String find = FIND.getOrFail(parameters, 0, context);
-        final String within = WITHIN.getOrFail(parameters, 1, context);
-        final int startPos = START_POS.getOrFail(parameters, 2, context)
+        final String find = FIND.getOrFail(parameters, 0);
+        final String within = WITHIN.getOrFail(parameters, 1);
+        final int startPos = START_POS.get(parameters, 2)
+            .orElse(kind.one())
             .intValue(); // base 0
 
         final int length = within.length();
@@ -94,13 +94,7 @@ abstract class NumberExpressionFunctionSearchOrFind<C extends ExpressionEvaluati
 
     private final static ExpressionFunctionParameter<ExpressionNumber> START_POS = ExpressionFunctionParameterName.with("start-pos")
         .optional(ExpressionNumber.class)
-        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES)
-        .setDefaultValue(
-            (c) -> Optional.of(
-                c.expressionNumberKind()
-                    .one()
-            )
-        );
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
