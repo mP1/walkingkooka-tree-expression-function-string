@@ -156,8 +156,8 @@ final class BooleanExpressionFunctionContainsStartsEnds<C extends ExpressionEval
                          final C context) {
         this.checkParameterCount(parameters);
 
-        final String first = TEXT.getOrFail(parameters, 0);
-        final String second = this.secondParameter.getOrFail(parameters, 1);
+        final String first = TEXT.getOrFail(parameters, 0, context);
+        final String second = this.secondParameter.getOrFail(parameters, 1, context);
 
         return this.predicate.apply(first, second);
     }

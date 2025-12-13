@@ -57,8 +57,8 @@ final class StringExpressionFunctionRepeat<C extends ExpressionEvaluationContext
                         final C context) {
         this.checkParameterCount(parameters);
 
-        final String string = TEXT.getOrFail(parameters, 0);
-        final int count = COUNT.getOrFail(parameters, 1).intValue();
+        final String string = TEXT.getOrFail(parameters, 0, context);
+        final int count = COUNT.getOrFail(parameters, 1, context).intValue();
 
         final StringBuilder b = new StringBuilder(string.length() * count);
 

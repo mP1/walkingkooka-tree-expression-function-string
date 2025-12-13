@@ -55,7 +55,7 @@ final class StringExpressionFunctionT<C extends ExpressionEvaluationContext> ext
                         final C context) {
         this.checkParameterCount(parameters);
 
-        final Object value = VALUE.getOrFail(parameters, 0);
+        final Object value = VALUE.getOrFail(parameters, 0, context);
 
         return value instanceof String ?
             (String) value :
