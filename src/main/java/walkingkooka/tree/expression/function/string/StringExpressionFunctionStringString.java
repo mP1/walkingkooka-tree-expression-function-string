@@ -40,8 +40,8 @@ abstract class StringExpressionFunctionStringString<C extends ExpressionEvaluati
         this.checkParameterCount(parameters);
 
         return this.applyStringString(
-            TEXT.getOrFail(parameters, 0),
-            this.secondParameter().getOrFail(parameters, 1),
+            TEXT.getOrFail(parameters, 0, context),
+            this.secondParameter().getOrFail(parameters, 1, context),
             context);
     }
 

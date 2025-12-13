@@ -245,7 +245,7 @@ final class StringExpressionFunctionUnary<C extends ExpressionEvaluationContext>
         this.checkParameterCount(parameters);
 
         return this.function.apply(
-            TEXT.getOrFail(parameters, 0),
+            TEXT.getOrFail(parameters, 0, context),
             context
         );
     }

@@ -56,9 +56,9 @@ final class StringExpressionFunctionMid<C extends ExpressionEvaluationContext> e
                         final C context) {
         this.checkParameterCount(parameters);
 
-        final String string = TEXT.getOrFail(parameters, 0);
-        final int start = START.getOrFail(parameters, 1).intValue() - 1;
-        final int length = LENGTH.getOrFail(parameters, 2).intValue();
+        final String string = TEXT.getOrFail(parameters, 0, context);
+        final int start = START.getOrFail(parameters, 1, context).intValue() - 1;
+        final int length = LENGTH.getOrFail(parameters, 2, context).intValue();
 
         final int stringLength = string.length();
 

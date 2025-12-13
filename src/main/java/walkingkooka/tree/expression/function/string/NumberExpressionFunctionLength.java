@@ -56,7 +56,7 @@ final class NumberExpressionFunctionLength<C extends ExpressionEvaluationContext
         this.checkParameterCount(parameters);
         return context.expressionNumberKind()
             .create(
-                TEXT.getOrFail(parameters, 0).length()
+                TEXT.getOrFail(parameters, 0, context).length()
             );
     }
 

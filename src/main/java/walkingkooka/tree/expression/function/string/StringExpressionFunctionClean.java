@@ -52,7 +52,7 @@ final class StringExpressionFunctionClean<C extends ExpressionEvaluationContext>
                         final C context) {
         this.checkParameterCount(parameters);
 
-        final String text = TEXT.getOrFail(parameters, 0);
+        final String text = TEXT.getOrFail(parameters, 0, context);
 
         final StringBuilder clean = new StringBuilder();
 
