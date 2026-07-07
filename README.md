@@ -10,7 +10,7 @@
 A collection of ExpressionFunction(s) that operate and return string(text) results. Many of the functions follow Excel
 semantics.
 
-## Available functions
+## [Functions](https://github.com/mP1/walkingkooka-tree/blob/master/src/main/java/walkingkooka/tree/expression/function/ExpressionFunction.java)
 
 - ascii(number)
 - char(number)
