@@ -41,6 +41,7 @@ semantics.
 - startsWithCaseSensitive(string, string)
 - stringLength(string)
 - substitute(string, string, string, number?)
+- substring
 - substringAfter(string, string, number*)
 - substringBefore(string, string, number*)
 - t(object)
@@ -51,5 +52,6 @@ semantics.
 - trimRight(string)
 - unicode(string)
 - upperCase(string)
+- value
 
 Many more functions are outstanding and remain TODO.
