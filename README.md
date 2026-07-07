@@ -6,12 +6,9 @@
 ![](https://tokei.rs/b1/github/mP1/walkingkooka-tree-expression-function-string)
 [![J2CL compatible](https://img.shields.io/badge/J2CL-compatible-brightgreen.svg)](https://github.com/mP1/j2cl-central)
 
-
 # walkingkooka-tree-expression-function-string
 A collection of ExpressionFunction(s) that operate and return string(text) results. Many of the functions follow Excel
 semantics.
-
-
 
 ## Available functions
 
@@ -56,4 +53,3 @@ semantics.
 - upperCase(string)
 
 Many more functions are outstanding and remain TODO.
-
