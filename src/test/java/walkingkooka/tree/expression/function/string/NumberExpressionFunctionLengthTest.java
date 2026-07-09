@@ -25,6 +25,15 @@ import walkingkooka.tree.expression.ExpressionEvaluationContext;
 public final class NumberExpressionFunctionLengthTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionLength<ExpressionEvaluationContext>> {
 
     @Test
+    public void testNullString() {
+        this.applyAndCheck(
+            Lists.of((Object) null),
+            this.createContext(),
+            KIND.zero()
+        );
+    }
+
+    @Test
     public void testEmptyString() {
         this.applyAndCheck(
             Lists.of(""),
