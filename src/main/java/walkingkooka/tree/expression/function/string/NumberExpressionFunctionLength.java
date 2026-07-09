@@ -18,6 +18,7 @@
 package walkingkooka.tree.expression.function.string;
 
 import walkingkooka.Cast;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
@@ -26,9 +27,8 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import java.util.List;
 
 /**
- * Returns the length of the provided string.
+ * Returns the length of the provided string, with null returning 0.
  * <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/string-length"></a>
- * Unlike the Mozilla documentation, if the argument is missing an exception is thrown.
  */
 final class NumberExpressionFunctionLength<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
     /**
@@ -56,7 +56,12 @@ final class NumberExpressionFunctionLength<C extends ExpressionEvaluationContext
         this.checkParameterCount(parameters);
         return context.expressionNumberKind()
             .create(
-                TEXT.getOrFail(parameters, 0).length()
+                CharSequences.nullToEmpty(
+                    TEXT.getOrFail(
+                        parameters,
+                        0
+                    )
+                ).length()
             );
     }
 
