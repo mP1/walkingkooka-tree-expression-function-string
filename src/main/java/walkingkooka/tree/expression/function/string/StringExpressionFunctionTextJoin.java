@@ -70,7 +70,7 @@ final class StringExpressionFunctionTextJoin<C extends ExpressionEvaluationConte
                 Stream.of(text),
                 moreText.stream()
             )
-            .filter(s -> !CharSequences.isNullOrEmpty(s) || !ignoreEmpty)
+            .filter(s -> false == CharSequences.isNullOrEmpty(s) || !ignoreEmpty)
             .map(s -> null == s ? "" : s)
             .collect(Collectors.joining(delimiter));
     }
